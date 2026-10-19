@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# backups and scratch
+_backup_oct2026_attempt/
+ilpstudy/
