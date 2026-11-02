@@ -3,6 +3,7 @@ import Hero from '@/components/Hero';
 import Features from '@/components/Features';
 import GlobalNetwork from '@/components/GlobalNetwork';
 import Destinations from '@/components/Destinations';
+import StudentTestimonials from '@/components/StudentTestimonials';
 import AdmissionWorkflow from '@/components/AdmissionWorkflow';
 import Fields from '@/components/Fields';
 import Footer from '@/components/Footer';
@@ -17,6 +18,7 @@ export default function Home() {
         <Fields />
         <Destinations />
         <GlobalNetwork />
+        <StudentTestimonials />
         <AdmissionWorkflow />
       </main>
       <Footer />

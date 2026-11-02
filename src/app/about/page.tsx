@@ -5,20 +5,15 @@ import Footer from '@/components/Footer';
 import PageHeader from '@/components/PageHeader';
 import PhotoSpace from '@/components/PhotoSpace';
 import {
-  Building2,
   GraduationCap,
   Award,
   FileCheck2,
   BookOpenCheck,
   PlaneTakeoff,
-  Phone,
   MessageSquare,
-  Mail,
   MapPin,
   ArrowRight,
-  CheckCircle2,
-  Sparkles,
-  ShieldCheck
+  Sparkles
 } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -79,12 +74,9 @@ export default function AboutPage() {
   ];
 
   const atAGlance = [
-    { label: "Trading Name", val: "ILP Study" },
-    { label: "Registered Entity", val: "International Learning Pathways" },
+    { label: "Brand Name", val: "ILP Study" },
     { label: "Operating Since", val: "2025" },
-    { label: "Primary Focus", val: "Higher Education in China" },
-    { label: "Verified Placements", val: "50+ Students (Sept 2026 Intake)" },
-    { label: "Submission Method", val: "100% Direct University Portals" },
+    { label: "Primary Focus", val: "Study in China" },
   ];
 
   return (
@@ -109,30 +101,30 @@ export default function AboutPage() {
                     ABOUT US
                   </span>
                   <h2 className="text-3xl sm:text-4xl font-black text-brand-dark tracking-tight leading-tight">
-                    China Education Consultancy in Bangladesh
+                    Your Study in China Journey Starts Here
                   </h2>
                 </div>
 
                 <div className="space-y-4 text-slate-600 text-base sm:text-lg leading-relaxed font-normal">
                   <p>
-                    <strong>ILP Study</strong> is a Bangladesh-based education consultancy focused on studying in China.
+                    ILP Study is a Bangladesh-based education consultancy helping students explore study opportunities in China.
                   </p>
                   <p>
-                    We help students explore universities and programmes, understand scholarship requirements and organise their applications.
+                    We provide guidance on university and programme selection, scholarship opportunities, document preparation and application procedures.
                   </p>
                   <p className="p-4 rounded-2xl bg-brand-light border border-slate-200/80 text-brand-dark font-medium text-base">
-                    Our guidance starts with your <strong>academic background</strong>, <strong>preferred subject</strong>, <strong>budget</strong> and <strong>target intake</strong>.
+                    Our guidance starts with your academic background, preferred subject, budget and target intake to help you explore suitable study options.
                   </p>
                 </div>
 
                 {/* Key Facts Dossier */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-4">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-4">
                   {atAGlance.map((fact, idx) => (
-                    <div key={idx} className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80">
+                    <div key={idx} className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80">
                       <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-0.5">
                         {fact.label}
                       </span>
-                      <strong className="text-brand-dark text-xs sm:text-sm block font-bold leading-snug">
+                      <strong className="text-brand-dark text-sm sm:text-base block font-bold leading-snug">
                         {fact.val}
                       </strong>
                     </div>
@@ -150,16 +142,28 @@ export default function AboutPage() {
 
               </div>
 
-              {/* Photo Space: Dhaka Office */}
+              {/* Photo Space: Owner-Supplied Office Photos (Meeting Room & Seating Area) */}
               <div className="lg:col-span-5 flex flex-col gap-6">
-                <PhotoSpace
-                  title="ILP Study Office in Dhaka"
-                  subtitle="Kader’s Complex, Lift No. 9, East Shewrapara, Mirpur, Dhaka"
-                  badge="Dhaka Headquarters"
-                  aspectRatio="aspect-[4/3]"
-                  fallbackSrc="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-                  className="shadow-xl"
-                />
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {/* Photo 1: Meeting Room */}
+                  <PhotoSpace
+                    title="ILP Study office meeting room"
+                    subtitle="Photo 1: Meeting room"
+                    badge="Office Photo 1"
+                    aspectRatio="aspect-[3/4]"
+                    fallbackSrc="/images/office/Weixin Image_20260904125917_73_1.jpg"
+                    className="shadow-md"
+                  />
+                  {/* Photo 2: Seating & Bookshelf Area */}
+                  <PhotoSpace
+                    title="ILP Study office seating area"
+                    subtitle="Photo 2: Seating and bookshelf area"
+                    badge="Office Photo 2"
+                    aspectRatio="aspect-[3/4]"
+                    fallbackSrc="/images/office/Weixin Image_20260904125917_74_1.jpg"
+                    className="shadow-md"
+                  />
+                </div>
 
                 <div className="p-6 rounded-3xl bg-brand-dark text-white shadow-soft">
                   <div className="flex items-center justify-between mb-2">
@@ -173,6 +177,7 @@ export default function AboutPage() {
                   <div className="text-xs space-y-1 text-slate-300 border-t border-white/10 pt-3">
                     <p>Hotline: <strong className="text-white">+880 1602 566398</strong></p>
                     <p>WhatsApp: <strong className="text-brand-green">+880 1895 626831</strong></p>
+                    <p>WhatsApp &amp; WeChat: <strong className="text-brand-green">+86 156 8568 9193</strong></p>
                     <p>Email: <strong className="text-brand-pink">info@ilpstudy.com</strong></p>
                   </div>
                 </div>
@@ -275,7 +280,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* REAL NUMBERS & OPERATING INTEGRITY */}
+        {/* OPERATIONAL FACTS */}
         <section className="py-20 bg-brand-dark text-white relative overflow-hidden">
           <div className="absolute top-0 right-0 w-96 h-96 bg-brand-pink/15 rounded-full blur-[120px] pointer-events-none" />
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-brand-green/15 rounded-full blur-[120px] pointer-events-none" />
@@ -283,37 +288,37 @@ export default function AboutPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="text-center max-w-3xl mx-auto mb-16">
               <span className="text-brand-green text-xs font-bold uppercase tracking-wider block mb-2">
-                Operational Fidelity
+                Operational Overview
               </span>
               <h2 className="text-3xl sm:text-4xl font-black tracking-tight mb-4">
-                Real Numbers, Verified Placements
+                Committed to Student Success
               </h2>
               <p className="text-slate-300 text-base">
-                Committed to transparent student counsel, authentic document verification, and direct university submissions.
+                Transparent student guidance, application assistance, and direct institutional support for higher education in China.
               </p>
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
               <div className="p-6 rounded-3xl bg-white/5 border border-white/10">
-                <div className="text-4xl sm:text-5xl font-black text-brand-pink mb-2">50+</div>
-                <div className="text-white font-bold text-sm">Admitted in China</div>
-                <div className="text-xs text-slate-400 mt-1">September 2026 intake</div>
+                <div className="text-3xl sm:text-4xl font-black text-brand-pink mb-2">ILP Study</div>
+                <div className="text-white font-bold text-sm">Brand Name</div>
+                <div className="text-xs text-slate-400 mt-1">Education Consultancy</div>
               </div>
 
               <div className="p-6 rounded-3xl bg-white/5 border border-white/10">
-                <div className="text-4xl sm:text-5xl font-black text-brand-green mb-2">2025</div>
+                <div className="text-3xl sm:text-4xl font-black text-brand-green mb-2">2025</div>
                 <div className="text-white font-bold text-sm">Operating Since</div>
                 <div className="text-xs text-slate-400 mt-1">Dedicated China recruiter</div>
               </div>
 
               <div className="p-6 rounded-3xl bg-white/5 border border-white/10">
-                <div className="text-4xl sm:text-5xl font-black text-brand-purple mb-2">100%</div>
-                <div className="text-white font-bold text-sm">Direct Submissions</div>
-                <div className="text-xs text-slate-400 mt-1">Direct institutional filings</div>
+                <div className="text-3xl sm:text-4xl font-black text-brand-purple mb-2">China</div>
+                <div className="text-white font-bold text-sm">Primary Focus</div>
+                <div className="text-xs text-slate-400 mt-1">Higher Education</div>
               </div>
 
               <div className="p-6 rounded-3xl bg-white/5 border border-white/10">
-                <div className="text-4xl sm:text-5xl font-black text-white mb-2">Mirpur</div>
+                <div className="text-3xl sm:text-4xl font-black text-white mb-2">Mirpur</div>
                 <div className="text-white font-bold text-sm">Dhaka Head Office</div>
                 <div className="text-xs text-slate-400 mt-1">In-person consultations</div>
               </div>
@@ -325,7 +330,7 @@ export default function AboutPage() {
         <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <PhotoSpace
             title="Student Pre-Departure Briefing & Campus Arrival in China"
-            subtitle="Guidance through JW202/DQ verification, Chinese embassy visa clearance in Dhaka, dorm check-in, and campus registration"
+            subtitle="Guidance through university admission, Chinese embassy visa preparation in Dhaka, dorm check-in, and campus registration"
             badge="Campus Arrival Support"
             aspectRatio="aspect-[21/9]"
             fallbackSrc="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
@@ -381,13 +386,18 @@ export default function AboutPage() {
                     </a>
                   </div>
 
-                  {/* Email */}
+                  {/* WhatsApp & WeChat */}
                   <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
                     <span className="text-[10px] font-bold uppercase text-brand-purple block mb-1">
-                      Email
+                      WhatsApp &amp; WeChat
                     </span>
-                    <a href="mailto:info@ilpstudy.com" className="text-sm sm:text-base font-bold text-white hover:text-brand-pink transition-colors">
-                      info@ilpstudy.com
+                    <a 
+                      href="https://wa.me/8615685689193"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm sm:text-base font-bold text-white hover:text-brand-pink transition-colors"
+                    >
+                      +86 156 8568 9193
                     </a>
                   </div>
 
@@ -395,7 +405,7 @@ export default function AboutPage() {
 
                 {/* Address */}
                 <p className="text-xs sm:text-sm text-slate-400 font-medium">
-                  Kader’s Complex, Lift No. 9, H-888/C, Mirpur, Bangladesh.
+                  Kader’s Complex, Lift No. 9, H-888/C, East Shewrapara, Mirpur, Dhaka-1216, Bangladesh.
                 </p>
 
                 {/* Action button */}

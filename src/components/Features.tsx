@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from 'framer-motion';
-import { Building2, Award, FileCheck2, Calendar, ArrowRight, ArrowUpRight } from 'lucide-react';
+import { Building2, FileCheck2, Calendar, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
 export default function Features() {
@@ -9,46 +9,32 @@ export default function Features() {
     {
       code: "UNIVERSITIES",
       title: "University Selection",
-      description: "Browse university names by province and city, then discuss your shortlist with our Dhaka counselors.",
-      actionText: "Explore universities",
+      description: "Explore universities by province and city. Get help choosing options that match your academic background, preferred subject and budget.",
+      actionText: "Explore Universities",
       link: "/universities",
       icon: Building2,
       color: "bg-brand-pink",
       shadow: "shadow-glow-pink",
-      badge: "60+ Partner Hubs",
-    },
-    {
-      code: "SCHOLARSHIPS",
-      title: "Scholarship Guidance",
-      description: "Compare eligibility, funding coverage and the costs you still need to pay across CSC and provincial awards.",
-      actionText: "Explore scholarships",
-      link: "/scholarships",
-      icon: Award,
-      color: "bg-brand-green",
-      shadow: "shadow-glow-green",
-      badge: "CSC Type A/B & Grants",
     },
     {
       code: "APPLICATIONS",
       title: "Application Support",
-      description: "Prepare a complete document pack and follow your university’s instructions through direct portal submission.",
-      actionText: "Explore applications",
+      description: "Get guidance on required documents, application forms and university submission procedures.",
+      actionText: "Get Application Support",
       link: "/contact",
       icon: FileCheck2,
       color: "bg-brand-purple",
       shadow: "shadow-soft",
-      badge: "Zero Sub-Contracting",
     },
     {
       code: "CSCA",
       title: "CSCA Information",
-      description: "Check exam dates, subjects and the published test format before registering for your undergraduate assessment.",
-      actionText: "Explore CSCA",
+      description: "Find information on exam dates, subjects, test format and registration requirements.",
+      actionText: "View CSCA Information",
       link: "/csca",
       icon: Calendar,
       color: "bg-brand-dark",
       shadow: "shadow-soft",
-      badge: "Exam Notices & Dates",
     },
   ];
 
@@ -56,7 +42,7 @@ export default function Features() {
     <section className="py-14 sm:py-24 bg-white relative z-10" id="services">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Heading matching Page 1 */}
+        {/* Section Heading */}
         <div className="text-center mb-10 sm:mb-16 max-w-3xl mx-auto">
           <span className="text-xs font-bold uppercase tracking-wider text-brand-pink block mb-2">
             OUR SERVICES
@@ -67,15 +53,15 @@ export default function Features() {
             viewport={{ once: true }}
             className="text-2xl sm:text-4xl md:text-5xl font-black text-brand-dark mb-3 sm:mb-4 tracking-tight"
           >
-            How We Can Help.
+            How We Can Help
           </motion.h2>
           <p className="text-sm sm:text-lg text-slate-600 font-medium">
-            Personalized guidance for Bangladeshi students across university selection, scholarships, official document verification, and CSCA preparation.
+            Personalised guidance for Bangladeshi students on university selection, scholarship opportunities and application support.
           </p>
         </div>
 
-        {/* 4 Core Services Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+        {/* 3 Core Services Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           {services.map((item, idx) => {
             const Icon = item.icon;
             return (
@@ -93,9 +79,6 @@ export default function Features() {
                     <div className={`w-14 h-14 rounded-2xl rounded-tl-full ${item.color} ${item.shadow} flex items-center justify-center text-white group-hover:scale-110 transition-transform`}>
                       <Icon size={26} />
                     </div>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500 bg-white px-2.5 py-1 rounded-full border border-slate-200">
-                      {item.badge}
-                    </span>
                   </div>
                   
                   <span className="text-[11px] font-extrabold uppercase tracking-wider text-brand-pink block mb-1">
@@ -111,7 +94,7 @@ export default function Features() {
                   </p>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-slate-200/60">
+                <div className="mt-8 pt-4 border-t border-slate-200/60">
                   <Link
                     href={item.link}
                     className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-dark group-hover:text-brand-pink transition-colors"

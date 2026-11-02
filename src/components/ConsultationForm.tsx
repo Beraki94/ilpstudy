@@ -108,7 +108,7 @@ export default function ConsultationForm() {
 
   if (submitted) {
     return (
-      <div className="bg-white rounded-[32px] sm:rounded-[40px] p-8 sm:p-12 border border-slate-200/80 shadow-soft text-center space-y-6">
+      <div className="bg-white rounded-none sm:rounded-[36px] p-6 sm:p-12 border-b sm:border border-slate-100 sm:border-slate-200/80 sm:shadow-soft text-center space-y-6">
         <div className="w-16 h-16 rounded-full bg-brand-green/15 text-brand-green flex items-center justify-center mx-auto">
           <CheckCircle2 size={36} />
         </div>
@@ -192,8 +192,8 @@ export default function ConsultationForm() {
   }
 
   return (
-    <div className="bg-white rounded-[32px] sm:rounded-[40px] p-6 sm:p-10 md:p-12 border border-slate-200/80 shadow-soft">
-      <div className="mb-8">
+    <div className="bg-white rounded-none sm:rounded-[36px] p-5 sm:p-10 md:p-12 border-b sm:border border-slate-100 sm:border-slate-200/80 sm:shadow-soft">
+      <div className="mb-6 sm:mb-8">
         <span className="text-xs font-bold uppercase tracking-wider text-brand-pink block mb-1">
           Online Appointment Request
         </span>

@@ -79,10 +79,10 @@ export default function Footer() {
                   <span className="w-2 h-2 rounded-full bg-brand-green animate-pulse"></span>
                   Operating Since 2025
                 </span>
-                <span className="text-slate-400 font-medium">Sept 2026 Intake</span>
+                <span className="text-slate-400 font-medium">Study in China</span>
               </div>
               <p className="text-slate-400 leading-normal">
-                50+ students placed across top Chinese universities with direct portal application assistance, credential review, and CSCA guidance.
+                Dedicated education consultancy supporting university selection, scholarship opportunities, document preparation and application procedures.
               </p>
             </div>
 
@@ -290,7 +290,7 @@ export default function Footer() {
                   <MessageSquare size={18} />
                 </div>
                 <div>
-                  <strong className="block text-white text-[11px] font-semibold">WhatsApp Counseling:</strong>
+                  <strong className="block text-white text-[11px] font-semibold">WhatsApp:</strong>
                   <a 
                     href="https://wa.me/8801895626831" 
                     target="_blank" 
@@ -307,7 +307,7 @@ export default function Footer() {
                   <Mail size={18} />
                 </div>
                 <div>
-                  <strong className="block text-white text-[11px] font-semibold">Email Inquiries:</strong>
+                  <strong className="block text-white text-[11px] font-semibold">Email:</strong>
                   <a href="mailto:info@ilpstudy.com" className="text-slate-300 text-sm font-medium hover:text-brand-purple transition-colors">
                     info@ilpstudy.com
                   </a>
@@ -315,12 +315,19 @@ export default function Footer() {
               </div>
 
               <div className="flex items-center gap-3.5 group pt-1">
-                <div className="p-2 rounded-xl bg-slate-800/80 text-slate-300 group-hover:bg-white group-hover:text-brand-dark transition-colors flex-shrink-0">
-                  <span className="text-xs font-black">微</span>
+                <div className="p-2 rounded-xl bg-slate-800/80 text-brand-green group-hover:bg-brand-green group-hover:text-white transition-colors flex-shrink-0">
+                  <MessageSquare size={18} />
                 </div>
                 <div>
-                  <strong className="block text-white text-[11px] font-semibold">China Office / WeChat:</strong>
-                  <span className="text-slate-300 text-xs font-bold">+86 156 8568 9193 (WeChat ID)</span>
+                  <strong className="block text-white text-[11px] font-semibold">WhatsApp &amp; WeChat:</strong>
+                  <a 
+                    href="https://wa.me/8615685689193"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-slate-300 text-xs font-bold hover:text-brand-green transition-colors"
+                  >
+                    +86 156 8568 9193
+                  </a>
                 </div>
               </div>
             </div>
@@ -355,10 +362,10 @@ export default function Footer() {
                       <Mail size={16} className="text-brand-purple" />
                       <span>Email: info@ilpstudy.com</span>
                     </a>
-                    <div className="flex items-center gap-2.5 text-xs text-slate-300">
-                      <span className="font-bold text-white px-1.5 py-0.5 rounded bg-white/10">微</span>
-                      <span>China / WeChat: +86 156 8568 9193</span>
-                    </div>
+                    <a href="https://wa.me/8615685689193" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2.5 text-slate-200 hover:text-brand-green font-semibold">
+                      <MessageSquare size={16} className="text-brand-green" />
+                      <span>WhatsApp &amp; WeChat: +86 156 8568 9193</span>
+                    </a>
                   </div>
                 </motion.div>
               )}

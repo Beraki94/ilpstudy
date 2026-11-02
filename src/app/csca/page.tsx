@@ -124,7 +124,7 @@ export default function CSCAPage() {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-slate-50">
+      <main className="min-h-screen bg-white sm:bg-slate-50">
         
         {/* Page Header */}
         <PageHeader 
@@ -132,38 +132,38 @@ export default function CSCAPage() {
           description="Understand CSCA, upcoming published exam dates, subject durations and test methods. Check the latest official arrangements before registering."
         />
 
-        {/* Section 1: Undergraduate Admissions Context */}
-        <section className="pt-12 pb-6 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-[32px] sm:rounded-[40px] p-6 sm:p-10 border border-slate-200/80 shadow-soft space-y-4">
+        {/* Section 1: Undergraduate Admissions Context - Seamless on mobile, rounded card on desktop */}
+        <section className="py-0 sm:pt-10 sm:pb-6 max-w-7xl mx-auto px-0 sm:px-6 lg:px-8">
+          <div className="bg-white rounded-none sm:rounded-[32px] p-5 sm:p-10 border-b sm:border border-slate-100 sm:border-slate-200/80 sm:shadow-soft space-y-4">
             <span className="text-xs font-bold uppercase tracking-wider text-brand-pink block">
               UNDERGRADUATE ADMISSIONS
             </span>
-            <h2 className="text-2xl sm:text-3xl font-black text-brand-dark tracking-tight">
+            <h2 className="text-xl sm:text-3xl font-black text-brand-dark tracking-tight">
               China Scholastic Competency Assessment
             </h2>
-            <p className="text-sm sm:text-base text-slate-600 font-medium leading-relaxed max-w-4xl">
+            <p className="text-xs sm:text-base text-slate-600 font-medium leading-relaxed max-w-4xl">
               <strong>CSCA</strong> stands for <strong>China Scholastic Competency Assessment</strong>. It is an assessment for international students planning undergraduate study in China, organised by the China Scholarship Council. Universities use its results as part of admissions and scholarship review.
             </p>
             <p className="text-xs sm:text-sm text-slate-500 font-medium">
               Check your intended programme’s current requirements to confirm whether a score report is needed and which subjects and test languages apply.
             </p>
 
-            <div className="pt-4 flex flex-col sm:flex-row flex-wrap gap-2.5 sm:gap-4">
+            <div className="pt-3 sm:pt-4 flex flex-col sm:flex-row flex-wrap gap-2.5 sm:gap-4">
               <a
                 href="#dates"
-                className="px-6 py-2.5 rounded-full bg-brand-pink text-white text-xs font-bold hover:bg-[#d10079] transition-all shadow-glow-pink text-center"
+                className="w-full sm:w-auto px-6 py-2.5 rounded-full bg-brand-pink text-white text-xs font-bold hover:bg-[#d10079] transition-all shadow-glow-pink text-center"
               >
                 See exam dates
               </a>
               <a
                 href="#format"
-                className="px-6 py-2.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition-all text-center"
+                className="w-full sm:w-auto px-6 py-2.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition-all text-center"
               >
                 Understand the exam format
               </a>
               <Link
                 href="/blogs/csca-exam-preparation-and-syllabus-in-china"
-                className="px-6 py-2.5 rounded-full bg-brand-light text-brand-dark text-xs font-bold border border-slate-200 hover:border-brand-green transition-all text-center"
+                className="w-full sm:w-auto px-6 py-2.5 rounded-full bg-slate-50 text-brand-dark text-xs font-bold border border-slate-200 hover:border-brand-green transition-all text-center"
               >
                 Read In-Depth CSCA Guide
               </Link>
@@ -171,9 +171,9 @@ export default function CSCAPage() {
           </div>
         </section>
 
-        {/* Section 2: Published Upcoming Sessions */}
-        <section id="dates" className="py-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-20">
-          <div className="bg-white rounded-[32px] sm:rounded-[40px] p-6 sm:p-10 border border-slate-200/80 shadow-soft space-y-6">
+        {/* Section 2: Published Upcoming Sessions - Seamless on mobile */}
+        <section id="dates" className="py-0 sm:py-6 max-w-7xl mx-auto px-0 sm:px-6 lg:px-8 scroll-mt-20">
+          <div className="bg-white rounded-none sm:rounded-[36px] p-5 sm:p-10 border-b sm:border border-slate-100 sm:border-slate-200/80 sm:shadow-soft space-y-5 sm:space-y-6">
             <div>
               <span className="text-xs font-bold uppercase tracking-wider text-brand-green block mb-1">
                 PUBLISHED UPCOMING SESSIONS
@@ -183,25 +183,25 @@ export default function CSCAPage() {
               </h3>
             </div>
 
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto rounded-xl border border-slate-200/80">
               <table className="w-full text-left text-xs sm:text-sm">
                 <thead className="bg-slate-50 border-b border-slate-200 text-slate-500 font-bold uppercase tracking-wider text-[11px]">
                   <tr>
-                    <th className="py-4 px-6">Examination Dates</th>
-                    <th className="py-4 px-6">Registration Information</th>
-                    <th className="py-4 px-6 text-right">Status</th>
+                    <th className="py-3 px-4 sm:px-6">Examination Dates</th>
+                    <th className="py-3 px-4 sm:px-6">Registration Information</th>
+                    <th className="py-3 px-4 sm:px-6 text-right">Status</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-100 font-medium">
                   {upcomingSessions.map((s, idx) => (
                     <tr key={idx} className="hover:bg-slate-50/80 transition-colors">
-                      <td className="py-4 px-6 font-extrabold text-brand-dark whitespace-nowrap">
+                      <td className="py-3.5 px-4 sm:px-6 font-extrabold text-brand-dark whitespace-nowrap">
                         {s.examDates}
                       </td>
-                      <td className="py-4 px-6 text-slate-700">
+                      <td className="py-3.5 px-4 sm:px-6 text-slate-700">
                         {s.regWindow}
                       </td>
-                      <td className="py-4 px-6 text-right">
+                      <td className="py-3.5 px-4 sm:px-6 text-right whitespace-nowrap">
                         <span className={`px-3 py-1 rounded-full text-[10px] font-bold ${s.badgeColor}`}>
                           {s.status}
                         </span>
@@ -212,7 +212,7 @@ export default function CSCAPage() {
               </table>
             </div>
 
-            <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 text-xs text-slate-600 font-medium flex items-start gap-2.5">
+            <div className="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-slate-50/70 border border-slate-200/70 text-xs text-slate-600 font-medium flex items-start gap-2.5">
               <AlertCircle size={16} className="text-brand-pink flex-shrink-0 mt-0.5" />
               <span>
                 Dates checked against the official CSCA website on <strong>12 October 2026</strong>. Visit the official website independently to confirm changes, later sessions and exact examination times. <strong>Bangladesh time is two hours behind Beijing time (UTC+6 vs UTC+8).</strong>
@@ -221,9 +221,9 @@ export default function CSCAPage() {
           </div>
         </section>
 
-        {/* Section 3: Published Subject Format */}
-        <section id="format" className="py-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-20">
-          <div className="bg-white rounded-[32px] sm:rounded-[40px] p-6 sm:p-10 border border-slate-200/80 shadow-soft space-y-6">
+        {/* Section 3: Published Subject Format - Seamless on mobile */}
+        <section id="format" className="py-0 sm:py-6 max-w-7xl mx-auto px-0 sm:px-6 lg:px-8 scroll-mt-20">
+          <div className="bg-white rounded-none sm:rounded-[36px] p-5 sm:p-10 border-b sm:border border-slate-100 sm:border-slate-200/80 sm:shadow-soft space-y-5 sm:space-y-6">
             <div>
               <span className="text-xs font-bold uppercase tracking-wider text-brand-purple block mb-1">
                 PUBLISHED SUBJECT FORMAT
@@ -236,13 +236,13 @@ export default function CSCAPage() {
               </p>
             </div>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
               {subjects.map((sub, idx) => (
-                <div key={idx} className={`p-6 rounded-2xl bg-slate-50 border border-slate-200/80 ${sub.color} space-y-2`}>
+                <div key={idx} className={`p-4 sm:p-5 rounded-2xl bg-slate-50/70 border border-slate-200/70 ${sub.color} space-y-2`}>
                   <span className="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-md bg-white text-slate-700 shadow-xs inline-block">
                     {sub.langBadge}
                   </span>
-                  <h4 className="font-extrabold text-base text-brand-dark">{sub.name}</h4>
+                  <h4 className="font-extrabold text-sm sm:text-base text-brand-dark leading-tight">{sub.name}</h4>
                   <div className="text-xs text-slate-600 space-y-1 pt-2 border-t border-slate-200/60 font-medium">
                     <p className="flex justify-between">
                       <span className="text-slate-400">Duration:</span>
@@ -261,15 +261,15 @@ export default function CSCAPage() {
               ))}
             </div>
 
-            <div className="p-4 rounded-2xl bg-amber-50 border border-amber-200/80 text-xs text-amber-900 font-medium">
+            <div className="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-amber-50/70 border border-amber-200/70 text-xs text-amber-900 font-medium">
               Your university sets its admission requirements; a score alone does not guarantee admission or a scholarship. Format summary checked against the official CSCA examination introduction. Confirm the current session instructions and your university’s required subject combination before registering.
             </div>
           </div>
         </section>
 
-        {/* Section 4: Test Methods */}
-        <section className="py-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-[32px] sm:rounded-[40px] p-6 sm:p-10 border border-slate-200/80 shadow-soft space-y-6">
+        {/* Section 4: Test Methods - Seamless on mobile */}
+        <section className="py-0 sm:py-6 max-w-7xl mx-auto px-0 sm:px-6 lg:px-8">
+          <div className="bg-white rounded-none sm:rounded-[36px] p-5 sm:p-10 border-b sm:border border-slate-100 sm:border-slate-200/80 sm:shadow-soft space-y-5 sm:space-y-6">
             <div>
               <span className="text-xs font-bold uppercase tracking-wider text-brand-dark block mb-1">
                 TEST METHODS
@@ -279,16 +279,18 @@ export default function CSCAPage() {
               </h3>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-5">
               {testMethods.map((m, idx) => {
                 const Icon = m.icon;
                 return (
-                  <div key={idx} className="p-6 rounded-3xl bg-slate-50 border border-slate-200/80 space-y-3">
-                    <div className={`w-12 h-12 rounded-2xl ${m.color} text-white flex items-center justify-center font-bold shadow-sm`}>
-                      <Icon size={22} />
+                  <div key={idx} className="p-4 sm:p-5 rounded-2xl bg-slate-50/70 border border-slate-200/70 space-y-2">
+                    <div className="flex items-center gap-3">
+                      <div className={`w-10 h-10 rounded-xl ${m.color} text-white flex items-center justify-center font-bold shadow-xs flex-shrink-0`}>
+                        <Icon size={20} />
+                      </div>
+                      <h4 className="font-extrabold text-sm sm:text-base text-brand-dark leading-tight">{m.title}</h4>
                     </div>
-                    <h4 className="font-extrabold text-base text-brand-dark">{m.title}</h4>
-                    <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
+                    <p className="text-xs text-slate-600 font-medium leading-relaxed sm:pl-13">
                       {m.desc}
                     </p>
                   </div>
@@ -302,9 +304,9 @@ export default function CSCAPage() {
           </div>
         </section>
 
-        {/* Section 5: CSCA Preparation Checklist */}
-        <section className="py-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-[32px] sm:rounded-[40px] p-6 sm:p-10 border border-slate-200/80 shadow-soft space-y-6">
+        {/* Section 5: CSCA Preparation Checklist - Seamless on mobile */}
+        <section className="py-0 sm:py-6 max-w-7xl mx-auto px-0 sm:px-6 lg:px-8">
+          <div className="bg-white rounded-none sm:rounded-[36px] p-5 sm:p-10 border-b sm:border border-slate-100 sm:border-slate-200/80 sm:shadow-soft space-y-5 sm:space-y-6">
             <div>
               <span className="text-xs font-bold uppercase tracking-wider text-brand-pink block mb-1">
                 PLAN YOUR PREPARATION
@@ -317,12 +319,14 @@ export default function CSCAPage() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-5">
               {prepSteps.map((st) => (
-                <div key={st.num} className="p-6 rounded-3xl bg-slate-50 border border-slate-200/80 space-y-3 relative">
-                  <span className="text-3xl font-black text-brand-pink">{st.num}</span>
-                  <h4 className="font-extrabold text-base text-brand-dark">{st.title}</h4>
-                  <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
+                <div key={st.num} className="p-4 sm:p-6 rounded-2xl bg-slate-50/70 border border-slate-200/70 space-y-2">
+                  <div className="flex items-center gap-3">
+                    <span className="text-2xl sm:text-3xl font-black text-brand-pink leading-none">{st.num}</span>
+                    <h4 className="font-extrabold text-sm sm:text-base text-brand-dark leading-tight">{st.title}</h4>
+                  </div>
+                  <p className="text-xs text-slate-600 font-medium leading-relaxed">
                     {st.desc}
                   </p>
                 </div>
@@ -331,30 +335,27 @@ export default function CSCAPage() {
           </div>
         </section>
 
-        {/* Section 6: Before Registering & Advice */}
-        <section className="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-brand-dark text-white rounded-[40px] p-8 sm:p-12 text-center relative overflow-hidden shadow-xl">
+        {/* Section 6: Before Registering & Advice - Rounded CTA Card with Badge Excluded */}
+        <section className="py-8 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-brand-dark text-white rounded-[32px] sm:rounded-[40px] p-6 sm:p-12 text-center relative overflow-hidden shadow-xl">
             <div className="max-w-2xl mx-auto space-y-4 relative z-10">
-              <span className="text-xs font-bold uppercase tracking-wider text-brand-green block">
-                BEFORE REGISTERING
-              </span>
-              <h3 className="text-3xl sm:text-4xl font-black">
+              <h3 className="text-2xl sm:text-4xl font-black">
                 Keep Official Registration Separate
               </h3>
-              <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+              <p className="text-slate-300 text-xs sm:text-base leading-relaxed">
                 Visit the official CSCA website independently to check dates, registration windows, syllabuses and test-day instructions. An ILP Study consultation provides strategic guidance; it does not register you for the official exam.
               </p>
-              <div className="pt-4 flex flex-wrap justify-center gap-4">
+              <div className="pt-3 sm:pt-4 flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
                 <Link
                   href="/contact"
-                  className="px-8 py-3.5 rounded-full bg-brand-pink text-white font-bold text-sm shadow-glow-pink hover:bg-[#d10079] transition-all inline-flex items-center gap-2"
+                  className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-brand-pink text-white font-bold text-xs sm:text-sm shadow-glow-pink hover:bg-[#d10079] transition-all inline-flex items-center justify-center gap-2"
                 >
                   <span>Discuss Your Study Plan</span>
                   <ArrowRight size={16} />
                 </Link>
                 <Link
                   href="/checklist"
-                  className="px-8 py-3.5 rounded-full bg-white/10 text-white font-bold text-sm hover:bg-white/20 transition-all inline-flex items-center gap-2"
+                  className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-white/10 text-white font-bold text-xs sm:text-sm hover:bg-white/20 transition-all inline-flex items-center justify-center gap-2"
                 >
                   <span>Read Document Checklist</span>
                 </Link>

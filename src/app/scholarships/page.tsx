@@ -27,24 +27,6 @@ export const metadata: Metadata = {
 export default function ScholarshipsPage() {
   const scholarshipTypes = [
     {
-      title: "Chinese Government Scholarships (CSC)",
-      badge: "CSC Type A & Type B",
-      color: "bg-brand-pink",
-      textColor: "text-brand-pink",
-      desc: "Bilateral programs through the Ministry of Education in Bangladesh (Type A) or direct university nominations (Type B). Typically covers full tuition, campus accommodation, comprehensive medical insurance, and monthly stipend (RMB 2,500 for Bachelor’s, RMB 3,000 for Master’s, RMB 3,500 for PhD).",
-      link: "/blogs/full-scholarship-or-tuition-waiver",
-      linkText: "Read Scholarship Guide"
-    },
-    {
-      title: "Provincial Government Scholarships",
-      badge: "Regional Awards",
-      color: "bg-brand-green",
-      textColor: "text-brand-green",
-      desc: "Offered by municipal or provincial governments (such as Jiangsu Jasmine Scholarship, Zhejiang Provincial Award, Shanghai Government Scholarship). Usually covers full or partial tuition fees (RMB 15,000 to 30,000 / year), with select awards including living allowances.",
-      link: "/blogs/full-scholarship-or-tuition-waiver",
-      linkText: "Compare Funding Types"
-    },
-    {
       title: "University & Presidential Scholarships",
       badge: "Institutional Awards",
       color: "bg-brand-purple",
@@ -63,8 +45,8 @@ export default function ScholarshipsPage() {
     },
     {
       num: "2",
-      title: "Prepare the documents",
-      desc: "Follow the university’s and scholarship authority’s checklist. Assemble transcripts, Foreigner Physical Examination forms, police clearances, bank solvency statements, and study plans.",
+      title: "Prepare Your Documents",
+      desc: "Gather all required documents according to the university’s and scholarship authority’s requirements, including academic transcripts, a Foreigner Physical Examination Form, a police clearance certificate, proof of financial support, and a study plan.",
     },
     {
       num: "3",
@@ -175,7 +157,7 @@ export default function ScholarshipsPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="max-w-2xl">
             {scholarshipTypes.map((type, idx) => (
               <div
                 key={idx}

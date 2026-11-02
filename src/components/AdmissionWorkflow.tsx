@@ -42,9 +42,9 @@ export default function AdmissionWorkflow() {
     },
     {
       num: "3",
-      title: "Prepare your documents",
+      title: "Prepare Your Documents",
       subtitle: "Checklist & Requirements",
-      desc: "Download the checklist and check your files against the university’s notice.",
+      desc: "Gather all required documents according to the university’s and scholarship authority’s requirements, including academic transcripts, a Foreigner Physical Examination Form, a police clearance certificate, proof of financial support, and a study plan.",
       actionText: "Download checklist",
       link: "/checklist",
       icon: FileCheck2,

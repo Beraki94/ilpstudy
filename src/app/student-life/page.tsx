@@ -12,10 +12,7 @@ import {
   HeartPulse,
   Scale,
   CheckCircle2,
-  ArrowRight,
-  ShieldCheck,
-  MapPin,
-  Sparkles
+  ArrowRight
 } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -27,60 +24,51 @@ export const metadata: Metadata = {
 };
 
 export default function StudentLifePage() {
-  const essentials = [
+  const costCards = [
     {
-      category: "SETTLE IN",
       title: "Campus Accommodation",
-      desc: "Ask about room type (single, double, or shared), kitchen access, night curfews, dorm deposits, and the check-in process upon arrival.",
+      desc: "Annual accommodation costs typically range from BDT 30,000–80,000, depending on the university, room type and facilities. Confirm dormitory fees, deposits and check-in arrangements before arrival.",
       icon: Home,
       color: "text-brand-pink",
       bgColor: "bg-brand-pink/10",
-      badge: "On-Campus Dorms"
     },
     {
-      category: "EVERYDAY ESSENTIALS",
-      title: "Food, Halal Dining & Budget",
-      desc: "Research campus dining halls and dietary options, including dedicated Halal canteens (清真餐厅) available at most state universities. Plan food and grocery spending in your monthly budget (RMB 1,200–2,000/mo).",
+      title: "Food and Dining",
+      desc: "Plan approximately BDT 5,000–8,000 per month for food, depending on your city, eating habits and dining choices. Explore campus canteens, nearby restaurants and grocery options. Confirm halal food availability if needed.",
       icon: UtensilsCrossed,
       color: "text-brand-green",
       bgColor: "bg-brand-green/10",
-      badge: "Halal & Dining"
     },
+  ];
+
+  const generalCards = [
     {
-      category: "GET CONNECTED",
-      title: "Language & Communication",
-      desc: "Learn basic everyday Mandarin for ordering food and campus directions. Confirm how to purchase a local 5G SIM card, set up WeChat and Alipay with your passport, and connect to university Wi-Fi.",
+      title: "Language and Communication",
+      desc: "Learn useful everyday Mandarin for shopping, dining and getting around. Get guidance on local SIM cards, campus Wi-Fi and commonly used apps such as WeChat and Alipay.",
       icon: MessageCircle,
       color: "text-brand-purple",
       bgColor: "bg-brand-purple/10",
-      badge: "Phone & WeChat"
     },
     {
-      category: "MOVE AROUND",
-      title: "Transport & City Life",
-      desc: "Learn your campus location and nearby metro/high-speed rail stations. Save arrival instructions, airport pickup points, and the university international student office's emergency contact numbers.",
+      title: "Transport and City Life",
+      desc: "Explore local buses, metro services and other transport options available near your campus. Plan your arrival journey and budget separately for daily travel.",
       icon: Bus,
       color: "text-brand-dark",
       bgColor: "bg-brand-dark/10",
-      badge: "Metro & High-Speed Rail"
     },
     {
-      category: "STAY SUPPORTED",
-      title: "Health & Wellbeing",
-      desc: "Understand the comprehensive medical insurance policy for international students (RMB 800/year), campus clinics, and local hospitals for health check-ups and adjusting to seasonal climate changes.",
+      title: "Health and Wellbeing",
+      desc: "Check your university’s medical insurance requirements, fees and coverage. Learn how to access campus clinics and nearby hospitals, and budget separately for any expenses insurance does not cover.",
       icon: HeartPulse,
       color: "text-rose-600",
       bgColor: "bg-rose-50",
-      badge: "Medical Insurance"
     },
     {
-      category: "KNOW THE RULES",
-      title: "Study, Attendance & Work",
-      desc: "Understand strict class attendance rules (usually 80%+ required for visa renewals) and regulations regarding internships or part-time work approvals. Always obtain official university and PSB approval before starting any off-campus activity.",
+      title: "Study and Campus Rules",
+      desc: "Understand your university’s attendance, academic and accommodation rules. Consult the international student office about internship or part-time work requirements before making arrangements.",
       icon: Scale,
       color: "text-amber-600",
       bgColor: "bg-amber-50",
-      badge: "Visa Compliance"
     },
   ];
 
@@ -89,7 +77,7 @@ export default function StudentLifePage() {
     "Save the university international office’s arrival emergency contact and dorm manager numbers",
     "Confirm dormitory reservation, opening times, and university official reporting dates",
     "Prepare suitable clothing for the city’s climate (winter coats for northern China vs temperate clothing for southeast)",
-    "Plan your first month’s essential expenses in cash (RMB 2,000–3,000) before your local bank card is active",
+    "Keep some Chinese yuan (RMB) in cash for meals, local transport and essential purchases during your first few days, while you arrange local payment options.",
     "Share your flight itinerary and travel plan with family in Bangladesh"
   ];
 
@@ -119,10 +107,44 @@ export default function StudentLifePage() {
           </div>
         </section>
 
-        {/* 6 Core Life Dimensions */}
-        <section className="py-6 sm:py-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-            {essentials.map((item, idx) => {
+        {/* Student Life Cards */}
+        <section className="py-6 sm:py-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+          {/* Two Cost Cards */}
+          <div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+              {costCards.map((item, idx) => {
+                const Icon = item.icon;
+                return (
+                  <div
+                    key={idx}
+                    className="bg-white rounded-3xl sm:rounded-[32px] p-6 sm:p-8 border border-slate-200/80 shadow-soft hover:shadow-xl transition-all flex flex-col justify-between group"
+                  >
+                    <div className="space-y-4">
+                      <div className={`w-12 h-12 rounded-2xl ${item.bgColor} ${item.color} flex items-center justify-center font-bold`}>
+                        <Icon size={22} />
+                      </div>
+
+                      <h3 className="text-lg sm:text-xl font-extrabold text-brand-dark group-hover:text-brand-pink transition-colors">
+                        {item.title}
+                      </h3>
+
+                      <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
+                        {item.desc}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+            {/* Cost note to display below the two cost cards */}
+            <p className="text-xs text-slate-500 font-medium mt-3 px-2">
+              These are ILP Study’s planning estimates. Actual costs vary, and BDT equivalents change with exchange rates.
+            </p>
+          </div>
+
+          {/* Remaining 4 Dimension Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 pt-2">
+            {generalCards.map((item, idx) => {
               const Icon = item.icon;
               return (
                 <div
@@ -130,20 +152,11 @@ export default function StudentLifePage() {
                   className="bg-white rounded-3xl sm:rounded-[32px] p-5 sm:p-7 border border-slate-200/80 shadow-soft hover:shadow-xl transition-all flex flex-col justify-between group"
                 >
                   <div className="space-y-3">
-                    <div className="flex items-center justify-between">
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
-                        {item.category}
-                      </span>
-                      <span className={`text-[10px] font-bold px-2.5 py-0.5 rounded-full ${item.bgColor} ${item.color}`}>
-                        {item.badge}
-                      </span>
-                    </div>
-
                     <div className={`w-11 h-11 sm:w-12 sm:h-12 rounded-2xl ${item.bgColor} ${item.color} flex items-center justify-center font-bold`}>
                       <Icon size={20} className="sm:w-[22px] sm:h-[22px]" />
                     </div>
 
-                    <h3 className="text-lg sm:text-xl font-extrabold text-brand-dark group-hover:text-brand-pink transition-colors">
+                    <h3 className="text-base sm:text-lg font-extrabold text-brand-dark group-hover:text-brand-pink transition-colors">
                       {item.title}
                     </h3>
 

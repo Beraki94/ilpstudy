@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
 import {
   Search,
@@ -149,6 +149,17 @@ const UNIVERSITIES_DATA: UniversityItem[] = [
 export default function UniversityDirectory() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedProvince, setSelectedProvince] = useState<string>('All');
+
+  // Sync search term from URL query parameter (e.g. ?search=Beihang)
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const q = params.get('search');
+      if (q) {
+        setSearchTerm(q);
+      }
+    }
+  }, []);
 
   // Extract unique provinces
   const provinces = useMemo(() => {

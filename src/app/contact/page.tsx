@@ -28,7 +28,7 @@ export default function ContactPage() {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-slate-50">
+      <main className="min-h-screen bg-white sm:bg-slate-50">
         
         {/* Page Header */}
         <PageHeader 
@@ -36,14 +36,14 @@ export default function ContactPage() {
           description="Tell us your academic background and study goals. ILP Study will need to agree an appointment time with you; submitting a request does not book a confirmed slot."
         />
 
-        <section className="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <section className="py-0 sm:py-10 lg:py-16 max-w-7xl mx-auto px-0 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-12 gap-0 sm:gap-8 lg:gap-12 items-start">
             
             {/* Left Column: Direct Contact & Preparation Advice */}
-            <div className="lg:col-span-5 space-y-8">
+            <div className="lg:col-span-5 space-y-0 sm:space-y-6">
               
               {/* Prefer to contact directly box */}
-              <div className="bg-white rounded-[32px] sm:rounded-[40px] p-6 sm:p-8 border border-slate-200/80 shadow-soft space-y-6">
+              <div className="bg-white rounded-none sm:rounded-[36px] p-5 sm:p-8 md:p-10 border-b sm:border border-slate-100 sm:border-slate-200/80 sm:shadow-soft space-y-5 sm:space-y-6">
                 <div>
                   <span className="text-xs font-bold uppercase tracking-wider text-brand-green block mb-1">
                     Direct Counseling Channels
@@ -57,7 +57,7 @@ export default function ContactPage() {
                 </div>
 
                 {/* Hotline */}
-                <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-center justify-between gap-4">
+                <div className="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-slate-50/80 border border-slate-200/70 flex items-center justify-between gap-3 sm:gap-4">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-xl bg-brand-pink/10 text-brand-pink flex items-center justify-center flex-shrink-0">
                       <Phone size={18} />
@@ -80,7 +80,7 @@ export default function ContactPage() {
                 </div>
 
                 {/* WhatsApp */}
-                <div className="p-4 rounded-2xl bg-brand-green/5 border border-brand-green/20 flex items-center justify-between gap-4">
+                <div className="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-brand-green/5 border border-brand-green/20 flex items-center justify-between gap-3 sm:gap-4">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-xl bg-brand-green/15 text-brand-green flex items-center justify-center flex-shrink-0">
                       <MessageSquare size={18} />
@@ -110,7 +110,7 @@ export default function ContactPage() {
                 </div>
 
                 {/* Email */}
-                <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-center justify-between gap-4">
+                <div className="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-slate-50/80 border border-slate-200/70 flex items-center justify-between gap-3 sm:gap-4">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-xl bg-brand-purple/10 text-brand-purple flex items-center justify-center flex-shrink-0">
                       <Mail size={18} />
@@ -133,7 +133,7 @@ export default function ContactPage() {
                 </div>
 
                 {/* Advice Card: Before your consultation */}
-                <div className="p-5 rounded-2xl bg-amber-50 border border-amber-200/80 text-amber-950 space-y-2">
+                <div className="p-4 sm:p-5 rounded-xl sm:rounded-2xl bg-amber-50 border border-amber-200/80 text-amber-950 space-y-1.5">
                   <div className="flex items-center gap-2 font-bold text-xs uppercase tracking-wider text-amber-800">
                     <AlertCircle size={16} className="text-amber-700" />
                     <span>Before your consultation</span>
@@ -155,30 +155,46 @@ export default function ContactPage() {
               </div>
 
               {/* Photo Space / Office Suite */}
-              <PhotoSpace
-                title="ILP Study Consultation Suite"
-                subtitle="East Shewrapara, Mirpur, Dhaka — In-person appointment sessions"
-                badge="Dhaka Office"
-                aspectRatio="aspect-[16/9]"
-                fallbackSrc="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-                className="shadow-sm rounded-[32px]"
-              />
+              <div className="bg-white p-4 sm:p-0 border-b sm:border-0 border-slate-100">
+                <PhotoSpace
+                  title="ILP Study Consultation Suite"
+                  subtitle="East Shewrapara, Mirpur, Dhaka — In-person appointment sessions"
+                  badge="Dhaka Office"
+                  aspectRatio="aspect-[16/9]"
+                  fallbackSrc="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                  className="shadow-sm rounded-2xl sm:rounded-[32px]"
+                />
+              </div>
 
-              {/* China & WeChat Box */}
-              <div className="p-6 rounded-3xl bg-brand-dark text-white shadow-soft flex items-center justify-between gap-4">
-                <div>
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-brand-green block">
-                    China Office / WeChat
-                  </span>
-                  <div className="text-sm font-bold mt-1 text-slate-200">
-                    WeChat ID: <strong className="text-white">+86 156 8568 9193</strong>
+              {/* WhatsApp & WeChat Box */}
+              <div className="bg-white p-4 sm:p-0 border-b sm:border-0 border-slate-100">
+                <div className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-brand-dark text-white shadow-soft flex items-center justify-between gap-4">
+                  <div>
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-brand-green block">
+                      WhatsApp &amp; WeChat
+                    </span>
+                    <div className="text-sm font-bold mt-1 text-slate-200">
+                      <a 
+                        href="https://wa.me/8615685689193"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-brand-green transition-colors"
+                      >
+                        WhatsApp &amp; WeChat: <strong className="text-white">+86 156 8568 9193</strong>
+                      </a>
+                    </div>
+                    <div className="text-xs text-slate-400 mt-0.5">
+                      For messaging and university coordination
+                    </div>
                   </div>
-                  <div className="text-xs text-slate-400 mt-0.5">
-                    For Chinese university international offices and overseas scholars
-                  </div>
-                </div>
-                <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0 text-brand-green">
-                  <QrCode size={20} />
+                  <a
+                    href="https://wa.me/8615685689193"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 rounded-xl bg-brand-green/20 text-brand-green hover:bg-brand-green hover:text-white transition-colors flex items-center justify-center flex-shrink-0"
+                  >
+                    <MessageSquare size={20} />
+                  </a>
                 </div>
               </div>
 

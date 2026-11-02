@@ -33,9 +33,9 @@ export default function BudgetPlanner() {
   };
 
   return (
-    <div className="space-y-10">
-      {/* Interactive Calculator Card */}
-      <div className="bg-white rounded-[32px] sm:rounded-[40px] p-6 sm:p-10 md:p-12 border border-slate-200/80 shadow-soft">
+    <div className="space-y-0 sm:space-y-10">
+      {/* Interactive Calculator Card - Seamless on mobile, rounded card on desktop */}
+      <div className="bg-white rounded-none sm:rounded-[40px] p-5 sm:p-10 md:p-12 border-b sm:border border-slate-100 sm:border-slate-200/80 sm:shadow-soft">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-6 mb-8">
           <div>
             <span className="text-xs font-bold uppercase tracking-wider text-brand-pink block">
@@ -219,8 +219,8 @@ export default function BudgetPlanner() {
         </div>
       </div>
 
-      {/* Avoid Surprises Table */}
-      <div className="bg-white rounded-[32px] p-6 sm:p-10 border border-slate-200/80 shadow-soft space-y-4">
+      {/* Avoid Surprises Table - Seamless on mobile, rounded card on desktop */}
+      <div className="bg-white rounded-none sm:rounded-[36px] p-5 sm:p-10 border-b sm:border border-slate-100 sm:border-slate-200/80 sm:shadow-soft space-y-4">
         <div>
           <span className="text-xs font-bold uppercase tracking-wider text-brand-green block mb-1">
             AVOID SURPRISES
@@ -233,44 +233,44 @@ export default function BudgetPlanner() {
           </p>
         </div>
 
-        <div className="overflow-x-auto pt-2">
+        <div className="overflow-x-auto rounded-xl border border-slate-200/80 mt-2">
           <table className="w-full text-left text-xs sm:text-sm">
             <thead className="bg-slate-50 border-b border-slate-200 text-slate-500 font-bold uppercase tracking-wider text-[11px]">
               <tr>
-                <th className="py-3 px-5">Cost Category</th>
-                <th className="py-3 px-5">What to Confirm</th>
+                <th className="py-3 px-4 sm:px-5">Cost Category</th>
+                <th className="py-3 px-4 sm:px-5">What to Confirm</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100">
               <tr>
-                <td className="py-3.5 px-5 font-bold text-brand-dark">Tuition and accommodation</td>
-                <td className="py-3.5 px-5 text-slate-600 font-medium">Fee period, payment schedule, room type (single, double, quad) and required room deposits.</td>
+                <td className="py-3.5 px-4 sm:px-5 font-bold text-brand-dark whitespace-nowrap">Tuition and accommodation</td>
+                <td className="py-3.5 px-4 sm:px-5 text-slate-600 font-medium">Fee period, payment schedule, room type (single, double, quad) and required room deposits.</td>
               </tr>
               <tr>
-                <td className="py-3.5 px-5 font-bold text-brand-dark">Daily life</td>
-                <td className="py-3.5 px-5 text-slate-600 font-medium">Food, on-campus halal dining, local transport, mobile data (5G SIM), and personal toiletries.</td>
+                <td className="py-3.5 px-4 sm:px-5 font-bold text-brand-dark whitespace-nowrap">Daily life</td>
+                <td className="py-3.5 px-4 sm:px-5 text-slate-600 font-medium">Food, on-campus halal dining, local transport, mobile data (5G SIM), and personal toiletries.</td>
               </tr>
               <tr>
-                <td className="py-3.5 px-5 font-bold text-brand-dark">Health and insurance</td>
-                <td className="py-3.5 px-5 text-slate-600 font-medium">Required comprehensive medical insurance (RMB 800/yr) and any post-arrival medical check verification fee.</td>
+                <td className="py-3.5 px-4 sm:px-5 font-bold text-brand-dark whitespace-nowrap">Health and insurance</td>
+                <td className="py-3.5 px-4 sm:px-5 text-slate-600 font-medium">Required comprehensive medical insurance (RMB 800/yr) and any post-arrival medical check verification fee.</td>
               </tr>
               <tr>
-                <td className="py-3.5 px-5 font-bold text-brand-dark">Before departure</td>
-                <td className="py-3.5 px-5 text-slate-600 font-medium">Passport fee, Chinese embassy visa fee in Dhaka, notarizations, translations, and flights to China.</td>
+                <td className="py-3.5 px-4 sm:px-5 font-bold text-brand-dark whitespace-nowrap">Before departure</td>
+                <td className="py-3.5 px-4 sm:px-5 text-slate-600 font-medium">Passport fee, Chinese embassy visa fee in Dhaka, notarizations, translations, and flights to China.</td>
               </tr>
               <tr>
-                <td className="py-3.5 px-5 font-bold text-brand-dark">Emergency buffer</td>
-                <td className="py-3.5 px-5 text-slate-600 font-medium">Keep an emergency reserve available in Bangladesh for unexpected travel or initial semester setup.</td>
+                <td className="py-3.5 px-4 sm:px-5 font-bold text-brand-dark whitespace-nowrap">Emergency buffer</td>
+                <td className="py-3.5 px-4 sm:px-5 text-slate-600 font-medium">Keep an emergency reserve available in Bangladesh for unexpected travel or initial semester setup.</td>
               </tr>
               <tr>
-                <td className="py-3.5 px-5 font-bold text-brand-dark">Scholarship support</td>
-                <td className="py-3.5 px-5 text-slate-600 font-medium">Subtract only the coverage confirmed in a formal written admission notice and award certificate.</td>
+                <td className="py-3.5 px-4 sm:px-5 font-bold text-brand-dark whitespace-nowrap">Scholarship support</td>
+                <td className="py-3.5 px-4 sm:px-5 text-slate-600 font-medium">Subtract only the coverage confirmed in a formal written admission notice and award certificate.</td>
               </tr>
             </tbody>
           </table>
         </div>
 
-        <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 text-xs text-slate-600 font-medium mt-4">
+        <div className="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-slate-50/70 border border-slate-200/70 text-xs text-slate-600 font-medium mt-4">
           Fees and living costs vary by university, city, room type and lifestyle. Confirm current amounts with ILP Study before finalising your budget.
         </div>
       </div>

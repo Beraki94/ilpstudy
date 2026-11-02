@@ -34,7 +34,7 @@ export default function PartnershipsPage() {
 
   const stats = [
     { label: "Operating Since", value: "2025", desc: "Dedicated China recruitment" },
-    { label: "China Placements", value: "50+", desc: "Admitted in Sept 2026 intake" },
+    { label: "Target Intakes", value: "March & Sept", desc: "Undergraduate & Postgraduate" },
     { label: "Recruitment Markets", value: "6", desc: "South Asia, Central Asia, Americas, Africa" },
     { label: "Direct Submissions", value: "100%", desc: "Direct portal filings, no sub-agents" },
   ];
@@ -743,10 +743,15 @@ export default function PartnershipsPage() {
                         <MessageSquare size={22} />
                       </div>
                       <div>
-                        <span className="text-xs font-bold uppercase text-slate-400 block">China Mobile &amp; WeChat ID</span>
-                        <p className="text-base font-bold text-brand-dark">
+                        <span className="text-xs font-bold uppercase text-slate-400 block">WhatsApp &amp; WeChat</span>
+                        <a 
+                          href="https://wa.me/8615685689193"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-base font-bold text-brand-dark hover:text-brand-green transition-colors"
+                        >
                           +86 156 8568 9193
-                        </p>
+                        </a>
                       </div>
                     </div>
 

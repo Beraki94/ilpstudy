@@ -51,7 +51,7 @@ export default function Hero() {
             </h1>
             
             <p className="text-sm sm:text-lg text-slate-600 mb-6 sm:mb-8 leading-relaxed max-w-xl font-normal">
-              Explore bachelor’s, master’s, PhD, Chinese language and foundation routes around your results, budget and goals. Operating since 2025 with <strong>50+ students placed</strong> across leading Chinese universities for the September 2026 intake.
+              Explore bachelor’s, master’s, PhD, Chinese language and foundation programmes based on your academic results, budget and goals. ILP Study supports Bangladeshi students with university selection, scholarship guidance and application assistance.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto mb-8 sm:mb-10">
@@ -72,14 +72,14 @@ export default function Hero() {
             </div>
 
             {/* Quick Proof Pills */}
-            <div className="grid grid-cols-3 gap-2 sm:gap-3 w-full max-w-lg border-t border-slate-200/60 pt-5 sm:pt-6 text-left">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3 w-full max-w-lg border-t border-slate-200/60 pt-5 sm:pt-6 text-left">
               <div>
-                <div className="text-xl sm:text-2xl font-black text-brand-dark">50+</div>
-                <div className="text-[10px] sm:text-xs font-semibold text-slate-500 leading-tight">Admitted (Sep 2026)</div>
+                <div className="text-xl sm:text-2xl font-black text-brand-dark">China</div>
+                <div className="text-[10px] sm:text-xs font-semibold text-slate-500 leading-tight">Primary Focus</div>
               </div>
               <div>
-                <div className="text-xl sm:text-2xl font-black text-brand-green">100%</div>
-                <div className="text-[10px] sm:text-xs font-semibold text-slate-500 leading-tight">Direct Portals</div>
+                <div className="text-xl sm:text-2xl font-black text-brand-green">Direct</div>
+                <div className="text-[10px] sm:text-xs font-semibold text-slate-500 leading-tight">Application Support</div>
               </div>
               <div>
                 <div className="text-xl sm:text-2xl font-black text-brand-pink">2025</div>
@@ -99,8 +99,8 @@ export default function Hero() {
               {/* Photo Space: Students on Campus */}
               <PhotoSpace
                 title="International Students on Campus in China"
-                subtitle="ILP Study placed 50+ students in Chinese universities for September 2026 intake"
-                badge="China Campus Placements"
+                subtitle="Personalised guidance on university selection, scholarship opportunities and application procedures"
+                badge="Study in China"
                 aspectRatio="aspect-[4/5]"
                 fallbackSrc="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
                 className="shadow-2xl border-2 sm:border-4 border-white rounded-3xl sm:rounded-[40px] sm:rounded-tl-[120px] sm:rounded-br-[120px]"
@@ -116,8 +116,8 @@ export default function Hero() {
                   <GraduationCap size={18} className="sm:w-[22px] sm:h-[22px]" />
                 </div>
                 <div>
-                  <div className="text-xs sm:text-xl font-black leading-none">50+ Placements</div>
-                  <span className="text-[9px] sm:text-[11px] font-medium opacity-90">China Sept 2026</span>
+                  <div className="text-xs sm:text-xl font-black leading-none">University Pathways</div>
+                  <span className="text-[9px] sm:text-[11px] font-medium opacity-90">Bachelor, Master &amp; PhD</span>
                 </div>
               </motion.div>
 
@@ -131,8 +131,8 @@ export default function Hero() {
                   <Globe2 size={18} className="sm:w-[22px] sm:h-[22px]" />
                 </div>
                 <div>
-                  <div className="text-xs sm:text-xl font-black leading-none">Direct Portals</div>
-                  <span className="text-[9px] sm:text-[11px] font-medium opacity-90">Zero Sub-Agents</span>
+                  <div className="text-xs sm:text-xl font-black leading-none">Direct Guidance</div>
+                  <span className="text-[9px] sm:text-[11px] font-medium opacity-90">Application Support</span>
                 </div>
               </motion.div>
             </div>

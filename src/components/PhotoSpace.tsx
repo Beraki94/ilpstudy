@@ -1,13 +1,13 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Camera, Image as ImageIcon } from 'lucide-react';
 
 interface PhotoSpaceProps {
   title: string;
   subtitle?: string;
   badge?: string;
-  aspectRatio?: string; // e.g. "aspect-[16/10]", "aspect-[4/3]", "aspect-[1/1]"
+  aspectRatio?: string; // e.g. "aspect-[16/10]", "aspect-[4/3]", "aspect-[3/4]", "aspect-[1/1]"
   fallbackSrc?: string;
   className?: string;
   priority?: boolean;
@@ -21,16 +21,19 @@ export default function PhotoSpace({
   fallbackSrc,
   className = "",
 }: PhotoSpaceProps) {
+  const [hasError, setHasError] = useState(false);
+
   return (
     <div
       className={`group relative overflow-hidden rounded-[32px] border border-slate-200/80 bg-slate-100 shadow-soft transition-all duration-500 hover:shadow-xl ${aspectRatio} ${className}`}
     >
-      {fallbackSrc ? (
+      {fallbackSrc && !hasError ? (
         <img
           src={fallbackSrc}
           alt={title}
           className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
           loading="lazy"
+          onError={() => setHasError(true)}
         />
       ) : (
         <div className="flex h-full w-full flex-col items-center justify-center bg-gradient-to-br from-slate-100 via-slate-50 to-slate-200 p-6 text-center">
