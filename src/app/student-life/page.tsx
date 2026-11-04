@@ -182,9 +182,9 @@ export default function StudentLifePage() {
           />
         </section>
 
-        {/* Arrival Checklist */}
-        <section className="py-8 sm:py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-3xl sm:rounded-[40px] p-5 sm:p-8 md:p-12 border border-slate-200/90 shadow-card space-y-6">
+        {/* Arrival Checklist - Full width on mobile, rounded card on desktop */}
+        <section className="py-6 sm:py-12 max-w-7xl mx-auto px-0 sm:px-6 lg:px-8">
+          <div className="bg-white rounded-none sm:rounded-[40px] p-5 sm:p-8 md:p-12 border-y sm:border border-slate-100 sm:border-slate-200/90 shadow-none sm:shadow-card space-y-6">
             <div>
               <span className="text-xs font-bold uppercase tracking-wider text-brand-green block mb-1">
                 YOUR ARRIVAL CHECKLIST
@@ -197,9 +197,9 @@ export default function StudentLifePage() {
               </p>
             </div>
 
-            <div className="grid sm:grid-cols-2 gap-4 pt-2">
+            <div className="grid sm:grid-cols-2 gap-3 sm:gap-4 pt-2">
               {arrivalChecklist.map((task, idx) => (
-                <div key={idx} className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-start gap-3">
+                <div key={idx} className="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-slate-50 border border-slate-200/80 flex items-start gap-3">
                   <CheckCircle2 size={18} className="text-brand-green flex-shrink-0 mt-0.5" />
                   <span className="text-xs sm:text-sm text-slate-700 font-medium leading-relaxed">
                     {task}
@@ -208,13 +208,13 @@ export default function StudentLifePage() {
               ))}
             </div>
 
-            <div className="pt-6 border-t border-slate-100 flex flex-wrap items-center justify-between gap-4">
-              <span className="text-xs text-slate-500 font-medium">
+            <div className="pt-6 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <span className="text-xs sm:text-sm text-slate-500 font-medium">
                 Need pre-departure orientation in our Dhaka office?
               </span>
               <Link
                 href="/contact"
-                className="px-6 py-2.5 rounded-full bg-brand-dark text-white text-xs font-bold hover:bg-brand-pink transition-colors inline-flex items-center gap-1.5"
+                className="w-full sm:w-auto px-6 py-2.5 rounded-full bg-brand-dark text-white text-xs font-bold hover:bg-brand-pink transition-colors inline-flex items-center justify-center gap-1.5 text-center"
               >
                 <span>Book Pre-Departure Counseling</span>
                 <ArrowRight size={14} />

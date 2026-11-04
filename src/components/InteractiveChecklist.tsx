@@ -230,19 +230,19 @@ export default function InteractiveChecklist() {
         </div>
       </div>
 
-      {/* Checklist Sections */}
-      <div className="space-y-8">
+      {/* Checklist Sections - Full width seamless on mobile, rounded card on desktop */}
+      <div className="-mx-4 sm:mx-0 space-y-6 sm:space-y-8">
         {CHECKLIST_SECTIONS.map((section, sIdx) => (
           <div 
             key={sIdx}
-            className="bg-white rounded-[32px] p-6 sm:p-8 border border-slate-200/90 shadow-card space-y-4"
+            className="bg-white rounded-none sm:rounded-[32px] px-4 py-6 sm:p-8 border-y sm:border border-slate-200/90 shadow-none sm:shadow-card space-y-4"
           >
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-4">
               <div>
-                <span className="text-[10px] font-bold uppercase tracking-wider text-brand-green block">
+                <span className="text-xs font-bold uppercase tracking-wider text-brand-green block">
                   {section.badge}
                 </span>
-                <h3 className="text-xl font-extrabold text-brand-dark mt-0.5">
+                <h3 className="text-xl sm:text-2xl font-black text-brand-dark mt-0.5">
                   {section.title}
                 </h3>
               </div>
@@ -255,7 +255,7 @@ export default function InteractiveChecklist() {
                   <div
                     key={item.id}
                     onClick={() => toggleCheck(item.id)}
-                    className={`p-4 rounded-2xl border transition-all cursor-pointer flex items-start gap-3.5 ${
+                    className={`p-3.5 sm:p-4 rounded-xl sm:rounded-2xl border transition-all cursor-pointer flex items-start gap-3 sm:gap-3.5 ${
                       isChecked
                         ? 'bg-brand-green/5 border-brand-green/30'
                         : 'bg-slate-50 border-slate-200/70 hover:bg-white hover:border-slate-300'
@@ -273,13 +273,13 @@ export default function InteractiveChecklist() {
                       )}
                     </button>
 
-                    <div className="space-y-0.5">
-                      <strong className={`text-sm block font-bold transition-colors ${
+                    <div className="space-y-1">
+                      <strong className={`text-sm sm:text-base block font-bold transition-colors ${
                         isChecked ? 'text-brand-dark line-through opacity-70' : 'text-brand-dark'
                       }`}>
                         {item.title}
                       </strong>
-                      <p className="text-xs text-slate-600 font-medium leading-relaxed">
+                      <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed">
                         {item.desc}
                       </p>
                     </div>
@@ -297,7 +297,7 @@ export default function InteractiveChecklist() {
           <AlertCircle size={18} className="text-amber-700" />
           <span>Important Document Safety Notice</span>
         </div>
-        <p className="text-xs sm:text-sm font-medium leading-relaxed text-amber-900">
+        <p className="text-sm sm:text-base font-normal leading-relaxed text-amber-900">
           Share documents with ILP Study through an agreed channel after confirming your application scope. <strong>Do not upload passport, medical or bank records through the general consultation form.</strong> This checklist is for university application preparation; visa and arrival documents require a separate review.
         </p>
         <div className="pt-2 flex flex-wrap gap-4 print:hidden">

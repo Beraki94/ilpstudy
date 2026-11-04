@@ -132,32 +132,32 @@ export default function CSCAPage() {
             <span className="text-xs font-bold uppercase tracking-wider text-brand-pink block">
               UNDERGRADUATE ADMISSIONS
             </span>
-            <h2 className="text-xl sm:text-3xl font-black text-brand-dark tracking-tight">
+            <h2 className="text-2xl sm:text-3xl font-black text-brand-dark tracking-tight">
               China Scholastic Competency Assessment
             </h2>
-            <p className="text-xs sm:text-base text-slate-600 font-medium leading-relaxed max-w-4xl">
+            <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed max-w-4xl">
               <strong>CSCA</strong> stands for <strong>China Scholastic Competency Assessment</strong>. It is an assessment for international students planning undergraduate study in China, organised by the China Scholarship Council. Universities use its results as part of admissions and scholarship review.
             </p>
-            <p className="text-xs sm:text-sm text-slate-500 font-medium">
+            <p className="text-sm text-slate-500 font-normal">
               Check your intended programme’s current requirements to confirm whether a score report is needed and which subjects and test languages apply.
             </p>
 
             <div className="pt-3 sm:pt-4 flex flex-col sm:flex-row flex-wrap gap-2.5 sm:gap-4">
               <a
                 href="#dates"
-                className="w-full sm:w-auto px-6 py-2.5 rounded-full bg-brand-pink text-white text-xs font-bold hover:bg-[#d10079] transition-all shadow-glow-pink text-center"
+                className="w-full sm:w-auto px-6 py-3 rounded-full bg-brand-pink text-white text-xs sm:text-sm font-bold hover:bg-[#d10079] transition-all shadow-glow-pink text-center"
               >
                 See exam dates
               </a>
               <a
                 href="#format"
-                className="w-full sm:w-auto px-6 py-2.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition-all text-center"
+                className="w-full sm:w-auto px-6 py-3 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs sm:text-sm font-bold transition-all text-center"
               >
                 Understand the exam format
               </a>
               <Link
                 href="/blogs/csca-exam-preparation-and-syllabus-in-china"
-                className="w-full sm:w-auto px-6 py-2.5 rounded-full bg-slate-50 text-brand-dark text-xs font-bold border border-slate-200 hover:border-brand-green transition-all text-center"
+                className="w-full sm:w-auto px-6 py-3 rounded-full bg-slate-50 text-brand-dark text-xs sm:text-sm font-bold border border-slate-200 hover:border-brand-green transition-all text-center"
               >
                 Read In-Depth CSCA Guide
               </Link>

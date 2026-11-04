@@ -38,7 +38,7 @@ export default function BudgetPlanner() {
             <h3 className="text-2xl sm:text-3xl font-extrabold text-brand-dark mt-0.5">
               Plan Beyond Tuition Fees
             </h3>
-            <p className="text-xs sm:text-sm text-slate-500 font-medium mt-1">
+            <p className="text-sm sm:text-base text-slate-600 font-normal mt-1.5">
               Build your budget using current university quotes and your own spending expectations. Enter costs in RMB; this tool works locally in your browser.
             </p>
           </div>
@@ -222,7 +222,7 @@ export default function BudgetPlanner() {
           <h3 className="text-xl sm:text-2xl font-black text-brand-dark">
             Include These in Your Plan
           </h3>
-          <p className="text-xs sm:text-sm text-slate-500 font-medium mt-1">
+          <p className="text-sm sm:text-base text-slate-600 font-normal mt-1.5">
             Carefully verify each cost category with the university notice before finalizing family funding.
           </p>
         </div>

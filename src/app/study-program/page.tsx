@@ -41,10 +41,10 @@ export default function StudyProgramPage() {
             <span className="text-xs font-bold uppercase tracking-wider text-brand-pink block mb-1">
               PROGRAMMES
             </span>
-            <h2 className="text-xl sm:text-3xl font-extrabold text-brand-dark tracking-tight">
+            <h2 className="text-2xl sm:text-3xl font-black text-brand-dark tracking-tight">
               Choose a Study Route Around Your Qualifications
             </h2>
-            <p className="text-xs sm:text-base text-slate-600 font-medium mt-1.5 sm:mt-2 leading-relaxed max-w-3xl">
+            <p className="text-sm sm:text-base text-slate-600 font-normal mt-2 leading-relaxed max-w-3xl">
               Explore subject areas below; availability and teaching language (English or Chinese) must be verified for the university and intake you choose.
             </p>
             
@@ -85,7 +85,7 @@ export default function StudyProgramPage() {
                     Computing &amp; IT
                   </h4>
                 </div>
-                <p className="text-xs text-slate-600 font-medium leading-relaxed sm:pl-12">
+                <p className="text-sm text-slate-600 font-normal leading-relaxed sm:pl-12">
                   Computer Science, Software Engineering, Artificial Intelligence, Data Science, Cybersecurity.
                 </p>
               </div>
@@ -100,7 +100,7 @@ export default function StudyProgramPage() {
                     Engineering Disciplines
                   </h4>
                 </div>
-                <p className="text-xs text-slate-600 font-medium leading-relaxed sm:pl-12">
+                <p className="text-sm text-slate-600 font-normal leading-relaxed sm:pl-12">
                   Mechanical, Automation, Electrical, Civil, Electronic, Automotive, Mechatronics, Robotics, Petroleum, Aeronautical Engineering.
                 </p>
               </div>
@@ -115,7 +115,7 @@ export default function StudyProgramPage() {
                     Business &amp; Management
                   </h4>
                 </div>
-                <p className="text-xs text-slate-600 font-medium leading-relaxed sm:pl-12">
+                <p className="text-sm text-slate-600 font-normal leading-relaxed sm:pl-12">
                   International Business, Business Administration (BBA), Finance, Accounting, Marketing, E-commerce.
                 </p>
               </div>
@@ -130,7 +130,7 @@ export default function StudyProgramPage() {
                     Medicine &amp; Health Sciences
                   </h4>
                 </div>
-                <p className="text-xs text-slate-600 font-medium leading-relaxed sm:pl-12">
+                <p className="text-sm text-slate-600 font-normal leading-relaxed sm:pl-12">
                   Clinical Medicine (MBBS - 5+1 Years), Pharmacy, Clinical Pharmacy, Nursing, Public Health, Dentistry.
                 </p>
               </div>
@@ -145,7 +145,7 @@ export default function StudyProgramPage() {
                     Logistics &amp; International Trade
                   </h4>
                 </div>
-                <p className="text-xs text-slate-600 font-medium leading-relaxed sm:pl-12">
+                <p className="text-sm text-slate-600 font-normal leading-relaxed sm:pl-12">
                   Logistics Management, Supply Chain Management, International Economics and Trade.
                 </p>
               </div>
@@ -160,7 +160,7 @@ export default function StudyProgramPage() {
                     Other Study Areas
                   </h4>
                 </div>
-                <p className="text-xs text-slate-600 font-medium leading-relaxed sm:pl-12">
+                <p className="text-sm text-slate-600 font-normal leading-relaxed sm:pl-12">
                   Architecture, Civil Aviation, Renewable Energy, Agriculture, Food Science, Chinese Language and Literature.
                 </p>
               </div>
@@ -199,47 +199,47 @@ export default function StudyProgramPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
               <div className="p-4 sm:p-5 rounded-2xl bg-slate-50/70 border border-slate-200/70 hover:bg-white hover:border-brand-green/30 hover:shadow-xs transition-all space-y-1">
                 <strong className="text-brand-dark font-extrabold text-sm block">Computing &amp; Technology</strong>
-                <p className="text-xs text-slate-600 font-medium leading-relaxed">Artificial Intelligence, Computer Science, Data Science, Software Engineering.</p>
+                <p className="text-sm text-slate-600 font-normal leading-relaxed">Artificial Intelligence, Computer Science, Data Science, Software Engineering.</p>
               </div>
 
               <div className="p-4 sm:p-5 rounded-2xl bg-slate-50/70 border border-slate-200/70 hover:bg-white hover:border-brand-green/30 hover:shadow-xs transition-all space-y-1">
                 <strong className="text-brand-dark font-extrabold text-sm block">Engineering</strong>
-                <p className="text-xs text-slate-600 font-medium leading-relaxed">Mechanical, Civil, Chemical, Petroleum, Mining, Materials Science, Renewable Energy, Telecommunications.</p>
+                <p className="text-sm text-slate-600 font-normal leading-relaxed">Mechanical, Civil, Chemical, Petroleum, Mining, Materials Science, Renewable Energy, Telecommunications.</p>
               </div>
 
               <div className="p-4 sm:p-5 rounded-2xl bg-slate-50/70 border border-slate-200/70 hover:bg-white hover:border-brand-green/30 hover:shadow-xs transition-all space-y-1">
                 <strong className="text-brand-dark font-extrabold text-sm block">Business &amp; MBA</strong>
-                <p className="text-xs text-slate-600 font-medium leading-relaxed">MBA, International Business, Finance, Management, Accounting.</p>
+                <p className="text-sm text-slate-600 font-normal leading-relaxed">MBA, International Business, Finance, Management, Accounting.</p>
               </div>
 
               <div className="p-4 sm:p-5 rounded-2xl bg-slate-50/70 border border-slate-200/70 hover:bg-white hover:border-brand-green/30 hover:shadow-xs transition-all space-y-1">
                 <strong className="text-brand-dark font-extrabold text-sm block">Economics &amp; Trade</strong>
-                <p className="text-xs text-slate-600 font-medium leading-relaxed">International Trade, Applied Economics, Development Economics.</p>
+                <p className="text-sm text-slate-600 font-normal leading-relaxed">International Trade, Applied Economics, Development Economics.</p>
               </div>
 
               <div className="p-4 sm:p-5 rounded-2xl bg-slate-50/70 border border-slate-200/70 hover:bg-white hover:border-brand-green/30 hover:shadow-xs transition-all space-y-1">
                 <strong className="text-brand-dark font-extrabold text-sm block">Medicine &amp; Health</strong>
-                <p className="text-xs text-slate-600 font-medium leading-relaxed">Public Health, Pharmacy, Biomedical Engineering, Clinical Medicine (subject to eligibility).</p>
+                <p className="text-sm text-slate-600 font-normal leading-relaxed">Public Health, Pharmacy, Biomedical Engineering, Clinical Medicine (subject to eligibility).</p>
               </div>
 
               <div className="p-4 sm:p-5 rounded-2xl bg-slate-50/70 border border-slate-200/70 hover:bg-white hover:border-brand-green/30 hover:shadow-xs transition-all space-y-1">
                 <strong className="text-brand-dark font-extrabold text-sm block">Education</strong>
-                <p className="text-xs text-slate-600 font-medium leading-relaxed">Education, Teaching Chinese to Speakers of Other Languages (MTCSOL), Educational Management.</p>
+                <p className="text-sm text-slate-600 font-normal leading-relaxed">Education, Teaching Chinese to Speakers of Other Languages (MTCSOL), Educational Management.</p>
               </div>
 
               <div className="p-4 sm:p-5 rounded-2xl bg-slate-50/70 border border-slate-200/70 hover:bg-white hover:border-brand-green/30 hover:shadow-xs transition-all space-y-1">
                 <strong className="text-brand-dark font-extrabold text-sm block">Logistics &amp; Transport</strong>
-                <p className="text-xs text-slate-600 font-medium leading-relaxed">Supply Chain Management, Logistics Engineering, Transportation Engineering.</p>
+                <p className="text-sm text-slate-600 font-normal leading-relaxed">Supply Chain Management, Logistics Engineering, Transportation Engineering.</p>
               </div>
 
               <div className="p-4 sm:p-5 rounded-2xl bg-slate-50/70 border border-slate-200/70 hover:bg-white hover:border-brand-green/30 hover:shadow-xs transition-all space-y-1">
                 <strong className="text-brand-dark font-extrabold text-sm block">Agriculture &amp; Environment</strong>
-                <p className="text-xs text-slate-600 font-medium leading-relaxed">Agricultural Science, Environmental Engineering, Food Science.</p>
+                <p className="text-sm text-slate-600 font-normal leading-relaxed">Agricultural Science, Environmental Engineering, Food Science.</p>
               </div>
 
               <div className="p-4 sm:p-5 rounded-2xl bg-slate-50/70 border border-slate-200/70 hover:bg-white hover:border-brand-green/30 hover:shadow-xs transition-all space-y-1">
                 <strong className="text-brand-dark font-extrabold text-sm block">International Relations</strong>
-                <p className="text-xs text-slate-600 font-medium leading-relaxed">International Relations, Political Science, Chinese Studies.</p>
+                <p className="text-sm text-slate-600 font-normal leading-relaxed">International Relations, Political Science, Chinese Studies.</p>
               </div>
             </div>
 
@@ -273,32 +273,32 @@ export default function StudyProgramPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
               <div className="p-4 sm:p-5 rounded-2xl bg-slate-50/70 border border-slate-200/70 hover:bg-white hover:border-brand-purple/30 hover:shadow-xs transition-all space-y-1">
                 <strong className="text-brand-dark font-extrabold text-sm block">Computing &amp; Intelligent Systems</strong>
-                <p className="text-xs text-slate-600 font-medium leading-relaxed">Artificial Intelligence, Machine Learning, Robotics, Computer Science, Data Science.</p>
+                <p className="text-sm text-slate-600 font-normal leading-relaxed">Artificial Intelligence, Machine Learning, Robotics, Computer Science, Data Science.</p>
               </div>
 
               <div className="p-4 sm:p-5 rounded-2xl bg-slate-50/70 border border-slate-200/70 hover:bg-white hover:border-brand-purple/30 hover:shadow-xs transition-all space-y-1">
                 <strong className="text-brand-dark font-extrabold text-sm block">Engineering &amp; New Energy</strong>
-                <p className="text-xs text-slate-600 font-medium leading-relaxed">Mechanical, Electrical and Civil Engineering, Materials Science, Nanotechnology, New Energy.</p>
+                <p className="text-sm text-slate-600 font-normal leading-relaxed">Mechanical, Electrical and Civil Engineering, Materials Science, Nanotechnology, New Energy.</p>
               </div>
 
               <div className="p-4 sm:p-5 rounded-2xl bg-slate-50/70 border border-slate-200/70 hover:bg-white hover:border-brand-purple/30 hover:shadow-xs transition-all space-y-1">
                 <strong className="text-brand-dark font-extrabold text-sm block">Life Sciences &amp; Health</strong>
-                <p className="text-xs text-slate-600 font-medium leading-relaxed">Biotechnology, Biomedical Science, Pharmaceutical Science, Public Health, Medical Research.</p>
+                <p className="text-sm text-slate-600 font-normal leading-relaxed">Biotechnology, Biomedical Science, Pharmaceutical Science, Public Health, Medical Research.</p>
               </div>
 
               <div className="p-4 sm:p-5 rounded-2xl bg-slate-50/70 border border-slate-200/70 hover:bg-white hover:border-brand-purple/30 hover:shadow-xs transition-all space-y-1">
                 <strong className="text-brand-dark font-extrabold text-sm block">Agriculture &amp; Environment</strong>
-                <p className="text-xs text-slate-600 font-medium leading-relaxed">Agricultural Science, Food Technology, Environmental Science, Climate Change.</p>
+                <p className="text-sm text-slate-600 font-normal leading-relaxed">Agricultural Science, Food Technology, Environmental Science, Climate Change.</p>
               </div>
 
               <div className="p-4 sm:p-5 rounded-2xl bg-slate-50/70 border border-slate-200/70 hover:bg-white hover:border-brand-purple/30 hover:shadow-xs transition-all space-y-1">
                 <strong className="text-brand-dark font-extrabold text-sm block">Economics &amp; Business</strong>
-                <p className="text-xs text-slate-600 font-medium leading-relaxed">Economics, Finance, International Trade, Business Administration, Management.</p>
+                <p className="text-sm text-slate-600 font-normal leading-relaxed">Economics, Finance, International Trade, Business Administration, Management.</p>
               </div>
 
               <div className="p-4 sm:p-5 rounded-2xl bg-slate-50/70 border border-slate-200/70 hover:bg-white hover:border-brand-purple/30 hover:shadow-xs transition-all space-y-1">
                 <strong className="text-brand-dark font-extrabold text-sm block">Education &amp; Society</strong>
-                <p className="text-xs text-slate-600 font-medium leading-relaxed">Education, Linguistics, Chinese Studies, International Relations.</p>
+                <p className="text-sm text-slate-600 font-normal leading-relaxed">Education, Linguistics, Chinese Studies, International Relations.</p>
               </div>
             </div>
 
@@ -332,27 +332,27 @@ export default function StudyProgramPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
               <div className="p-4 sm:p-5 rounded-2xl bg-slate-50/70 border border-slate-200/70 hover:bg-white hover:border-amber-300 hover:shadow-xs transition-all space-y-1">
                 <strong className="text-brand-dark font-extrabold text-sm block">Science &amp; Engineering Preparation</strong>
-                <p className="text-xs text-slate-600 font-medium leading-relaxed">Mathematics, Physics, Chemistry, introductory computing and academic Chinese or English.</p>
+                <p className="text-sm text-slate-600 font-normal leading-relaxed">Mathematics, Physics, Chemistry, introductory computing and academic Chinese or English.</p>
               </div>
 
               <div className="p-4 sm:p-5 rounded-2xl bg-slate-50/70 border border-slate-200/70 hover:bg-white hover:border-amber-300 hover:shadow-xs transition-all space-y-1">
                 <strong className="text-brand-dark font-extrabold text-sm block">Computer Science Preparation</strong>
-                <p className="text-xs text-slate-600 font-medium leading-relaxed">Mathematics, basic programming, computer fundamentals and academic preparation.</p>
+                <p className="text-sm text-slate-600 font-normal leading-relaxed">Mathematics, basic programming, computer fundamentals and academic preparation.</p>
               </div>
 
               <div className="p-4 sm:p-5 rounded-2xl bg-slate-50/70 border border-slate-200/70 hover:bg-white hover:border-amber-300 hover:shadow-xs transition-all space-y-1">
                 <strong className="text-brand-dark font-extrabold text-sm block">Medicine / Pre-Medical Preparation</strong>
-                <p className="text-xs text-slate-600 font-medium leading-relaxed">Biology, Chemistry, Physics and language preparation, where offered as a formal pathway.</p>
+                <p className="text-sm text-slate-600 font-normal leading-relaxed">Biology, Chemistry, Physics and language preparation, where offered as a formal pathway.</p>
               </div>
 
               <div className="p-4 sm:p-5 rounded-2xl bg-slate-50/70 border border-slate-200/70 hover:bg-white hover:border-amber-300 hover:shadow-xs transition-all space-y-1">
                 <strong className="text-brand-dark font-extrabold text-sm block">Business &amp; Economics Preparation</strong>
-                <p className="text-xs text-slate-600 font-medium leading-relaxed">Mathematics, Economics, Business Studies, English or Chinese and academic skills.</p>
+                <p className="text-sm text-slate-600 font-normal leading-relaxed">Mathematics, Economics, Business Studies, English or Chinese and academic skills.</p>
               </div>
 
               <div className="p-4 sm:p-5 rounded-2xl bg-slate-50/70 border border-slate-200/70 hover:bg-white hover:border-amber-300 hover:shadow-xs transition-all space-y-1">
                 <strong className="text-brand-dark font-extrabold text-sm block">Chinese Language Preparation</strong>
-                <p className="text-xs text-slate-600 font-medium leading-relaxed">Listening, speaking, reading and writing in preparation for further university study.</p>
+                <p className="text-sm text-slate-600 font-normal leading-relaxed">Listening, speaking, reading and writing in preparation for further university study.</p>
               </div>
             </div>
 
@@ -386,22 +386,22 @@ export default function StudyProgramPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
               <div className="p-4 sm:p-5 rounded-2xl bg-slate-50/70 border border-slate-200/70 hover:bg-white hover:border-sky-300 hover:shadow-xs transition-all space-y-1">
                 <strong className="text-brand-dark font-extrabold text-sm block">Short-Term Chinese</strong>
-                <p className="text-xs text-slate-600 font-medium leading-relaxed">Explore beginner Mandarin, cultural activities and summer or winter course options.</p>
+                <p className="text-sm text-slate-600 font-normal leading-relaxed">Explore beginner Mandarin, cultural activities and summer or winter course options.</p>
               </div>
 
               <div className="p-4 sm:p-5 rounded-2xl bg-slate-50/70 border border-slate-200/70 hover:bg-white hover:border-sky-300 hover:shadow-xs transition-all space-y-1">
                 <strong className="text-brand-dark font-extrabold text-sm block">One-Semester Chinese</strong>
-                <p className="text-xs text-slate-600 font-medium leading-relaxed">Develop Mandarin listening, speaking, reading and writing over an intensive semester.</p>
+                <p className="text-sm text-slate-600 font-normal leading-relaxed">Develop Mandarin listening, speaking, reading and writing over an intensive semester.</p>
               </div>
 
               <div className="p-4 sm:p-5 rounded-2xl bg-slate-50/70 border border-slate-200/70 hover:bg-white hover:border-sky-300 hover:shadow-xs transition-all space-y-1">
                 <strong className="text-brand-dark font-extrabold text-sm block">One-Year Chinese</strong>
-                <p className="text-xs text-slate-600 font-medium leading-relaxed">Explore intensive language learning, cultural immersion and preparation for further degree study.</p>
+                <p className="text-sm text-slate-600 font-normal leading-relaxed">Explore intensive language learning, cultural immersion and preparation for further degree study.</p>
               </div>
 
               <div className="p-4 sm:p-5 rounded-2xl bg-slate-50/70 border border-slate-200/70 hover:bg-white hover:border-sky-300 hover:shadow-xs transition-all space-y-1">
                 <strong className="text-brand-dark font-extrabold text-sm block">Academic Chinese / HSK</strong>
-                <p className="text-xs text-slate-600 font-medium leading-relaxed">Build Chinese proficiency for study goals, HSK 4/5 certification, and Chinese-taught degree entry.</p>
+                <p className="text-sm text-slate-600 font-normal leading-relaxed">Build Chinese proficiency for study goals, HSK 4/5 certification, and Chinese-taught degree entry.</p>
               </div>
             </div>
 
@@ -441,7 +441,7 @@ export default function StudyProgramPage() {
               <div className="p-4 sm:p-6 rounded-2xl bg-slate-50/70 border border-slate-200/70 space-y-1.5 sm:space-y-2">
                 <span className="text-[11px] font-black uppercase text-brand-pink tracking-wider">Step 1 · March 2027</span>
                 <h4 className="font-extrabold text-sm sm:text-base text-brand-dark">Language or Foundation</h4>
-                <p className="text-xs text-slate-600 font-medium leading-relaxed">
+                <p className="text-sm text-slate-600 font-normal leading-relaxed">
                   Build Chinese proficiency or strengthen academic subjects. Confirm the course length and your starting level.
                 </p>
               </div>
@@ -449,7 +449,7 @@ export default function StudyProgramPage() {
               <div className="p-4 sm:p-6 rounded-2xl bg-slate-50/70 border border-slate-200/70 space-y-1.5 sm:space-y-2">
                 <span className="text-[11px] font-black uppercase text-brand-green tracking-wider">Step 2 · During Preparation</span>
                 <h4 className="font-extrabold text-sm sm:text-base text-brand-dark">Work Toward Entry Requirements</h4>
-                <p className="text-xs text-slate-600 font-medium leading-relaxed">
+                <p className="text-sm text-slate-600 font-normal leading-relaxed">
                   Prepare the relevant CSCA subjects, language evidence (HSK or English cert), and application documents.
                 </p>
               </div>
@@ -457,7 +457,7 @@ export default function StudyProgramPage() {
               <div className="p-4 sm:p-6 rounded-2xl bg-slate-50/70 border border-slate-200/70 space-y-1.5 sm:space-y-2">
                 <span className="text-[11px] font-black uppercase text-brand-purple tracking-wider">Step 3 · September 2027 Target</span>
                 <h4 className="font-extrabold text-sm sm:text-base text-brand-dark">Apply for Your Degree</h4>
-                <p className="text-xs text-slate-600 font-medium leading-relaxed">
+                <p className="text-sm text-slate-600 font-normal leading-relaxed">
                   Review admission and scholarship criteria separately. Course completion does not guarantee a degree place or funding.
                 </p>
               </div>

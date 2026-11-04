@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   ArrowRight, 
@@ -49,7 +49,7 @@ export default function Destinations() {
   const [selectedUniModal, setSelectedUniModal] = useState<UniversityItem | null>(null);
   const [canScrollLeft, setCanScrollLeft] = useState<boolean>(false);
   const [canScrollRight, setCanScrollRight] = useState<boolean>(true);
-  const [perView, setPerView] = useState<number>(3);
+  const [pageSize, setPageSize] = useState<number>(3);
 
   const carouselRef = useRef<HTMLDivElement>(null);
   const [isPaused, setIsPaused] = useState<boolean>(false);
@@ -430,21 +430,34 @@ export default function Destinations() {
     (uni) => selectedCategory === 'all' || uni.category === selectedCategory
   );
 
-  // Track cards per view based on screen size
+  // Responsive cards per slide view:
+  // - Mobile (< 768px): 3 cards stacked vertically (1 column of 3 cards)
+  // - Tablet (768px - 1023px): 6 cards in a 2x3 grid (2 columns x 3 rows = 6 cards)
+  // - Desktop (>= 1024px): 3 cards in a horizontal row (3 columns x 1 row = 3 cards)
   useEffect(() => {
-    const updatePerView = () => {
+    const updatePageSize = () => {
+      if (typeof window === 'undefined') return;
       if (window.innerWidth >= 1024) {
-        setPerView(3);
+        setPageSize(3);
       } else if (window.innerWidth >= 768) {
-        setPerView(2);
+        setPageSize(6);
       } else {
-        setPerView(1);
+        setPageSize(3);
       }
     };
-    updatePerView();
-    window.addEventListener('resize', updatePerView);
-    return () => window.removeEventListener('resize', updatePerView);
+    updatePageSize();
+    window.addEventListener('resize', updatePageSize);
+    return () => window.removeEventListener('resize', updatePageSize);
   }, []);
+
+  // Chunk filteredList into slide pages based on pageSize
+  const pages: UniversityItem[][] = useMemo(() => {
+    const chunks: UniversityItem[][] = [];
+    for (let i = 0; i < filteredList.length; i += pageSize) {
+      chunks.push(filteredList.slice(i, i + pageSize));
+    }
+    return chunks;
+  }, [filteredList, pageSize]);
 
   // Update button enabled states and current page indicator based on scroll position
   const updateScrollState = () => {
@@ -537,9 +550,19 @@ export default function Destinations() {
     setIsDragging(false);
   };
 
-  const totalPages = Math.max(1, Math.ceil(filteredList.length / perView));
-  const displayStart = filteredList.length > 0 ? Math.min(currentPage * perView + 1, filteredList.length) : 0;
-  const displayEnd = Math.min((currentPage + 1) * perView, filteredList.length);
+  const totalPages = Math.max(1, pages.length);
+  const displayStart = filteredList.length > 0 ? currentPage * pageSize + 1 : 0;
+  const displayEnd = Math.min((currentPage + 1) * pageSize, filteredList.length);
+
+  // Keep currentPage within bounds if pageSize or category changes
+  useEffect(() => {
+    if (currentPage >= totalPages) {
+      setCurrentPage(0);
+      if (carouselRef.current) {
+        carouselRef.current.scrollTo({ left: 0, behavior: 'instant' as ScrollBehavior });
+      }
+    }
+  }, [totalPages, currentPage]);
 
   // Auto-play timer: ticks every 6s, pauses on hover, touch, drag, or modal
   useEffect(() => {
@@ -588,8 +611,8 @@ export default function Destinations() {
             </p>
           </div>
 
-          {/* Slider Navigation Controls */}
-          <div className="flex items-center gap-3">
+          {/* Slider Navigation Controls (Desktop/Tablet) */}
+          <div className="hidden sm:flex items-center gap-3">
             <div className="flex items-center gap-2">
               <button
                 onClick={scrollPrev}
@@ -613,8 +636,8 @@ export default function Destinations() {
           </div>
         </div>
 
-        {/* Quick Subject Filter Tabs */}
-        <div className="flex flex-wrap items-center gap-2 mb-8 pb-4 border-b border-slate-100">
+        {/* Quick Subject Filter Tabs: Centered with high-contrast pills */}
+        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5 mb-8 sm:mb-12">
           {categories.map((cat) => {
             const Icon = cat.icon;
             const isSelected = selectedCategory === cat.id;
@@ -622,13 +645,13 @@ export default function Destinations() {
               <button
                 key={cat.id}
                 onClick={() => handleCategoryChange(cat.id as UniversityCategory)}
-                className={`px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition-all flex items-center gap-1.5 ${
+                className={`px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all duration-200 flex items-center gap-2 shadow-xs ${
                   isSelected
-                    ? 'bg-brand-dark text-white shadow-soft scale-105'
-                    : 'bg-slate-100 hover:bg-slate-200 text-slate-600'
+                    ? 'bg-brand-dark text-white shadow-md ring-2 ring-brand-dark/20 scale-105'
+                    : 'bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 hover:border-brand-pink/50 hover:text-brand-dark'
                 }`}
               >
-                <Icon size={14} className={isSelected ? 'text-brand-green' : 'text-slate-400'} />
+                <Icon size={15} className={isSelected ? 'text-brand-green' : 'text-slate-400 group-hover:text-brand-pink'} />
                 <span>{cat.label}</span>
               </button>
             );
@@ -652,7 +675,7 @@ export default function Destinations() {
             onTouchEnd={() => {
               setTimeout(() => setIsPaused(false), 2500);
             }}
-            className={`overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory flex gap-6 sm:gap-8 pt-2 pb-6 select-none ${
+            className={`overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory flex gap-0 touch-pan-y pt-2 pb-6 select-none ${
               isDragging ? 'cursor-grabbing' : 'cursor-grab'
             }`}
             style={{ 
@@ -661,19 +684,22 @@ export default function Destinations() {
               WebkitOverflowScrolling: 'touch'
             }}
           >
-            {filteredList.map((dest) => (
+            {pages.map((slideCards, pageIdx) => (
               <div 
-                key={dest.id}
-                className="snap-start flex-shrink-0 w-full sm:w-[calc(50%-16px)] lg:w-[calc((100%-64px)/3)] flex flex-col"
+                key={pageIdx}
+                className="w-full flex-shrink-0 snap-start px-0.5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 items-stretch"
               >
-                <SpaciousUniversityCard 
-                  dest={dest} 
-                  onOpenDetails={(uni) => {
-                    if (dragDistance <= 8) {
-                      setSelectedUniModal(uni);
-                    }
-                  }}
-                />
+                {slideCards.map((dest) => (
+                  <SpaciousUniversityCard 
+                    key={dest.id}
+                    dest={dest} 
+                    onOpenDetails={(uni) => {
+                      if (dragDistance <= 8) {
+                        setSelectedUniModal(uni);
+                      }
+                    }}
+                  />
+                ))}
               </div>
             ))}
           </div>
@@ -936,15 +962,15 @@ function SpaciousUniversityCard({
       onClick={() => onOpenDetails(dest)}
       className="group bg-white rounded-3xl sm:rounded-[32px] overflow-hidden border border-slate-200/90 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 hover:border-brand-pink/50 transition-all duration-300 flex flex-col justify-between h-full cursor-pointer select-none"
     >
-      <div>
-        {/* Photo Container: Clean, Spacious, Breathing Room */}
-        <div className="relative h-48 sm:h-56 overflow-hidden bg-slate-100">
+      <div className="flex-1 flex flex-col">
+        {/* Photo Container: Spacious height (h-52 = 208px) on mobile for bold visual punch */}
+        <div className="relative h-52 sm:h-52 lg:h-56 overflow-hidden bg-slate-100 flex-shrink-0">
           {!imgError ? (
             <Image 
               src={dest.image} 
               alt={dest.name}
               fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
               className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out select-none pointer-events-none"
               draggable={false}
               onError={() => setImgError(true)}
@@ -952,22 +978,22 @@ function SpaciousUniversityCard({
           ) : (
             <div className="w-full h-full bg-gradient-to-br from-slate-800 to-slate-900 flex flex-col items-center justify-center p-4 text-center text-white">
               <Building2 size={32} className="text-brand-green mb-2 opacity-80" />
-              <span className="text-xs font-bold text-slate-300">{dest.name}</span>
+              <span className="text-xs font-bold text-slate-300 line-clamp-1">{dest.name}</span>
             </div>
           )}
 
           <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent pointer-events-none" />
           
           {/* Province / City Pill at Top Left */}
-          <div className="absolute top-4 left-4 z-10">
+          <div className="absolute top-3.5 left-3.5 sm:top-4 sm:left-4 z-10">
             <span className={`px-3 py-1 rounded-full text-xs font-bold shadow-md ${dest.badgeColor}`}>
               {dest.province}
             </span>
           </div>
 
           {/* Bold University Title & Subtitle at Bottom of Photo */}
-          <div className="absolute bottom-4 left-4 right-4 z-10">
-            <h3 className="text-xl sm:text-2xl font-black text-white leading-tight">
+          <div className="absolute bottom-3.5 left-3.5 right-3.5 sm:bottom-4 sm:left-4 sm:right-4 z-10">
+            <h3 className="text-lg sm:text-xl lg:text-2xl font-black text-white leading-tight">
               {dest.name}
             </h3>
             <p className="text-slate-200 text-xs font-medium mt-0.5 line-clamp-1">
@@ -976,26 +1002,29 @@ function SpaciousUniversityCard({
           </div>
         </div>
 
-        {/* Content Body: Clean, uncrowded, breathable typography */}
-        <div className="p-5 sm:p-6">
-          <p className="text-xs font-bold text-brand-pink uppercase tracking-wider mb-2">
-            {dest.tagline}
-          </p>
-          <p className="text-slate-600 text-xs sm:text-sm font-medium leading-relaxed line-clamp-3">
-            {dest.highlights}
-          </p>
+        {/* Content Body: Consistent height, 3 full lines visible before ellipsis */}
+        <div className="p-4 sm:p-5 lg:p-6 flex-1 flex flex-col justify-between">
+          <div>
+            <p className="text-xs font-bold text-brand-pink uppercase tracking-wider mb-2 line-clamp-1 h-5 flex items-center">
+              {dest.tagline}
+            </p>
+            {/* Third line of text is present before ellipsis with consistent min-height across cards */}
+            <p className="text-slate-600 text-xs sm:text-sm font-normal leading-relaxed line-clamp-3 min-h-[4.25rem] sm:min-h-[4.75rem]">
+              {dest.highlights}
+            </p>
+          </div>
         </div>
       </div>
 
       {/* Action Footer: View Courses & Fees / Ask Counselors */}
-      <div className="px-6 pb-6 pt-3 border-t border-slate-100 flex items-center justify-between mt-auto">
+      <div className="px-4 pb-4 pt-3 sm:px-6 sm:pb-6 sm:pt-3.5 border-t border-slate-100 flex items-center justify-between mt-auto">
         <button
           type="button"
           onClick={(e) => {
             e.stopPropagation();
             onOpenDetails(dest);
           }}
-          className="text-xs font-bold text-brand-dark group-hover:text-brand-pink transition-colors inline-flex items-center gap-1.5"
+          className="text-xs sm:text-sm font-bold text-brand-dark group-hover:text-brand-pink transition-colors inline-flex items-center gap-1.5"
         >
           <span>View Courses &amp; Fees</span>
           <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
@@ -1006,7 +1035,7 @@ function SpaciousUniversityCard({
           target="_blank"
           rel="noopener noreferrer"
           onClick={(e) => e.stopPropagation()}
-          className="text-xs font-bold text-slate-400 hover:text-brand-green transition-colors"
+          className="text-xs sm:text-sm font-bold text-slate-400 hover:text-brand-green transition-colors"
           title="Inquire directly with counselor"
         >
           Ask Counselors

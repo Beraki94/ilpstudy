@@ -251,18 +251,18 @@ export default function StudentTestimonials() {
                 </div>
 
                 {/* Quote */}
-                <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-normal italic relative">
+                <p className="text-sm text-slate-700 leading-relaxed font-normal italic relative">
                   &ldquo;{item.quote}&rdquo;
                 </p>
               </div>
 
               {/* Bottom Card Footer */}
-              <div className="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-semibold text-slate-400">
+              <div className="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-500">
                 <span className="inline-flex items-center gap-1 text-brand-green font-bold">
                   <GraduationCap size={13} />
                   <span>{item.year}</span>
                 </span>
-                <span className="text-slate-300 font-mono text-[10px]">
+                <span className="text-slate-400 font-mono text-xs">
                   #{item.id}
                 </span>
               </div>

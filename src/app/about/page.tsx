@@ -90,17 +90,17 @@ export default function AboutPage() {
           description="Meet ILP Study, a Bangladesh-based education consultancy supporting university selection, scholarship planning, documents and study applications in China."
         />
 
-        {/* ABOUT US: Story & Identity */}
-        <section className="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-[40px] p-8 sm:p-14 lg:p-16 border border-slate-200/90 shadow-card">
-            <div className="grid lg:grid-cols-12 gap-12 items-center">
+        {/* ABOUT US: Story & Identity - Full width on mobile, rounded card on desktop */}
+        <section className="py-0 sm:py-16 lg:py-24 max-w-7xl mx-auto px-0 sm:px-6 lg:px-8">
+          <div className="bg-white rounded-none sm:rounded-[40px] p-5 sm:p-14 lg:p-16 border-b sm:border border-slate-100 sm:border-slate-200/90 shadow-none sm:shadow-card">
+            <div className="grid lg:grid-cols-12 gap-8 sm:gap-12 items-center">
               
               <div className="lg:col-span-7 space-y-6">
                 <div>
                   <span className="text-xs font-bold uppercase tracking-wider text-brand-pink block mb-2">
                     ABOUT US
                   </span>
-                  <h2 className="text-3xl sm:text-4xl font-black text-brand-dark tracking-tight leading-tight">
+                  <h2 className="text-2xl sm:text-4xl font-black text-brand-dark tracking-tight leading-tight">
                     Your Study in China Journey Starts Here
                   </h2>
                 </div>
@@ -121,7 +121,7 @@ export default function AboutPage() {
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-4">
                   {atAGlance.map((fact, idx) => (
                     <div key={idx} className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80">
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-0.5">
+                      <span className="text-xs font-bold uppercase tracking-wider text-slate-400 block mb-0.5">
                         {fact.label}
                       </span>
                       <strong className="text-brand-dark text-sm sm:text-base block font-bold leading-snug">
@@ -132,7 +132,7 @@ export default function AboutPage() {
                 </div>
 
                 {/* Location Card */}
-                <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-start gap-3 text-xs sm:text-sm text-slate-600">
+                <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-start gap-3 text-sm text-slate-600">
                   <MapPin size={18} className="text-brand-pink flex-shrink-0 mt-0.5" />
                   <div>
                     <strong className="text-brand-dark block font-bold">Dhaka Office:</strong>
@@ -298,29 +298,29 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-              <div className="p-6 rounded-3xl bg-white/5 border border-white/10">
-                <div className="text-3xl sm:text-4xl font-black text-brand-pink mb-2">ILP Study</div>
-                <div className="text-white font-bold text-sm">Brand Name</div>
-                <div className="text-xs text-slate-400 mt-1">Education Consultancy</div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3.5 sm:gap-6 text-center">
+              <div className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white/5 border border-white/10 flex flex-col justify-between">
+                <div className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Brand Name</div>
+                <div className="text-xl sm:text-3xl lg:text-4xl font-black text-brand-pink my-auto leading-tight">ILP Study</div>
+                <div className="text-xs text-slate-400 mt-2">Education Consultancy</div>
               </div>
 
-              <div className="p-6 rounded-3xl bg-white/5 border border-white/10">
-                <div className="text-3xl sm:text-4xl font-black text-brand-green mb-2">2025</div>
-                <div className="text-white font-bold text-sm">Operating Since</div>
-                <div className="text-xs text-slate-400 mt-1">Dedicated China recruiter</div>
+              <div className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white/5 border border-white/10 flex flex-col justify-between">
+                <div className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Operating Since</div>
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-black text-brand-green my-auto leading-tight">2025</div>
+                <div className="text-xs text-slate-400 mt-2">Dedicated China recruiter</div>
               </div>
 
-              <div className="p-6 rounded-3xl bg-white/5 border border-white/10">
-                <div className="text-3xl sm:text-4xl font-black text-brand-purple mb-2">China</div>
-                <div className="text-white font-bold text-sm">Primary Focus</div>
-                <div className="text-xs text-slate-400 mt-1">Higher Education</div>
+              <div className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white/5 border border-white/10 flex flex-col justify-between">
+                <div className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Primary Focus</div>
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-black text-brand-purple my-auto leading-tight">China</div>
+                <div className="text-xs text-slate-400 mt-2">Higher Education</div>
               </div>
 
-              <div className="p-6 rounded-3xl bg-white/5 border border-white/10">
-                <div className="text-3xl sm:text-4xl font-black text-white mb-2">Mirpur</div>
-                <div className="text-white font-bold text-sm">Dhaka Head Office</div>
-                <div className="text-xs text-slate-400 mt-1">In-person consultations</div>
+              <div className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white/5 border border-white/10 flex flex-col justify-between">
+                <div className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Dhaka Head Office</div>
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-black text-white my-auto leading-tight">Mirpur</div>
+                <div className="text-xs text-slate-400 mt-2">In-person consultations</div>
               </div>
             </div>
           </div>

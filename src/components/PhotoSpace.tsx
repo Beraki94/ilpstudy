@@ -12,6 +12,8 @@ interface PhotoSpaceProps {
   fallbackSrc?: string;
   className?: string;
   priority?: boolean;
+  captionClassName?: string;
+  hideTopBadge?: boolean;
 }
 
 export default function PhotoSpace({
@@ -21,6 +23,8 @@ export default function PhotoSpace({
   aspectRatio = "aspect-[16/10]",
   fallbackSrc,
   className = "",
+  captionClassName = "",
+  hideTopBadge = false,
 }: PhotoSpaceProps) {
   const [hasError, setHasError] = useState(false);
 
@@ -53,19 +57,23 @@ export default function PhotoSpace({
       )}
 
       {/* Visual Badge Overlay */}
-      <div className="absolute top-3 left-3 sm:top-4 sm:left-4 z-20 flex items-center gap-1.5 rounded-full bg-white/90 backdrop-blur-md px-3 py-1 sm:px-3.5 sm:py-1.5 text-[11px] sm:text-xs font-bold text-brand-dark shadow-sm border border-white/60">
-        <Camera size={12} className="text-brand-pink sm:w-[13px] sm:h-[13px]" />
-        <span>{badge}</span>
-      </div>
+      {!hideTopBadge && (
+        <div className="absolute top-3 left-3 sm:top-4 sm:left-4 z-20 flex items-center gap-1.5 rounded-full bg-white/90 backdrop-blur-md px-3 py-1 sm:px-3.5 sm:py-1.5 text-[11px] sm:text-xs font-bold text-brand-dark shadow-sm border border-white/60">
+          <Camera size={12} className="text-brand-pink sm:w-[13px] sm:h-[13px]" />
+          <span>{badge}</span>
+        </div>
+      )}
 
       {/* Elegant Bottom Label / Caption */}
-      <div className="absolute inset-x-0 bottom-0 z-20 bg-gradient-to-t from-black/85 via-black/40 to-transparent p-4 sm:p-6 pt-8 sm:pt-12 text-white">
-        <p className="text-sm sm:text-base font-bold leading-tight drop-shadow-sm">{title}</p>
-        {subtitle && (
-          <p className="text-[11px] sm:text-xs text-slate-200 font-medium mt-1 line-clamp-2 drop-shadow-sm leading-snug">
-            {subtitle}
-          </p>
-        )}
+      <div className="absolute inset-x-0 bottom-0 z-20 bg-gradient-to-t from-black/85 via-black/40 to-transparent p-4 sm:p-6 pt-8 sm:pt-12 text-white pointer-events-none">
+        <div className={captionClassName || "max-w-full"}>
+          <p className="text-sm sm:text-base font-bold leading-tight drop-shadow-sm">{title}</p>
+          {subtitle && (
+            <p className="text-[11px] sm:text-xs text-slate-200 font-medium mt-1 line-clamp-2 drop-shadow-sm leading-snug">
+              {subtitle}
+            </p>
+          )}
+        </div>
       </div>
 
       {/* Hover prompt for user upload */}

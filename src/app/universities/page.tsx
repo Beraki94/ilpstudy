@@ -37,7 +37,7 @@ export default function UniversitiesPage() {
               <h2 className="text-2xl sm:text-3xl font-black text-brand-dark tracking-tight">
                 Browse by Name, Province or City
               </h2>
-              <p className="text-xs sm:text-sm text-slate-500 font-medium mt-1">
+              <p className="text-sm sm:text-base text-slate-600 font-normal mt-1.5">
                 Select a university to discuss your study plans with ILP Study counselors.
               </p>
             </div>

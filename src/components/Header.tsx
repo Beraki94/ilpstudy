@@ -111,7 +111,7 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 w-full z-50 transition-all duration-200 bg-white/95 backdrop-blur-xl border-b border-slate-100 py-3 sm:py-3.5 ${
+      className={`fixed top-0 w-full z-50 transition-all duration-200 bg-white/95 backdrop-blur-xl border-b border-slate-100 py-3.5 sm:py-4 ${
         scrolled ? 'shadow-sm' : ''
       }`}
     >
@@ -133,14 +133,16 @@ export default function Header() {
             </div>
           </Link>
           
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex space-x-7 items-center bg-[#0f172a] backdrop-blur-md px-7 py-2.5 rounded-full border border-slate-700/80 shadow-md">
+          {/* Desktop Navigation - Soft Light Frosted Capsule */}
+          <nav className="hidden lg:flex space-x-1 items-center bg-slate-100/90 backdrop-blur-md px-2 py-1.5 rounded-full border border-slate-200/90 shadow-xs">
             
             {/* Home Link */}
             <Link 
               href="/"
-              className={`font-semibold text-sm transition-colors relative py-1 ${
-                pathname === '/' ? 'text-brand-pink font-bold' : 'text-slate-200 hover:text-brand-pink'
+              className={`font-bold text-sm transition-all px-3.5 py-1.5 rounded-full ${
+                pathname === '/'
+                  ? 'bg-white text-brand-pink shadow-xs'
+                  : 'text-slate-600 hover:text-brand-dark hover:bg-white/60'
               }`}
             >
               Home
@@ -154,8 +156,10 @@ export default function Header() {
             >
               <button
                 type="button"
-                className={`font-semibold text-sm transition-colors inline-flex items-center gap-1.5 py-1 ${
-                  isChinaActive ? 'text-brand-pink font-bold' : 'text-slate-200 hover:text-brand-pink'
+                className={`font-bold text-sm transition-all inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full ${
+                  isChinaActive
+                    ? 'bg-white text-brand-pink shadow-xs'
+                    : 'text-slate-600 hover:text-brand-dark hover:bg-white/60'
                 }`}
                 onClick={() => setDropdownOpen(!dropdownOpen)}
               >
@@ -246,8 +250,10 @@ export default function Header() {
                 <Link 
                   key={item.name} 
                   href={item.path}
-                  className={`font-semibold text-sm transition-colors relative py-1 ${
-                    isActive ? 'text-brand-pink font-bold' : 'text-slate-200 hover:text-brand-pink'
+                  className={`font-bold text-sm transition-all px-3.5 py-1.5 rounded-full ${
+                    isActive
+                      ? 'bg-white text-brand-pink shadow-xs'
+                      : 'text-slate-600 hover:text-brand-dark hover:bg-white/60'
                   }`}
                 >
                   {item.name}
@@ -302,11 +308,11 @@ export default function Header() {
                 </Link>
 
                 {/* Mobile Study in China Group */}
-                <div className="rounded-2xl bg-slate-50/90 p-3 border border-slate-200/80">
-                  <span className="text-[10px] font-extrabold uppercase tracking-wider text-brand-pink block px-2 mb-2">
+                <div className="rounded-2xl bg-slate-50/90 p-3.5 border border-slate-200/80">
+                  <span className="text-xs font-extrabold uppercase tracking-wider text-brand-pink block px-2 mb-2.5">
                     Study in China Hub
                   </span>
-                  <div className="grid grid-cols-1 gap-1">
+                  <div className="grid grid-cols-1 gap-1.5">
                     {chinaSublinks.map((sub) => {
                       const Icon = sub.icon;
                       const isSubActive = pathname === sub.path;
@@ -314,14 +320,14 @@ export default function Header() {
                         <Link
                           key={sub.name}
                           href={sub.path}
-                          className={`px-3 py-2 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2.5 transition-all ${
+                          className={`px-3 py-2.5 rounded-xl text-sm font-bold flex items-center gap-3 transition-all ${
                             isSubActive ? 'bg-white text-brand-pink shadow-xs' : 'text-slate-700 hover:text-brand-pink active:bg-slate-100'
                           }`}
                         >
-                          <Icon size={16} className={`${sub.color} flex-shrink-0`} />
+                          <Icon size={18} className={`${sub.color} flex-shrink-0`} />
                           <div className="flex flex-col">
                             <span>{sub.name}</span>
-                            <span className="text-[10px] font-normal text-slate-500 line-clamp-1">{sub.desc}</span>
+                            <span className="text-xs font-normal text-slate-500 line-clamp-1">{sub.desc}</span>
                           </div>
                         </Link>
                       );
@@ -335,7 +341,7 @@ export default function Header() {
                     <Link
                       key={item.name}
                       href={item.path}
-                      className={`px-4 py-2.5 rounded-2xl text-base font-bold transition-all flex items-center justify-between ${
+                      className={`px-4 py-3 rounded-2xl text-base font-bold transition-all flex items-center justify-between ${
                         isActive
                           ? 'bg-brand-pink/10 text-brand-pink'
                           : 'text-slate-700 hover:bg-slate-50 hover:text-brand-pink'
@@ -349,7 +355,7 @@ export default function Header() {
 
                 <Link
                   href="/how-we-check"
-                  className={`px-4 py-2 rounded-2xl text-xs font-semibold transition-all flex items-center justify-between text-slate-500 hover:text-brand-pink ${
+                  className={`px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-semibold transition-all flex items-center justify-between text-slate-500 hover:text-brand-pink ${
                     pathname === '/how-we-check' ? 'text-brand-pink font-bold' : ''
                   }`}
                 >
@@ -360,18 +366,18 @@ export default function Header() {
               <div className="pt-4 border-t border-slate-100 flex flex-col gap-3">
                 <Link
                   href="/contact"
-                  className="w-full py-3.5 rounded-xl bg-brand-pink text-white font-bold text-center shadow-glow-pink hover:bg-[#d10079] transition-colors flex items-center justify-center gap-2 text-sm"
+                  className="w-full py-4 rounded-xl bg-brand-pink text-white font-bold text-center shadow-glow-pink hover:bg-[#d10079] transition-colors flex items-center justify-center gap-2 text-base"
                 >
-                  Book Free Consultation <ArrowUpRight size={16} />
+                  Book Free Consultation <ArrowUpRight size={18} />
                 </Link>
 
-                <div className="flex flex-col gap-2 text-xs font-semibold text-slate-600 pt-1 px-1">
-                  <a href="tel:+8801602566398" className="flex items-center gap-2 hover:text-brand-green">
-                    <Phone size={14} className="text-brand-green flex-shrink-0" />
+                <div className="flex flex-col gap-2.5 text-xs sm:text-sm font-semibold text-slate-600 pt-1 px-1">
+                  <a href="tel:+8801602566398" className="flex items-center gap-2.5 hover:text-brand-green">
+                    <Phone size={15} className="text-brand-green flex-shrink-0" />
                     <span>Hotline: +880 1602 566398</span>
                   </a>
-                  <a href="mailto:info@ilpstudy.com" className="flex items-center gap-2 hover:text-brand-pink">
-                    <Mail size={14} className="text-brand-pink flex-shrink-0" />
+                  <a href="mailto:info@ilpstudy.com" className="flex items-center gap-2.5 hover:text-brand-pink">
+                    <Mail size={15} className="text-brand-pink flex-shrink-0" />
                     <span>Email: info@ilpstudy.com</span>
                   </a>
                 </div>

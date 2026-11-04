@@ -121,7 +121,7 @@ export default function AdmissionWorkflow() {
                     <Icon size={24} />
                   </div>
 
-                  <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 block mb-1">
+                  <span className="text-xs font-extrabold uppercase tracking-wider text-slate-400 block mb-1.5">
                     Step {st.num} &middot; {st.subtitle}
                   </span>
 
@@ -129,7 +129,7 @@ export default function AdmissionWorkflow() {
                     {st.title}
                   </h3>
 
-                  <p className="text-slate-600 text-sm leading-relaxed font-normal">
+                  <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
                     {st.desc}
                   </p>
                 </div>
@@ -137,7 +137,7 @@ export default function AdmissionWorkflow() {
                 <div className="mt-8 pt-4 border-t border-slate-100 relative z-10">
                   <Link
                     href={st.link}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-dark group-hover:text-brand-pink transition-colors"
+                    className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-brand-dark group-hover:text-brand-pink transition-colors"
                   >
                     <span>{st.actionText}</span>
                     <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
@@ -157,7 +157,7 @@ export default function AdmissionWorkflow() {
             <h3 className="text-2xl sm:text-3xl font-black text-brand-dark tracking-tight">
               Useful Information.
             </h3>
-            <p className="text-xs sm:text-sm text-slate-600 font-medium mt-1">
+            <p className="text-sm sm:text-base text-slate-600 font-medium mt-1.5">
               Essential planning tools and guidance documents to prepare your China study journey.
             </p>
           </div>
@@ -176,16 +176,16 @@ export default function AdmissionWorkflow() {
                       <Icon size={22} />
                     </div>
 
-                    <h4 className="font-extrabold text-lg text-brand-dark group-hover:text-brand-pink transition-colors">
+                    <h4 className="font-extrabold text-lg sm:text-xl text-brand-dark group-hover:text-brand-pink transition-colors">
                       {res.title}
                     </h4>
 
-                    <p className="text-xs text-slate-600 font-medium leading-relaxed">
+                    <p className="text-sm text-slate-600 font-normal leading-relaxed">
                       {res.desc}
                     </p>
                   </div>
 
-                  <div className="mt-6 pt-4 border-t border-slate-100 flex items-center gap-1.5 text-xs font-bold text-brand-pink">
+                  <div className="mt-6 pt-4 border-t border-slate-100 flex items-center gap-1.5 text-xs sm:text-sm font-bold text-brand-pink">
                     <span>{res.actionText}</span>
                     <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
                   </div>

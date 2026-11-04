@@ -79,13 +79,13 @@ export default function ScholarshipsPage() {
             
             <div className="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/90 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group">
               <div>
-                <span className="text-[10px] font-bold uppercase tracking-wider text-brand-pink block mb-2">
+                <span className="text-xs font-bold uppercase tracking-wider text-brand-pink block mb-2">
                   CHOOSE YOUR ROUTE
                 </span>
-                <h3 className="text-lg font-extrabold text-brand-dark mb-2">
+                <h3 className="text-lg sm:text-xl font-black text-brand-dark mb-2">
                   Find the right funding route.
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
+                <p className="text-sm text-slate-600 font-normal leading-relaxed">
                   Look into government, university and local funding options. Check which route accepts your nationality, academic background and proposed study level.
                 </p>
               </div>
@@ -93,13 +93,13 @@ export default function ScholarshipsPage() {
 
             <div className="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/90 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group">
               <div>
-                <span className="text-[10px] font-bold uppercase tracking-wider text-brand-green block mb-2">
+                <span className="text-xs font-bold uppercase tracking-wider text-brand-green block mb-2">
                   UNDERSTAND THE OFFER
                 </span>
-                <h3 className="text-lg font-extrabold text-brand-dark mb-2">
+                <h3 className="text-lg sm:text-xl font-black text-brand-dark mb-2">
                   Know what the award covers.
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
+                <p className="text-sm text-slate-600 font-normal leading-relaxed">
                   Check tuition, accommodation, insurance and living support separately. Confirm the funding period, renewal conditions and any costs you will need to pay.
                 </p>
               </div>
@@ -107,43 +107,43 @@ export default function ScholarshipsPage() {
 
             <div className="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/90 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group">
               <div>
-                <span className="text-[10px] font-bold uppercase tracking-wider text-brand-purple block mb-2">
+                <span className="text-xs font-bold uppercase tracking-wider text-brand-purple block mb-2">
                   PREPARE YOUR APPLICATION
                 </span>
-                <h3 className="text-lg font-extrabold text-brand-dark mb-2">
+                <h3 className="text-lg sm:text-xl font-black text-brand-dark mb-2">
                   Build a complete application.
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
+                <p className="text-sm text-slate-600 font-normal leading-relaxed">
                   Follow the current award notice. Prepare your academic records, language evidence, study plan and any other required documents. Scholarship and university deadlines may differ.
                 </p>
               </div>
               <Link 
                 href="/checklist"
-                className="mt-4 pt-3 border-t border-slate-100 text-xs font-bold text-brand-purple hover:underline inline-flex items-center gap-1"
+                className="mt-4 pt-3 border-t border-slate-100 text-xs sm:text-sm font-bold text-brand-purple hover:underline inline-flex items-center gap-1"
               >
                 <span>Open document checklist</span>
-                <ArrowRight size={12} />
+                <ArrowRight size={13} />
               </Link>
             </div>
 
             <div className="bg-brand-dark text-white rounded-3xl p-6 sm:p-7 shadow-card-dark hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group">
               <div>
-                <span className="text-[10px] font-bold uppercase tracking-wider text-brand-green block mb-2">
+                <span className="text-xs font-bold uppercase tracking-wider text-brand-green block mb-2">
                   DISCUSS YOUR OPTIONS
                 </span>
-                <h3 className="text-lg font-extrabold text-white mb-2">
+                <h3 className="text-lg sm:text-xl font-black text-white mb-2">
                   Get guidance from ILP Study.
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-300 font-medium leading-relaxed">
+                <p className="text-sm text-slate-300 font-normal leading-relaxed">
                   Share your results, preferred subject and target intake. Scholarship decisions are made solely by the awarding institution or authority.
                 </p>
               </div>
               <Link
                 href="/contact"
-                className="mt-4 pt-3 border-t border-white/10 text-xs font-bold text-brand-pink hover:underline inline-flex items-center gap-1"
+                className="mt-4 pt-3 border-t border-white/10 text-xs sm:text-sm font-bold text-brand-pink hover:underline inline-flex items-center gap-1"
               >
                 <span>Book a free consultation</span>
-                <ArrowRight size={12} />
+                <ArrowRight size={13} />
               </Link>
             </div>
 
@@ -219,8 +219,8 @@ export default function ScholarshipsPage() {
                   <div className="w-10 h-10 rounded-2xl bg-brand-pink text-white font-black flex items-center justify-center text-sm shadow-sm">
                     {st.num}
                   </div>
-                  <h3 className="text-lg font-black text-brand-dark">{st.title}</h3>
-                  <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
+                  <h3 className="text-xl font-black text-brand-dark">{st.title}</h3>
+                  <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed">
                     {st.desc}
                   </p>
                 </div>

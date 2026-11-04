@@ -135,16 +135,16 @@ export default function Fields() {
                   <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-white border border-slate-200/60 flex items-center justify-center transition-colors duration-300 ${field.color} ${field.bgHover} group-hover:text-white shadow-xs`}>
                     {field.icon}
                   </div>
-                  <span className="text-[10px] font-bold text-slate-500 bg-slate-100 px-2.5 sm:px-3 py-1 rounded-full">
+                  <span className="text-xs font-bold text-slate-600 bg-slate-100 px-2.5 sm:px-3 py-1 rounded-full">
                     {field.badge}
                   </span>
                 </div>
 
-                <h3 className="font-extrabold text-brand-dark mb-1.5 sm:mb-2 text-base sm:text-lg group-hover:text-brand-pink transition-colors">
+                <h3 className="font-extrabold text-brand-dark mb-1.5 sm:mb-2 text-lg sm:text-xl group-hover:text-brand-pink transition-colors">
                   {field.name}
                 </h3>
 
-                <p className="text-xs text-slate-500 font-medium leading-relaxed mb-3 sm:mb-4">
+                <p className="text-sm text-slate-600 font-normal leading-relaxed mb-3 sm:mb-4">
                   {field.subjects}
                 </p>
               </div>
@@ -152,14 +152,14 @@ export default function Fields() {
               <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
                 <Link
                   href={field.link}
-                  className="text-xs font-bold text-brand-dark group-hover:text-brand-pink transition-colors inline-flex items-center gap-1"
+                  className="text-xs sm:text-sm font-bold text-brand-dark group-hover:text-brand-pink transition-colors inline-flex items-center gap-1"
                 >
                   <span>Explore Route</span>
                   <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
                 <Link
                   href="/contact"
-                  className="text-xs font-semibold text-slate-400 hover:text-brand-green"
+                  className="text-xs sm:text-sm font-semibold text-slate-400 hover:text-brand-green"
                 >
                   Check Eligibility
                 </Link>
@@ -172,7 +172,7 @@ export default function Fields() {
         <div className="mt-10 sm:mt-14 text-center">
           <Link
             href="/study-program"
-            className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-brand-dark text-white font-bold text-xs sm:text-sm hover:bg-brand-pink transition-all shadow-soft group w-full sm:w-auto"
+            className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-brand-dark text-white font-bold text-sm sm:text-base hover:bg-brand-pink transition-all shadow-soft group w-full sm:w-auto"
           >
             <span>View Complete Programmes Guide &amp; Subject Lists</span>
             <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform flex-shrink-0" />

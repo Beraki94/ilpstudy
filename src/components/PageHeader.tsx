@@ -9,18 +9,18 @@ interface PageHeaderProps {
 
 export default function PageHeader({ title, description }: PageHeaderProps) {
   return (
-    <div className="relative bg-[#0f172a] pt-24 pb-14 sm:pt-36 sm:pb-28 overflow-hidden mt-[64px] sm:mt-[70px] max-w-full">
+    <div className="relative bg-[#0f172a] pt-32 pb-20 sm:pt-36 sm:pb-28 overflow-hidden mt-[64px] sm:mt-[70px] max-w-full">
       {/* Decorative Brand Rings matching Hero */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div 
           animate={{ rotate: 360 }}
           transition={{ duration: 160, repeat: Infinity, ease: "linear" }}
-          className="absolute -top-[30%] -right-[15%] w-[70vw] max-w-[600px] h-[70vw] max-h-[600px] rounded-full opacity-[0.05] border-[70px] border-brand-pink"
+          className="absolute -top-[25%] -right-[15%] w-[85vw] max-w-[600px] h-[85vw] max-h-[600px] rounded-full opacity-20 sm:opacity-10 border-[28px] sm:border-[50px] lg:border-[70px] border-brand-pink"
         />
         <motion.div 
           animate={{ rotate: -360 }}
           transition={{ duration: 130, repeat: Infinity, ease: "linear" }}
-          className="absolute -bottom-[30%] -left-[15%] w-[60vw] max-w-[500px] h-[60vw] max-h-[500px] rounded-full opacity-[0.05] border-[60px] border-brand-green"
+          className="absolute -bottom-[25%] -left-[15%] w-[75vw] max-w-[500px] h-[75vw] max-h-[500px] rounded-full opacity-20 sm:opacity-10 border-[24px] sm:border-[40px] lg:border-[60px] border-brand-green"
         />
       </div>
 
@@ -36,7 +36,7 @@ export default function PageHeader({ title, description }: PageHeaderProps) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight"
         >
           {title}
         </motion.h1>
@@ -46,7 +46,7 @@ export default function PageHeader({ title, description }: PageHeaderProps) {
           initial={{ width: 0 }}
           animate={{ width: 80 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="h-1 bg-brand-green mt-4 sm:mt-6 mb-5 sm:mb-8 rounded-full"
+          className="h-1.5 bg-brand-green mt-4 sm:mt-6 mb-5 sm:mb-8 rounded-full"
         />
 
         {description && (
@@ -54,7 +54,7 @@ export default function PageHeader({ title, description }: PageHeaderProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed font-normal sm:font-medium max-w-3xl"
+            className="text-base sm:text-lg md:text-xl text-slate-300 leading-relaxed font-normal sm:font-medium max-w-3xl"
           >
             {description}
           </motion.p>

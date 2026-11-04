@@ -83,15 +83,15 @@ export default function Features() {
                     </div>
                   </div>
                   
-                  <span className="text-[11px] font-extrabold uppercase tracking-wider text-brand-pink block mb-1">
+                  <span className="text-xs font-extrabold uppercase tracking-wider text-brand-pink block mb-1.5">
                     {item.code}
                   </span>
 
-                  <h3 className="text-xl font-bold text-brand-dark mb-3 group-hover:text-brand-pink transition-colors">
+                  <h3 className="text-xl sm:text-2xl font-black text-brand-dark mb-3 group-hover:text-brand-pink transition-colors">
                     {item.title}
                   </h3>
                   
-                  <p className="text-slate-600 leading-relaxed text-sm font-normal">
+                  <p className="text-slate-600 leading-relaxed text-sm sm:text-base font-normal">
                     {item.description}
                   </p>
                 </div>
@@ -99,7 +99,7 @@ export default function Features() {
                 <div className="mt-8 pt-4 border-t border-slate-200/60">
                   <Link
                     href={item.link}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-dark group-hover:text-brand-pink transition-colors"
+                    className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-brand-dark group-hover:text-brand-pink transition-colors"
                   >
                     <span>{item.actionText}</span>
                     <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
