@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef, useState } from 'react';
-import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { 
   Star, 
   ChevronLeft, 
@@ -155,21 +155,22 @@ export default function StudentTestimonials() {
   };
 
   return (
-    <section className="py-16 sm:py-24 bg-gradient-to-b from-white via-slate-50 to-white relative overflow-hidden" id="testimonials">
-      {/* Decorative Background Glows */}
-      <div className="absolute top-1/2 left-0 w-96 h-96 bg-brand-pink/5 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute top-1/2 right-0 w-96 h-96 bg-brand-green/5 rounded-full blur-[120px] pointer-events-none" />
+    <section className="py-20 sm:py-28 bg-[#0f172a] relative overflow-hidden" id="testimonials">
+      {/* Decorative Ambient Glows matching PageHeader */}
+      <div className="absolute top-1/4 -left-20 w-[350px] sm:w-[600px] h-[350px] sm:h-[600px] bg-brand-purple/20 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 -right-20 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-brand-green/15 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-15 mix-blend-overlay pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 sm:mb-14">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 sm:mb-14 relative z-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div className="max-w-2xl">
             <span className="text-xs font-bold uppercase tracking-wider text-brand-pink block mb-2">
               STUDENT EXPERIENCES
             </span>
-            <h2 className="text-2xl sm:text-4xl md:text-5xl font-black text-brand-dark tracking-tight mb-3">
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-black text-white tracking-tight mb-3">
               Voices of Students in China
             </h2>
-            <p className="text-sm sm:text-lg text-slate-600 font-normal leading-relaxed">
+            <p className="text-sm sm:text-lg text-slate-300 font-normal leading-relaxed">
               Read how Bangladeshi students navigated university selection, document preparation, and admissions with guidance from ILP Study.
             </p>
           </div>
@@ -181,14 +182,14 @@ export default function StudentTestimonials() {
             </span>
             <button
               onClick={scrollLeft}
-              className="w-11 h-11 rounded-full border border-slate-200 bg-white shadow-soft flex items-center justify-center text-slate-700 hover:text-brand-pink hover:border-brand-pink transition-colors"
+              className="w-11 h-11 rounded-full border border-slate-700 bg-slate-800/80 text-white shadow-soft flex items-center justify-center hover:bg-brand-pink hover:border-brand-pink transition-colors"
               aria-label="Previous testimonial"
             >
               <ChevronLeft size={20} />
             </button>
             <button
               onClick={scrollRight}
-              className="w-11 h-11 rounded-full border border-slate-200 bg-white shadow-soft flex items-center justify-center text-slate-700 hover:text-brand-pink hover:border-brand-pink transition-colors"
+              className="w-11 h-11 rounded-full border border-slate-700 bg-slate-800/80 text-white shadow-soft flex items-center justify-center hover:bg-brand-pink hover:border-brand-pink transition-colors"
               aria-label="Next testimonial"
             >
               <ChevronRight size={20} />
@@ -200,13 +201,13 @@ export default function StudentTestimonials() {
       {/* Infinite Scroll Marquee Container */}
       <div 
         ref={scrollContainerRef}
-        className="w-full overflow-x-auto no-scrollbar py-4 cursor-grab active:cursor-grabbing"
+        className="w-full overflow-x-auto no-scrollbar py-4 cursor-grab active:cursor-grabbing relative z-10"
       >
         <div className="animate-marquee gap-6 px-4">
           {duplicatedList.map((item, idx) => (
             <div
               key={`${item.id}-${idx}`}
-              className="w-[320px] sm:w-[380px] bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/80 shadow-soft hover:shadow-xl transition-all duration-300 flex-shrink-0 flex flex-col justify-between group"
+              className="w-[320px] sm:w-[380px] bg-white rounded-3xl p-6 sm:p-7 border border-slate-100 shadow-card-dark hover:shadow-card-dark-hover hover:-translate-y-2 hover:border-brand-pink/50 transition-all duration-300 flex-shrink-0 flex flex-col justify-between group"
             >
               <div>
                 {/* Header: Passport Photo Slot + Student Info */}
@@ -250,14 +251,14 @@ export default function StudentTestimonials() {
                 </div>
 
                 {/* Quote */}
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal italic relative">
+                <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-normal italic relative">
                   &ldquo;{item.quote}&rdquo;
                 </p>
               </div>
 
               {/* Bottom Card Footer */}
               <div className="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-semibold text-slate-400">
-                <span className="inline-flex items-center gap-1 text-brand-green">
+                <span className="inline-flex items-center gap-1 text-brand-green font-bold">
                   <GraduationCap size={13} />
                   <span>{item.year}</span>
                 </span>
@@ -301,11 +302,12 @@ function PassportPhotoFrame({
   return (
     <div className="relative w-16 h-[60px] sm:w-[72px] sm:h-[68px] flex-shrink-0 rounded-2xl overflow-hidden border-2 border-brand-purple/30 bg-slate-100 shadow-sm group-hover:border-brand-pink transition-colors">
       {!imgError ? (
-        <img
+        <Image
           src={photoSrc}
           alt={`${studentName} - ${photoLabel}`}
-          className="w-full h-full object-cover"
-          loading="lazy"
+          fill
+          sizes="72px"
+          className="object-cover"
           onError={() => setImgError(true)}
         />
       ) : (

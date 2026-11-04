@@ -17,12 +17,11 @@ import {
   Calendar,
   X,
   MessageSquare,
-  CheckCircle2,
   DollarSign,
-  MapPin,
   BookOpen
 } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 type UniversityCategory = 'all' | 'engineering' | 'medical' | 'business' | 'language';
 
@@ -48,12 +47,19 @@ export default function Destinations() {
   const [selectedCategory, setSelectedCategory] = useState<UniversityCategory>('all');
   const [currentPage, setCurrentPage] = useState<number>(0);
   const [selectedUniModal, setSelectedUniModal] = useState<UniversityItem | null>(null);
-  const cardsContainerRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState<boolean>(false);
+  const [canScrollRight, setCanScrollRight] = useState<boolean>(true);
+  const [perView, setPerView] = useState<number>(3);
 
-  // Touch swipe support for mobile
-  const [touchStart, setTouchStart] = useState<number | null>(null);
-  const [touchEnd, setTouchEnd] = useState<number | null>(null);
-  const minSwipeDistance = 50;
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const [isPaused, setIsPaused] = useState<boolean>(false);
+  const autoPlayTimerRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Mouse drag support for desktop
+  const [isDragging, setIsDragging] = useState<boolean>(false);
+  const [startX, setStartX] = useState<number>(0);
+  const [scrollLeftPos, setScrollLeftPos] = useState<number>(0);
+  const [dragDistance, setDragDistance] = useState<number>(0);
 
   // Close modal on Escape key
   useEffect(() => {
@@ -424,81 +430,140 @@ export default function Destinations() {
     (uni) => selectedCategory === 'all' || uni.category === selectedCategory
   );
 
-  // Responsive cards per slide view (3 cards on desktop)
-  const cardsPerPage = 3;
-  const totalPages = Math.ceil(filteredList.length / cardsPerPage);
+  // Track cards per view based on screen size
+  useEffect(() => {
+    const updatePerView = () => {
+      if (window.innerWidth >= 1024) {
+        setPerView(3);
+      } else if (window.innerWidth >= 768) {
+        setPerView(2);
+      } else {
+        setPerView(1);
+      }
+    };
+    updatePerView();
+    window.addEventListener('resize', updatePerView);
+    return () => window.removeEventListener('resize', updatePerView);
+  }, []);
 
-  // Smooth scroll back to top of cards on mobile so users don't start at the bottom of the next card
-  const scrollToCardsTop = () => {
-    if (typeof window !== 'undefined' && window.innerWidth < 768 && cardsContainerRef.current) {
-      cardsContainerRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  // Update button enabled states and current page indicator based on scroll position
+  const updateScrollState = () => {
+    if (!carouselRef.current) return;
+    const { scrollLeft, scrollWidth, clientWidth } = carouselRef.current;
+    
+    // Generous threshold to accommodate subpixel scaling and rounding
+    setCanScrollLeft(scrollLeft > 12);
+    setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 12);
+
+    if (clientWidth > 0) {
+      const page = Math.round(scrollLeft / clientWidth);
+      setCurrentPage(page);
     }
   };
 
-  const handlePrev = () => {
-    setCurrentPage((prev) => Math.max(0, prev - 1));
-  };
+  // Reset scroll and update state when category changes
+  useEffect(() => {
+    if (carouselRef.current) {
+      carouselRef.current.scrollTo({ left: 0, behavior: 'instant' as ScrollBehavior });
+    }
+    setCurrentPage(0);
+    const timer = setTimeout(updateScrollState, 60);
+    return () => clearTimeout(timer);
+  }, [selectedCategory]);
 
-  const handleNext = () => {
-    setCurrentPage((prev) => Math.min(totalPages - 1, prev + 1));
-  };
-
-  const handlePrevWithScroll = () => {
-    if (currentPage > 0) {
-      handlePrev();
-      scrollToCardsTop();
+  const scrollNext = (loop: boolean = true) => {
+    if (!carouselRef.current) return;
+    const container = carouselRef.current;
+    const maxScroll = container.scrollWidth - container.clientWidth;
+    
+    if (loop && container.scrollLeft >= maxScroll - 16) {
+      container.scrollTo({ left: 0, behavior: 'smooth' });
+    } else {
+      container.scrollBy({ left: container.clientWidth, behavior: 'smooth' });
     }
   };
 
-  const handleNextWithScroll = () => {
-    if (currentPage < totalPages - 1) {
-      handleNext();
-      scrollToCardsTop();
+  const scrollPrev = () => {
+    if (!carouselRef.current) return;
+    const container = carouselRef.current;
+    if (container.scrollLeft <= 16) {
+      const maxScroll = container.scrollWidth - container.clientWidth;
+      container.scrollTo({ left: maxScroll, behavior: 'smooth' });
+    } else {
+      container.scrollBy({ left: -container.clientWidth, behavior: 'smooth' });
     }
   };
 
-  const handlePageSelectWithScroll = (pageIndex: number) => {
-    setCurrentPage(pageIndex);
-    scrollToCardsTop();
+  const scrollToPage = (pageIndex: number) => {
+    if (!carouselRef.current) return;
+    const container = carouselRef.current;
+    container.scrollTo({
+      left: pageIndex * container.clientWidth,
+      behavior: 'smooth'
+    });
   };
 
-  // Reset page index when category changes
-  const handleCategoryChangeWithScroll = (catId: UniversityCategory) => {
+  const handleCategoryChange = (catId: UniversityCategory) => {
     setSelectedCategory(catId);
     setCurrentPage(0);
-    scrollToCardsTop();
-  };
-
-  // Touch Swipe Handlers for mobile
-  const onTouchStart = (e: React.TouchEvent) => {
-    setTouchEnd(null);
-    setTouchStart(e.targetTouches[0].clientX);
-  };
-
-  const onTouchMove = (e: React.TouchEvent) => {
-    setTouchEnd(e.targetTouches[0].clientX);
-  };
-
-  const onTouchEnd = () => {
-    if (!touchStart || !touchEnd) return;
-    const distance = touchStart - touchEnd;
-    const isLeftSwipe = distance > minSwipeDistance;
-    const isRightSwipe = distance < -minSwipeDistance;
-
-    if (isLeftSwipe && currentPage < totalPages - 1) {
-      handleNextWithScroll();
-    } else if (isRightSwipe && currentPage > 0) {
-      handlePrevWithScroll();
+    if (carouselRef.current) {
+      carouselRef.current.scrollTo({ left: 0, behavior: 'smooth' });
     }
   };
 
-  const startIndex = currentPage * cardsPerPage;
-  const currentCards = filteredList.slice(startIndex, startIndex + cardsPerPage);
-  const displayStart = filteredList.length > 0 ? startIndex + 1 : 0;
-  const displayEnd = Math.min(startIndex + cardsPerPage, filteredList.length);
+  // Desktop mouse drag handlers
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (!carouselRef.current) return;
+    setIsDragging(true);
+    setStartX(e.pageX - carouselRef.current.offsetLeft);
+    setScrollLeftPos(carouselRef.current.scrollLeft);
+    setDragDistance(0);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging || !carouselRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - carouselRef.current.offsetLeft;
+    const walk = x - startX;
+    setDragDistance(Math.abs(walk));
+    carouselRef.current.scrollLeft = scrollLeftPos - walk;
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseLeave = () => {
+    setIsDragging(false);
+  };
+
+  const totalPages = Math.max(1, Math.ceil(filteredList.length / perView));
+  const displayStart = filteredList.length > 0 ? Math.min(currentPage * perView + 1, filteredList.length) : 0;
+  const displayEnd = Math.min((currentPage + 1) * perView, filteredList.length);
+
+  // Auto-play timer: ticks every 6s, pauses on hover, touch, drag, or modal
+  useEffect(() => {
+    if (isPaused || isDragging || selectedUniModal || totalPages <= 1) {
+      if (autoPlayTimerRef.current) {
+        clearInterval(autoPlayTimerRef.current);
+      }
+      return;
+    }
+
+    autoPlayTimerRef.current = setInterval(() => {
+      if (typeof document !== 'undefined' && document.hidden) return;
+      scrollNext(true);
+    }, 6000);
+
+    return () => {
+      if (autoPlayTimerRef.current) {
+        clearInterval(autoPlayTimerRef.current);
+      }
+    };
+  }, [isPaused, isDragging, selectedUniModal, totalPages]);
 
   return (
-    <section className="py-14 sm:py-24 bg-white relative" id="destinations">
+    <section className="py-16 sm:py-24 bg-[#f1f5f9] border-y border-slate-200 relative" id="destinations">
       <div className="absolute top-1/2 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -527,8 +592,8 @@ export default function Destinations() {
           <div className="flex items-center gap-3">
             <div className="flex items-center gap-2">
               <button
-                onClick={handlePrev}
-                disabled={currentPage === 0}
+                onClick={scrollPrev}
+                disabled={!canScrollLeft}
                 className="w-10 h-10 rounded-full border border-slate-200 bg-white shadow-soft flex items-center justify-center text-slate-700 hover:text-brand-pink hover:border-brand-pink disabled:opacity-30 disabled:cursor-not-allowed transition-all"
                 aria-label="Previous universities"
                 title="Previous university page"
@@ -536,8 +601,8 @@ export default function Destinations() {
                 <ChevronLeft size={20} />
               </button>
               <button
-                onClick={handleNext}
-                disabled={currentPage >= totalPages - 1}
+                onClick={() => scrollNext(true)}
+                disabled={!canScrollRight}
                 className="w-10 h-10 rounded-full border border-slate-200 bg-white shadow-soft flex items-center justify-center text-slate-700 hover:text-brand-pink hover:border-brand-pink disabled:opacity-30 disabled:cursor-not-allowed transition-all"
                 aria-label="Next universities"
                 title="Next university page"
@@ -549,14 +614,14 @@ export default function Destinations() {
         </div>
 
         {/* Quick Subject Filter Tabs */}
-        <div className="flex flex-wrap items-center gap-2 mb-10 pb-4 border-b border-slate-100">
+        <div className="flex flex-wrap items-center gap-2 mb-8 pb-4 border-b border-slate-100">
           {categories.map((cat) => {
             const Icon = cat.icon;
             const isSelected = selectedCategory === cat.id;
             return (
               <button
                 key={cat.id}
-                onClick={() => handleCategoryChangeWithScroll(cat.id as UniversityCategory)}
+                onClick={() => handleCategoryChange(cat.id as UniversityCategory)}
                 className={`px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition-all flex items-center gap-1.5 ${
                   isSelected
                     ? 'bg-brand-dark text-white shadow-soft scale-105'
@@ -570,63 +635,86 @@ export default function Destinations() {
           })}
         </div>
 
-        {/* CONTROLLED 3-CARD SLIDER: FIXED CARD ERGONOMICS WITH GOOD OPTIONS */}
-        <div 
-          ref={cardsContainerRef}
-          className="overflow-hidden scroll-mt-24"
-          onTouchStart={onTouchStart}
-          onTouchMove={onTouchMove}
-          onTouchEnd={onTouchEnd}
-        >
-          <motion.div 
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch"
-            key={`${selectedCategory}-${currentPage}`}
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.35, ease: "easeOut" }}
+        {/* TRUE SLIDING CAROUSEL: 3 CARDS MAINTAINED ON DESKTOP, SLIDES HORIZONTALLY ON BOTH DESKTOP AND MOBILE */}
+        <div className="relative">
+          <div 
+            ref={carouselRef}
+            onScroll={updateScrollState}
+            onMouseDown={handleMouseDown}
+            onMouseMove={handleMouseMove}
+            onMouseUp={handleMouseUp}
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => {
+              handleMouseLeave();
+              setIsPaused(false);
+            }}
+            onTouchStart={() => setIsPaused(true)}
+            onTouchEnd={() => {
+              setTimeout(() => setIsPaused(false), 2500);
+            }}
+            className={`overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory flex gap-6 sm:gap-8 pt-2 pb-6 select-none ${
+              isDragging ? 'cursor-grabbing' : 'cursor-grab'
+            }`}
+            style={{ 
+              scrollbarWidth: 'none', 
+              msOverflowStyle: 'none',
+              WebkitOverflowScrolling: 'touch'
+            }}
           >
-            {currentCards.map((dest) => (
-              <SpaciousUniversityCard 
-                key={dest.id} 
-                dest={dest} 
-                onOpenDetails={(uni) => setSelectedUniModal(uni)}
-              />
+            {filteredList.map((dest) => (
+              <div 
+                key={dest.id}
+                className="snap-start flex-shrink-0 w-full sm:w-[calc(50%-16px)] lg:w-[calc((100%-64px)/3)] flex flex-col"
+              >
+                <SpaciousUniversityCard 
+                  dest={dest} 
+                  onOpenDetails={(uni) => {
+                    if (dragDistance <= 8) {
+                      setSelectedUniModal(uni);
+                    }
+                  }}
+                />
+              </div>
             ))}
-          </motion.div>
+          </div>
 
           {/* Slider Progress Bar, Pagination Dots & Bottom Mobile Controls */}
-          <div className="mt-8 pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="mt-4 pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
             
             {/* Left: Counter & Page indicator */}
             <div className="text-xs text-slate-500 font-medium order-2 sm:order-1 text-center sm:text-left">
               Showing <strong className="text-brand-dark">{displayStart}–{displayEnd}</strong> of <strong className="text-brand-dark">{filteredList.length}</strong> top choice universities
-              <span className="text-slate-400 block sm:inline sm:ml-1">
-                (Page {currentPage + 1} of {totalPages})
-              </span>
+              {totalPages > 1 && (
+                <span className="text-slate-400 block sm:inline sm:ml-1">
+                  (Slide {currentPage + 1} of {totalPages})
+                </span>
+              )}
             </div>
             
             {/* Center: Pagination Dots */}
-            <div className="flex items-center gap-1.5 order-1 sm:order-2">
-              {Array.from({ length: totalPages }).map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => handlePageSelectWithScroll(idx)}
-                  className={`h-2 rounded-full transition-all duration-300 ${
-                    currentPage === idx 
-                      ? 'w-7 bg-brand-pink shadow-xs' 
-                      : 'w-2 bg-slate-200 hover:bg-slate-300'
-                  }`}
-                  aria-label={`Go to slide page ${idx + 1}`}
-                  title={`Page ${idx + 1}`}
-                />
-              ))}
-            </div>
+            {totalPages > 1 && (
+              <div className="flex items-center gap-1.5 order-1 sm:order-2">
+                {Array.from({ length: totalPages }).map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => scrollToPage(idx)}
+                    className={`h-2 rounded-full transition-all duration-300 ${
+                      currentPage === idx 
+                        ? 'w-7 bg-brand-pink shadow-xs' 
+                        : 'w-2 bg-slate-200 hover:bg-slate-300'
+                    }`}
+                    aria-label={`Go to slide ${idx + 1}`}
+                    title={`Slide ${idx + 1}`}
+                  />
+                ))}
+              </div>
+            )}
 
-            {/* Right: Bottom Next/Prev Buttons (Directly accessible at the bottom on mobile) */}
+            {/* Right: Bottom Next/Prev Buttons */}
             <div className="flex items-center gap-2 order-3 w-full sm:w-auto justify-between sm:justify-end">
               <button
-                onClick={handlePrevWithScroll}
-                disabled={currentPage === 0}
+                onClick={scrollPrev}
+                disabled={!canScrollLeft}
                 className="flex-1 sm:flex-initial px-4 py-2.5 rounded-full border border-slate-200 bg-white shadow-soft flex items-center justify-center gap-1.5 text-xs font-bold text-slate-700 hover:text-brand-pink hover:border-brand-pink disabled:opacity-30 disabled:cursor-not-allowed transition-all"
                 aria-label="Previous universities"
               >
@@ -635,8 +723,8 @@ export default function Destinations() {
               </button>
 
               <button
-                onClick={handleNextWithScroll}
-                disabled={currentPage >= totalPages - 1}
+                onClick={() => scrollNext(true)}
+                disabled={!canScrollRight}
                 className="flex-1 sm:flex-initial px-5 py-2.5 rounded-full bg-brand-dark text-white shadow-soft flex items-center justify-center gap-1.5 text-xs font-bold hover:bg-brand-pink disabled:opacity-30 disabled:cursor-not-allowed transition-all"
                 aria-label="Next universities"
               >
@@ -654,7 +742,7 @@ export default function Destinations() {
             href="/universities"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-brand-dark text-white font-bold text-xs sm:text-sm hover:bg-brand-pink transition-all shadow-soft"
           >
-            <span>Explore Complete 60+ China University Directory</span>
+            <span>Explore Complete China University Directory (130 Institutions)</span>
             <ArrowRight size={16} />
           </Link>
         </div>
@@ -678,10 +766,12 @@ export default function Destinations() {
             >
               {/* Modal Banner Photo */}
               <div className="relative h-56 sm:h-64 overflow-hidden bg-slate-900">
-                <img 
+                <Image 
                   src={selectedUniModal.image} 
                   alt={selectedUniModal.name}
-                  className="w-full h-full object-cover"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 672px"
+                  className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/20" />
                 
@@ -842,21 +932,21 @@ function SpaciousUniversityCard({
   const [imgError, setImgError] = useState(false);
 
   return (
-    <motion.div
-      layout
-      whileHover={{ y: -6 }}
+    <div
       onClick={() => onOpenDetails(dest)}
-      className="group bg-white rounded-3xl sm:rounded-[32px] overflow-hidden border border-slate-200/80 shadow-soft hover:shadow-xl transition-all duration-300 flex flex-col justify-between cursor-pointer"
+      className="group bg-white rounded-3xl sm:rounded-[32px] overflow-hidden border border-slate-200/90 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 hover:border-brand-pink/50 transition-all duration-300 flex flex-col justify-between h-full cursor-pointer select-none"
     >
       <div>
         {/* Photo Container: Clean, Spacious, Breathing Room */}
         <div className="relative h-48 sm:h-56 overflow-hidden bg-slate-100">
           {!imgError ? (
-            <img 
+            <Image 
               src={dest.image} 
               alt={dest.name}
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-              loading="lazy"
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out select-none pointer-events-none"
+              draggable={false}
               onError={() => setImgError(true)}
             />
           ) : (
@@ -891,14 +981,14 @@ function SpaciousUniversityCard({
           <p className="text-xs font-bold text-brand-pink uppercase tracking-wider mb-2">
             {dest.tagline}
           </p>
-          <p className="text-slate-600 text-xs sm:text-sm font-medium leading-relaxed">
+          <p className="text-slate-600 text-xs sm:text-sm font-medium leading-relaxed line-clamp-3">
             {dest.highlights}
           </p>
         </div>
       </div>
 
       {/* Action Footer: View Courses & Fees / Ask Counselors */}
-      <div className="px-6 pb-6 pt-2 border-t border-slate-100 flex items-center justify-between">
+      <div className="px-6 pb-6 pt-3 border-t border-slate-100 flex items-center justify-between mt-auto">
         <button
           type="button"
           onClick={(e) => {
@@ -922,6 +1012,6 @@ function SpaciousUniversityCard({
           Ask Counselors
         </a>
       </div>
-    </motion.div>
+    </div>
   );
 }

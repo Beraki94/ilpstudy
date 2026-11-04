@@ -3,18 +3,7 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import PageHeader from '@/components/PageHeader';
-import {
-  Award,
-  CheckCircle2,
-  AlertCircle,
-  FileText,
-  Clock,
-  Sparkles,
-  ArrowRight,
-  ShieldCheck,
-  Building2,
-  DollarSign
-} from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Scholarships to Study in China from Bangladesh | ILP Study',
@@ -27,13 +16,31 @@ export const metadata: Metadata = {
 export default function ScholarshipsPage() {
   const scholarshipTypes = [
     {
-      title: "University & Presidential Scholarships",
+      title: "Government Scholarship Routes",
+      badge: "National Level Funding",
+      color: "bg-brand-pink",
+      textColor: "text-brand-pink",
+      desc: "Administered through bilateral channels and official university nominations. Funding coverage, degree eligibility, and quota allocations depend on academic standing and official intake guidelines.",
+      link: "/contact",
+      linkText: "Check Eligibility"
+    },
+    {
+      title: "Provincial & Municipal Awards",
+      badge: "Regional Opportunities",
+      color: "bg-brand-green",
+      textColor: "text-brand-green",
+      desc: "Established by regional education authorities across major academic hubs. Awards vary by province and host institution to support qualified international scholars with tuition and living contributions.",
+      link: "/contact",
+      linkText: "Explore Regional Options"
+    },
+    {
+      title: "University Merit Scholarships",
       badge: "Institutional Awards",
       color: "bg-brand-purple",
       textColor: "text-brand-purple",
-      desc: "Funded directly by individual Chinese universities to attract high-achieving international scholars. Commonly structured as 100% full tuition waiver, 50% partial waiver, or free on-campus student dormitory accommodation.",
+      desc: "Funded directly by individual Chinese universities to attract high-achieving international scholars. Commonly structured as full or partial tuition fee waivers based on academic merit.",
       link: "/contact",
-      linkText: "Check University Eligibility"
+      linkText: "Explore University Options"
     },
   ];
 
@@ -58,7 +65,7 @@ export default function ScholarshipsPage() {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-slate-50">
+      <main className="min-h-screen bg-[#f8fafc]">
         
         {/* Page Header */}
         <PageHeader 
@@ -70,7 +77,7 @@ export default function ScholarshipsPage() {
         <section className="py-12 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             
-            <div className="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/80 shadow-soft flex flex-col justify-between">
+            <div className="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/90 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group">
               <div>
                 <span className="text-[10px] font-bold uppercase tracking-wider text-brand-pink block mb-2">
                   CHOOSE YOUR ROUTE
@@ -84,7 +91,7 @@ export default function ScholarshipsPage() {
               </div>
             </div>
 
-            <div className="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/80 shadow-soft flex flex-col justify-between">
+            <div className="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/90 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group">
               <div>
                 <span className="text-[10px] font-bold uppercase tracking-wider text-brand-green block mb-2">
                   UNDERSTAND THE OFFER
@@ -98,7 +105,7 @@ export default function ScholarshipsPage() {
               </div>
             </div>
 
-            <div className="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/80 shadow-soft flex flex-col justify-between">
+            <div className="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/90 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group">
               <div>
                 <span className="text-[10px] font-bold uppercase tracking-wider text-brand-purple block mb-2">
                   PREPARE YOUR APPLICATION
@@ -119,7 +126,7 @@ export default function ScholarshipsPage() {
               </Link>
             </div>
 
-            <div className="bg-brand-dark text-white rounded-3xl p-6 sm:p-7 shadow-soft flex flex-col justify-between">
+            <div className="bg-brand-dark text-white rounded-3xl p-6 sm:p-7 shadow-card-dark hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group">
               <div>
                 <span className="text-[10px] font-bold uppercase tracking-wider text-brand-green block mb-2">
                   DISCUSS YOUR OPTIONS
@@ -144,53 +151,55 @@ export default function ScholarshipsPage() {
         </section>
 
         {/* Major Funding Categories */}
-        <section className="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-10">
-            <span className="text-xs font-bold uppercase tracking-wider text-brand-pink block mb-1">
-              SCHOLARSHIP TIERS
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-black text-brand-dark tracking-tight">
-              Major Scholarship Categories in China
-            </h2>
-            <p className="text-xs sm:text-sm text-slate-500 font-medium mt-1">
-              Explore the difference between full stipends, government tuition waivers, and institutional awards.
-            </p>
-          </div>
+        <section className="py-16 bg-white border-y border-slate-200/80">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="mb-12 text-center max-w-3xl mx-auto">
+              <span className="text-xs font-bold uppercase tracking-wider text-brand-pink block mb-1">
+                SCHOLARSHIP TIERS
+              </span>
+              <h2 className="text-2xl sm:text-4xl font-black text-brand-dark tracking-tight">
+                Major Scholarship Categories in China
+              </h2>
+              <p className="text-xs sm:text-base text-slate-600 font-medium mt-2">
+                Explore the difference between full stipends, government tuition waivers, and institutional awards.
+              </p>
+            </div>
 
-          <div className="max-w-2xl">
-            {scholarshipTypes.map((type, idx) => (
-              <div
-                key={idx}
-                className="bg-white rounded-[32px] p-7 border border-slate-200/80 shadow-soft hover:shadow-xl transition-all flex flex-col justify-between group"
-              >
-                <div>
-                  <span className={`px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider ${type.color} text-white inline-block mb-4`}>
-                    {type.badge}
-                  </span>
-                  <h3 className="text-xl font-extrabold text-brand-dark mb-3 group-hover:text-brand-pink transition-colors">
-                    {type.title}
-                  </h3>
-                  <p className="text-sm text-slate-600 font-medium leading-relaxed">
-                    {type.desc}
-                  </p>
-                </div>
+            <div className="grid md:grid-cols-3 gap-6">
+              {scholarshipTypes.map((type, idx) => (
+                <div
+                  key={idx}
+                  className="bg-white rounded-3xl p-7 border border-slate-200/90 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group"
+                >
+                  <div>
+                    <span className={`px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider ${type.color} text-white inline-block mb-4`}>
+                      {type.badge}
+                    </span>
+                    <h3 className="text-xl font-extrabold text-brand-dark mb-3 group-hover:text-brand-pink transition-colors">
+                      {type.title}
+                    </h3>
+                    <p className="text-sm text-slate-600 font-medium leading-relaxed">
+                      {type.desc}
+                    </p>
+                  </div>
 
-                <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
-                  <Link
-                    href={type.link}
-                    className="text-xs font-bold text-brand-dark group-hover:text-brand-pink transition-colors inline-flex items-center gap-1"
-                  >
-                    <span>{type.linkText}</span>
-                    <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
-                  </Link>
+                  <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+                    <Link
+                      href={type.link}
+                      className="text-xs font-bold text-brand-dark group-hover:text-brand-pink transition-colors inline-flex items-center gap-1"
+                    >
+                      <span>{type.linkText}</span>
+                      <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </section>
 
         {/* 3-Step Admissions Framework */}
-        <section className="py-16 bg-white border-t border-slate-200/80">
+        <section className="py-16 bg-[#f1f5f9] border-b border-slate-200">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-2xl mx-auto mb-14">
               <span className="text-xs font-bold uppercase tracking-wider text-brand-green block mb-1">
@@ -206,7 +215,7 @@ export default function ScholarshipsPage() {
 
             <div className="grid md:grid-cols-3 gap-8">
               {steps.map((st) => (
-                <div key={st.num} className="p-8 rounded-3xl bg-slate-50 border border-slate-200/80 relative space-y-3">
+                <div key={st.num} className="p-8 rounded-3xl bg-white border border-slate-200/90 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 transition-all duration-300 relative space-y-3">
                   <div className="w-10 h-10 rounded-2xl bg-brand-pink text-white font-black flex items-center justify-center text-sm shadow-sm">
                     {st.num}
                   </div>
@@ -219,7 +228,7 @@ export default function ScholarshipsPage() {
             </div>
 
             {/* Checklist CTA Banner */}
-            <div className="mt-12 p-8 rounded-3xl bg-brand-light border border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div className="mt-12 p-8 rounded-3xl bg-white border border-slate-200/90 shadow-card flex flex-col sm:flex-row items-center justify-between gap-6">
               <div>
                 <h4 className="text-xl font-black text-brand-dark">Need the Full Application Document Checklist?</h4>
                 <p className="text-xs sm:text-sm text-slate-600 font-medium mt-1">

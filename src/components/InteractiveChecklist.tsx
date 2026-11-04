@@ -6,10 +6,7 @@ import {
   Square,
   Printer,
   RotateCcw,
-  AlertCircle,
-  FileText,
-  ShieldCheck,
-  CheckCircle2
+  AlertCircle
 } from 'lucide-react';
 import Link from 'next/link';
 
@@ -192,7 +189,7 @@ export default function InteractiveChecklist() {
   return (
     <div className="space-y-8">
       {/* Interactive Progress Bar & Action Toolbar */}
-      <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-soft flex flex-col md:flex-row items-start md:items-center justify-between gap-6 print:hidden">
+      <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-card flex flex-col md:flex-row items-start md:items-center justify-between gap-6 print:hidden">
         <div className="space-y-2 w-full md:w-auto">
           <div className="flex items-center gap-3">
             <span className="text-xs font-bold uppercase tracking-wider text-brand-pink">
@@ -238,7 +235,7 @@ export default function InteractiveChecklist() {
         {CHECKLIST_SECTIONS.map((section, sIdx) => (
           <div 
             key={sIdx}
-            className="bg-white rounded-[32px] p-6 sm:p-8 border border-slate-200/80 shadow-soft space-y-4"
+            className="bg-white rounded-[32px] p-6 sm:p-8 border border-slate-200/90 shadow-card space-y-4"
           >
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-4">
               <div>

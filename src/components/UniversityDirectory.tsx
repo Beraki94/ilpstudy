@@ -2,148 +2,193 @@
 
 import React, { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   Search,
   MapPin,
-  Building2,
-  DollarSign,
-  GraduationCap,
-  ArrowRight,
-  ExternalLink,
-  HelpCircle,
-  AlertCircle,
-  CheckCircle2
+  ArrowRight
 } from 'lucide-react';
 
 interface UniversityItem {
   name: string;
   province: string;
   city: string;
+  logo: string;
 }
 
 const UNIVERSITIES_DATA: UniversityItem[] = [
   // Beijing
-  { name: "Beihang University", province: "Beijing", city: "Beijing" },
-  { name: "Beijing Foreign Studies University", province: "Beijing", city: "Beijing" },
-  { name: "Beijing Language and Culture University", province: "Beijing", city: "Beijing" },
-  { name: "Beijing University of Chinese Medicine", province: "Beijing", city: "Beijing" },
-  { name: "Beijing University of Posts and Telecommunications", province: "Beijing", city: "Beijing" },
-  { name: "Capital Normal University", province: "Beijing", city: "Beijing" },
-  { name: "Capital University of Physical Education and Sports", province: "Beijing", city: "Beijing" },
-  { name: "China University of Petroleum (Beijing)", province: "Beijing", city: "Beijing" },
-  { name: "China University of Political Science and Law", province: "Beijing", city: "Beijing" },
+  { name: "Beihang University", province: "Beijing", city: "Beijing", logo: "/images/university-logos/001-beihang-university.png" },
+  { name: "Beijing Foreign Studies University", province: "Beijing", city: "Beijing", logo: "/images/university-logos/002-beijing-foreign-studies-university.png" },
+  { name: "Beijing Language and Culture University", province: "Beijing", city: "Beijing", logo: "/images/university-logos/003-beijing-language-and-culture-university.png" },
+  { name: "Beijing University of Chinese Medicine", province: "Beijing", city: "Beijing", logo: "/images/university-logos/004-beijing-university-of-chinese-medicine.png" },
+  { name: "Beijing University of Posts and Telecommunications", province: "Beijing", city: "Beijing", logo: "/images/university-logos/005-beijing-university-of-posts-and-telecommunications.png" },
+  { name: "Capital Normal University", province: "Beijing", city: "Beijing", logo: "/images/university-logos/006-capital-normal-university.png" },
+  { name: "Capital University of Physical Education and Sports", province: "Beijing", city: "Beijing", logo: "/images/university-logos/007-capital-university-of-physical-education-and-sports.png" },
+  { name: "China University of Petroleum (Beijing)", province: "Beijing", city: "Beijing", logo: "/images/university-logos/008-china-university-of-petroleum-beijing.png" },
+  { name: "China University of Political Science and Law", province: "Beijing", city: "Beijing", logo: "/images/university-logos/009-china-university-of-political-science-and-law.png" },
+  { name: "North China Electric Power University", province: "Beijing", city: "Beijing", logo: "/images/university-logos/121-north-china-electric-power-university.png" },
 
   // Chongqing
-  { name: "Chongqing Medical University", province: "Chongqing", city: "Chongqing" },
-  { name: "Chongqing University", province: "Chongqing", city: "Chongqing" },
-  { name: "Chongqing University of Posts and Telecommunications", province: "Chongqing", city: "Chongqing" },
-  { name: "Southwest University", province: "Chongqing", city: "Chongqing" },
+  { name: "Chongqing Medical University", province: "Chongqing", city: "Chongqing", logo: "/images/university-logos/010-chongqing-medical-university.png" },
+  { name: "Chongqing University", province: "Chongqing", city: "Chongqing", logo: "/images/university-logos/011-chongqing-university.png" },
+  { name: "Chongqing University of Posts and Telecommunications", province: "Chongqing", city: "Chongqing", logo: "/images/university-logos/012-chongqing-university-of-posts-and-telecommunications.png" },
+  { name: "Southwest University", province: "Chongqing", city: "Chongqing", logo: "/images/university-logos/013-southwest-university.png" },
 
   // Fujian
-  { name: "Fujian Medical University", province: "Fujian", city: "Fuzhou" },
-  { name: "Xiamen University", province: "Fujian", city: "Xiamen" },
+  { name: "Fujian Medical University", province: "Fujian", city: "Fuzhou", logo: "/images/university-logos/014-fujian-medical-university.png" },
+  { name: "Xiamen University", province: "Fujian", city: "Xiamen", logo: "/images/university-logos/015-xiamen-university.png" },
+  { name: "Fuzhou Software Technology Vocational College", province: "Fujian", city: "Fuzhou", logo: "/images/university-logos/126-fuzhou-software-technology-vocational-college.png" },
 
   // Guangdong
-  { name: "South China Normal University", province: "Guangdong", city: "Guangzhou" },
-  { name: "South China University of Technology", province: "Guangdong", city: "Guangzhou" },
+  { name: "South China Normal University", province: "Guangdong", city: "Guangzhou", logo: "/images/university-logos/016-south-china-normal-university.png" },
+  { name: "South China University of Technology", province: "Guangdong", city: "Guangzhou", logo: "/images/university-logos/017-south-china-university-of-technology.png" },
+  { name: "Sun Yat-sen University", province: "Guangdong", city: "Guangzhou", logo: "/images/university-logos/084-sun-yat-sen-university.png" },
+  { name: "Jinan University", province: "Guangdong", city: "Guangzhou", logo: "/images/university-logos/085-jinan-university.png" },
+  { name: "South China Agricultural University", province: "Guangdong", city: "Guangzhou", logo: "/images/university-logos/086-south-china-agricultural-university.png" },
+  { name: "Guangzhou Medical University", province: "Guangdong", city: "Guangzhou", logo: "/images/university-logos/087-guangzhou-medical-university.png" },
+  { name: "Guangzhou University of Chinese Medicine", province: "Guangdong", city: "Guangzhou", logo: "/images/university-logos/088-guangzhou-university-of-chinese-medicine.png" },
+  { name: "Guangdong Pharmaceutical University", province: "Guangdong", city: "Guangzhou", logo: "/images/university-logos/089-guangdong-pharmaceutical-university.png" },
+  { name: "Guangzhou Sport University", province: "Guangdong", city: "Guangzhou", logo: "/images/university-logos/090-guangzhou-sport-university.png" },
+  { name: "Guangzhou Academy of Fine Arts", province: "Guangdong", city: "Guangzhou", logo: "/images/university-logos/091-guangzhou-academy-of-fine-arts.png" },
+  { name: "Xinghai Conservatory of Music", province: "Guangdong", city: "Guangzhou", logo: "/images/university-logos/092-xinghai-conservatory-of-music.png" },
+  { name: "Guangdong Polytechnic Normal University", province: "Guangdong", city: "Guangzhou", logo: "/images/university-logos/093-guangdong-polytechnic-normal-university.png" },
+  { name: "Guangdong University of Finance & Economics", province: "Guangdong", city: "Guangzhou", logo: "/images/university-logos/094-guangdong-university-of-finance-economics.png" },
+  { name: "Guangzhou University", province: "Guangdong", city: "Guangzhou", logo: "/images/university-logos/095-guangzhou-university.png" },
+  { name: "Guangzhou Maritime University", province: "Guangdong", city: "Guangzhou", logo: "/images/university-logos/096-guangzhou-maritime-university.png" },
+  { name: "Guangdong Police College", province: "Guangdong", city: "Guangzhou", logo: "/images/university-logos/097-guangdong-police-college.png" },
+  { name: "Zhongkai University of Agriculture and Engineering", province: "Guangdong", city: "Guangzhou", logo: "/images/university-logos/098-zhongkai-university-of-agriculture-and-engineering.png" },
+  { name: "Guangdong University of Finance", province: "Guangdong", city: "Guangzhou", logo: "/images/university-logos/099-guangdong-university-of-finance.png" },
+  { name: "Guangdong University of Technology", province: "Guangdong", city: "Guangzhou", logo: "/images/university-logos/100-guangdong-university-of-technology.png" },
+  { name: "Guangdong University of Foreign Studies", province: "Guangdong", city: "Guangzhou", logo: "/images/university-logos/101-guangdong-university-of-foreign-studies.png" },
+  { name: "Southern Medical University", province: "Guangdong", city: "Guangzhou", logo: "/images/university-logos/102-southern-medical-university.png" },
+  { name: "Guangdong University of Education", province: "Guangdong", city: "Guangzhou", logo: "/images/university-logos/103-guangdong-university-of-education.png" },
+  { name: "Guangdong Industry Polytechnic University", province: "Guangdong", city: "Guangzhou", logo: "/images/university-logos/104-guangdong-industry-polytechnic-university.png" },
+  { name: "Guangzhou Polytechnic University", province: "Guangdong", city: "Guangzhou", logo: "/images/university-logos/105-guangzhou-polytechnic-university.png" },
+  { name: "Guangdong Baiyun University", province: "Guangdong", city: "Guangzhou", logo: "/images/university-logos/106-guangdong-baiyun-university.png" },
+  { name: "Guangdong Peizheng College", province: "Guangdong", city: "Guangzhou", logo: "/images/university-logos/107-guangdong-peizheng-college.png" },
+  { name: "Guangzhou City University of Technology", province: "Guangdong", city: "Guangzhou", logo: "/images/university-logos/108-guangzhou-city-university-of-technology.png" },
+  { name: "Guangzhou University of Software", province: "Guangdong", city: "Guangzhou", logo: "/images/university-logos/109-guangzhou-university-of-software.png" },
+  { name: "Nanfang College Guangzhou", province: "Guangdong", city: "Guangzhou", logo: "/images/university-logos/110-nanfang-college-guangzhou.png" },
+  { name: "South China Business College (GDUFS)", province: "Guangdong", city: "Guangzhou", logo: "/images/university-logos/111-south-china-business-college-guangdong-university-of-foreign-studies.png" },
+  { name: "Guangzhou Huashang College", province: "Guangdong", city: "Guangzhou", logo: "/images/university-logos/112-guangzhou-huashang-college.png" },
+  { name: "SCAU Pearl River College", province: "Guangdong", city: "Guangzhou", logo: "/images/university-logos/113-south-china-agricultural-university-pearl-river-college.png" },
+  { name: "Guangzhou Institute of Science and Technology", province: "Guangdong", city: "Guangzhou", logo: "/images/university-logos/114-guangzhou-institute-of-science-and-technology.png" },
+  { name: "Guangzhou Huali College", province: "Guangdong", city: "Guangzhou", logo: "/images/university-logos/115-guangzhou-huali-college.png" },
+  { name: "Guangzhou College of Applied Science and Technology", province: "Guangdong", city: "Guangzhou", logo: "/images/university-logos/116-guangzhou-college-of-applied-science-and-technology.png" },
+  { name: "Guangzhou College of Commerce", province: "Guangdong", city: "Guangzhou", logo: "/images/university-logos/117-guangzhou-college-of-commerce.png" },
+  { name: "Guangzhou College of Technology and Business", province: "Guangdong", city: "Guangzhou", logo: "/images/university-logos/118-guangzhou-college-of-technology-and-business.png" },
+  { name: "Guangzhou Xinhua University", province: "Guangdong", city: "Guangzhou", logo: "/images/university-logos/119-guangzhou-xinhua-university.png" },
 
   // Guangxi
-  { name: "Guangxi Normal University", province: "Guangxi", city: "Guilin" },
-  { name: "Guangxi Medical University", province: "Guangxi", city: "Nanning" },
+  { name: "Guangxi Normal University", province: "Guangxi", city: "Guilin", logo: "/images/university-logos/018-guangxi-normal-university.png" },
+  { name: "Guangxi Medical University", province: "Guangxi", city: "Nanning", logo: "/images/university-logos/019-guangxi-medical-university.png" },
 
   // Hebei
-  { name: "Yanshan University", province: "Hebei", city: "Qinhuangdao" },
-  { name: "Hebei Medical University", province: "Hebei", city: "Shijiazhuang" },
+  { name: "Yanshan University", province: "Hebei", city: "Qinhuangdao", logo: "/images/university-logos/020-yanshan-university.png" },
+  { name: "Hebei Medical University", province: "Hebei", city: "Shijiazhuang", logo: "/images/university-logos/021-hebei-medical-university.png" },
 
   // Heilongjiang
-  { name: "Harbin Engineering University", province: "Heilongjiang", city: "Harbin" },
+  { name: "Harbin Engineering University", province: "Heilongjiang", city: "Harbin", logo: "/images/university-logos/022-harbin-engineering-university.png" },
+  { name: "Jiamusi University", province: "Heilongjiang", city: "Jiamusi", logo: "/images/university-logos/123-jiamusi-university.png" },
 
   // Henan
-  { name: "Xinyang Normal University", province: "Henan", city: "Xinyang" },
-  { name: "Zhengzhou University", province: "Henan", city: "Zhengzhou" },
+  { name: "Xinyang Normal University", province: "Henan", city: "Xinyang", logo: "/images/university-logos/023-xinyang-normal-university.png" },
+  { name: "Zhengzhou University", province: "Henan", city: "Zhengzhou", logo: "/images/university-logos/024-zhengzhou-university.png" },
+  { name: "Henan University of Technology", province: "Henan", city: "Zhengzhou", logo: "/images/university-logos/125-henan-university-of-technology.png" },
 
   // Hubei
-  { name: "Huazhong University of Science and Technology", province: "Hubei", city: "Wuhan" },
-  { name: "Hubei University", province: "Hubei", city: "Wuhan" },
-  { name: "Wuhan University", province: "Hubei", city: "Wuhan" },
-  { name: "Wuhan University of Technology", province: "Hubei", city: "Wuhan" },
+  { name: "Huazhong University of Science and Technology", province: "Hubei", city: "Wuhan", logo: "/images/university-logos/025-huazhong-university-of-science-and-technology.png" },
+  { name: "Hubei University", province: "Hubei", city: "Wuhan", logo: "/images/university-logos/026-hubei-university.png" },
+  { name: "Wuhan University", province: "Hubei", city: "Wuhan", logo: "/images/university-logos/027-wuhan-university.png" },
+  { name: "Wuhan University of Technology", province: "Hubei", city: "Wuhan", logo: "/images/university-logos/028-wuhan-university-of-technology.png" },
 
   // Hunan
-  { name: "Hunan University", province: "Hunan", city: "Changsha" },
+  { name: "Hunan University", province: "Hunan", city: "Changsha", logo: "/images/university-logos/029-hunan-university.png" },
+  { name: "Changsha University of Science and Technology", province: "Hunan", city: "Changsha", logo: "/images/university-logos/124-changsha-university-of-science-and-technology.png" },
 
   // Jiangsu
-  { name: "China Pharmaceutical University", province: "Jiangsu", city: "Nanjing" },
-  { name: "Nanjing Medical University", province: "Jiangsu", city: "Nanjing" },
-  { name: "Nanjing University of Aeronautics and Astronautics", province: "Jiangsu", city: "Nanjing" },
-  { name: "Nanjing University of Chinese Medicine", province: "Jiangsu", city: "Nanjing" },
-  { name: "Nanjing University of Information Science and Technology", province: "Jiangsu", city: "Nanjing" },
-  { name: "Nanjing University of Science and Technology", province: "Jiangsu", city: "Nanjing" },
-  { name: "Southeast University", province: "Jiangsu", city: "Nanjing" },
-  { name: "Xi'an Jiaotong-Liverpool University", province: "Jiangsu", city: "Suzhou" },
-  { name: "Jiangnan University", province: "Jiangsu", city: "Wuxi" },
-  { name: "China University of Mining and Technology", province: "Jiangsu", city: "Xuzhou" },
-  { name: "Jiangsu University", province: "Jiangsu", city: "Zhenjiang" },
+  { name: "China Pharmaceutical University", province: "Jiangsu", city: "Nanjing", logo: "/images/university-logos/030-china-pharmaceutical-university.png" },
+  { name: "Nanjing Medical University", province: "Jiangsu", city: "Nanjing", logo: "/images/university-logos/031-nanjing-medical-university.png" },
+  { name: "Nanjing University of Aeronautics and Astronautics", province: "Jiangsu", city: "Nanjing", logo: "/images/university-logos/032-nanjing-university-of-aeronautics-and-astronautics.png" },
+  { name: "Nanjing University of Chinese Medicine", province: "Jiangsu", city: "Nanjing", logo: "/images/university-logos/033-nanjing-university-of-chinese-medicine.png" },
+  { name: "Nanjing University of Information Science and Technology", province: "Jiangsu", city: "Nanjing", logo: "/images/university-logos/034-nanjing-university-of-information-science-and-technology.png" },
+  { name: "Nanjing University of Science and Technology", province: "Jiangsu", city: "Nanjing", logo: "/images/university-logos/035-nanjing-university-of-science-and-technology.png" },
+  { name: "Southeast University", province: "Jiangsu", city: "Nanjing", logo: "/images/university-logos/036-southeast-university.png" },
+  { name: "Xi'an Jiaotong-Liverpool University", province: "Jiangsu", city: "Suzhou", logo: "/images/university-logos/037-xi-an-jiaotong-liverpool-university.png" },
+  { name: "Jiangnan University", province: "Jiangsu", city: "Wuxi", logo: "/images/university-logos/038-jiangnan-university.png" },
+  { name: "China University of Mining and Technology", province: "Jiangsu", city: "Xuzhou", logo: "/images/university-logos/039-china-university-of-mining-and-technology.png" },
+  { name: "Jiangsu University", province: "Jiangsu", city: "Zhenjiang", logo: "/images/university-logos/040-jiangsu-university.png" },
+  { name: "Huaiyin Normal University", province: "Jiangsu", city: "Huai'an", logo: "/images/university-logos/120-huaiyin-normal-university.png" },
 
   // Jiangxi
-  { name: "Nanchang Hangkong University", province: "Jiangxi", city: "Nanchang" },
-  { name: "Nanchang Institute of Technology", province: "Jiangxi", city: "Nanchang" },
-  { name: "Nanchang University", province: "Jiangxi", city: "Nanchang" },
+  { name: "Nanchang Hangkong University", province: "Jiangxi", city: "Nanchang", logo: "/images/university-logos/041-nanchang-hangkong-university.png" },
+  { name: "Nanchang Institute of Technology", province: "Jiangxi", city: "Nanchang", logo: "/images/university-logos/042-nanchang-institute-of-technology.png" },
+  { name: "Nanchang University", province: "Jiangxi", city: "Nanchang", logo: "/images/university-logos/043-nanchang-university.png" },
 
   // Jilin
-  { name: "Changchun University of Science and Technology", province: "Jilin", city: "Changchun" },
-  { name: "Jilin Jianzhu University", province: "Jilin", city: "Changchun" },
+  { name: "Changchun University of Science and Technology", province: "Jilin", city: "Changchun", logo: "/images/university-logos/044-changchun-university-of-science-and-technology.png" },
+  { name: "Jilin Jianzhu University", province: "Jilin", city: "Changchun", logo: "/images/university-logos/045-jilin-jianzhu-university.png" },
 
   // Liaoning
-  { name: "Dalian Medical University", province: "Liaoning", city: "Dalian" },
-  { name: "Dalian University of Foreign Languages", province: "Liaoning", city: "Dalian" },
-  { name: "Liaoning Normal University", province: "Liaoning", city: "Dalian" },
-  { name: "Liaoning Petrochemical University", province: "Liaoning", city: "Fushun" },
-  { name: "Bohai University", province: "Liaoning", city: "Jinzhou" },
-  { name: "Jinzhou Medical University", province: "Liaoning", city: "Jinzhou" },
-  { name: "Liaoning University of Technology", province: "Liaoning", city: "Jinzhou" },
-  { name: "China Medical University", province: "Liaoning", city: "Shenyang" },
-  { name: "Liaoning Communication University", province: "Liaoning", city: "Shenyang" },
-  { name: "Shenyang Aerospace University", province: "Liaoning", city: "Shenyang" },
+  { name: "Dalian Medical University", province: "Liaoning", city: "Dalian", logo: "/images/university-logos/046-dalian-medical-university.png" },
+  { name: "Dalian University of Foreign Languages", province: "Liaoning", city: "Dalian", logo: "/images/university-logos/047-dalian-university-of-foreign-languages.png" },
+  { name: "Liaoning Normal University", province: "Liaoning", city: "Dalian", logo: "/images/university-logos/048-liaoning-normal-university.png" },
+  { name: "Liaoning Petrochemical University", province: "Liaoning", city: "Fushun", logo: "/images/university-logos/049-liaoning-petrochemical-university.png" },
+  { name: "Bohai University", province: "Liaoning", city: "Jinzhou", logo: "/images/university-logos/050-bohai-university.png" },
+  { name: "Jinzhou Medical University", province: "Liaoning", city: "Jinzhou", logo: "/images/university-logos/051-jinzhou-medical-university.png" },
+  { name: "Liaoning University of Technology", province: "Liaoning", city: "Jinzhou", logo: "/images/university-logos/052-liaoning-university-of-technology.png" },
+  { name: "China Medical University", province: "Liaoning", city: "Shenyang", logo: "/images/university-logos/053-china-medical-university.png" },
+  { name: "Liaoning Communication University", province: "Liaoning", city: "Shenyang", logo: "/images/university-logos/054-liaoning-communication-university.png" },
+  { name: "Shenyang Aerospace University", province: "Liaoning", city: "Shenyang", logo: "/images/university-logos/055-shenyang-aerospace-university.png" },
+  { name: "Shenyang City University", province: "Liaoning", city: "Shenyang", logo: "/images/university-logos/127-shenyang-city-university.png" },
+
+  // Shaanxi
+  { name: "Chang'an University", province: "Shaanxi", city: "Xi'an", logo: "/images/university-logos/128-Changan-University.png" },
 
   // Shandong
-  { name: "Shandong University of Aeronautics", province: "Shandong", city: "Binzhou" },
-  { name: "Shandong Agriculture and Engineering University", province: "Shandong", city: "Jinan" },
-  { name: "Shandong Jiaotong University", province: "Shandong", city: "Jinan" },
-  { name: "Shandong University", province: "Shandong", city: "Jinan" },
-  { name: "Liaocheng University", province: "Shandong", city: "Liaocheng" },
-  { name: "China University of Petroleum (East China)", province: "Shandong", city: "Qingdao" },
-  { name: "Ocean University of China", province: "Shandong", city: "Qingdao" },
-  { name: "Qingdao University of Technology", province: "Shandong", city: "Qingdao" },
-  { name: "Shandong University of Science and Technology", province: "Shandong", city: "Qingdao" },
-  { name: "Shandong University of Technology", province: "Shandong", city: "Zibo" },
+  { name: "Shandong University of Aeronautics", province: "Shandong", city: "Binzhou", logo: "/images/university-logos/056-shandong-university-of-aeronautics.png" },
+  { name: "Shandong Agriculture and Engineering University", province: "Shandong", city: "Jinan", logo: "/images/university-logos/057-shandong-agriculture-and-engineering-university.png" },
+  { name: "Shandong Jiaotong University", province: "Shandong", city: "Jinan", logo: "/images/university-logos/058-shandong-jiaotong-university.png" },
+  { name: "Shandong University", province: "Shandong", city: "Jinan", logo: "/images/university-logos/059-shandong-university.png" },
+  { name: "Liaocheng University", province: "Shandong", city: "Liaocheng", logo: "/images/university-logos/060-liaocheng-university.png" },
+  { name: "China University of Petroleum (East China)", province: "Shandong", city: "Qingdao", logo: "/images/university-logos/061-china-university-of-petroleum-east-china.png" },
+  { name: "Ocean University of China", province: "Shandong", city: "Qingdao", logo: "/images/university-logos/062-ocean-university-of-china.png" },
+  { name: "Qingdao University of Technology", province: "Shandong", city: "Qingdao", logo: "/images/university-logos/063-qingdao-university-of-technology.png" },
+  { name: "Shandong University of Science and Technology", province: "Shandong", city: "Qingdao", logo: "/images/university-logos/064-shandong-university-of-science-and-technology.png" },
+  { name: "Shandong University of Technology", province: "Shandong", city: "Zibo", logo: "/images/university-logos/065-shandong-university-of-technology.png" },
+  { name: "Binzhou Polytechnic University", province: "Shandong", city: "Binzhou", logo: "/images/university-logos/122-binzhou-polytechnic-university.png" },
 
   // Shanghai
-  { name: "Donghua University", province: "Shanghai", city: "Shanghai" },
-  { name: "East China Normal University", province: "Shanghai", city: "Shanghai" },
-  { name: "East China University of Science and Technology", province: "Shanghai", city: "Shanghai" },
-  { name: "Fudan University", province: "Shanghai", city: "Shanghai" },
-  { name: "Shanghai International Studies University", province: "Shanghai", city: "Shanghai" },
-  { name: "The Sino-British College, University of Shanghai for Science and Technology", province: "Shanghai", city: "Shanghai" },
+  { name: "Donghua University", province: "Shanghai", city: "Shanghai", logo: "/images/university-logos/066-donghua-university.png" },
+  { name: "East China Normal University", province: "Shanghai", city: "Shanghai", logo: "/images/university-logos/067-east-china-normal-university.png" },
+  { name: "East China University of Science and Technology", province: "Shanghai", city: "Shanghai", logo: "/images/university-logos/068-east-china-university-of-science-and-technology.png" },
+  { name: "Fudan University", province: "Shanghai", city: "Shanghai", logo: "/images/university-logos/069-fudan-university.png" },
+  { name: "Shanghai International Studies University", province: "Shanghai", city: "Shanghai", logo: "/images/university-logos/070-shanghai-international-studies-university.png" },
+  { name: "The Sino-British College, University of Shanghai for Science and Technology", province: "Shanghai", city: "Shanghai", logo: "/images/university-logos/071-the-sino-british-college-university-of-shanghai-for-science-and-technology.png" },
+  { name: "Shanghai University of Engineering Science", province: "Shanghai", city: "Shanghai", logo: "/images/university-logos/129-Shanghai-University-of-Engineering-Science.png" },
 
   // Sichuan
-  { name: "Sichuan University", province: "Sichuan", city: "Chengdu" },
-  { name: "Southwestern University of Finance and Economics", province: "Sichuan", city: "Chengdu" },
-  { name: "Leshan Normal University", province: "Sichuan", city: "Leshan" },
+  { name: "Sichuan University", province: "Sichuan", city: "Chengdu", logo: "/images/university-logos/072-sichuan-university.png" },
+  { name: "Southwestern University of Finance and Economics", province: "Sichuan", city: "Chengdu", logo: "/images/university-logos/073-southwestern-university-of-finance-and-economics.png" },
+  { name: "Leshan Normal University", province: "Sichuan", city: "Leshan", logo: "/images/university-logos/074-leshan-normal-university.png" },
 
   // Tianjin
-  { name: "Tianjin Medical University", province: "Tianjin", city: "Tianjin" },
-  { name: "Tianjin University of Finance and Economics", province: "Tianjin", city: "Tianjin" },
+  { name: "Tianjin Medical University", province: "Tianjin", city: "Tianjin", logo: "/images/university-logos/075-tianjin-medical-university.png" },
+  { name: "Tianjin University of Finance and Economics", province: "Tianjin", city: "Tianjin", logo: "/images/university-logos/076-tianjin-university-of-finance-and-economics.png" },
 
   // Yunnan
-  { name: "Kunming University of Science and Technology", province: "Yunnan", city: "Kunming" },
+  { name: "Kunming University of Science and Technology", province: "Yunnan", city: "Kunming", logo: "/images/university-logos/077-kunming-university-of-science-and-technology.png" },
 
   // Zhejiang
-  { name: "Zhejiang A&F University", province: "Zhejiang", city: "Hangzhou" },
-  { name: "Zhejiang Gongshang University", province: "Zhejiang", city: "Hangzhou" },
-  { name: "Zhejiang University of Science and Technology", province: "Zhejiang", city: "Hangzhou" },
-  { name: "Lishui University", province: "Zhejiang", city: "Lishui" },
-  { name: "Wenzhou Medical University", province: "Zhejiang", city: "Wenzhou" },
-  { name: "Wenzhou University", province: "Zhejiang", city: "Wenzhou" },
+  { name: "Zhejiang A&F University", province: "Zhejiang", city: "Hangzhou", logo: "/images/university-logos/078-zhejiang-a-f-university.png" },
+  { name: "Zhejiang Gongshang University", province: "Zhejiang", city: "Hangzhou", logo: "/images/university-logos/079-zhejiang-gongshang-university.png" },
+  { name: "Zhejiang University of Science and Technology", province: "Zhejiang", city: "Hangzhou", logo: "/images/university-logos/080-zhejiang-university-of-science-and-technology.png" },
+  { name: "Lishui University", province: "Zhejiang", city: "Lishui", logo: "/images/university-logos/081-lishui-university.png" },
+  { name: "Wenzhou Medical University", province: "Zhejiang", city: "Wenzhou", logo: "/images/university-logos/082-wenzhou-medical-university.png" },
+  { name: "Wenzhou University", province: "Zhejiang", city: "Wenzhou", logo: "/images/university-logos/083-wenzhou-university.png" },
+  { name: "Zhejiang University of Finance and Economics", province: "Zhejiang", city: "Hangzhou", logo: "/images/university-logos/130-Zhejiang-University-of-Finance-and-Economics.png" },
+
 ];
 
 export default function UniversityDirectory() {
@@ -223,41 +268,48 @@ export default function UniversityDirectory() {
         {filteredUniversities.map((uni, idx) => (
           <div
             key={idx}
-            className="p-5 rounded-2xl bg-white border border-slate-200/80 hover:border-brand-pink hover:shadow-soft transition-all flex flex-col justify-between group"
+            className="p-5 rounded-2xl bg-white border border-slate-200/90 shadow-card hover:shadow-card-hover hover:-translate-y-1 hover:border-brand-pink/50 transition-all duration-300 flex flex-col justify-between group"
           >
             <div>
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-brand-green bg-brand-green/10 px-2 py-0.5 rounded-full">
-                  {uni.province}
-                </span>
-                <span className="text-[11px] font-semibold text-slate-400 flex items-center gap-1">
-                  <MapPin size={12} />
-                  {uni.city}
-                </span>
+              <div className="flex items-start gap-3.5 mb-2">
+                {/* University Logo Crest */}
+                <div className="w-14 h-14 rounded-2xl bg-slate-50 border border-slate-200/80 p-1.5 flex items-center justify-center flex-shrink-0 group-hover:scale-105 group-hover:border-brand-pink/40 group-hover:bg-white transition-all shadow-xs overflow-hidden">
+                  <Image
+                    src={uni.logo}
+                    alt={`${uni.name} crest`}
+                    width={56}
+                    height={56}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+
+                {/* Badges & Name */}
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center justify-between gap-1 mb-1">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-brand-green bg-brand-green/10 px-2 py-0.5 rounded-full truncate">
+                      {uni.province}
+                    </span>
+                    <span className="text-[11px] font-semibold text-slate-400 flex items-center gap-1 flex-shrink-0">
+                      <MapPin size={11} className="text-slate-400" />
+                      <span>{uni.city}</span>
+                    </span>
+                  </div>
+
+                  <h4 className="font-extrabold text-sm sm:text-base text-brand-dark group-hover:text-brand-pink transition-colors line-clamp-2 leading-snug">
+                    {uni.name}
+                  </h4>
+                </div>
               </div>
-              <h4 className="font-extrabold text-sm sm:text-base text-brand-dark group-hover:text-brand-pink transition-colors">
-                {uni.name}
-              </h4>
             </div>
 
-            <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+            <div className="mt-3 pt-3 border-t border-slate-100 flex items-center justify-between">
               <Link
                 href={`/contact?university=${encodeURIComponent(uni.name)}`}
-                className="text-xs font-bold text-brand-pink hover:underline inline-flex items-center gap-1"
+                className="text-xs font-bold text-brand-pink hover:text-[#d10079] inline-flex items-center gap-1 transition-colors group-hover:translate-x-0.5 group-hover:transition-transform"
               >
                 <span>Discuss Admission</span>
-                <ArrowRight size={12} />
+                <ArrowRight size={13} />
               </Link>
-              <a
-                href={`https://www.google.com/search?q=${encodeURIComponent(uni.name + " China official website")}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[11px] font-semibold text-slate-400 hover:text-slate-600 inline-flex items-center gap-1"
-                title="Search Official Website"
-              >
-                <span>Official Site</span>
-                <ExternalLink size={10} />
-              </a>
             </div>
           </div>
         ))}

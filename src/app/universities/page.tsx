@@ -5,7 +5,7 @@ import Footer from '@/components/Footer';
 import PageHeader from '@/components/PageHeader';
 import UniversityDirectory from '@/components/UniversityDirectory';
 import TuitionPlanningTables from '@/components/TuitionPlanningTables';
-import { Building2, DollarSign, ArrowRight, Sparkles, BookOpenCheck, HelpCircle } from 'lucide-react';
+import { DollarSign, ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Choosing a University in China & Tuition Fees | ILP Study',

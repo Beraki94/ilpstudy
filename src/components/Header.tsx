@@ -15,7 +15,6 @@ import {
   FileCheck2,
   Phone,
   Mail,
-  BookOpen,
   Calendar,
   Calculator
 } from 'lucide-react';
@@ -24,7 +23,6 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [mobileDropdownOpen, setMobileDropdownOpen] = useState(true);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -44,7 +42,7 @@ export default function Header() {
   const chinaSublinks = [
     {
       name: "Study Programmes",
-      path: "/programmes",
+      path: "/study-program",
       desc: "Bachelor's, Master's, PhD, Foundation & Chinese Language",
       icon: GraduationCap,
       color: "text-brand-pink",
@@ -77,7 +75,7 @@ export default function Header() {
     {
       name: "Scholarships Guide",
       path: "/scholarships",
-      desc: "CSC Type A/B, provincial awards & tuition waivers",
+      desc: "Government, provincial & university funding opportunities",
       icon: Award,
       color: "text-brand-purple",
       bgColor: "bg-brand-purple/10"
@@ -101,7 +99,8 @@ export default function Header() {
     { name: 'About Us', path: '/about' },
   ];
 
-  const isChinaActive = pathname.startsWith('/programmes') || 
+  const isChinaActive = pathname.startsWith('/study-program') ||
+                        pathname.startsWith('/programmes') || 
                         pathname.startsWith('/universities') || 
                         pathname.startsWith('/scholarships') || 
                         pathname.startsWith('/checklist') ||
@@ -112,10 +111,8 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled || mobileMenuOpen
-          ? 'bg-white/95 backdrop-blur-xl shadow-sm border-b border-slate-100 py-3'
-          : 'bg-transparent py-5'
+      className={`fixed top-0 w-full z-50 transition-all duration-200 bg-white/95 backdrop-blur-xl border-b border-slate-100 py-3 sm:py-3.5 ${
+        scrolled ? 'shadow-sm' : ''
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -137,13 +134,13 @@ export default function Header() {
           </Link>
           
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex space-x-7 items-center bg-white/80 backdrop-blur-md px-7 py-2.5 rounded-full border border-white/60 shadow-[0_4px_20px_-10px_rgba(0,0,0,0.06)]">
+          <nav className="hidden lg:flex space-x-7 items-center bg-[#0f172a] backdrop-blur-md px-7 py-2.5 rounded-full border border-slate-700/80 shadow-md">
             
             {/* Home Link */}
             <Link 
               href="/"
               className={`font-semibold text-sm transition-colors relative py-1 ${
-                pathname === '/' ? 'text-brand-pink font-bold' : 'text-slate-600 hover:text-brand-pink'
+                pathname === '/' ? 'text-brand-pink font-bold' : 'text-slate-200 hover:text-brand-pink'
               }`}
             >
               Home
@@ -158,7 +155,7 @@ export default function Header() {
               <button
                 type="button"
                 className={`font-semibold text-sm transition-colors inline-flex items-center gap-1.5 py-1 ${
-                  isChinaActive ? 'text-brand-pink font-bold' : 'text-slate-600 hover:text-brand-pink'
+                  isChinaActive ? 'text-brand-pink font-bold' : 'text-slate-200 hover:text-brand-pink'
                 }`}
                 onClick={() => setDropdownOpen(!dropdownOpen)}
               >
@@ -231,7 +228,7 @@ export default function Header() {
                           <Link href="/how-we-check" className="text-slate-500 hover:text-brand-dark font-medium underline">
                             How we check info
                           </Link>
-                          <Link href="/programmes#pathways" className="text-brand-pink font-bold hover:underline">
+                          <Link href="/study-program#pathways" className="text-brand-pink font-bold hover:underline">
                             Degree Pathways &rarr;
                           </Link>
                         </div>
@@ -250,7 +247,7 @@ export default function Header() {
                   key={item.name} 
                   href={item.path}
                   className={`font-semibold text-sm transition-colors relative py-1 ${
-                    isActive ? 'text-brand-pink font-bold' : 'text-slate-600 hover:text-brand-pink'
+                    isActive ? 'text-brand-pink font-bold' : 'text-slate-200 hover:text-brand-pink'
                   }`}
                 >
                   {item.name}
@@ -263,9 +260,9 @@ export default function Header() {
           <div className="hidden lg:block">
             <Link 
               href="/contact" 
-              className="px-6 py-2.5 rounded-full bg-brand-dark text-white font-semibold shadow-soft hover:shadow-glow-pink hover:bg-brand-pink transition-all duration-300 flex items-center gap-2 border border-transparent hover:border-brand-pink/50 text-sm group"
+              className="px-6 py-2.5 rounded-full bg-brand-pink text-white font-bold shadow-glow-pink hover:bg-[#d10079] hover:shadow-lg transition-all duration-300 flex items-center gap-2 text-sm group"
             >
-              Free Consultation
+              <span>Free Consultation</span>
               <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </Link>
           </div>
@@ -363,7 +360,7 @@ export default function Header() {
               <div className="pt-4 border-t border-slate-100 flex flex-col gap-3">
                 <Link
                   href="/contact"
-                  className="w-full py-3.5 rounded-xl bg-brand-dark text-white font-bold text-center shadow-soft hover:bg-brand-pink transition-colors flex items-center justify-center gap-2 text-sm"
+                  className="w-full py-3.5 rounded-xl bg-brand-pink text-white font-bold text-center shadow-glow-pink hover:bg-[#d10079] transition-colors flex items-center justify-center gap-2 text-sm"
                 >
                   Book Free Consultation <ArrowUpRight size={16} />
                 </Link>

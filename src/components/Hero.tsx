@@ -1,28 +1,29 @@
 "use client";
 
 import { motion } from 'framer-motion';
-import { Sparkles, GraduationCap, ArrowUpRight, Building2, Globe2, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Sparkles, GraduationCap, ArrowUpRight, Globe2 } from 'lucide-react';
 import Link from 'next/link';
 import PhotoSpace from '@/components/PhotoSpace';
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[92vh] flex items-center pt-28 pb-16 overflow-hidden bg-brand-light">
+    <section className="relative min-h-[92vh] flex items-center pt-28 pb-16 overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-50/60">
       {/* Decorative Brand Shapes Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div 
           animate={{ rotate: 360 }}
           transition={{ duration: 150, repeat: Infinity, ease: "linear" }}
-          className="absolute -top-[20%] -right-[10%] w-[80vw] h-[80vw] rounded-full opacity-[0.03] border-[100px] border-brand-pink"
+          className="absolute -top-[20%] -right-[10%] w-[80vw] h-[80vw] rounded-full opacity-[0.04] border-[100px] border-brand-pink"
         />
         <motion.div 
           animate={{ rotate: -360 }}
           transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
-          className="absolute -bottom-[20%] -left-[10%] w-[60vw] h-[60vw] rounded-full opacity-[0.03] border-[80px] border-brand-green"
+          className="absolute -bottom-[20%] -left-[10%] w-[60vw] h-[60vw] rounded-full opacity-[0.04] border-[80px] border-brand-green"
         />
         {/* Glows */}
-        <div className="absolute top-[20%] -left-[10%] w-[40vw] h-[40vw] rounded-full bg-brand-purple/10 blur-[100px]" />
-        <div className="absolute bottom-[10%] -right-[10%] w-[40vw] h-[40vw] rounded-full bg-brand-pink/10 blur-[100px]" />
+        <div className="absolute top-[20%] -left-[10%] w-[45vw] h-[45vw] rounded-full bg-brand-purple/15 blur-[120px]" />
+        <div className="absolute bottom-[10%] -right-[10%] w-[45vw] h-[45vw] rounded-full bg-brand-pink/15 blur-[120px]" />
+        <div className="absolute top-[40%] right-[30%] w-[35vw] h-[35vw] rounded-full bg-brand-green/10 blur-[130px]" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10">
@@ -63,7 +64,7 @@ export default function Hero() {
                 <ArrowUpRight size={18} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </Link>
               <Link 
-                href="/programmes" 
+                href="/study-program" 
                 className="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-white text-brand-dark font-bold shadow-soft hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2 text-sm sm:text-base border border-slate-200 hover:border-brand-green"
               >
                 <GraduationCap size={18} className="text-brand-green" />
@@ -74,16 +75,16 @@ export default function Hero() {
             {/* Quick Proof Pills */}
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3 w-full max-w-lg border-t border-slate-200/60 pt-5 sm:pt-6 text-left">
               <div>
-                <div className="text-xl sm:text-2xl font-black text-brand-dark">China</div>
-                <div className="text-[10px] sm:text-xs font-semibold text-slate-500 leading-tight">Primary Focus</div>
+                <div className="text-xl sm:text-2xl font-black text-brand-dark">130+</div>
+                <div className="text-[10px] sm:text-xs font-semibold text-slate-500 leading-tight">Chinese Universities</div>
               </div>
               <div>
-                <div className="text-xl sm:text-2xl font-black text-brand-green">Direct</div>
-                <div className="text-[10px] sm:text-xs font-semibold text-slate-500 leading-tight">Application Support</div>
+                <div className="text-xl sm:text-2xl font-black text-brand-green">Dhaka</div>
+                <div className="text-[10px] sm:text-xs font-semibold text-slate-500 leading-tight">Mirpur Headquarters</div>
               </div>
               <div>
-                <div className="text-xl sm:text-2xl font-black text-brand-pink">2025</div>
-                <div className="text-[10px] sm:text-xs font-semibold text-slate-500 leading-tight">Since Inception</div>
+                <div className="text-xl sm:text-2xl font-black text-brand-pink">Direct</div>
+                <div className="text-[10px] sm:text-xs font-semibold text-slate-500 leading-tight">Application Advisory</div>
               </div>
             </div>
           </motion.div>

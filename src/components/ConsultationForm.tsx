@@ -1,16 +1,12 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import {
   Send,
   CheckCircle2,
   AlertCircle,
-  MessageSquare,
-  Mail,
-  ShieldCheck,
-  Calendar,
-  GraduationCap
+  MessageSquare
 } from 'lucide-react';
 
 interface FormData {
@@ -74,6 +70,20 @@ export default function ConsultationForm() {
   const [submitted, setSubmitted] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
 
+  // Pre-fill discussion topics if navigated with ?university=...
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const uni = params.get('university');
+      if (uni) {
+        setFormData(prev => ({
+          ...prev,
+          discussionTopics: prev.discussionTopics ? prev.discussionTopics : `I am interested in admission options, requirements, and scholarships for ${uni}.`
+        }));
+      }
+    }
+  }, []);
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => {
@@ -108,7 +118,7 @@ export default function ConsultationForm() {
 
   if (submitted) {
     return (
-      <div className="bg-white rounded-none sm:rounded-[36px] p-6 sm:p-12 border-b sm:border border-slate-100 sm:border-slate-200/80 sm:shadow-soft text-center space-y-6">
+      <div className="bg-white rounded-none sm:rounded-[36px] p-6 sm:p-12 border-b sm:border border-slate-100 sm:border-slate-200/90 shadow-card text-center space-y-6">
         <div className="w-16 h-16 rounded-full bg-brand-green/15 text-brand-green flex items-center justify-center mx-auto">
           <CheckCircle2 size={36} />
         </div>
@@ -192,7 +202,7 @@ export default function ConsultationForm() {
   }
 
   return (
-    <div className="bg-white rounded-none sm:rounded-[36px] p-5 sm:p-10 md:p-12 border-b sm:border border-slate-100 sm:border-slate-200/80 sm:shadow-soft">
+    <div className="bg-white rounded-none sm:rounded-[36px] p-5 sm:p-10 md:p-12 border-b sm:border border-slate-100 sm:border-slate-200/90 shadow-card">
       <div className="mb-6 sm:mb-8">
         <span className="text-xs font-bold uppercase tracking-wider text-brand-pink block mb-1">
           Online Appointment Request

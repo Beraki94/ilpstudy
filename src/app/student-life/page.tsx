@@ -84,7 +84,7 @@ export default function StudentLifePage() {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-slate-50">
+      <main className="min-h-screen bg-[#f8fafc]">
         
         {/* Page Header */}
         <PageHeader 
@@ -94,7 +94,7 @@ export default function StudentLifePage() {
 
         {/* Intro Section */}
         <section className="pt-12 pb-6 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-[32px] sm:rounded-[40px] p-6 sm:p-10 border border-slate-200/80 shadow-soft">
+          <div className="bg-white rounded-[32px] sm:rounded-[40px] p-6 sm:p-10 border border-slate-200/90 shadow-card">
             <span className="text-xs font-bold uppercase tracking-wider text-brand-pink block mb-1">
               MAKE CHINA FEEL FAMILIAR
             </span>
@@ -117,7 +117,7 @@ export default function StudentLifePage() {
                 return (
                   <div
                     key={idx}
-                    className="bg-white rounded-3xl sm:rounded-[32px] p-6 sm:p-8 border border-slate-200/80 shadow-soft hover:shadow-xl transition-all flex flex-col justify-between group"
+                    className="bg-white rounded-3xl sm:rounded-[32px] p-6 sm:p-8 border border-slate-200/90 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 hover:border-brand-pink/50 transition-all duration-300 flex flex-col justify-between group"
                   >
                     <div className="space-y-4">
                       <div className={`w-12 h-12 rounded-2xl ${item.bgColor} ${item.color} flex items-center justify-center font-bold`}>
@@ -149,7 +149,7 @@ export default function StudentLifePage() {
               return (
                 <div
                   key={idx}
-                  className="bg-white rounded-3xl sm:rounded-[32px] p-5 sm:p-7 border border-slate-200/80 shadow-soft hover:shadow-xl transition-all flex flex-col justify-between group"
+                  className="bg-white rounded-3xl sm:rounded-[32px] p-5 sm:p-7 border border-slate-200/90 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 hover:border-brand-pink/50 transition-all duration-300 flex flex-col justify-between group"
                 >
                   <div className="space-y-3">
                     <div className={`w-11 h-11 sm:w-12 sm:h-12 rounded-2xl ${item.bgColor} ${item.color} flex items-center justify-center font-bold`}>
@@ -184,7 +184,7 @@ export default function StudentLifePage() {
 
         {/* Arrival Checklist */}
         <section className="py-8 sm:py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-3xl sm:rounded-[40px] p-5 sm:p-8 md:p-12 border border-slate-200/80 shadow-soft space-y-6">
+          <div className="bg-white rounded-3xl sm:rounded-[40px] p-5 sm:p-8 md:p-12 border border-slate-200/90 shadow-card space-y-6">
             <div>
               <span className="text-xs font-bold uppercase tracking-wider text-brand-green block mb-1">
                 YOUR ARRIVAL CHECKLIST

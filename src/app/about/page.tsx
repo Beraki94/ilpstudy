@@ -92,7 +92,7 @@ export default function AboutPage() {
 
         {/* ABOUT US: Story & Identity */}
         <section className="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-[40px] p-8 sm:p-14 lg:p-16 border border-slate-200/80 shadow-soft">
+          <div className="bg-white rounded-[40px] p-8 sm:p-14 lg:p-16 border border-slate-200/90 shadow-card">
             <div className="grid lg:grid-cols-12 gap-12 items-center">
               
               <div className="lg:col-span-7 space-y-6">
@@ -165,7 +165,7 @@ export default function AboutPage() {
                   />
                 </div>
 
-                <div className="p-6 rounded-3xl bg-brand-dark text-white shadow-soft">
+                <div className="p-6 rounded-3xl bg-brand-dark text-white shadow-card-dark border border-slate-800">
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-xs font-bold text-brand-green uppercase tracking-wider">Direct Counseling</span>
                     <span className="text-xs bg-white/10 px-2.5 py-1 rounded-full text-slate-300">Mirpur Suite</span>
@@ -188,7 +188,7 @@ export default function AboutPage() {
         </section>
 
         {/* OUR SERVICES: Support for your study plans */}
-        <section className="py-16 sm:py-24 bg-white border-y border-slate-200/80">
+        <section className="py-16 sm:py-24 bg-[#f1f5f9] border-y border-slate-200">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
             <div className="text-center max-w-3xl mx-auto mb-16">
@@ -209,7 +209,7 @@ export default function AboutPage() {
                 return (
                   <div 
                     key={idx}
-                    className="p-8 rounded-3xl bg-slate-50 border border-slate-200/80 hover:bg-white hover:border-brand-pink hover:shadow-soft transition-all duration-300 flex flex-col justify-between group"
+                    className="p-8 rounded-3xl bg-white border border-slate-200/90 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 hover:border-brand-pink/50 transition-all duration-300 flex flex-col justify-between group"
                   >
                     <div>
                       <div className="flex items-center justify-between mb-6">
@@ -230,7 +230,7 @@ export default function AboutPage() {
                       </p>
                     </div>
 
-                    <div className="mt-6 pt-4 border-t border-slate-200/60 flex items-center justify-between">
+                    <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
                       <Link 
                         href={item.link}
                         className="text-xs font-bold text-brand-dark group-hover:text-brand-pink transition-colors inline-flex items-center gap-1.5"
@@ -244,7 +244,7 @@ export default function AboutPage() {
               })}
 
               {/* Bonus 6th Card: Authentic Knowledge Base */}
-              <div className="p-8 rounded-3xl bg-gradient-to-br from-brand-dark via-slate-900 to-brand-dark text-white shadow-soft flex flex-col justify-between">
+              <div className="p-8 rounded-3xl bg-gradient-to-br from-brand-dark via-slate-900 to-brand-dark text-white shadow-card-dark hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between">
                 <div>
                   <div className="flex items-center justify-between mb-6">
                     <div className="w-12 h-12 rounded-2xl flex items-center justify-center bg-brand-green/20 text-brand-green">
@@ -339,7 +339,7 @@ export default function AboutPage() {
         </section>
 
         {/* CONTACT US: Speak with ILP Study */}
-        <section className="py-16 sm:py-24 bg-white border-t border-slate-200/80">
+        <section className="py-16 sm:py-24 bg-[#f8fafc] border-t border-slate-200">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="bg-brand-dark text-white rounded-[40px] p-8 sm:p-14 lg:p-16 relative overflow-hidden shadow-2xl">
               <div className="absolute top-0 right-0 w-80 h-80 bg-brand-pink/20 rounded-full blur-[100px]" />

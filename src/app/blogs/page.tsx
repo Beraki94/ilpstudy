@@ -11,14 +11,11 @@ import {
   BookOpen,
   Search,
   FileCheck2,
-  CheckCircle2,
-  Sparkles,
   Compass,
   GraduationCap,
   BadgeDollarSign,
   Calendar,
   Plane,
-  ShieldCheck,
   type LucideIcon
 } from 'lucide-react';
 import { studentGuides, StudentGuide } from '@/data/studentGuides';
@@ -154,7 +151,7 @@ export default function BlogsPage() {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-slate-50">
+      <main className="min-h-screen bg-[#f8fafc]">
         
         {/* Page Header */}
         <PageHeader 
@@ -164,7 +161,7 @@ export default function BlogsPage() {
 
         {/* Intro & Action Bar */}
         <section className="pt-10 pb-4 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-3xl sm:rounded-[40px] p-6 sm:p-10 border border-slate-200/80 shadow-soft flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div className="bg-white rounded-3xl sm:rounded-[40px] p-6 sm:p-10 border border-slate-200/90 shadow-card flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div className="max-w-2xl space-y-2">
               <span className="text-xs font-bold uppercase tracking-wider text-brand-pink block">
                 ILP STUDY BLOG &amp; KNOWLEDGE BASE
@@ -180,7 +177,7 @@ export default function BlogsPage() {
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto flex-shrink-0">
               <Link
                 href="/checklist"
-                className="px-6 py-3 rounded-full bg-brand-dark text-white text-xs sm:text-sm font-bold shadow-soft hover:bg-brand-pink transition-all inline-flex items-center justify-center gap-2"
+                className="px-6 py-3 rounded-full bg-brand-dark text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-glow-pink hover:bg-brand-pink transition-all inline-flex items-center justify-center gap-2"
               >
                 <FileCheck2 size={16} />
                 <span>Download Document Checklist</span>
@@ -283,7 +280,7 @@ export default function BlogsPage() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.4, delay: idx * 0.06 }}
-                        className="bg-white rounded-3xl sm:rounded-[36px] sm:rounded-tl-[70px] overflow-hidden shadow-soft hover:shadow-xl transition-all duration-300 group flex flex-col border border-slate-200/80 justify-between"
+                        className="bg-white rounded-3xl sm:rounded-[36px] sm:rounded-tl-[70px] overflow-hidden shadow-card hover:shadow-card-hover hover:-translate-y-1.5 hover:border-brand-pink/50 transition-all duration-300 group flex flex-col border border-slate-200/90 justify-between"
                       >
                         {/* Image Thumbnail */}
                         <div className="relative h-44 sm:h-48 overflow-hidden bg-slate-100 flex-shrink-0">

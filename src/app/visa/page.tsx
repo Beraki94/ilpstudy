@@ -46,7 +46,7 @@ export default function VisaPage() {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-white sm:bg-slate-50">
+      <main className="min-h-screen bg-[#f8fafc]">
         
         {/* Page Header */}
         <PageHeader 
@@ -56,7 +56,7 @@ export default function VisaPage() {
 
         {/* Categories Section */}
         <section className="py-0 sm:py-6 max-w-7xl mx-auto px-0 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-none sm:rounded-[36px] p-5 sm:p-10 md:p-12 border-b sm:border border-slate-100 sm:border-slate-200/80 sm:shadow-soft space-y-6 sm:space-y-8">
+          <div className="bg-white rounded-none sm:rounded-[36px] p-5 sm:p-10 md:p-12 border-b sm:border border-slate-100 sm:border-slate-200/90 shadow-card space-y-6 sm:space-y-8">
             <div>
               <h2 className="text-2xl sm:text-3xl font-black text-brand-dark tracking-tight">
                 Student Visas for China
@@ -70,7 +70,7 @@ export default function VisaPage() {
               {visaCategories.map((visa, idx) => (
                 <div
                   key={idx}
-                  className="p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-slate-50/70 border border-slate-200/70 hover:bg-white hover:border-brand-pink hover:shadow-soft transition-all space-y-3 sm:space-y-4"
+                  className="p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-white border border-slate-200/90 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 hover:border-brand-pink/50 transition-all duration-300 space-y-3 sm:space-y-4"
                 >
                   <div className="flex items-center justify-between">
                     <span className={`px-3.5 py-1 rounded-full text-xs font-black ${visa.badgeColor}`}>
@@ -103,7 +103,7 @@ export default function VisaPage() {
 
         {/* Questions Before Departure */}
         <section className="py-0 sm:py-6 max-w-7xl mx-auto px-0 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-none sm:rounded-[36px] p-5 sm:p-10 border-b sm:border border-slate-100 sm:border-slate-200/80 sm:shadow-soft space-y-5 sm:space-y-6">
+          <div className="bg-white rounded-none sm:rounded-[36px] p-5 sm:p-10 border-b sm:border border-slate-100 sm:border-slate-200/90 shadow-card space-y-5 sm:space-y-6">
             <div>
               <span className="text-xs font-bold uppercase tracking-wider text-brand-purple block mb-1">
                 BEFORE DEPARTURE

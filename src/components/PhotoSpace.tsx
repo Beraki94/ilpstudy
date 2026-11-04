@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { Camera, Image as ImageIcon } from 'lucide-react';
 
 interface PhotoSpaceProps {
@@ -25,27 +26,28 @@ export default function PhotoSpace({
 
   return (
     <div
-      className={`group relative overflow-hidden rounded-[32px] border border-slate-200/80 bg-slate-100 shadow-soft transition-all duration-500 hover:shadow-xl ${aspectRatio} ${className}`}
+      className={`group relative overflow-hidden rounded-[32px] border border-slate-200/80 bg-slate-100 shadow-card transition-all duration-500 hover:shadow-card-hover ${aspectRatio} ${className}`}
     >
       {fallbackSrc && !hasError ? (
-        <img
+        <Image
           src={fallbackSrc}
           alt={title}
-          className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-          loading="lazy"
+          fill
+          sizes="(max-width: 768px) 100vw, 1200px"
+          className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
           onError={() => setHasError(true)}
         />
       ) : (
-        <div className="flex h-full w-full flex-col items-center justify-center bg-gradient-to-br from-slate-100 via-slate-50 to-slate-200 p-6 text-center">
-          <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-white shadow-soft text-brand-pink">
+        <div className="flex h-full w-full flex-col items-center justify-center bg-gradient-to-br from-slate-900 via-brand-dark to-slate-900 p-6 text-center text-white">
+          <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10 text-brand-pink border border-white/10 shadow-soft">
             <Camera size={26} />
           </div>
-          <span className="text-xs font-bold uppercase tracking-wider text-brand-pink">
+          <span className="text-xs font-bold uppercase tracking-wider text-brand-green">
             {badge}
           </span>
-          <p className="mt-2 text-base font-bold text-brand-dark">{title}</p>
+          <p className="mt-2 text-base font-bold text-white max-w-md">{title}</p>
           {subtitle && (
-            <p className="mt-1 text-xs text-slate-500 max-w-xs">{subtitle}</p>
+            <p className="mt-1 text-xs text-slate-300 max-w-sm">{subtitle}</p>
           )}
         </div>
       )}

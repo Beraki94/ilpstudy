@@ -1,10 +1,6 @@
-"use client";
-
-import React, { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import PhotoSpace from '@/components/PhotoSpace';
-import { motion } from 'framer-motion';
 import {
   Building2,
   Globe2,
@@ -16,7 +12,6 @@ import {
   FileText,
   UserCheck,
   GraduationCap,
-  Calendar,
   MapPin,
   Phone,
   Mail,
@@ -24,13 +19,10 @@ import {
   ArrowRight,
   Handshake,
   ArrowUpRight,
-  Sparkles,
-  Users2,
-  Award,
+  Sparkles
 } from 'lucide-react';
 
 export default function PartnershipsPage() {
-  const [activeTab, setActiveTab] = useState<'why' | 'workflow' | 'diversity' | 'proposal'>('why');
 
   const stats = [
     { label: "Operating Since", value: "2025", desc: "Dedicated China recruitment" },
@@ -167,7 +159,7 @@ export default function PartnershipsPage() {
     },
     {
       title: "One Named Contact",
-      desc: "A single senior partner (Tanjid Chowdhury — Business Development) manages your university account, guaranteeing direct accountability rather than an anonymous shared inbox.",
+      desc: "A dedicated institutional director (Tanjid Chowdhury — Business Development) manages your university account, guaranteeing direct accountability rather than an anonymous shared inbox.",
       icon: <Building2 size={26} className="text-white" />,
       badge: "Accountability",
       color: "bg-brand-green",
@@ -177,10 +169,14 @@ export default function PartnershipsPage() {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-slate-50 pt-28">
+      <main className="min-h-screen bg-[#f8fafc] pt-28">
         
         {/* HERO SECTION */}
         <section className="relative overflow-hidden bg-brand-dark text-white py-20 lg:py-28">
+          {/* Decorative subtle brand rings */}
+          <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full border border-white/[0.08] pointer-events-none animate-spin-slow" />
+          <div className="absolute -bottom-32 -left-32 w-[480px] h-[480px] rounded-full border border-brand-pink/[0.12] pointer-events-none" />
+
           {/* Subtle Glows */}
           <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-pink/15 rounded-full blur-[140px] pointer-events-none" />
           <div className="absolute bottom-0 left-0 w-[450px] h-[450px] bg-brand-green/15 rounded-full blur-[120px] pointer-events-none" />
@@ -210,7 +206,7 @@ export default function PartnershipsPage() {
                     href="#proposal"
                     className="px-8 py-4 rounded-full bg-brand-green text-white font-bold hover:bg-[#00a85d] shadow-glow-green transition-all flex items-center gap-2"
                   >
-                    View Partnership Terms <ArrowRight size={18} />
+                    View Cooperation Terms <ArrowRight size={18} />
                   </a>
                   <a
                     href="#contact"
@@ -221,12 +217,12 @@ export default function PartnershipsPage() {
                 </div>
               </div>
 
-              {/* Photo Space: Chinese Campus & University Partners */}
+              {/* Photo Space: Chinese Campus & University Network */}
               <div className="lg:col-span-5">
                 <PhotoSpace
                   title="Chinese University Campus & International Student Life"
                   subtitle="Primary destination for ILP Study scholars with 50+ students placed for September 2026 intake"
-                  badge="University Partner Highlight"
+                  badge="Featured University Network"
                   aspectRatio="aspect-[4/3]"
                   fallbackSrc="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
                   className="shadow-2xl border-2 border-white/20"
@@ -257,7 +253,7 @@ export default function PartnershipsPage() {
 
         {/* AT A GLANCE DOSSIER */}
         <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-[40px] rounded-tl-[100px] p-8 sm:p-12 lg:p-16 border border-slate-200/80 shadow-soft">
+          <div className="bg-white rounded-[40px] rounded-tl-[100px] p-8 sm:p-12 lg:p-16 border border-slate-200/90 shadow-card">
             <div className="grid lg:grid-cols-12 gap-12 items-center">
               
               <div className="lg:col-span-7">
@@ -315,12 +311,12 @@ export default function PartnershipsPage() {
         </section>
 
         {/* WHY UNIVERSITIES WORK WITH US (6 PILLARS) */}
-        <section className="py-20 bg-brand-light relative">
+        <section className="py-20 bg-[#f1f5f9] border-y border-slate-200 relative">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-16">
               <div className="inline-flex items-center gap-2 mb-3 px-4 py-1.5 rounded-full bg-brand-green/10 text-brand-green text-xs font-bold uppercase tracking-wider">
                 <ShieldCheck size={14} />
-                <span>Reliable Partner for Admissions Offices</span>
+                <span>Trusted Liaison for Admissions Offices</span>
               </div>
               <h2 className="text-3xl sm:text-5xl font-black text-brand-dark tracking-tight mb-6">
                 Why Universities Work With Us
@@ -334,7 +330,7 @@ export default function PartnershipsPage() {
               {whyWorkWithUs.map((pillar, idx) => (
                 <div
                   key={idx}
-                  className="bg-white rounded-[32px] rounded-tl-[70px] p-8 border border-slate-200/80 shadow-soft hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
+                  className="bg-white rounded-[32px] rounded-tl-[70px] p-8 border border-slate-200/90 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group"
                 >
                   <div>
                     <div className="flex items-center justify-between mb-6">
@@ -382,7 +378,7 @@ export default function PartnershipsPage() {
               </p>
               <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm text-slate-700 leading-relaxed font-medium">
                 <span className="text-brand-pink font-bold block mb-1">Why Campus Diversity Matters:</span>
-                For a university managing its international mix, partner diversity is critical. A partner drawing on six markets across South Asia, Central Asia, the Americas, and Africa supports campus diversity in a way a single-country agent cannot, while reducing the concentration risk that comes with relying on a single geographic source for enrolment.
+                For a university managing its international mix, recruitment source diversity is critical. An organization drawing on six markets across South Asia, Central Asia, the Americas, and Africa supports campus diversity in a way a single-country agent cannot, while reducing the concentration risk that comes with relying on a single geographic source for enrolment.
               </div>
             </div>
 
@@ -405,7 +401,7 @@ export default function PartnershipsPage() {
             {recruitmentMarkets.map((market, idx) => (
               <div
                 key={idx}
-                className="p-6 rounded-3xl bg-white border border-slate-200/80 shadow-soft hover:shadow-lg transition-all"
+                className="p-6 rounded-3xl bg-white border border-slate-200/90 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 transition-all"
               >
                 <div className="flex items-center justify-between mb-3">
                   <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
@@ -455,7 +451,7 @@ export default function PartnershipsPage() {
         </section>
 
         {/* HOW WE WORK (6-STAGE WORKFLOW) */}
-        <section className="py-24 bg-white relative">
+        <section className="py-24 bg-[#f8fafc] border-b border-slate-200/80 relative">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-16">
               <div className="inline-flex items-center gap-2 mb-3 px-4 py-1.5 rounded-full bg-brand-pink/10 text-brand-pink text-xs font-bold uppercase tracking-wider">
@@ -474,7 +470,7 @@ export default function PartnershipsPage() {
               {workflowStages.map((stage, idx) => (
                 <div
                   key={idx}
-                  className="bg-brand-light rounded-[32px] rounded-br-[60px] p-8 border border-slate-200/80 shadow-soft hover:shadow-xl transition-all duration-300 relative group flex flex-col justify-between"
+                  className="bg-white rounded-[32px] rounded-br-[60px] p-8 border border-slate-200/90 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 transition-all duration-300 relative group flex flex-col justify-between"
                 >
                   <div>
                     <div className="flex items-center justify-between mb-6">
@@ -518,7 +514,7 @@ export default function PartnershipsPage() {
         </section>
 
         {/* PARTNERSHIP PROPOSAL SECTION */}
-        <section id="proposal" className="py-24 bg-brand-light relative">
+        <section id="proposal" className="py-24 bg-[#f1f5f9] border-b border-slate-200 relative">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-16">
               <div className="inline-flex items-center gap-2 mb-3 px-4 py-1.5 rounded-full bg-brand-green/10 text-brand-green text-xs font-bold uppercase tracking-wider">
@@ -526,17 +522,17 @@ export default function PartnershipsPage() {
                 <span>September 2027 Intake &amp; Beyond</span>
               </div>
               <h2 className="text-3xl sm:text-5xl font-black text-brand-dark tracking-tight mb-6">
-                Partnership Proposal
+                Institutional Cooperation Proposal
               </h2>
               <p className="text-lg text-slate-600 font-medium">
-                We are actively seeking recruitment cooperation agreements with Chinese universities for the September 2027 intake and beyond. We build deep, long-term partnerships rather than a long list of nominal agreements.
+                We are actively seeking recruitment cooperation agreements with Chinese universities for the September 2027 intake and beyond. We build deep, long-term institutional ties rather than a long list of nominal agreements.
               </p>
             </div>
 
             <div className="grid lg:grid-cols-2 gap-10">
               
               {/* What We Ask */}
-              <div className="bg-white rounded-[36px] rounded-tl-[80px] p-8 sm:p-12 border border-slate-200 shadow-soft flex flex-col justify-between">
+              <div className="bg-white rounded-[36px] rounded-tl-[80px] p-8 sm:p-12 border border-slate-200/90 shadow-card flex flex-col justify-between">
                 <div>
                   <div className="flex items-center gap-3 mb-6">
                     <div className="w-12 h-12 rounded-2xl bg-brand-pink/10 text-brand-pink flex items-center justify-center font-bold">
@@ -657,7 +653,7 @@ export default function PartnershipsPage() {
                       </div>
                       <div>
                         <strong className="block text-white text-base mb-1 font-bold">A Long-Term Relationship</strong>
-                        <p className="text-sm text-slate-300">We prioritize building a small number of deep university partnerships rather than a superficial directory.</p>
+                        <p className="text-sm text-slate-300">We prioritize building a small number of deep university cooperation channels rather than a superficial directory.</p>
                       </div>
                     </li>
                   </ul>
@@ -673,7 +669,7 @@ export default function PartnershipsPage() {
         </section>
 
         {/* START A CONVERSATION & WECHAT QR CODE SECTION */}
-        <section id="contact" className="py-24 bg-white relative">
+        <section id="contact" className="py-24 bg-[#f8fafc] relative">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-16">
               <div className="inline-flex items-center gap-2 mb-3 px-4 py-1.5 rounded-full bg-brand-purple/10 text-brand-purple text-xs font-bold uppercase tracking-wider">
@@ -690,13 +686,13 @@ export default function PartnershipsPage() {
 
             <div className="grid lg:grid-cols-12 gap-10 items-stretch">
               
-              {/* Partner Card */}
-              <div className="lg:col-span-7 bg-brand-light rounded-[36px] p-8 sm:p-12 border border-slate-200/80 shadow-soft flex flex-col justify-between">
+              {/* Liaison Card */}
+              <div className="lg:col-span-7 bg-white rounded-[36px] p-8 sm:p-12 border border-slate-200/90 shadow-card flex flex-col justify-between">
                 <div>
                   <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8 pb-6 border-b border-slate-200">
                     <div>
                       <span className="text-xs font-bold uppercase text-brand-green tracking-wider block mb-1">
-                        Partnerships &amp; Collaborations
+                        Institutional Relations &amp; Collaborations
                       </span>
                       <h3 className="text-2xl sm:text-3xl font-black text-brand-dark">
                         Tanjid Chowdhury
@@ -706,13 +702,13 @@ export default function PartnershipsPage() {
                       </p>
                     </div>
                     <div className="px-4 py-2 rounded-full bg-brand-green/10 text-brand-green text-xs font-bold flex items-center gap-1.5">
-                      <CheckCircle2 size={14} /> Verified Named Partner
+                      <CheckCircle2 size={14} /> Verified Liaison Representative
                     </div>
                   </div>
 
                   <div className="space-y-6">
                     <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-2xl bg-white shadow-soft flex items-center justify-center text-brand-pink flex-shrink-0">
+                      <div className="w-12 h-12 rounded-2xl bg-slate-50 border border-slate-200/70 shadow-xs flex items-center justify-center text-brand-pink flex-shrink-0">
                         <Mail size={22} />
                       </div>
                       <div>
@@ -727,7 +723,7 @@ export default function PartnershipsPage() {
                     </div>
 
                     <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-2xl bg-white shadow-soft flex items-center justify-center text-brand-green flex-shrink-0">
+                      <div className="w-12 h-12 rounded-2xl bg-slate-50 border border-slate-200/70 shadow-xs flex items-center justify-center text-brand-green flex-shrink-0">
                         <Phone size={22} />
                       </div>
                       <div>
@@ -739,7 +735,7 @@ export default function PartnershipsPage() {
                     </div>
 
                     <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-2xl bg-white shadow-soft flex items-center justify-center text-brand-purple flex-shrink-0">
+                      <div className="w-12 h-12 rounded-2xl bg-slate-50 border border-slate-200/70 shadow-xs flex items-center justify-center text-brand-purple flex-shrink-0">
                         <MessageSquare size={22} />
                       </div>
                       <div>
@@ -756,7 +752,7 @@ export default function PartnershipsPage() {
                     </div>
 
                     <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-2xl bg-white shadow-soft flex items-center justify-center text-slate-700 flex-shrink-0">
+                      <div className="w-12 h-12 rounded-2xl bg-slate-50 border border-slate-200/70 shadow-xs flex items-center justify-center text-slate-700 flex-shrink-0">
                         <MapPin size={22} />
                       </div>
                       <div>

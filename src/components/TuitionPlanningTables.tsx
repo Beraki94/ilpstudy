@@ -3,13 +3,11 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import {
-  DollarSign,
   AlertCircle,
   ArrowRight,
   GraduationCap,
   Stethoscope,
-  Sparkles,
-  Info
+  Sparkles
 } from 'lucide-react';
 
 interface TuitionRow {
@@ -116,25 +114,8 @@ export default function TuitionPlanningTables() {
         </span>
       </div>
 
-      {/* Official Notice Box */}
-      <div className="p-4 sm:p-5 rounded-2xl bg-brand-pink/5 border border-brand-pink/20 text-xs sm:text-sm text-brand-dark flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-        <div className="flex items-start gap-2.5">
-          <AlertCircle size={17} className="text-brand-pink flex-shrink-0 mt-0.5" />
-          <p className="leading-relaxed text-slate-700">
-            <strong className="text-brand-dark">Indicative Planning Ranges:</strong> The tuition table contains indicative planning ranges. They are not verified current university quotations. Visit the university’s official website to check the updated fee for your programme and intake.
-          </p>
-        </div>
-        <Link 
-          href="/how-we-check" 
-          className="text-xs font-bold text-brand-pink hover:underline whitespace-nowrap self-start sm:self-center flex items-center gap-1 flex-shrink-0"
-        >
-          <span>How we check information</span>
-          <ArrowRight size={13} />
-        </Link>
-      </div>
-
       {/* Responsive Table */}
-      <div className="bg-white rounded-3xl border border-slate-200/80 shadow-soft overflow-hidden">
+      <div className="bg-white rounded-3xl border border-slate-200/90 shadow-card overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs sm:text-sm">
             <thead className="bg-slate-50 border-b border-slate-200/80 text-slate-500 font-bold uppercase tracking-wider text-[11px]">
@@ -168,7 +149,7 @@ export default function TuitionPlanningTables() {
       </div>
 
       {/* Disclaimers & Advice Box */}
-      <div className="p-6 rounded-3xl bg-amber-50 border border-amber-200/80 text-amber-950 space-y-3">
+      <div className="p-6 rounded-3xl bg-amber-50/70 border border-amber-200/90 shadow-card text-amber-950 space-y-3">
         <div className="flex items-center gap-2 font-bold text-xs uppercase tracking-wider text-amber-800">
           <AlertCircle size={16} className="text-amber-700" />
           <span>OTHER COSTS — Plan beyond tuition</span>

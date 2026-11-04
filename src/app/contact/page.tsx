@@ -9,11 +9,7 @@ import {
   Mail,
   MapPin,
   MessageSquare,
-  QrCode,
-  AlertCircle,
-  HelpCircle,
-  Clock,
-  Sparkles
+  AlertCircle
 } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -28,7 +24,7 @@ export default function ContactPage() {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-white sm:bg-slate-50">
+      <main className="min-h-screen bg-[#f8fafc]">
         
         {/* Page Header */}
         <PageHeader 
@@ -43,7 +39,7 @@ export default function ContactPage() {
             <div className="lg:col-span-5 space-y-0 sm:space-y-6">
               
               {/* Prefer to contact directly box */}
-              <div className="bg-white rounded-none sm:rounded-[36px] p-5 sm:p-8 md:p-10 border-b sm:border border-slate-100 sm:border-slate-200/80 sm:shadow-soft space-y-5 sm:space-y-6">
+              <div className="bg-white rounded-none sm:rounded-[36px] p-5 sm:p-8 md:p-10 border-b sm:border border-slate-100 sm:border-slate-200/90 shadow-card space-y-5 sm:space-y-6">
                 <div>
                   <span className="text-xs font-bold uppercase tracking-wider text-brand-green block mb-1">
                     Direct Counseling Channels
@@ -168,7 +164,7 @@ export default function ContactPage() {
 
               {/* WhatsApp & WeChat Box */}
               <div className="bg-white p-4 sm:p-0 border-b sm:border-0 border-slate-100">
-                <div className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-brand-dark text-white shadow-soft flex items-center justify-between gap-4">
+                <div className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-brand-dark text-white shadow-card-dark border border-slate-800 flex items-center justify-between gap-4">
                   <div>
                     <span className="text-[10px] font-bold uppercase tracking-wider text-brand-green block">
                       WhatsApp &amp; WeChat

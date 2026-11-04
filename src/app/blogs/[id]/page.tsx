@@ -3,20 +3,15 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import PageHeader from '@/components/PageHeader';
 import {
   Calendar,
   Clock,
   ArrowLeft,
   ArrowRight,
   CheckCircle2,
-  BookOpen,
-  Share2,
-  FileText,
-  HelpCircle,
   Sparkles
 } from 'lucide-react';
-import { studentGuides, StudentGuide } from '@/data/studentGuides';
+import { studentGuides } from '@/data/studentGuides';
 
 interface PageProps {
   params: Promise<{ id: string }>;
@@ -69,7 +64,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-slate-50">
+      <main className="min-h-screen bg-[#f8fafc]">
         
         {/* Breadcrumb Navigation */}
         <div className="bg-white border-b border-slate-200/80">
@@ -86,7 +81,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
         <article className="py-12 sm:py-16 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           
           {/* Header Card */}
-          <div className="bg-white rounded-[36px] sm:rounded-[48px] rounded-tl-[80px] p-8 sm:p-12 border border-slate-200/80 shadow-soft space-y-6">
+          <div className="bg-white rounded-[36px] sm:rounded-[48px] rounded-tl-[80px] p-8 sm:p-12 border border-slate-200/90 shadow-card space-y-6">
             
             {/* Badges & Meta */}
             <div className="flex flex-wrap items-center justify-between gap-3 text-xs">

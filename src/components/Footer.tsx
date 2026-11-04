@@ -22,13 +22,13 @@ export default function Footer() {
   };
 
   const studyRoutes = [
-    { name: "Bachelor's Degrees", path: '/programmes#bachelor' },
-    { name: "Master's & PhD", path: '/programmes#master' },
-    { name: "MBBS (Medicine)", path: '/programmes#bachelor' },
+    { name: "Bachelor's Degrees", path: '/study-program#bachelor' },
+    { name: "Master's & PhD", path: '/study-program#master' },
+    { name: "MBBS (Medicine)", path: '/study-program#bachelor' },
     { name: "CSC Scholarships", path: '/scholarships' },
-    { name: "Foundation & Language", path: '/programmes#foundation' },
+    { name: "Foundation & Language", path: '/study-program#foundation' },
     { name: "CSCA Exam & Syllabus", path: '/csca' },
-    { name: "March / Sept Intakes", path: '/programmes#pathways' },
+    { name: "March / Sept Intakes", path: '/study-program#pathways' },
     { name: "Tuition Fees (RMB)", path: '/universities#tuition' },
   ];
 

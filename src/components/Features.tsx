@@ -39,7 +39,7 @@ export default function Features() {
   ];
 
   return (
-    <section className="py-14 sm:py-24 bg-white relative z-10" id="services">
+    <section className="py-16 sm:py-24 bg-[#f1f5f9] border-y border-slate-200/80 relative z-10" id="services">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Heading */}
@@ -71,9 +71,11 @@ export default function Features() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                whileHover={{ y: -8 }}
-                className="bg-brand-light rounded-3xl sm:rounded-[32px] sm:rounded-tl-[70px] p-6 sm:p-8 border border-slate-200/80 shadow-soft hover:shadow-xl transition-all duration-300 relative group flex flex-col justify-between"
+                whileHover={{ y: -6 }}
+                className="bg-white rounded-3xl sm:rounded-[32px] sm:rounded-tl-[70px] p-6 sm:p-8 border border-slate-200/90 shadow-card hover:shadow-card-hover hover:border-brand-pink/50 transition-all duration-300 relative group flex flex-col justify-between overflow-hidden"
               >
+                {/* Top Colored Accent Strip */}
+                <div className={`absolute top-0 left-0 right-0 h-1.5 ${item.color}`} />
                 <div>
                   <div className="flex items-center justify-between mb-6">
                     <div className={`w-14 h-14 rounded-2xl rounded-tl-full ${item.color} ${item.shadow} flex items-center justify-center text-white group-hover:scale-110 transition-transform`}>

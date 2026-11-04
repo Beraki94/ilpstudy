@@ -4,7 +4,6 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import PageHeader from '@/components/PageHeader';
 import InteractiveChecklist from '@/components/InteractiveChecklist';
-import { FileCheck2, Download, Printer, ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'China University Application Document Checklist | ILP Study',
@@ -18,7 +17,7 @@ export default function ChecklistPage() {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-slate-50">
+      <main className="min-h-screen bg-[#f8fafc]">
         
         {/* Page Header */}
         <PageHeader 

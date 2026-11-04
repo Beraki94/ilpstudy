@@ -8,13 +8,7 @@ import {
   Calendar,
   BookOpen,
   DollarSign,
-  GraduationCap,
-  Award,
-  Plane,
   ArrowRight,
-  Sparkles,
-  Download,
-  HelpCircle,
   ShieldCheck
 } from 'lucide-react';
 
@@ -104,7 +98,7 @@ export default function ResourcesPage() {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-slate-50">
+      <main className="min-h-screen bg-[#f8fafc]">
         
         {/* Page Header */}
         <PageHeader 
@@ -130,7 +124,7 @@ export default function ResourcesPage() {
                 <Link
                   key={idx}
                   href={item.path}
-                  className="p-6 rounded-[32px] bg-white border border-slate-200/80 shadow-soft hover:shadow-xl hover:border-brand-pink transition-all flex flex-col justify-between group"
+                  className="p-6 rounded-[32px] bg-white border border-slate-200/90 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 hover:border-brand-pink/50 transition-all duration-300 flex flex-col justify-between group"
                 >
                   <div className="space-y-3">
                     <div className="flex items-center justify-between">
@@ -163,7 +157,7 @@ export default function ResourcesPage() {
 
         {/* Information Verification Box */}
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-4">
-          <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200/80 shadow-soft flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200/90 shadow-card flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 rounded-2xl bg-brand-green/10 text-brand-green flex items-center justify-center font-bold flex-shrink-0 mt-1">
                 <ShieldCheck size={24} />
@@ -205,7 +199,7 @@ export default function ResourcesPage() {
             {planCategories.map((cat, idx) => (
               <div
                 key={idx}
-                className="p-8 rounded-[32px] bg-white border border-slate-200/80 shadow-soft hover:border-slate-300 transition-all flex flex-col justify-between"
+                className="p-8 rounded-[32px] bg-white border border-slate-200/90 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 hover:border-brand-pink/50 transition-all duration-300 flex flex-col justify-between group"
               >
                 <div className="space-y-2.5">
                   <span className="text-[11px] font-extrabold uppercase tracking-wider text-slate-400 block">

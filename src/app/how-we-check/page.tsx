@@ -4,12 +4,10 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import PageHeader from '@/components/PageHeader';
 import {
-  ShieldCheck,
   Building2,
   BookOpen,
   Calendar,
   AlertCircle,
-  FileCheck2,
   Mail,
   Phone,
   MessageSquare,
@@ -29,7 +27,7 @@ export default function HowWeCheckPage() {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-slate-50">
+      <main className="min-h-screen bg-[#f8fafc]">
         <PageHeader 
           title="How We Check University Information" 
           description="Our approach to university sources, programme information, intake dates, corrections and independent education guidance."
@@ -37,7 +35,7 @@ export default function HowWeCheckPage() {
 
         {/* Core Review Statement */}
         <section className="py-12 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-3xl sm:rounded-[40px] p-6 sm:p-10 md:p-12 border border-slate-200/80 shadow-soft space-y-8">
+          <div className="bg-white rounded-3xl sm:rounded-[40px] p-6 sm:p-10 md:p-12 border border-slate-200/90 shadow-card space-y-8">
             
             {/* Section Tag */}
             <div className="border-b border-slate-100 pb-6">

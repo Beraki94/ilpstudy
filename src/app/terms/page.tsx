@@ -30,7 +30,7 @@ export default function TermsPage() {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-slate-50">
+      <main className="min-h-screen bg-[#f8fafc]">
         <PageHeader 
           title="Terms of Service" 
           description="Clear, straightforward guidelines governing student admissions guidance, scholarship applications, and visa counseling for studying in China."
@@ -38,7 +38,7 @@ export default function TermsPage() {
 
         {/* Core Terms Container */}
         <section className="py-12 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-3xl sm:rounded-[40px] p-6 sm:p-10 md:p-12 border border-slate-200/80 shadow-soft space-y-8">
+          <div className="bg-white rounded-3xl sm:rounded-[40px] p-6 sm:p-10 md:p-12 border border-slate-200/90 shadow-card space-y-8">
             
             {/* Section Tag Header */}
             <div className="border-b border-slate-100 pb-6">

@@ -3,14 +3,8 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import {
-  Calculator,
-  DollarSign,
-  AlertCircle,
-  HelpCircle,
-  CheckCircle2,
   ArrowRight,
-  RotateCcw,
-  Sparkles
+  RotateCcw
 } from 'lucide-react';
 
 export default function BudgetPlanner() {
@@ -35,7 +29,7 @@ export default function BudgetPlanner() {
   return (
     <div className="space-y-0 sm:space-y-10">
       {/* Interactive Calculator Card - Seamless on mobile, rounded card on desktop */}
-      <div className="bg-white rounded-none sm:rounded-[40px] p-5 sm:p-10 md:p-12 border-b sm:border border-slate-100 sm:border-slate-200/80 sm:shadow-soft">
+      <div className="bg-white rounded-none sm:rounded-[40px] p-5 sm:p-10 md:p-12 border-b sm:border border-slate-100 sm:border-slate-200/90 shadow-card">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-6 mb-8">
           <div>
             <span className="text-xs font-bold uppercase tracking-wider text-brand-pink block">
@@ -220,7 +214,7 @@ export default function BudgetPlanner() {
       </div>
 
       {/* Avoid Surprises Table - Seamless on mobile, rounded card on desktop */}
-      <div className="bg-white rounded-none sm:rounded-[36px] p-5 sm:p-10 border-b sm:border border-slate-100 sm:border-slate-200/80 sm:shadow-soft space-y-4">
+      <div className="bg-white rounded-none sm:rounded-[36px] p-5 sm:p-10 border-b sm:border border-slate-100 sm:border-slate-200/90 shadow-card space-y-4">
         <div>
           <span className="text-xs font-bold uppercase tracking-wider text-brand-green block mb-1">
             AVOID SURPRISES

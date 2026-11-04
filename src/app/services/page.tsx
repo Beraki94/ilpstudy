@@ -15,11 +15,9 @@ import {
   UserCheck,
   FileText,
   BadgeDollarSign,
-  PiggyBank,
   ArrowRight,
   ChevronDown,
   CheckCircle2,
-  Sparkles,
   Plane,
 } from 'lucide-react';
 
@@ -142,7 +140,7 @@ export default function ServicesPage() {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-white">
+      <main className="min-h-screen bg-[#f8fafc]">
         <PageHeader 
           title="Our Services & Admissions System" 
           description="From academic screening and document authentication to direct university portal submission, JW202 issuance, and on-campus registration — we guide students through a structured, 6-stage journey to top Chinese universities."
@@ -218,7 +216,7 @@ export default function ServicesPage() {
               {studentServices.map((service, idx) => (
                 <div
                   key={idx}
-                  className="bg-white rounded-3xl p-8 border border-slate-200/80 shadow-soft hover:shadow-xl transition-all flex flex-col justify-between group"
+                  className="bg-white rounded-3xl p-8 border border-slate-200/90 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 hover:border-brand-pink/50 transition-all duration-300 flex flex-col justify-between group"
                 >
                   <div>
                     <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 ${service.color} shadow-sm group-hover:scale-110 transition-transform`}>
@@ -259,7 +257,7 @@ export default function ServicesPage() {
             {workflowStages.map((stage, idx) => (
               <div
                 key={idx}
-                className="bg-brand-light rounded-[32px] rounded-tl-[70px] p-8 border border-slate-200/80 shadow-soft hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
+                className="bg-white rounded-[32px] rounded-tl-[70px] p-8 border border-slate-200/90 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 hover:border-brand-pink/50 transition-all duration-300 flex flex-col justify-between group"
               >
                 <div>
                   <div className="flex items-center justify-between mb-6">
@@ -326,7 +324,7 @@ export default function ServicesPage() {
                 <p className="text-slate-600 text-base leading-relaxed mb-8">
                   Whether understanding JW202 processing, embassy visa requirements, or scholarship criteria, our counsellors give you direct, honest answers before you commit.
                 </p>
-                <div className="p-6 rounded-3xl bg-white border border-slate-200 shadow-soft">
+                <div className="p-6 rounded-3xl bg-white border border-slate-200/90 shadow-card">
                   <h4 className="font-bold text-brand-dark text-base mb-1">Need One-on-One Counsel?</h4>
                   <p className="text-xs text-slate-500 mb-4">Visit our Dhaka office or connect with us directly on WeChat.</p>
                   <a

@@ -9,7 +9,21 @@ interface PageHeaderProps {
 
 export default function PageHeader({ title, description }: PageHeaderProps) {
   return (
-    <div className="relative bg-[#0f172a] pt-24 pb-14 sm:pt-36 sm:pb-28 overflow-hidden mt-[64px] sm:mt-[76px] max-w-full">
+    <div className="relative bg-[#0f172a] pt-24 pb-14 sm:pt-36 sm:pb-28 overflow-hidden mt-[64px] sm:mt-[70px] max-w-full">
+      {/* Decorative Brand Rings matching Hero */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <motion.div 
+          animate={{ rotate: 360 }}
+          transition={{ duration: 160, repeat: Infinity, ease: "linear" }}
+          className="absolute -top-[30%] -right-[15%] w-[70vw] max-w-[600px] h-[70vw] max-h-[600px] rounded-full opacity-[0.05] border-[70px] border-brand-pink"
+        />
+        <motion.div 
+          animate={{ rotate: -360 }}
+          transition={{ duration: 130, repeat: Infinity, ease: "linear" }}
+          className="absolute -bottom-[30%] -left-[15%] w-[60vw] max-w-[500px] h-[60vw] max-h-[500px] rounded-full opacity-[0.05] border-[60px] border-brand-green"
+        />
+      </div>
+
       {/* Subtle Ambient Glows */}
       <div className="absolute top-1/4 -left-20 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-brand-purple/20 rounded-full blur-[100px] sm:blur-[150px] pointer-events-none" />
       <div className="absolute bottom-0 -right-20 w-[250px] sm:w-[500px] h-[250px] sm:h-[500px] bg-brand-green/10 rounded-full blur-[90px] sm:blur-[120px] pointer-events-none" />

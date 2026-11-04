@@ -4,7 +4,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import PageHeader from '@/components/PageHeader';
 import BudgetPlanner from '@/components/BudgetPlanner';
-import { DollarSign, ArrowRight, Building2, HelpCircle } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Cost of Studying in China | Student Budget Planner | ILP Study',
@@ -18,7 +18,7 @@ export default function BudgetPage() {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-white sm:bg-slate-50">
+      <main className="min-h-screen bg-[#f8fafc]">
         
         {/* Page Header */}
         <PageHeader 

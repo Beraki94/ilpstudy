@@ -4,13 +4,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import PageHeader from '@/components/PageHeader';
 import {
-  BookOpenCheck,
-  Calendar,
-  Clock,
-  Languages,
   AlertCircle,
-  CheckCircle2,
-  ExternalLink,
   Laptop,
   Building2,
   FileText,
@@ -124,7 +118,7 @@ export default function CSCAPage() {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-white sm:bg-slate-50">
+      <main className="min-h-screen bg-[#f8fafc]">
         
         {/* Page Header */}
         <PageHeader 
@@ -134,7 +128,7 @@ export default function CSCAPage() {
 
         {/* Section 1: Undergraduate Admissions Context - Seamless on mobile, rounded card on desktop */}
         <section className="py-0 sm:pt-10 sm:pb-6 max-w-7xl mx-auto px-0 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-none sm:rounded-[32px] p-5 sm:p-10 border-b sm:border border-slate-100 sm:border-slate-200/80 sm:shadow-soft space-y-4">
+          <div className="bg-white rounded-none sm:rounded-[32px] p-5 sm:p-10 border-b sm:border border-slate-100 sm:border-slate-200/90 shadow-card space-y-4">
             <span className="text-xs font-bold uppercase tracking-wider text-brand-pink block">
               UNDERGRADUATE ADMISSIONS
             </span>
@@ -173,7 +167,7 @@ export default function CSCAPage() {
 
         {/* Section 2: Published Upcoming Sessions - Seamless on mobile */}
         <section id="dates" className="py-0 sm:py-6 max-w-7xl mx-auto px-0 sm:px-6 lg:px-8 scroll-mt-20">
-          <div className="bg-white rounded-none sm:rounded-[36px] p-5 sm:p-10 border-b sm:border border-slate-100 sm:border-slate-200/80 sm:shadow-soft space-y-5 sm:space-y-6">
+          <div className="bg-white rounded-none sm:rounded-[36px] p-5 sm:p-10 border-b sm:border border-slate-100 sm:border-slate-200/90 shadow-card space-y-5 sm:space-y-6">
             <div>
               <span className="text-xs font-bold uppercase tracking-wider text-brand-green block mb-1">
                 PUBLISHED UPCOMING SESSIONS
@@ -223,7 +217,7 @@ export default function CSCAPage() {
 
         {/* Section 3: Published Subject Format - Seamless on mobile */}
         <section id="format" className="py-0 sm:py-6 max-w-7xl mx-auto px-0 sm:px-6 lg:px-8 scroll-mt-20">
-          <div className="bg-white rounded-none sm:rounded-[36px] p-5 sm:p-10 border-b sm:border border-slate-100 sm:border-slate-200/80 sm:shadow-soft space-y-5 sm:space-y-6">
+          <div className="bg-white rounded-none sm:rounded-[36px] p-5 sm:p-10 border-b sm:border border-slate-100 sm:border-slate-200/90 shadow-card space-y-5 sm:space-y-6">
             <div>
               <span className="text-xs font-bold uppercase tracking-wider text-brand-purple block mb-1">
                 PUBLISHED SUBJECT FORMAT
@@ -269,7 +263,7 @@ export default function CSCAPage() {
 
         {/* Section 4: Test Methods - Seamless on mobile */}
         <section className="py-0 sm:py-6 max-w-7xl mx-auto px-0 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-none sm:rounded-[36px] p-5 sm:p-10 border-b sm:border border-slate-100 sm:border-slate-200/80 sm:shadow-soft space-y-5 sm:space-y-6">
+          <div className="bg-white rounded-none sm:rounded-[36px] p-5 sm:p-10 border-b sm:border border-slate-100 sm:border-slate-200/90 shadow-card space-y-5 sm:space-y-6">
             <div>
               <span className="text-xs font-bold uppercase tracking-wider text-brand-dark block mb-1">
                 TEST METHODS
@@ -306,7 +300,7 @@ export default function CSCAPage() {
 
         {/* Section 5: CSCA Preparation Checklist - Seamless on mobile */}
         <section className="py-0 sm:py-6 max-w-7xl mx-auto px-0 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-none sm:rounded-[36px] p-5 sm:p-10 border-b sm:border border-slate-100 sm:border-slate-200/80 sm:shadow-soft space-y-5 sm:space-y-6">
+          <div className="bg-white rounded-none sm:rounded-[36px] p-5 sm:p-10 border-b sm:border border-slate-100 sm:border-slate-200/90 shadow-card space-y-5 sm:space-y-6">
             <div>
               <span className="text-xs font-bold uppercase tracking-wider text-brand-pink block mb-1">
                 PLAN YOUR PREPARATION

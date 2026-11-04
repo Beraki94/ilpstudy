@@ -23,7 +23,7 @@ export default function Fields() {
       bgHover: 'hover:bg-brand-pink',
       badge: 'Bachelor’s, Master’s & PhD',
       subjects: 'Computer Science, Software Engineering, AI, Data Science, Cybersecurity',
-      link: '/programmes#bachelor'
+      link: '/study-program#bachelor'
     },
     {
       name: 'Engineering & Robotics',
@@ -32,7 +32,7 @@ export default function Fields() {
       bgHover: 'hover:bg-brand-green',
       badge: 'Bachelor’s & Master’s',
       subjects: 'Mechanical, Electrical, Civil, Automation, Robotics, Aeronautical & Petroleum',
-      link: '/programmes#bachelor'
+      link: '/study-program#bachelor'
     },
     {
       name: 'Medicine & Health (MBBS)',
@@ -41,7 +41,7 @@ export default function Fields() {
       bgHover: 'hover:bg-brand-purple',
       badge: 'English Medium MBBS',
       subjects: 'Clinical Medicine (MBBS), Pharmacy, Nursing, Public Health & Dentistry',
-      link: '/programmes#bachelor'
+      link: '/study-program#bachelor'
     },
     {
       name: 'Business & Global Trade',
@@ -50,7 +50,7 @@ export default function Fields() {
       bgHover: 'hover:bg-brand-pink',
       badge: 'Bachelor’s, MBA & Master’s',
       subjects: 'International Business, BBA, Finance, Accounting, Supply Chain & E-Commerce',
-      link: '/programmes#bachelor'
+      link: '/study-program#bachelor'
     },
     {
       name: 'Foundation / Pre-University',
@@ -59,7 +59,7 @@ export default function Fields() {
       bgHover: 'hover:bg-brand-green',
       badge: 'Post-SSC / O Levels',
       subjects: 'Science & Engineering, CS, Pre-Medical, Business & Academic Chinese',
-      link: '/programmes#foundation'
+      link: '/study-program#foundation'
     },
     {
       name: 'Chinese Language & HSK',
@@ -68,7 +68,7 @@ export default function Fields() {
       bgHover: 'hover:bg-brand-purple',
       badge: '1-Sem / 1-Year / HSK',
       subjects: 'Short-term Mandarin, Intensive 1-Year immersion & Academic HSK preparation',
-      link: '/programmes#language'
+      link: '/study-program#language'
     },
     {
       name: 'Postgraduate & PhD Research',
@@ -77,7 +77,7 @@ export default function Fields() {
       bgHover: 'hover:bg-brand-pink',
       badge: 'Full CSC Scholarship Routes',
       subjects: 'Intelligent Systems, Materials Science, Biotechnology, Economics & Energy',
-      link: '/programmes#phd'
+      link: '/study-program#phd'
     },
     {
       name: 'Architecture & Applied Science',
@@ -86,13 +86,14 @@ export default function Fields() {
       bgHover: 'hover:bg-brand-green',
       badge: 'Bachelor’s & Master’s',
       subjects: 'Architecture, Civil Aviation, Renewable Energy, Food Science & Agriculture',
-      link: '/programmes#bachelor'
+      link: '/study-program#bachelor'
     },
   ];
 
   return (
-    <section className="py-14 sm:py-24 bg-brand-light relative overflow-hidden" id="programmes-preview">
+    <section className="py-16 sm:py-24 bg-white relative overflow-hidden" id="programmes-preview">
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-green/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-brand-pink/5 rounded-full blur-[100px] pointer-events-none" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         <div className="text-center mb-10 sm:mb-16 max-w-3xl mx-auto">
@@ -127,11 +128,11 @@ export default function Fields() {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.05 }}
               whileHover={{ y: -6 }}
-              className="bg-white rounded-3xl sm:rounded-[32px] p-5 sm:p-7 shadow-soft hover:shadow-xl transition-all duration-300 group border border-slate-200/80 flex flex-col justify-between"
+              className="bg-white rounded-3xl sm:rounded-[32px] p-5 sm:p-7 shadow-card hover:shadow-card-hover hover:border-brand-pink/50 transition-all duration-300 group border border-slate-200/90 flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-4 sm:mb-5">
-                  <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-slate-50 flex items-center justify-center transition-colors duration-300 ${field.color} ${field.bgHover} group-hover:text-white shadow-sm`}>
+                  <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-white border border-slate-200/60 flex items-center justify-center transition-colors duration-300 ${field.color} ${field.bgHover} group-hover:text-white shadow-xs`}>
                     {field.icon}
                   </div>
                   <span className="text-[10px] font-bold text-slate-500 bg-slate-100 px-2.5 sm:px-3 py-1 rounded-full">
@@ -170,7 +171,7 @@ export default function Fields() {
         {/* Explore all programmes banner */}
         <div className="mt-10 sm:mt-14 text-center">
           <Link
-            href="/programmes"
+            href="/study-program"
             className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-brand-dark text-white font-bold text-xs sm:text-sm hover:bg-brand-pink transition-all shadow-soft group w-full sm:w-auto"
           >
             <span>View Complete Programmes Guide &amp; Subject Lists</span>
