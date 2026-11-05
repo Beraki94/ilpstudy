@@ -50,8 +50,10 @@ export default function Destinations() {
   const [canScrollLeft, setCanScrollLeft] = useState<boolean>(false);
   const [canScrollRight, setCanScrollRight] = useState<boolean>(true);
   const [pageSize, setPageSize] = useState<number>(3);
+  const [carouselHeight, setCarouselHeight] = useState<number | undefined>(undefined);
 
   const carouselRef = useRef<HTMLDivElement>(null);
+  const slideRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [isPaused, setIsPaused] = useState<boolean>(false);
   const autoPlayTimerRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -459,6 +461,8 @@ export default function Destinations() {
     return chunks;
   }, [filteredList, pageSize]);
 
+  const totalPages = Math.max(1, pages.length);
+
   // Update button enabled states and current page indicator based on scroll position
   const updateScrollState = () => {
     if (!carouselRef.current) return;
@@ -469,10 +473,60 @@ export default function Destinations() {
     setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 12);
 
     if (clientWidth > 0) {
-      const page = Math.round(scrollLeft / clientWidth);
-      setCurrentPage(page);
+      const page = Math.max(0, Math.min(totalPages - 1, Math.round(scrollLeft / clientWidth)));
+      if (page !== currentPage) {
+        setCurrentPage(page);
+        if (typeof window !== 'undefined' && window.innerWidth < 1024) {
+          const activeSlide = slideRefs.current[page];
+          if (activeSlide && activeSlide.offsetHeight > 0) {
+            setCarouselHeight(activeSlide.offsetHeight);
+          }
+        }
+      }
     }
   };
+
+  // Dynamically size carousel height to the active slide on mobile/tablet so Previous/Next controls sit immediately below the cards
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    if (window.innerWidth >= 1024) {
+      setCarouselHeight(undefined);
+      return;
+    }
+
+    const activeSlide = slideRefs.current[currentPage];
+    if (!activeSlide) return;
+
+    const measureAndSetHeight = () => {
+      if (activeSlide && activeSlide.offsetHeight > 0) {
+        setCarouselHeight(activeSlide.offsetHeight);
+      }
+    };
+
+    measureAndSetHeight();
+
+    let ro: ResizeObserver | null = null;
+    if (typeof ResizeObserver !== 'undefined') {
+      ro = new ResizeObserver(() => {
+        measureAndSetHeight();
+      });
+      ro.observe(activeSlide);
+    }
+
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setCarouselHeight(undefined);
+      } else {
+        measureAndSetHeight();
+      }
+    };
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      if (ro) ro.disconnect();
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [currentPage, selectedCategory, pages]);
 
   // Reset scroll and update state when category changes
   useEffect(() => {
@@ -480,7 +534,12 @@ export default function Destinations() {
       carouselRef.current.scrollTo({ left: 0, behavior: 'instant' as ScrollBehavior });
     }
     setCurrentPage(0);
-    const timer = setTimeout(updateScrollState, 60);
+    const timer = setTimeout(() => {
+      if (!carouselRef.current) return;
+      const { scrollLeft, scrollWidth, clientWidth } = carouselRef.current;
+      setCanScrollLeft(scrollLeft > 12);
+      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 12);
+    }, 60);
     return () => clearTimeout(timer);
   }, [selectedCategory]);
 
@@ -510,6 +569,12 @@ export default function Destinations() {
   const scrollToPage = (pageIndex: number) => {
     if (!carouselRef.current) return;
     const container = carouselRef.current;
+    if (typeof window !== 'undefined' && window.innerWidth < 1024) {
+      const targetSlide = slideRefs.current[pageIndex];
+      if (targetSlide && targetSlide.offsetHeight > 0) {
+        setCarouselHeight(targetSlide.offsetHeight);
+      }
+    }
     container.scrollTo({
       left: pageIndex * container.clientWidth,
       behavior: 'smooth'
@@ -550,7 +615,6 @@ export default function Destinations() {
     setIsDragging(false);
   };
 
-  const totalPages = Math.max(1, pages.length);
   const displayStart = filteredList.length > 0 ? currentPage * pageSize + 1 : 0;
   const displayEnd = Math.min((currentPage + 1) * pageSize, filteredList.length);
 
@@ -675,19 +739,24 @@ export default function Destinations() {
             onTouchEnd={() => {
               setTimeout(() => setIsPaused(false), 2500);
             }}
-            className={`overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory flex gap-0 touch-pan-y pt-2 pb-6 select-none ${
+            className={`overflow-x-auto overflow-y-hidden no-scrollbar scroll-smooth snap-x snap-mandatory flex items-start gap-0 touch-pan-y pt-2 pb-6 select-none ${
               isDragging ? 'cursor-grabbing' : 'cursor-grab'
             }`}
             style={{ 
               scrollbarWidth: 'none', 
               msOverflowStyle: 'none',
-              WebkitOverflowScrolling: 'touch'
+              WebkitOverflowScrolling: 'touch',
+              height: carouselHeight ? `${carouselHeight + 32}px` : undefined,
+              transition: 'height 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
             }}
           >
             {pages.map((slideCards, pageIdx) => (
               <div 
                 key={pageIdx}
-                className="w-full flex-shrink-0 snap-start px-0.5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 items-stretch"
+                ref={(el) => {
+                  slideRefs.current[pageIdx] = el;
+                }}
+                className="w-full flex-shrink-0 snap-start px-0.5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 content-start auto-rows-max items-start md:items-stretch"
               >
                 {slideCards.map((dest) => (
                   <SpaciousUniversityCard 
@@ -779,125 +848,143 @@ export default function Destinations() {
       <AnimatePresence>
         {selectedUniModal && (
           <div 
-            className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto"
+            className="fixed inset-0 z-50 bg-black/65 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4 overflow-hidden"
             onClick={() => setSelectedUniModal(null)}
           >
             <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              initial={{ opacity: 0, scale: 0.95, y: 16 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              transition={{ duration: 0.25 }}
+              exit={{ opacity: 0, scale: 0.95, y: 16 }}
+              transition={{ duration: 0.2 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-white rounded-3xl sm:rounded-[36px] max-w-2xl w-full overflow-hidden shadow-2xl border border-slate-200 relative my-8"
+              className="bg-white rounded-2xl sm:rounded-[32px] max-w-xl lg:max-w-2xl w-full max-h-[90vh] sm:max-h-[85vh] flex flex-col overflow-hidden shadow-2xl border border-slate-200 relative my-auto"
             >
-              {/* Modal Banner Photo */}
-              <div className="relative h-56 sm:h-64 overflow-hidden bg-slate-900">
-                <Image 
-                  src={selectedUniModal.image} 
-                  alt={selectedUniModal.name}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 672px"
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/20" />
-                
-                {/* Close Button */}
-                <button
-                  onClick={() => setSelectedUniModal(null)}
-                  className="absolute top-4 right-4 w-9 h-9 rounded-full bg-black/40 text-white hover:bg-black/70 flex items-center justify-center transition-colors z-20"
-                  aria-label="Close dialog"
-                >
-                  <X size={18} />
-                </button>
+              {/* Modal Header: Clean, light & content-first — displays university title, location badges & close button */}
+              <div className="p-5 sm:p-6 pb-4 sm:pb-5 border-b border-slate-100 flex-shrink-0 bg-white relative">
+                <div className="flex items-center justify-between gap-3 mb-2 pr-9">
+                  <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
+                    <span className={`px-2.5 py-0.5 rounded-full text-[11px] sm:text-xs font-bold shadow-2xs ${selectedUniModal.badgeColor}`}>
+                      {selectedUniModal.province}
+                    </span>
+                    <span className="px-2.5 py-0.5 rounded-full text-[11px] sm:text-xs font-bold bg-slate-100 text-slate-700 border border-slate-200">
+                      {selectedUniModal.city}
+                    </span>
+                    <span className="inline-flex px-2.5 py-0.5 rounded-full text-[11px] sm:text-xs font-semibold bg-brand-pink/10 text-brand-pink border border-brand-pink/20">
+                      Verified Institution
+                    </span>
+                  </div>
 
-                {/* Location Badges */}
-                <div className="absolute top-4 left-4 z-10 flex items-center gap-2">
-                  <span className={`px-3 py-1 rounded-full text-xs font-bold shadow-md ${selectedUniModal.badgeColor}`}>
-                    {selectedUniModal.province}
-                  </span>
-                  <span className="px-3 py-1 rounded-full text-xs font-bold bg-white/20 backdrop-blur-md text-white border border-white/30">
-                    {selectedUniModal.city}
-                  </span>
+                  {/* Close Button */}
+                  <button
+                    onClick={() => setSelectedUniModal(null)}
+                    className="absolute top-4 right-4 sm:top-5 sm:right-5 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-brand-dark flex items-center justify-center transition-colors"
+                    aria-label="Close dialog"
+                  >
+                    <X size={18} />
+                  </button>
                 </div>
 
-                {/* Title inside Banner */}
-                <div className="absolute bottom-5 left-5 right-5 z-10">
-                  <h3 className="text-2xl sm:text-3xl font-black text-white leading-tight">
-                    {selectedUniModal.name}
-                  </h3>
-                  <p className="text-slate-200 text-xs sm:text-sm font-medium mt-1">
-                    {selectedUniModal.subtitle}
-                  </p>
-                </div>
+                <h3 className="text-xl sm:text-2xl font-black text-brand-dark leading-tight pr-6">
+                  {selectedUniModal.name}
+                </h3>
+                <p className="text-slate-500 text-xs sm:text-sm font-medium mt-1">
+                  {selectedUniModal.subtitle}
+                </p>
               </div>
 
-              {/* Modal Body */}
-              <div className="p-6 sm:p-8 space-y-6 max-h-[60vh] overflow-y-auto">
-                {/* Specialty Tagline & Highlights */}
-                <div>
-                  <span className="text-xs font-bold text-brand-pink uppercase tracking-wider block mb-1">
+              {/* Modal Body: Focuses 100% on core academic programs, fee structures and admission requirements */}
+              <div className="p-4 sm:p-6 space-y-4 sm:space-y-5 overflow-y-auto flex-1 overscroll-contain">
+                {/* Specialty Tagline & Highlights Summary */}
+                <div className="p-3.5 sm:p-4 rounded-2xl bg-[#f8fafc] border border-slate-200/80">
+                  <span className="text-[11px] sm:text-xs font-bold text-brand-pink uppercase tracking-wider block mb-1">
                     {selectedUniModal.tagline}
                   </span>
-                  <p className="text-slate-600 text-sm leading-relaxed">
+                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
                     {selectedUniModal.highlights}
                   </p>
                 </div>
 
-                {/* Key Options Breakdown Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80">
-                    <span className="text-[11px] font-bold uppercase text-slate-400 block mb-1 flex items-center gap-1.5">
-                      <GraduationCap size={13} className="text-brand-pink" />
-                      Degree Levels
-                    </span>
-                    <p className="text-xs sm:text-sm font-bold text-brand-dark">
-                      {selectedUniModal.degreeBadge}
-                    </p>
+                {/* 4 Core Admissions & Fees Pillars: Indicative Tuition & Scholarships Highlighted */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
+                  {/* Indicative Tuition */}
+                  <div className="p-3.5 rounded-2xl bg-amber-50/70 border border-amber-200/80 flex items-start gap-3">
+                    <div className="w-9 h-9 rounded-xl bg-amber-100/90 text-amber-700 flex items-center justify-center shrink-0">
+                      <DollarSign size={18} />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <span className="text-[11px] font-bold uppercase text-amber-800 tracking-wide block">
+                        Indicative Tuition
+                      </span>
+                      <p className="text-xs sm:text-sm font-extrabold text-amber-950 mt-0.5">
+                        {selectedUniModal.tuitionRange}
+                      </p>
+                    </div>
                   </div>
 
-                  <div className="p-3.5 rounded-2xl bg-emerald-50/60 border border-emerald-100">
-                    <span className="text-[11px] font-bold uppercase text-emerald-600 block mb-1 flex items-center gap-1.5">
-                      <Award size={13} className="text-emerald-600" />
-                      Scholarship Routes
-                    </span>
-                    <p className="text-xs sm:text-sm font-bold text-slate-800">
-                      {selectedUniModal.scholarshipBadge}
-                    </p>
+                  {/* Scholarship Routes */}
+                  <div className="p-3.5 rounded-2xl bg-emerald-50/70 border border-emerald-200/80 flex items-start gap-3">
+                    <div className="w-9 h-9 rounded-xl bg-emerald-100/90 text-emerald-700 flex items-center justify-center shrink-0">
+                      <Award size={18} />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <span className="text-[11px] font-bold uppercase text-emerald-800 tracking-wide block">
+                        Scholarship Coverage
+                      </span>
+                      <p className="text-xs sm:text-sm font-extrabold text-emerald-950 mt-0.5">
+                        {selectedUniModal.scholarshipBadge}
+                      </p>
+                    </div>
                   </div>
 
-                  <div className="p-3.5 rounded-2xl bg-blue-50/60 border border-blue-100">
-                    <span className="text-[11px] font-bold uppercase text-blue-600 block mb-1 flex items-center gap-1.5">
-                      <Calendar size={13} className="text-blue-600" />
-                      Target Intake
-                    </span>
-                    <p className="text-xs sm:text-sm font-bold text-slate-800">
-                      {selectedUniModal.intakeBadge}
-                    </p>
+                  {/* Degree Levels */}
+                  <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-start gap-3">
+                    <div className="w-9 h-9 rounded-xl bg-slate-200/70 text-slate-700 flex items-center justify-center shrink-0">
+                      <GraduationCap size={18} />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <span className="text-[11px] font-bold uppercase text-slate-500 tracking-wide block">
+                        Degree Levels
+                      </span>
+                      <p className="text-xs sm:text-sm font-bold text-brand-dark mt-0.5">
+                        {selectedUniModal.degreeBadge}
+                      </p>
+                    </div>
                   </div>
 
-                  <div className="p-3.5 rounded-2xl bg-amber-50/60 border border-amber-100">
-                    <span className="text-[11px] font-bold uppercase text-amber-700 block mb-1 flex items-center gap-1.5">
-                      <DollarSign size={13} className="text-amber-600" />
-                      Indicative Tuition
-                    </span>
-                    <p className="text-xs sm:text-sm font-bold text-slate-800">
-                      {selectedUniModal.tuitionRange}
-                    </p>
+                  {/* Target Intake */}
+                  <div className="p-3.5 rounded-2xl bg-blue-50/70 border border-blue-200/80 flex items-start gap-3">
+                    <div className="w-9 h-9 rounded-xl bg-blue-100/90 text-blue-700 flex items-center justify-center shrink-0">
+                      <Calendar size={18} />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <span className="text-[11px] font-bold uppercase text-blue-800 tracking-wide block">
+                        Target Intake
+                      </span>
+                      <p className="text-xs sm:text-sm font-bold text-blue-950 mt-0.5">
+                        {selectedUniModal.intakeBadge}
+                      </p>
+                    </div>
                   </div>
                 </div>
 
-                {/* Popular Degree Courses */}
+                {/* Popular English & Bilingual Programs */}
                 <div>
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2.5 flex items-center gap-1.5">
-                    <BookOpen size={14} className="text-brand-dark" />
-                    Popular English &amp; Bilingual Programs
-                  </h4>
+                  <div className="flex items-center justify-between mb-2.5">
+                    <h4 className="text-xs font-bold uppercase tracking-wider text-slate-600 flex items-center gap-1.5">
+                      <BookOpen size={14} className="text-brand-dark shrink-0" />
+                      <span>Popular English &amp; Bilingual Programs</span>
+                    </h4>
+                    <span className="text-[10px] font-bold text-brand-green bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200/60">
+                      Intake Open
+                    </span>
+                  </div>
                   <div className="flex flex-wrap gap-2">
                     {selectedUniModal.popularCourses.map((course, idx) => (
                       <span 
                         key={idx}
-                        className="px-3 py-1.5 rounded-xl bg-slate-100 border border-slate-200 text-xs font-semibold text-slate-700"
+                        className="px-3 py-1.5 rounded-xl bg-white border border-slate-200/90 text-xs font-semibold text-slate-700 shadow-2xs flex items-center gap-2 hover:border-brand-pink/50 transition-colors"
                       >
+                        <span className="w-1.5 h-1.5 rounded-full bg-brand-pink shrink-0" />
                         {course}
                       </span>
                     ))}
@@ -905,34 +992,26 @@ export default function Destinations() {
                 </div>
               </div>
 
-              {/* Modal Action Footer */}
-              <div className="p-6 bg-slate-50 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3">
+              {/* Modal Action Footer: Focused on the 2 essential student actions — WhatsApp counselor inquiry & free assessment */}
+              <div className="p-4 sm:p-5 bg-slate-50 border-t border-slate-100 flex-shrink-0 flex flex-col sm:flex-row items-center gap-3">
                 <a
                   href={`https://wa.me/8801895626831?text=${encodeURIComponent(`Hello ILP Study, I would like to inquire about admission, courses and scholarships for ${selectedUniModal.name}.`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto px-6 py-3 rounded-full bg-brand-green text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 hover:bg-[#009c3b] transition-colors shadow-sm"
+                  className="w-full sm:flex-1 py-3 px-5 rounded-full bg-brand-green hover:bg-[#009c3b] text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-soft"
                 >
                   <MessageSquare size={16} />
                   <span>Chat with Counselor on WhatsApp</span>
                 </a>
 
-                <div className="flex items-center gap-2 w-full sm:w-auto justify-end">
-                  <Link
-                    href={`/contact?university=${encodeURIComponent(selectedUniModal.name)}`}
-                    onClick={() => setSelectedUniModal(null)}
-                    className="w-full sm:w-auto px-5 py-3 rounded-full bg-brand-dark text-white font-bold text-xs sm:text-sm hover:bg-brand-pink transition-colors text-center"
-                  >
-                    Free Assessment
-                  </Link>
-                  <Link
-                    href={`/universities?search=${encodeURIComponent(selectedUniModal.name)}`}
-                    onClick={() => setSelectedUniModal(null)}
-                    className="w-full sm:w-auto px-5 py-3 rounded-full bg-slate-200 text-slate-700 font-bold text-xs sm:text-sm hover:bg-slate-300 transition-colors text-center"
-                  >
-                    Directory
-                  </Link>
-                </div>
+                <Link
+                  href={`/contact?university=${encodeURIComponent(selectedUniModal.name)}`}
+                  onClick={() => setSelectedUniModal(null)}
+                  className="w-full sm:w-auto sm:min-w-[180px] py-3 px-5 rounded-full bg-brand-dark hover:bg-brand-pink text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-soft text-center"
+                >
+                  <GraduationCap size={16} />
+                  <span>Free Assessment</span>
+                </Link>
               </div>
 
             </motion.div>
@@ -960,7 +1039,7 @@ function SpaciousUniversityCard({
   return (
     <div
       onClick={() => onOpenDetails(dest)}
-      className="group bg-white rounded-3xl sm:rounded-[32px] overflow-hidden border border-slate-200/90 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 hover:border-brand-pink/50 transition-all duration-300 flex flex-col justify-between h-full cursor-pointer select-none"
+      className="group bg-white rounded-3xl sm:rounded-[32px] overflow-hidden border border-slate-200/90 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 hover:border-brand-pink/50 transition-all duration-300 flex flex-col justify-between h-auto md:h-full cursor-pointer select-none"
     >
       <div className="flex-1 flex flex-col">
         {/* Photo Container: Spacious height (h-52 = 208px) on mobile for bold visual punch */}
@@ -1003,9 +1082,10 @@ function SpaciousUniversityCard({
         </div>
 
         {/* Content Body: Consistent height, 3 full lines visible before ellipsis */}
-        <div className="p-4 sm:p-5 lg:p-6 flex-1 flex flex-col justify-between">
+        <div className="p-4 sm:p-5 lg:p-6 flex-1 flex flex-col">
           <div>
-            <p className="text-xs font-bold text-brand-pink uppercase tracking-wider mb-2 line-clamp-1 h-5 flex items-center">
+            {/* Tagline: 2-line capacity with reserved min-height for uniform card consistency */}
+            <p className="text-xs font-bold text-brand-pink uppercase tracking-wider mb-2 line-clamp-2 min-h-[2.25rem] sm:min-h-[2.5rem] leading-snug">
               {dest.tagline}
             </p>
             {/* Third line of text is present before ellipsis with consistent min-height across cards */}
@@ -1016,18 +1096,18 @@ function SpaciousUniversityCard({
         </div>
       </div>
 
-      {/* Action Footer: View Courses & Fees / Ask Counselors */}
-      <div className="px-4 pb-4 pt-3 sm:px-6 sm:pb-6 sm:pt-3.5 border-t border-slate-100 flex items-center justify-between mt-auto">
+      {/* Action Footer: View Courses & Fees / Ask Counselors with clean positioning */}
+      <div className="px-4 pb-4 pt-3 sm:px-5 sm:pb-5 sm:pt-3.5 border-t border-slate-100 flex items-center justify-between gap-2 mt-auto">
         <button
           type="button"
           onClick={(e) => {
             e.stopPropagation();
             onOpenDetails(dest);
           }}
-          className="text-xs sm:text-sm font-bold text-brand-dark group-hover:text-brand-pink transition-colors inline-flex items-center gap-1.5"
+          className="text-xs sm:text-sm font-bold text-brand-dark group-hover:text-brand-pink transition-colors inline-flex items-center gap-1.5 shrink-0"
         >
           <span>View Courses &amp; Fees</span>
-          <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+          <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform text-brand-pink" />
         </button>
         
         <a
@@ -1035,10 +1115,11 @@ function SpaciousUniversityCard({
           target="_blank"
           rel="noopener noreferrer"
           onClick={(e) => e.stopPropagation()}
-          className="text-xs sm:text-sm font-bold text-slate-400 hover:text-brand-green transition-colors"
-          title="Inquire directly with counselor"
+          className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-bold text-slate-600 hover:text-brand-green bg-slate-50 hover:bg-emerald-50/80 border border-slate-200/80 hover:border-emerald-300 transition-all shrink-0"
+          title="Inquire directly with counselor on WhatsApp"
         >
-          Ask Counselors
+          <MessageSquare size={12} className="text-brand-green" />
+          <span>Ask Counselors</span>
         </a>
       </div>
     </div>
