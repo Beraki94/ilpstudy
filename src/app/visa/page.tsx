@@ -55,8 +55,8 @@ export default function VisaPage() {
         />
 
         {/* Categories Section */}
-        <section className="py-0 sm:py-6 max-w-7xl mx-auto px-0 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-none sm:rounded-[36px] p-5 sm:p-10 md:p-12 border-b sm:border border-slate-100 sm:border-slate-200/90 shadow-card space-y-6 sm:space-y-8">
+        <section className="pt-2 pb-3 sm:py-6 max-w-7xl mx-auto px-0 sm:px-6 lg:px-8">
+          <div className="bg-white rounded-none sm:rounded-[36px] px-5 py-8 sm:p-10 md:p-12 border-y sm:border border-slate-100 sm:border-slate-200/90 shadow-none sm:shadow-card space-y-6 sm:space-y-8">
             <div>
               <h2 className="text-2xl sm:text-3xl font-black text-brand-dark tracking-tight">
                 Student Visas for China
@@ -102,8 +102,8 @@ export default function VisaPage() {
         </section>
 
         {/* Questions Before Departure */}
-        <section className="py-0 sm:py-6 max-w-7xl mx-auto px-0 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-none sm:rounded-[36px] p-5 sm:p-10 border-b sm:border border-slate-100 sm:border-slate-200/90 shadow-card space-y-5 sm:space-y-6">
+        <section className="py-3 sm:py-6 max-w-7xl mx-auto px-0 sm:px-6 lg:px-8">
+          <div className="bg-white rounded-none sm:rounded-[36px] px-5 py-8 sm:p-10 border-y sm:border border-slate-100 sm:border-slate-200/90 shadow-none sm:shadow-card space-y-5 sm:space-y-6">
             <div>
               <span className="text-xs font-bold uppercase tracking-wider text-brand-purple block mb-1">
                 BEFORE DEPARTURE
@@ -137,7 +137,7 @@ export default function VisaPage() {
         </section>
 
         {/* Contact Banner */}
-        <section className="py-8 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-10 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-brand-dark text-white rounded-[32px] sm:rounded-[40px] p-6 sm:p-12 text-center relative overflow-hidden shadow-xl">
             <div className="max-w-2xl mx-auto space-y-4 relative z-10">
               <h3 className="text-2xl sm:text-4xl font-black">

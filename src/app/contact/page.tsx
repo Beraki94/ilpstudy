@@ -32,14 +32,14 @@ export default function ContactPage() {
           description="Tell us your academic background and study goals. ILP Study will need to agree an appointment time with you; submitting a request does not book a confirmed slot."
         />
 
-        <section className="py-0 sm:py-10 lg:py-16 max-w-7xl mx-auto px-0 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-12 gap-0 sm:gap-8 lg:gap-12 items-start">
+        <section className="py-4 sm:py-10 lg:py-16 max-w-7xl mx-auto px-0 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-12 gap-4 sm:gap-8 lg:gap-12 items-start">
             
             {/* Left Column: Direct Contact & Preparation Advice */}
-            <div className="lg:col-span-5 space-y-0 sm:space-y-6">
+            <div className="lg:col-span-5 space-y-4 sm:space-y-6">
               
               {/* Prefer to contact directly box */}
-              <div className="bg-white rounded-none sm:rounded-[36px] p-5 sm:p-8 md:p-10 border-b sm:border border-slate-100 sm:border-slate-200/90 shadow-card space-y-5 sm:space-y-6">
+              <div className="bg-white rounded-none sm:rounded-[36px] px-5 py-8 sm:p-8 md:p-10 border-y sm:border border-slate-100 sm:border-slate-200/90 shadow-none sm:shadow-card space-y-5 sm:space-y-6">
                 <div>
                   <span className="text-xs font-bold uppercase tracking-wider text-brand-green block mb-1">
                     Direct Counseling Channels

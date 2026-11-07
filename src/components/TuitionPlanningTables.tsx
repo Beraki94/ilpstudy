@@ -67,78 +67,80 @@ export default function TuitionPlanningTables() {
   return (
     <div className="space-y-6">
       {/* Tab Switchers */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white rounded-2xl sm:rounded-3xl p-3.5 sm:p-5 border border-slate-200/80 shadow-soft">
-        <div className="grid grid-cols-3 sm:flex rounded-xl sm:rounded-full bg-slate-100 p-1 border border-slate-200 text-xs sm:text-sm font-bold w-full sm:w-auto">
-          <button
-            type="button"
-            onClick={() => setActiveTab('bachelor')}
-            className={`px-2 sm:px-6 py-2 rounded-lg sm:rounded-full transition-all flex items-center justify-center gap-1.5 sm:gap-2 text-xs sm:text-sm ${
-              activeTab === 'bachelor'
-                ? 'bg-brand-pink text-white shadow-sm'
-                : 'text-slate-600 hover:text-brand-dark'
-            }`}
-          >
-            <GraduationCap size={15} className="flex-shrink-0" />
-            <span>Bachelor’s <span className="hidden sm:inline">({BACHELOR_TUITION.length})</span></span>
-          </button>
+      <div className="px-4 sm:px-0">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white rounded-2xl sm:rounded-3xl p-3.5 sm:p-5 border border-slate-200/80 shadow-soft">
+          <div className="grid grid-cols-3 sm:flex rounded-xl sm:rounded-full bg-slate-100 p-1 border border-slate-200 text-xs sm:text-sm font-bold w-full sm:w-auto">
+            <button
+              type="button"
+              onClick={() => setActiveTab('bachelor')}
+              className={`px-2 sm:px-6 py-2 rounded-lg sm:rounded-full transition-all flex items-center justify-center gap-1.5 sm:gap-2 text-xs sm:text-sm ${
+                activeTab === 'bachelor'
+                  ? 'bg-brand-pink text-white shadow-sm'
+                  : 'text-slate-600 hover:text-brand-dark'
+              }`}
+            >
+              <GraduationCap size={15} className="flex-shrink-0" />
+              <span>Bachelor’s <span className="hidden sm:inline">({BACHELOR_TUITION.length})</span></span>
+            </button>
 
-          <button
-            type="button"
-            onClick={() => setActiveTab('master')}
-            className={`px-2 sm:px-6 py-2 rounded-lg sm:rounded-full transition-all flex items-center justify-center gap-1.5 sm:gap-2 text-xs sm:text-sm ${
-              activeTab === 'master'
-                ? 'bg-brand-green text-white shadow-sm'
-                : 'text-slate-600 hover:text-brand-dark'
-            }`}
-          >
-            <Sparkles size={15} className="flex-shrink-0" />
-            <span>Master’s <span className="hidden sm:inline">({MASTER_TUITION.length})</span></span>
-          </button>
+            <button
+              type="button"
+              onClick={() => setActiveTab('master')}
+              className={`px-2 sm:px-6 py-2 rounded-lg sm:rounded-full transition-all flex items-center justify-center gap-1.5 sm:gap-2 text-xs sm:text-sm ${
+                activeTab === 'master'
+                  ? 'bg-brand-green text-white shadow-sm'
+                  : 'text-slate-600 hover:text-brand-dark'
+              }`}
+            >
+              <Sparkles size={15} className="flex-shrink-0" />
+              <span>Master’s <span className="hidden sm:inline">({MASTER_TUITION.length})</span></span>
+            </button>
 
-          <button
-            type="button"
-            onClick={() => setActiveTab('mbbs')}
-            className={`px-2 sm:px-6 py-2 rounded-lg sm:rounded-full transition-all flex items-center justify-center gap-1.5 sm:gap-2 text-xs sm:text-sm ${
-              activeTab === 'mbbs'
-                ? 'bg-brand-purple text-white shadow-sm'
-                : 'text-slate-600 hover:text-brand-dark'
-            }`}
-          >
-            <Stethoscope size={15} className="flex-shrink-0" />
-            <span>MBBS <span className="hidden sm:inline">({MBBS_TUITION.length})</span></span>
-          </button>
+            <button
+              type="button"
+              onClick={() => setActiveTab('mbbs')}
+              className={`px-2 sm:px-6 py-2 rounded-lg sm:rounded-full transition-all flex items-center justify-center gap-1.5 sm:gap-2 text-xs sm:text-sm ${
+                activeTab === 'mbbs'
+                  ? 'bg-brand-purple text-white shadow-sm'
+                  : 'text-slate-600 hover:text-brand-dark'
+              }`}
+            >
+              <Stethoscope size={15} className="flex-shrink-0" />
+              <span>MBBS <span className="hidden sm:inline">({MBBS_TUITION.length})</span></span>
+            </button>
+          </div>
+
+          <span className="text-[11px] sm:text-xs font-semibold text-slate-400">
+            Planning estimates · Updated Oct 2026
+          </span>
         </div>
-
-        <span className="text-[11px] sm:text-xs font-semibold text-slate-400">
-          Planning estimates · Updated Oct 2026
-        </span>
       </div>
 
-      {/* Responsive Table */}
-      <div className="bg-white rounded-3xl border border-slate-200/90 shadow-card overflow-hidden">
+      {/* Responsive Table - Full width on mobile */}
+      <div className="bg-white rounded-none sm:rounded-3xl border-y sm:border border-slate-200/90 shadow-none sm:shadow-card overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs sm:text-sm">
             <thead className="bg-slate-50 border-b border-slate-200/80 text-slate-500 font-bold uppercase tracking-wider text-[11px]">
               <tr>
-                <th className="py-4 px-6">Subject to Research</th>
-                <th className="py-4 px-6">Institution</th>
-                <th className="py-4 px-6">City</th>
-                <th className="py-4 px-6 text-right">Approximate Annual Tuition</th>
+                <th className="py-3.5 px-4 sm:py-4 sm:px-6">Subject to Research</th>
+                <th className="py-3.5 px-4 sm:py-4 sm:px-6">Institution</th>
+                <th className="py-3.5 px-4 sm:py-4 sm:px-6">City</th>
+                <th className="py-3.5 px-4 sm:py-4 sm:px-6 text-right whitespace-nowrap">Approximate Annual Tuition</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100">
               {rows.map((row, idx) => (
                 <tr key={idx} className="hover:bg-slate-50/80 transition-colors">
-                  <td className="py-4 px-6 font-bold text-brand-dark">
+                  <td className="py-3.5 px-4 sm:py-4 sm:px-6 font-bold text-brand-dark">
                     {row.subject}
                   </td>
-                  <td className="py-4 px-6 text-slate-700 font-medium">
+                  <td className="py-3.5 px-4 sm:py-4 sm:px-6 text-slate-700 font-medium">
                     {row.institution}
                   </td>
-                  <td className="py-4 px-6 text-slate-500 font-medium">
+                  <td className="py-3.5 px-4 sm:py-4 sm:px-6 text-slate-500 font-medium whitespace-nowrap">
                     {row.city}
                   </td>
-                  <td className="py-4 px-6 text-right font-extrabold text-brand-pink whitespace-nowrap">
+                  <td className="py-3.5 px-4 sm:py-4 sm:px-6 text-right font-extrabold text-brand-pink whitespace-nowrap">
                     {row.tuition}
                   </td>
                 </tr>
@@ -149,28 +151,30 @@ export default function TuitionPlanningTables() {
       </div>
 
       {/* Disclaimers & Advice Box */}
-      <div className="p-6 rounded-3xl bg-amber-50/70 border border-amber-200/90 shadow-card text-amber-950 space-y-3">
-        <div className="flex items-center gap-2 font-bold text-xs uppercase tracking-wider text-amber-800">
-          <AlertCircle size={16} className="text-amber-700" />
-          <span>OTHER COSTS — Plan beyond tuition</span>
-        </div>
-        <p className="text-xs sm:text-sm font-medium leading-relaxed text-amber-900">
-          Include accommodation (RMB 3,000–8,000/year), medical insurance (RMB 800/year), living expenses (RMB 1,200–2,500/month), visa extensions, and flight tickets in your full study budget. Visit the university’s official website to check the latest tuition notice.
-        </p>
-        <div className="pt-2 flex flex-wrap gap-4">
-          <Link
-            href="/contact"
-            className="px-6 py-2.5 rounded-full bg-brand-dark text-white text-xs font-bold hover:bg-brand-pink transition-colors inline-flex items-center gap-1.5"
-          >
-            <span>Discuss my study budget</span>
-            <ArrowRight size={14} />
-          </Link>
-          <Link
-            href="/blogs/study-in-china-cost-from-bangladesh"
-            className="px-6 py-2.5 rounded-full bg-white text-brand-dark text-xs font-bold border border-amber-300 hover:bg-amber-100 transition-colors"
-          >
-            Read Complete Budget Guide
-          </Link>
+      <div className="px-4 sm:px-0">
+        <div className="p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-amber-50/70 border border-amber-200/90 shadow-card text-amber-950 space-y-3">
+          <div className="flex items-center gap-2 font-bold text-xs uppercase tracking-wider text-amber-800">
+            <AlertCircle size={16} className="text-amber-700" />
+            <span>OTHER COSTS — Plan beyond tuition</span>
+          </div>
+          <p className="text-xs sm:text-sm font-medium leading-relaxed text-amber-900">
+            Include accommodation (RMB 3,000–8,000/year), medical insurance (RMB 800/year), living expenses (RMB 1,200–2,500/month), visa extensions, and flight tickets in your full study budget. Visit the university’s official website to check the latest tuition notice.
+          </p>
+          <div className="pt-2 flex flex-wrap gap-4">
+            <Link
+              href="/contact"
+              className="px-6 py-2.5 rounded-full bg-brand-dark text-white text-xs font-bold hover:bg-brand-pink transition-colors inline-flex items-center gap-1.5"
+            >
+              <span>Discuss my study budget</span>
+              <ArrowRight size={14} />
+            </Link>
+            <Link
+              href="/blogs/study-in-china-cost-from-bangladesh"
+              className="px-6 py-2.5 rounded-full bg-white text-brand-dark text-xs font-bold border border-amber-300 hover:bg-amber-100 transition-colors"
+            >
+              Read Complete Budget Guide
+            </Link>
+          </div>
         </div>
       </div>
     </div>

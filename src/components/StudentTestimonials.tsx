@@ -29,112 +29,156 @@ export default function StudentTestimonials() {
   const testimonials: Testimonial[] = [
     {
       id: "01",
-      photoSrc: "/images/students/ILP_Student_01.png",
-      photoLabel: "Student Photo 01",
-      name: "Tanvir Ahmed",
-      program: "B.Eng Computer Science & Technology",
-      university: "Nanjing University of Aeronautics and Astronautics",
-      city: "Nanjing, Jiangsu",
+      photoSrc: "/images/students-images/Aadnan Habib - Hankou University of Wuhan - Chinese Language Program.jpg",
+      photoLabel: "Aadnan Habib - Hankou University of Wuhan",
+      name: "Aadnan Habib",
+      program: "Chinese Language Program",
+      university: "Hankou University of Wuhan",
+      city: "Wuhan, Hubei",
       quote: "ILP Study made my China admission journey straightforward. From initial university shortlisting to document review and final acceptance, the team guided me through every step.",
       year: "Enrolled Student"
     },
     {
       id: "02",
-      photoSrc: "/images/students/ILP_Student_02.png",
-      photoLabel: "Student Photo 02",
-      name: "Farhana Rahman",
-      program: "Clinical Medicine (MBBS)",
-      university: "Wuhan University",
-      city: "Wuhan, Hubei",
-      quote: "The counselors in Dhaka explained the medical university requirements and tuition breakdown clearly. Highly recommend ILP Study for anyone planning to study medicine in China.",
+      photoSrc: "/images/students-images/Al Shahria Dip - Harbin Engineering University - Chinese Language Program.jpg",
+      photoLabel: "Al Shahria Dip - Harbin Engineering University",
+      name: "Al Shahria Dip",
+      program: "Chinese Language Program",
+      university: "Harbin Engineering University",
+      city: "Harbin, Heilongjiang",
+      quote: "From university shortlisting to dormitory reservation in Harbin, ILP Study handled every single detail with utmost honesty and clarity.",
       year: "Enrolled Student"
     },
     {
       id: "03",
-      photoSrc: "/images/students/ILP_Student_03.png",
-      photoLabel: "Student Photo 03",
-      name: "Md. Rafiqul Islam",
-      program: "M.Sc Civil Engineering",
-      university: "Beihang University",
-      city: "Beijing",
-      quote: "Their guidance on the physical examination and police clearance was invaluable. Everything was organised properly before submission.",
+      photoSrc: "/images/students-images/Fuad Hasanzade - Shanghai Jiaotong University - MBBS.jpg",
+      photoLabel: "Fuad Hasanzade - Shanghai Jiao Tong University",
+      name: "Fuad Hasanzade",
+      program: "Clinical Medicine (MBBS)",
+      university: "Shanghai Jiao Tong University",
+      city: "Shanghai",
+      quote: "The counselors in Dhaka explained the medical university requirements and tuition breakdown clearly. Highly recommend ILP Study for anyone planning to study medicine in China.",
       year: "Enrolled Student"
     },
     {
       id: "04",
-      photoSrc: "/images/students/ILP_Student_04.png",
-      photoLabel: "Student Photo 04",
-      name: "Nusrat Jahan",
-      program: "International Economics & Trade",
-      university: "Zhejiang University of Science & Technology",
-      city: "Hangzhou, Zhejiang",
-      quote: "Transparent advisory from day one. They helped me compare accommodation costs and semester dates so I knew exactly what to prepare.",
+      photoSrc: "/images/students-images/Jason Binoy Mondol - Harbin Engineering University - Chinese Language Program.jpg",
+      photoLabel: "Jason Binoy Mondol - Harbin Engineering University",
+      name: "Jason Binoy Mondol",
+      program: "Chinese Language Program",
+      university: "Harbin Engineering University",
+      city: "Harbin, Heilongjiang",
+      quote: "Transparent advice on living costs and semester preparations. The pre-departure briefing was thorough and gave my family complete peace of mind.",
       year: "Enrolled Student"
     },
     {
       id: "05",
-      photoSrc: "/images/students/ILP_Student_05.png",
-      photoLabel: "Student Photo 05",
-      name: "Sadman Sakib",
-      program: "B.Sc Mechanical Engineering",
-      university: "Shandong University",
-      city: "Jinan, Shandong",
-      quote: "I appreciated the honest feedback on program matching based on my HSC results. ILP Study saved me from submitting to ineligible portals.",
+      photoSrc: "/images/students-images/Maruf Hossen - Liaoning Communication University - Diploma - Business Studies.jpg",
+      photoLabel: "Maruf Hossen - Liaoning Communication University",
+      name: "Maruf Hossen",
+      program: "Diploma in Business Studies",
+      university: "Liaoning Communication University",
+      city: "Shenyang, Liaoning",
+      quote: "Fast responses on WhatsApp and direct submission through the university portal. ILP Study is genuinely dependable for Bangladeshi students.",
       year: "Enrolled Student"
     },
     {
       id: "06",
-      photoSrc: "/images/students/ILP_Student_06.png",
-      photoLabel: "Student Photo 06",
-      name: "Ayesha Siddiqua",
-      program: "B.Sc Pharmacy",
-      university: "China Pharmaceutical University",
-      city: "Nanjing, Jiangsu",
-      quote: "Getting an admission letter from CPU was my dream. The Dhaka office supported me through the whole document verification and university portal filing.",
+      photoSrc: "/images/students-images/Md Sujon Alam - Jiangxi University of Science and technology - Bachelor - International Trade and Economics.jpg",
+      photoLabel: "Md Sujon Alam - Jiangxi University of Science and Technology",
+      name: "Md Sujon Alam",
+      program: "Bachelor in International Trade & Economics",
+      university: "Jiangxi University of Science and Technology",
+      city: "Ganzhou, Jiangxi",
+      quote: "They matched me to an English-taught Economics degree within my family budget and guided me through tuition fee payments safely.",
       year: "Enrolled Student"
     },
     {
       id: "07",
-      photoSrc: "/images/students/ILP_Student_07.png",
-      photoLabel: "Student Photo 07",
-      name: "Kazi Nabil",
-      program: "B.Eng Electrical Engineering",
-      university: "Southeast University",
-      city: "Nanjing, Jiangsu",
-      quote: "Fast responses on WhatsApp and clear communication throughout the intake process. Very dependable team in Dhaka.",
+      photoSrc: "/images/students-images/Md Ziyaadur Rahman - Harbin Engineering University - Chinese Language Program.jpg",
+      photoLabel: "Md Ziyaadur Rahman - Harbin Engineering University",
+      name: "Md Ziyaadur Rahman",
+      program: "Chinese Language Program",
+      university: "Harbin Engineering University",
+      city: "Harbin, Heilongjiang",
+      quote: "Their guidance on the physical examination and police clearance was invaluable. Everything was organised properly before submission.",
       year: "Enrolled Student"
     },
     {
       id: "08",
-      photoSrc: "/images/students/ILP_Student_08.png",
-      photoLabel: "Student Photo 08",
-      name: "Mahmudul Hasan",
-      program: "Chinese Language Immersion",
-      university: "Beijing Language and Culture University (BLCU)",
-      city: "Beijing",
-      quote: "The pre-departure briefings and visa guidance made campus arrival in Beijing stress-free. Very grateful to ILP Study.",
+      photoSrc: "/images/students-images/Mohammad Sibbir Mahmud -Liaoning Communication University - Chinese Language Program.jpg",
+      photoLabel: "Mohammad Sibbir Mahmud - Liaoning Communication University",
+      name: "Mohammad Sibbir Mahmud",
+      program: "Chinese Language Program",
+      university: "Liaoning Communication University",
+      city: "Shenyang, Liaoning",
+      quote: "Professional counselors who know Chinese university policies inside out. I arrived on campus and settled into my dorm without any issues.",
       year: "Enrolled Student"
     },
     {
       id: "09",
-      photoSrc: "/images/students/ILP_Student_09.png",
-      photoLabel: "Student Photo 09",
-      name: "Tasnim Anjum",
-      program: "B.Sc Biotechnology",
-      university: "East China University of Science & Technology",
-      city: "Shanghai",
-      quote: "Clear cost estimates for dorms and food expenses in Shanghai helped my family plan our budget with complete peace of mind.",
+      photoSrc: "/images/students-images/Priom Chandra Bhadra - Liaoning Communication University - Bachelor - International Trade and Economics.jpg",
+      photoLabel: "Priom Chandra Bhadra - Liaoning Communication University",
+      name: "Priom Chandra Bhadra",
+      program: "Bachelor in International Trade & Economics",
+      university: "Liaoning Communication University",
+      city: "Shenyang, Liaoning",
+      quote: "ILP Study evaluated my academic certificates thoroughly and secured my admission smoothly. Highly recommend them to anyone aiming for China.",
       year: "Enrolled Student"
     },
     {
       id: "10",
-      photoSrc: "/images/students/ILP_Student_10.png",
-      photoLabel: "Student Photo 10",
-      name: "Zubair Hossain",
-      program: "B.Eng Software Engineering",
-      university: "Wuhan University of Technology",
-      city: "Wuhan, Hubei",
-      quote: "From Bangladesh to China, ILP Study handled every query professionally. Their advice on study plans and recommendation letters made the difference.",
+      photoSrc: "/images/students-images/Purab Tanvir Ahamed - Wuzhou University - Bachelor - International Trade and Economics.png",
+      photoLabel: "Purab Tanvir Ahamed - Wuzhou University",
+      name: "Purab Tanvir Ahamed",
+      program: "Bachelor in International Trade & Economics",
+      university: "Wuzhou University",
+      city: "Wuzhou, Guangxi",
+      quote: "Honest counseling without false promises. They explained scholarship criteria and semester dates clearly before I made any deposit.",
+      year: "Enrolled Student"
+    },
+    {
+      id: "11",
+      photoSrc: "/images/students-images/Rafew Karim - University of South China - Bachelor - Civil Engineering.jpg",
+      photoLabel: "Rafew Karim - University of South China",
+      name: "Rafew Karim",
+      program: "Bachelor in Civil Engineering",
+      university: "University of South China",
+      city: "Hengyang, Hunan",
+      quote: "Great guidance for engineering aspirants. The Dhaka office verified all my transcripts and followed up with the university until my JW202 was issued.",
+      year: "Enrolled Student"
+    },
+    {
+      id: "12",
+      photoSrc: "/images/students-images/Shahriar Julfiker - Wuzhou University - Bachelor - Artificial Intelligence.jpg",
+      photoLabel: "Shahriar Julfiker - Wuzhou University",
+      name: "Shahriar Julfiker",
+      program: "Bachelor in Artificial Intelligence",
+      university: "Wuzhou University",
+      city: "Wuzhou, Guangxi",
+      quote: "Enrolling in an Artificial Intelligence degree in China was seamless with ILP Study. Their step-by-step visa assistance was spot on.",
+      year: "Enrolled Student"
+    },
+    {
+      id: "13",
+      photoSrc: "/images/students-images/SifatulIslam Tonmoy - Hunan Logistic College - Diploma - Modern Logistic Management.jpg",
+      photoLabel: "Sifatul Islam Tonmoy - Hunan Logistic College",
+      name: "Sifatul Islam Tonmoy",
+      program: "Diploma in Modern Logistic Management",
+      university: "Hunan Logistic College",
+      city: "Changsha, Hunan",
+      quote: "Personalized care from the first counseling session to airport arrival instructions. ILP Study is the top consultancy for China education.",
+      year: "Enrolled Student"
+    },
+    {
+      id: "14",
+      photoSrc: "/images/students-images/Zobayer Hossain Shikder - Donguan University of Technology - Masters - Mechanical Engineering.jpg",
+      photoLabel: "Zobayer Hossain Shikder - Dongguan University of Technology",
+      name: "Zobayer Hossain Shikder",
+      program: "Master in Mechanical Engineering",
+      university: "Dongguan University of Technology",
+      city: "Dongguan, Guangdong",
+      quote: "Securing a Master's place with scholarship support in Dongguan was made easy by ILP Study's direct portal filing and quick responses.",
       year: "Enrolled Student"
     },
   ];
@@ -212,10 +256,9 @@ export default function StudentTestimonials() {
               <div>
                 {/* Header: Passport Photo Slot + Student Info */}
                 <div className="flex items-start gap-4 mb-5 pb-5 border-b border-slate-100">
-                  {/* Passport Photo Frame (254 x 236 aspect ratio) */}
+                  {/* Student Photo Avatar */}
                   <PassportPhotoFrame
                     photoSrc={item.photoSrc}
-                    photoLabel={item.photoLabel}
                     studentName={item.name}
                   />
 
@@ -281,11 +324,9 @@ export default function StudentTestimonials() {
  */
 function PassportPhotoFrame({
   photoSrc,
-  photoLabel,
   studentName,
 }: {
   photoSrc: string;
-  photoLabel: string;
   studentName: string;
 }) {
   const [imgError, setImgError] = useState(false);
@@ -300,28 +341,25 @@ function PassportPhotoFrame({
     .toUpperCase();
 
   return (
-    <div className="relative w-16 h-[60px] sm:w-[72px] sm:h-[68px] flex-shrink-0 rounded-2xl overflow-hidden border-2 border-brand-purple/30 bg-slate-100 shadow-sm group-hover:border-brand-pink transition-colors">
+    <div className="relative w-16 h-20 sm:w-[70px] sm:h-[86px] flex-shrink-0 rounded-2xl overflow-hidden border-2 border-brand-purple/30 bg-slate-100 shadow-sm group-hover:border-brand-pink transition-colors">
       {!imgError ? (
         <Image
-          src={photoSrc}
-          alt={`${studentName} - ${photoLabel}`}
+          src={encodeURI(photoSrc)}
+          alt={studentName}
           fill
-          sizes="72px"
-          className="object-cover"
+          sizes="(max-width: 640px) 64px, 70px"
+          className="object-cover object-top"
           onError={() => setImgError(true)}
         />
       ) : (
-        <div className="w-full h-full bg-gradient-to-br from-brand-pink/15 via-brand-purple/15 to-brand-green/15 flex flex-col items-center justify-center text-center p-1">
-          <span className="text-xs font-black text-brand-dark tracking-tighter">
+        <div className="w-full h-full bg-gradient-to-br from-brand-pink/15 via-brand-purple/15 to-brand-green/15 flex items-center justify-center text-center p-1">
+          <span className="text-sm font-black text-brand-dark tracking-tight">
             {initials}
-          </span>
-          <span className="text-[7px] text-slate-500 font-semibold leading-none mt-0.5">
-            Passport
           </span>
         </div>
       )}
 
-      {/* Decorative Passport Photo Border Indicator */}
+      {/* Decorative Border */}
       <div className="absolute inset-0 border border-black/5 rounded-2xl pointer-events-none" />
     </div>
   );

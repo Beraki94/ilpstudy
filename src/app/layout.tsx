@@ -15,6 +15,10 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ilpstudy.com"),
+  icons: {
+    icon: "/images/ilp-logo.png",
+    apple: "/images/ilp-logo.png",
+  },
   title: {
     default: "Study in China from Bangladesh | ILP Study",
     template: "%s | ILP Study",

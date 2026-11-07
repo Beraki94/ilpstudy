@@ -65,18 +65,12 @@ export default function AboutPage() {
     {
       num: "05",
       title: "Visa document and arrival guidance",
-      desc: "End-to-end guidance from university admission notice and JW202/DQ verification to Dhaka embassy student visa (X1/X2) appointment, pre-departure orientation, and campus registration.",
+      desc: "End-to-end guidance from university admission notice and JW202/DQ verification to Dhaka embassy visa (X1/X2) appointment, pre-departure orientation, and campus registration.",
       link: "/blogs/after-admission-to-visa-in-china-timeline",
       linkText: "Read Visa Timeline",
       icon: PlaneTakeoff,
       color: "bg-brand-pink",
     },
-  ];
-
-  const atAGlance = [
-    { label: "Brand Name", val: "ILP Study" },
-    { label: "Operating Since", val: "2025" },
-    { label: "Primary Focus", val: "Study in China" },
   ];
 
   return (
@@ -91,8 +85,8 @@ export default function AboutPage() {
         />
 
         {/* ABOUT US: Story & Identity - Full width on mobile, rounded card on desktop */}
-        <section className="py-0 sm:py-16 lg:py-24 max-w-7xl mx-auto px-0 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-none sm:rounded-[40px] p-5 sm:p-14 lg:p-16 border-b sm:border border-slate-100 sm:border-slate-200/90 shadow-none sm:shadow-card">
+        <section className="pt-2 pb-4 sm:py-16 lg:py-24 max-w-7xl mx-auto px-0 sm:px-6 lg:px-8">
+          <div className="bg-white rounded-none sm:rounded-[40px] px-5 py-8 sm:p-14 lg:p-16 border-y sm:border border-slate-100 sm:border-slate-200/90 shadow-none sm:shadow-card">
             <div className="grid lg:grid-cols-12 gap-8 sm:gap-12 items-center">
               
               <div className="lg:col-span-7 space-y-6">
@@ -115,20 +109,6 @@ export default function AboutPage() {
                   <p className="p-4 rounded-2xl bg-brand-light border border-slate-200/80 text-brand-dark font-medium text-base">
                     Our guidance starts with your academic background, preferred subject, budget and target intake to help you explore suitable study options.
                   </p>
-                </div>
-
-                {/* Key Facts Dossier */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-4">
-                  {atAGlance.map((fact, idx) => (
-                    <div key={idx} className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80">
-                      <span className="text-xs font-bold uppercase tracking-wider text-slate-400 block mb-0.5">
-                        {fact.label}
-                      </span>
-                      <strong className="text-brand-dark text-sm sm:text-base block font-bold leading-snug">
-                        {fact.val}
-                      </strong>
-                    </div>
-                  ))}
                 </div>
 
                 {/* Location Card */}
@@ -298,17 +278,11 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3.5 sm:gap-6 text-center">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 text-center">
               <div className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white/5 border border-white/10 flex flex-col justify-between">
                 <div className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Brand Name</div>
                 <div className="text-xl sm:text-3xl lg:text-4xl font-black text-brand-pink my-auto leading-tight">ILP Study</div>
                 <div className="text-xs text-slate-400 mt-2">Education Consultancy</div>
-              </div>
-
-              <div className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white/5 border border-white/10 flex flex-col justify-between">
-                <div className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Operating Since</div>
-                <div className="text-2xl sm:text-3xl lg:text-4xl font-black text-brand-green my-auto leading-tight">2025</div>
-                <div className="text-xs text-slate-400 mt-2">Dedicated China recruiter</div>
               </div>
 
               <div className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white/5 border border-white/10 flex flex-col justify-between">

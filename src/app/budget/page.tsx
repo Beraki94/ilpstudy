@@ -8,7 +8,7 @@ import { ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Cost of Studying in China | Student Budget Planner | ILP Study',
-  description: 'Plan tuition, accommodation, monthly expenses and one-time costs for studying in China with an interactive RMB budget planner.',
+  description: 'Plan tuition, accommodation, and initial one-time costs for studying in China with an interactive RMB budget planner.',
   alternates: {
     canonical: '/budget',
   },
@@ -23,12 +23,12 @@ export default function BudgetPage() {
         {/* Page Header */}
         <PageHeader 
           title="Student Budget Planner" 
-          description="Plan tuition, accommodation, monthly expenses and one-time costs for studying in China with an interactive RMB budget planner."
+          description="Plan tuition, accommodation, and initial one-time costs for studying in China with an interactive RMB budget planner."
         />
 
         {/* Intro Navigation Bar - Seamless on mobile */}
-        <section className="py-0 sm:pt-10 sm:pb-4 max-w-7xl mx-auto px-0 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-5 rounded-none sm:rounded-2xl bg-white border-b sm:border border-slate-100 sm:border-slate-200/80 sm:shadow-xs">
+        <section className="pt-2 pb-2 sm:pt-10 sm:pb-4 max-w-7xl mx-auto px-0 sm:px-6 lg:px-8">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 px-5 py-6 sm:p-5 rounded-none sm:rounded-2xl bg-white border-y sm:border border-slate-100 sm:border-slate-200/80 sm:shadow-xs">
             <div className="text-xs sm:text-sm text-slate-600 font-medium">
               Compare approximate tuition ranges by university and subject, then confirm the updated fee for your intake.
             </div>
@@ -43,7 +43,7 @@ export default function BudgetPage() {
         </section>
 
         {/* Interactive Planner Section - Seamless on mobile */}
-        <section className="py-0 sm:py-6 sm:pb-20 max-w-7xl mx-auto px-0 sm:px-6 lg:px-8">
+        <section className="py-2.5 sm:py-6 sm:pb-20 max-w-7xl mx-auto px-0 sm:px-6 lg:px-8">
           <BudgetPlanner />
         </section>
 

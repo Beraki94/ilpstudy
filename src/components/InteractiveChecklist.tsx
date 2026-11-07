@@ -235,7 +235,7 @@ export default function InteractiveChecklist() {
         {CHECKLIST_SECTIONS.map((section, sIdx) => (
           <div 
             key={sIdx}
-            className="bg-white rounded-none sm:rounded-[32px] px-4 py-6 sm:p-8 border-y sm:border border-slate-200/90 shadow-none sm:shadow-card space-y-4"
+            className="bg-white rounded-none sm:rounded-[32px] px-5 py-7 sm:p-8 border-y sm:border border-slate-200/90 shadow-none sm:shadow-card space-y-4"
           >
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-4">
               <div>

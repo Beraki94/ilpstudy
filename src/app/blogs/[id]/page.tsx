@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -77,11 +78,11 @@ export default async function BlogDetailPage({ params }: PageProps) {
           </div>
         </div>
 
-        {/* Article Container */}
-        <article className="py-12 sm:py-16 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+        {/* Article Container - Full width on mobile, rounded card on desktop */}
+        <article className="py-4 sm:py-12 max-w-4xl mx-auto px-0 sm:px-6 lg:px-8 space-y-10 sm:space-y-12">
           
           {/* Header Card */}
-          <div className="bg-white rounded-[36px] sm:rounded-[48px] rounded-tl-[80px] p-8 sm:p-12 border border-slate-200/90 shadow-card space-y-6">
+          <div className="bg-white rounded-none sm:rounded-[36px] px-5 py-8 sm:p-10 md:p-12 border-y sm:border border-slate-100 sm:border-slate-200/90 shadow-none sm:shadow-card space-y-6 sm:space-y-8">
             
             {/* Badges & Meta */}
             <div className="flex flex-wrap items-center justify-between gap-3 text-xs">
@@ -119,11 +120,14 @@ export default async function BlogDetailPage({ params }: PageProps) {
             )}
 
             {/* Hero Image */}
-            <div className="relative h-64 sm:h-80 rounded-2xl sm:rounded-3xl overflow-hidden shadow-inner">
-              <img 
+            <div className="relative h-64 sm:h-80 rounded-2xl sm:rounded-3xl overflow-hidden shadow-inner bg-slate-100">
+              <Image 
                 src={guide.image} 
                 alt={guide.title} 
-                className="w-full h-full object-cover"
+                fill
+                priority
+                sizes="(max-width: 1200px) 100vw, 800px"
+                className="object-cover"
               />
             </div>
 
@@ -197,7 +201,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
 
           {/* Related Guides */}
           {guide.relatedGuides && guide.relatedGuides.length > 0 && (
-            <div className="space-y-4">
+            <div className="px-4 sm:px-0 space-y-4">
               <div className="flex items-center justify-between">
                 <h3 className="text-xl font-bold text-brand-dark">Continue Your Research</h3>
                 <Link href="/blogs" className="text-xs font-bold text-brand-pink hover:underline">
@@ -233,7 +237,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
           )}
 
           {/* Back button */}
-          <div className="pt-4 flex justify-between items-center text-xs font-bold text-slate-500">
+          <div className="px-4 sm:px-0 pb-16 sm:pb-8 pt-4 flex justify-between items-center text-xs font-bold text-slate-500">
             <Link href="/blogs" className="inline-flex items-center gap-1.5 hover:text-brand-pink transition-colors">
               <ArrowLeft size={14} /> Back to All Blog Articles
             </Link>

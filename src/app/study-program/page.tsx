@@ -36,8 +36,8 @@ export default function StudyProgramPage() {
         />
 
         {/* Intro Section - Seamless on mobile, rounded card on desktop */}
-        <section className="py-0 sm:pt-10 sm:pb-6 max-w-7xl mx-auto px-0 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-none sm:rounded-[32px] p-5 sm:p-8 border-b sm:border border-slate-100 sm:border-slate-200/90 shadow-card">
+        <section className="pt-2 sm:pt-10 pb-2.5 sm:pb-6 max-w-7xl mx-auto px-0 sm:px-6 lg:px-8">
+          <div className="bg-white rounded-none sm:rounded-[32px] px-5 py-7 sm:p-8 border-y sm:border border-slate-100 sm:border-slate-200/90 shadow-none sm:shadow-card">
             <span className="text-xs font-bold uppercase tracking-wider text-brand-pink block mb-1">
               PROGRAMMES
             </span>
@@ -54,8 +54,8 @@ export default function StudyProgramPage() {
         </section>
 
         {/* 1. BACHELOR'S DEGREE - Seamless on mobile, rounded card on desktop */}
-        <section id="bachelor" className="py-0 sm:py-6 max-w-7xl mx-auto px-0 sm:px-6 lg:px-8 scroll-mt-24">
-          <div className="bg-white rounded-none sm:rounded-[36px] p-5 sm:p-10 md:p-12 border-b sm:border border-slate-100 sm:border-slate-200/90 shadow-card space-y-6 sm:space-y-8">
+        <section id="bachelor" className="py-2.5 sm:py-6 max-w-7xl mx-auto px-0 sm:px-6 lg:px-8 scroll-mt-24">
+          <div className="bg-white rounded-none sm:rounded-[36px] px-5 py-8 sm:p-10 md:p-12 border-y sm:border border-slate-100 sm:border-slate-200/90 shadow-none sm:shadow-card space-y-6 sm:space-y-8">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 border-b border-slate-100 pb-5">
               <div>
                 <span className="text-xs font-bold uppercase tracking-wider text-brand-pink block">
@@ -176,8 +176,8 @@ export default function StudyProgramPage() {
         </section>
 
         {/* 2. MASTER'S DEGREE - Seamless on mobile, rounded card on desktop */}
-        <section id="master" className="py-0 sm:py-6 max-w-7xl mx-auto px-0 sm:px-6 lg:px-8 scroll-mt-24">
-          <div className="bg-white rounded-none sm:rounded-[36px] p-5 sm:p-10 md:p-12 border-b sm:border border-slate-100 sm:border-slate-200/90 shadow-card space-y-6 sm:space-y-8">
+        <section id="master" className="py-2.5 sm:py-6 max-w-7xl mx-auto px-0 sm:px-6 lg:px-8 scroll-mt-24">
+          <div className="bg-white rounded-none sm:rounded-[36px] px-5 py-8 sm:p-10 md:p-12 border-y sm:border border-slate-100 sm:border-slate-200/90 shadow-none sm:shadow-card space-y-6 sm:space-y-8">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 border-b border-slate-100 pb-5">
               <div>
                 <span className="text-xs font-bold uppercase tracking-wider text-brand-green block">
@@ -250,8 +250,8 @@ export default function StudyProgramPage() {
         </section>
 
         {/* 3. PHD RESEARCH AREAS - Seamless on mobile, rounded card on desktop */}
-        <section id="phd" className="py-0 sm:py-6 max-w-7xl mx-auto px-0 sm:px-6 lg:px-8 scroll-mt-24">
-          <div className="bg-white rounded-none sm:rounded-[36px] p-5 sm:p-10 md:p-12 border-b sm:border border-slate-100 sm:border-slate-200/90 shadow-card space-y-6 sm:space-y-8">
+        <section id="phd" className="py-2.5 sm:py-6 max-w-7xl mx-auto px-0 sm:px-6 lg:px-8 scroll-mt-24">
+          <div className="bg-white rounded-none sm:rounded-[36px] px-5 py-8 sm:p-10 md:p-12 border-y sm:border border-slate-100 sm:border-slate-200/90 shadow-none sm:shadow-card space-y-6 sm:space-y-8">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 border-b border-slate-100 pb-5">
               <div>
                 <span className="text-xs font-bold uppercase tracking-wider text-brand-purple block">
@@ -309,8 +309,8 @@ export default function StudyProgramPage() {
         </section>
 
         {/* 4. FOUNDATION / PRE-UNIVERSITY - Seamless on mobile, rounded card on desktop */}
-        <section id="foundation" className="py-0 sm:py-6 max-w-7xl mx-auto px-0 sm:px-6 lg:px-8 scroll-mt-24">
-          <div className="bg-white rounded-none sm:rounded-[36px] p-5 sm:p-10 md:p-12 border-b sm:border border-slate-100 sm:border-slate-200/90 shadow-card space-y-6 sm:space-y-8">
+        <section id="foundation" className="py-2.5 sm:py-6 max-w-7xl mx-auto px-0 sm:px-6 lg:px-8 scroll-mt-24">
+          <div className="bg-white rounded-none sm:rounded-[36px] px-5 py-8 sm:p-10 md:p-12 border-y sm:border border-slate-100 sm:border-slate-200/90 shadow-none sm:shadow-card space-y-6 sm:space-y-8">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 border-b border-slate-100 pb-5">
               <div>
                 <span className="text-xs font-bold uppercase tracking-wider text-amber-600 block">
@@ -363,8 +363,8 @@ export default function StudyProgramPage() {
         </section>
 
         {/* 5. CHINESE LANGUAGE PROGRAMMES - Seamless on mobile, rounded card on desktop */}
-        <section id="language" className="py-0 sm:py-6 max-w-7xl mx-auto px-0 sm:px-6 lg:px-8 scroll-mt-24">
-          <div className="bg-white rounded-none sm:rounded-[36px] p-5 sm:p-10 md:p-12 border-b sm:border border-slate-100 sm:border-slate-200/90 shadow-card space-y-6 sm:space-y-8">
+        <section id="language" className="py-2.5 sm:py-6 max-w-7xl mx-auto px-0 sm:px-6 lg:px-8 scroll-mt-24">
+          <div className="bg-white rounded-none sm:rounded-[36px] px-5 py-8 sm:p-10 md:p-12 border-y sm:border border-slate-100 sm:border-slate-200/90 shadow-none sm:shadow-card space-y-6 sm:space-y-8">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 border-b border-slate-100 pb-5">
               <div>
                 <span className="text-xs font-bold uppercase tracking-wider text-sky-600 block">
@@ -412,8 +412,8 @@ export default function StudyProgramPage() {
         </section>
 
         {/* 6. MARCH 2027 TO SEPTEMBER DEGREE PATHWAYS - Seamless on mobile, rounded card on desktop */}
-        <section id="pathways" className="py-0 sm:py-6 max-w-7xl mx-auto px-0 sm:px-6 lg:px-8 scroll-mt-24">
-          <div className="bg-white rounded-none sm:rounded-[36px] p-5 sm:p-10 md:p-12 border-b sm:border border-slate-100 sm:border-slate-200/90 shadow-card space-y-6 sm:space-y-8">
+        <section id="pathways" className="py-2.5 sm:py-6 max-w-7xl mx-auto px-0 sm:px-6 lg:px-8 scroll-mt-24">
+          <div className="bg-white rounded-none sm:rounded-[36px] px-5 py-8 sm:p-10 md:p-12 border-y sm:border border-slate-100 sm:border-slate-200/90 shadow-none sm:shadow-card space-y-6 sm:space-y-8">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 border-b border-slate-100 pb-5">
               <div>
                 <span className="text-xs font-bold uppercase tracking-wider text-brand-purple block">

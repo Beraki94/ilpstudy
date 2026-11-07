@@ -10,11 +10,10 @@ import {
 export default function BudgetPlanner() {
   const [tuition, setTuition] = useState<number>(20000);
   const [accommodation, setAccommodation] = useState<number>(4000);
-  const [monthlyLiving, setMonthlyLiving] = useState<number>(1500);
   const [oneTimeCosts, setOneTimeCosts] = useState<number>(3500);
 
-  // Live total calculation: Tuition + Accommodation + (12 * monthlyLiving) + oneTimeCosts
-  const totalAnnual = (tuition || 0) + (accommodation || 0) + ((monthlyLiving || 0) * 12) + (oneTimeCosts || 0);
+  // Live total calculation: Tuition + Accommodation + oneTimeCosts
+  const totalAnnual = (tuition || 0) + (accommodation || 0) + (oneTimeCosts || 0);
 
   // Approximate BDT conversion reference (1 RMB ~ 16.5 BDT for estimation)
   const bdtEstimate = Math.round(totalAnnual * 16.5);
@@ -22,14 +21,13 @@ export default function BudgetPlanner() {
   const handleReset = () => {
     setTuition(20000);
     setAccommodation(4000);
-    setMonthlyLiving(1500);
     setOneTimeCosts(3500);
   };
 
   return (
-    <div className="space-y-0 sm:space-y-10">
+    <div className="space-y-4 sm:space-y-10">
       {/* Interactive Calculator Card - Seamless on mobile, rounded card on desktop */}
-      <div className="bg-white rounded-none sm:rounded-[40px] p-5 sm:p-10 md:p-12 border-b sm:border border-slate-100 sm:border-slate-200/90 shadow-card">
+      <div className="bg-white rounded-none sm:rounded-[40px] px-5 py-8 sm:p-10 md:p-12 border-y sm:border border-slate-100 sm:border-slate-200/90 shadow-none sm:shadow-card">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-6 mb-8">
           <div>
             <span className="text-xs font-bold uppercase tracking-wider text-brand-pink block">
@@ -105,31 +103,7 @@ export default function BudgetPlanner() {
               </span>
             </div>
 
-            {/* 3. Monthly Living Costs */}
-            <div>
-              <div className="flex justify-between items-center mb-2">
-                <label htmlFor="livingInput" className="text-xs font-bold uppercase tracking-wider text-slate-700">
-                  Monthly Living Costs (RMB)
-                </label>
-                <span className="text-xs font-bold text-brand-purple">
-                  RMB {monthlyLiving.toLocaleString()} / mo
-                </span>
-              </div>
-              <input
-                id="livingInput"
-                type="number"
-                min={0}
-                step={100}
-                value={monthlyLiving}
-                onChange={(e) => setMonthlyLiving(Math.max(0, parseInt(e.target.value) || 0))}
-                className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-sm font-semibold text-brand-dark focus:outline-none focus:ring-2 focus:ring-brand-purple/50 focus:border-brand-purple"
-              />
-              <span className="text-[11px] text-slate-400 mt-1 block">
-                Food, transport, phone, daily items (x12 months = RMB {(monthlyLiving * 12).toLocaleString()}/yr).
-              </span>
-            </div>
-
-            {/* 4. One-Time and Other Costs */}
+            {/* 3. One-Time and Other Costs */}
             <div>
               <div className="flex justify-between items-center mb-2">
                 <label htmlFor="otherInput" className="text-xs font-bold uppercase tracking-wider text-slate-700">
@@ -183,10 +157,6 @@ export default function BudgetPlanner() {
                 <strong className="text-white">RMB {accommodation.toLocaleString()}</strong>
               </div>
               <div className="flex justify-between pt-2">
-                <span>Living Expenses (12 Months):</span>
-                <strong className="text-white">RMB {(monthlyLiving * 12).toLocaleString()}</strong>
-              </div>
-              <div className="flex justify-between pt-2">
                 <span>One-Time &amp; Registration:</span>
                 <strong className="text-white">RMB {oneTimeCosts.toLocaleString()}</strong>
               </div>
@@ -214,7 +184,7 @@ export default function BudgetPlanner() {
       </div>
 
       {/* Avoid Surprises Table - Seamless on mobile, rounded card on desktop */}
-      <div className="bg-white rounded-none sm:rounded-[36px] p-5 sm:p-10 border-b sm:border border-slate-100 sm:border-slate-200/90 shadow-card space-y-4">
+      <div className="bg-white rounded-none sm:rounded-[36px] px-5 py-8 sm:p-10 border-y sm:border border-slate-100 sm:border-slate-200/90 shadow-none sm:shadow-card space-y-4">
         <div>
           <span className="text-xs font-bold uppercase tracking-wider text-brand-green block mb-1">
             AVOID SURPRISES

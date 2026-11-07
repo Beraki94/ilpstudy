@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -111,7 +112,7 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 w-full z-50 transition-all duration-200 bg-white/95 backdrop-blur-xl border-b border-slate-100 py-3.5 sm:py-4 ${
+      className={`fixed top-0 w-full z-50 transition-all duration-200 bg-white/95 backdrop-blur-xl border-b border-slate-100 py-2.5 sm:py-3 ${
         scrolled ? 'shadow-sm' : ''
       }`}
     >
@@ -119,18 +120,15 @@ export default function Header() {
         <div className="flex justify-between items-center">
           
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group relative z-50">
-            {/* Geometric Logo Representation */}
-            <div className="grid grid-cols-2 gap-0.5 w-10 h-10 transition-transform group-hover:scale-105 duration-300">
-              <div className="bg-[#e90089] rounded-tl-full w-full h-full"></div>
-              <div className="bg-[#2a2522] rounded-tl-full w-full h-full"></div>
-              <div className="bg-[#00c06a] rounded-tl-full w-full h-full"></div>
-              <div className="bg-[#b1a6fb] rounded-tl-full w-full h-full"></div>
-            </div>
-            <div className="flex flex-col leading-none">
-              <span className="font-extrabold text-2xl text-[#1c1917] tracking-tight">ilp</span>
-              <span className="font-extrabold text-2xl text-[#1c1917] tracking-tight -mt-1">study</span>
-            </div>
+          <Link href="/" className="flex items-center group relative z-50" aria-label="ILP Study Home">
+            <Image
+              src="/images/ilp-logo.png"
+              alt="ILP Study"
+              width={238}
+              height={100}
+              priority
+              className="h-9 sm:h-10 lg:h-11 w-auto object-contain transition-transform group-hover:scale-105 duration-300"
+            />
           </Link>
           
           {/* Desktop Navigation - Soft Light Frosted Capsule */}

@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Mail, 
@@ -36,7 +37,7 @@ export default function Footer() {
     { name: "Blog & Guides", path: '/blogs' },
     { name: "Document Checklist", path: '/checklist' },
     { name: "RMB Budget Planner", path: '/budget' },
-    { name: "Student Visa (X1/X2)", path: '/visa' },
+    { name: "Visa Guide", path: '/visa' },
     { name: "Campus Life & Housing", path: '/student-life' },
     { name: "About ILP Study", path: '/about' },
     { name: "Partnerships", path: '/partnerships' },
@@ -55,29 +56,25 @@ export default function Footer() {
           
           {/* Column 1: Authoritative Brand & Credentials */}
           <div className="w-full lg:w-[280px] xl:w-[320px] lg:flex-shrink-0 space-y-6">
-            <Link href="/" className="flex items-center gap-3 group inline-flex">
-              {/* Full-size Geometric Logo */}
-              <div className="grid grid-cols-2 gap-0.5 w-10 h-10 transition-transform group-hover:scale-105 duration-300">
-                <div className="bg-[#e90089] rounded-tl-full w-full h-full"></div>
-                <div className="bg-[#f8fafc] rounded-tl-full w-full h-full opacity-90"></div>
-                <div className="bg-[#00c06a] rounded-tl-full w-full h-full"></div>
-                <div className="bg-[#b1a6fb] rounded-tl-full w-full h-full"></div>
-              </div>
-              <div className="flex flex-col leading-none">
-                <span className="font-extrabold text-2xl text-white tracking-tight">ilp</span>
-                <span className="font-extrabold text-2xl text-white tracking-tight -mt-1">study</span>
-              </div>
+            <Link href="/" className="inline-flex items-center group" aria-label="ILP Study Home">
+              <Image
+                src="/images/ilp-logo-white.png"
+                alt="ILP Study"
+                width={238}
+                height={100}
+                className="h-10 sm:h-11 lg:h-12 w-auto object-contain opacity-95 group-hover:opacity-100 transition-all duration-300"
+              />
             </Link>
             
             <p className="text-slate-400 text-sm leading-relaxed">
-              <strong>International Learning Pathways</strong>, trading as <strong>ILP Study</strong>. A Dhaka-based education consultancy dedicated to university admissions, scholarship evaluations, and student visas for China.
+              <strong>International Learning Pathways</strong>, trading as <strong>ILP Study</strong>. A Dhaka-based education consultancy dedicated to university admissions, scholarship evaluations, and study guidance for China.
             </p>
 
             <div className="p-4 rounded-2xl bg-white/5 border border-white/10 text-xs text-slate-300 space-y-1.5">
               <div className="flex items-center justify-between">
                 <span className="text-brand-green font-bold flex items-center gap-1.5">
                   <span className="w-2 h-2 rounded-full bg-brand-green animate-pulse"></span>
-                  Operating Since 2025
+                  Education Consultancy
                 </span>
                 <span className="text-slate-400 font-medium">Study in China</span>
               </div>

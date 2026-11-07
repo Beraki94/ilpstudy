@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import PageHeader from '@/components/PageHeader';
@@ -160,7 +161,7 @@ export default function BlogsPage() {
         />
 
         {/* Intro & Action Bar */}
-        <section className="pt-10 pb-4 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="pt-8 sm:pt-12 pb-4 sm:pb-6 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-3xl sm:rounded-[40px] p-6 sm:p-10 border border-slate-200/90 shadow-card flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div className="max-w-2xl space-y-2">
               <span className="text-xs font-bold uppercase tracking-wider text-brand-pink block">
@@ -190,7 +191,7 @@ export default function BlogsPage() {
         </section>
 
         {/* Controls: Search & Stage Filters */}
-        <section className="py-6 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-8 sm:py-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="space-y-4">
             {/* Search Input */}
             <div className="max-w-md mx-auto relative">
@@ -229,7 +230,7 @@ export default function BlogsPage() {
         </section>
 
         {/* Guides Organized by "YOUR NEXT STEP" Stages */}
-        <section className="pb-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        <section className="pt-2 pb-20 sm:pb-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 sm:space-y-16">
           {visibleSections.length === 0 ? (
             <div className="bg-white rounded-3xl p-12 text-center border border-slate-200 max-w-lg mx-auto space-y-3">
               <BookOpen size={32} className="text-slate-300 mx-auto" />
@@ -280,15 +281,16 @@ export default function BlogsPage() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.4, delay: idx * 0.06 }}
-                        className="bg-white rounded-3xl sm:rounded-[36px] sm:rounded-tl-[70px] overflow-hidden shadow-card hover:shadow-card-hover hover:-translate-y-1.5 hover:border-brand-pink/50 transition-all duration-300 group flex flex-col border border-slate-200/90 justify-between"
+                        className="bg-white rounded-3xl sm:rounded-[36px] overflow-hidden shadow-card hover:shadow-card-hover hover:-translate-y-1.5 hover:border-brand-pink/50 transition-all duration-300 group flex flex-col border border-slate-200/90 justify-between"
                       >
                         {/* Image Thumbnail */}
                         <div className="relative h-44 sm:h-48 overflow-hidden bg-slate-100 flex-shrink-0">
-                          <img 
+                          <Image 
                             src={guide.image} 
                             alt={guide.title}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                            loading="lazy"
+                            fill
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                            className="object-cover group-hover:scale-105 transition-transform duration-700"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent"></div>
                           

@@ -184,7 +184,7 @@ export default function StudentLifePage() {
 
         {/* Arrival Checklist - Full width on mobile, rounded card on desktop */}
         <section className="py-6 sm:py-12 max-w-7xl mx-auto px-0 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-none sm:rounded-[40px] p-5 sm:p-8 md:p-12 border-y sm:border border-slate-100 sm:border-slate-200/90 shadow-none sm:shadow-card space-y-6">
+          <div className="bg-white rounded-none sm:rounded-[40px] px-5 py-8 sm:p-8 md:p-12 border-y sm:border border-slate-100 sm:border-slate-200/90 shadow-none sm:shadow-card space-y-6">
             <div>
               <span className="text-xs font-bold uppercase tracking-wider text-brand-green block mb-1">
                 YOUR ARRIVAL CHECKLIST

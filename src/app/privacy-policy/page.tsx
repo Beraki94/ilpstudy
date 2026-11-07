@@ -36,8 +36,8 @@ export default function PrivacyPolicyPage() {
         />
 
         {/* Core Privacy Container - Full width on mobile, rounded card on desktop */}
-        <section className="py-0 sm:py-12 max-w-5xl mx-auto px-0 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-none sm:rounded-[40px] p-5 sm:p-10 md:p-12 border-y sm:border border-slate-100 sm:border-slate-200/90 shadow-none sm:shadow-card space-y-8">
+        <section className="py-4 sm:py-12 max-w-5xl mx-auto px-0 sm:px-6 lg:px-8">
+          <div className="bg-white rounded-none sm:rounded-[40px] px-5 py-8 sm:p-10 md:p-12 border-y sm:border border-slate-100 sm:border-slate-200/90 shadow-none sm:shadow-card space-y-8">
             
             {/* Section Tag Header */}
             <div className="border-b border-slate-100 pb-6">

@@ -109,7 +109,8 @@ export default function Hero() {
                 hideTopBadge={true}
                 captionClassName="max-w-[55%] sm:max-w-[50%] pr-2"
                 aspectRatio="aspect-[4/5]"
-                fallbackSrc="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                fallbackSrc="/homeImage/irp-hero-image.jpg"
+                priority={true}
                 className="shadow-2xl border-2 sm:border-4 border-white rounded-3xl sm:rounded-[40px] sm:rounded-tl-[120px] sm:rounded-br-[120px]"
               />
 

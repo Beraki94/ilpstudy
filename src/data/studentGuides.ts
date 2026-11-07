@@ -35,7 +35,7 @@ export const studentGuides: StudentGuide[] = [
     badge: "Student Journal / Foundation",
     readTime: "2 min read",
     reviewedDate: "12 October 2026",
-    image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    image: "/blogImage/04-foundation-in-china-after-ssc-or-o-levels.jpg",
     excerpt: "Check qualification acceptance and progression conditions before choosing a pre-university route in China after completing SSC or O Levels in Bangladesh.",
     leadParagraph: "An SSC or O Level student may see a foundation course advertised as a faster route to a bachelor degree. The important question is not whether the course is called 'foundation.' It is whether the university accepts your existing qualification into that course and recognises the completed course for the particular degree you want.",
     sections: [
@@ -110,7 +110,7 @@ export const studentGuides: StudentGuide[] = [
     badge: "Student Journal / Scholarships",
     readTime: "2 min read",
     reviewedDate: "12 October 2026",
-    image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    image: "/blogImage/14-full-scholarship-or-tuition-waiver.jpg",
     excerpt: "Understand award coverage, payment timing and renewal conditions before relying on scholarship headlines for studying in China.",
     leadParagraph: "A headline does not define an award. 'Full scholarship,' '100% scholarship' and 'tuition waiver' are often used together in advertisements, but they should not be treated as identical. Read the official award name and coverage. A 100% tuition waiver describes tuition; it does not automatically describe housing, insurance, flights or a monthly allowance.",
     sections: [
@@ -180,7 +180,7 @@ export const studentGuides: StudentGuide[] = [
     badge: "Student Journal / Visa and Arrival",
     readTime: "2 min read",
     reviewedDate: "12 October 2026",
-    image: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    image: "/blogImage/18-china-student-visa-from-bangladesh.jpg",
     excerpt: "Understand X1 and X2 study-visa categories, document requirements, and prepare your arrival plan for China from Bangladesh.",
     leadParagraph: "Admission and visa preparation are different stages. Once you receive university documents, check the current Chinese visa instructions that apply to applicants in Bangladesh. A university offer does not guarantee a visa, and a consultancy cannot decide the visa outcome. Use official instructions for the application channel, documents and appointments.",
     sections: [
@@ -250,7 +250,7 @@ export const studentGuides: StudentGuide[] = [
     badge: "Student Journal / Applications",
     readTime: "3 min read",
     reviewedDate: "12 October 2026",
-    image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    image: "/blogImage/17-china-university-application-documents.jpg",
     excerpt: "Organise accurate documents, readable scans and intake-specific requirements before submitting to Chinese universities from Bangladesh.",
     leadParagraph: "Use the notice as your master checklist. There is no single document pack that completes every Chinese university application. Start with the relevant international admission notice and create a checklist for your degree and funding route. Separate documents required now from those the university allows you to provide later.",
     sections: [
@@ -320,7 +320,7 @@ export const studentGuides: StudentGuide[] = [
     badge: "Student Journal / University Choice",
     readTime: "2 min read",
     reviewedDate: "12 October 2026",
-    image: "https://images.unsplash.com/photo-1508804185872-d7badad00f7d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    image: "/blogImage/10-how-to-choose-a-city-in-china.jpg",
     excerpt: "Compare academic fit, campus location, accommodation, living expenses and daily life before choosing a city in China.",
     leadParagraph: "Let the program lead the location choice. A city can be exciting, familiar or attractive in photographs, but your course should lead the shortlist. First identify suitable programs and their actual teaching campuses. Then compare the locations where those programs take place.",
     sections: [
@@ -390,7 +390,7 @@ export const studentGuides: StudentGuide[] = [
     badge: "Student Journal / Scholarships",
     readTime: "2 min read",
     reviewedDate: "12 October 2026",
-    image: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    image: "/blogImage/13-csc-scholarship-for-bangladesh-students.jpg",
     excerpt: "Distinguish the current Chinese Government Scholarship (CSC) call, Type A and Type B application channels, and required documents from Bangladesh.",
     leadParagraph: "Read the call for your country and year. The Chinese Government Scholarship is administered through specific calls and application routes. For a Bangladeshi student, the first task is to identify the applicable country or university notice—not copy an agency number from an old social post.",
     sections: [
@@ -460,7 +460,7 @@ export const studentGuides: StudentGuide[] = [
     badge: "Student Journal / CSCA",
     readTime: "2 min read",
     reviewedDate: "12 October 2026",
-    image: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    image: "/blogImage/15-csca-for-bangladeshi-students.jpg",
     excerpt: "Check CSCA subjects, test language, examination dates and university requirements before preparing from Bangladesh.",
     leadParagraph: "Start with the university and major. CSCA stands for China Scholastic Competency Assessment. It is organised by the China Scholarship Council for international students planning undergraduate study in China. For a Bangladeshi HSC applicant, the first task is to read the intended university's admissions notice and major table. Confirm whether a score report is required, which subjects apply and when the result must be submitted.",
     sections: [
@@ -528,7 +528,7 @@ export const studentGuides: StudentGuide[] = [
     badge: "Student Journal / CSCA",
     readTime: "2 min read",
     reviewedDate: "12 October 2026",
-    image: "https://images.unsplash.com/photo-1513258496099-48168024aec0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    image: "/blogImage/16-four-week-csca-study-plan.jpg",
     excerpt: "An illustrative four-week CSCA revision routine for HSC students in Bangladesh, with syllabus checks, concept review and exam-day prep.",
     leadParagraph: "Use four weeks as a planning example. A four-week preparation plan is an illustrative routine, not an official CSCA course or a promise of readiness. The time you need depends on your subject knowledge, required papers and current commitments. Confirm the intended university's requirements and use the current official syllabus before deciding what to revise.",
     sections: [
@@ -598,7 +598,7 @@ export const studentGuides: StudentGuide[] = [
     badge: "Student Journal / Programs",
     readTime: "2 min read",
     reviewedDate: "12 October 2026",
-    image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    image: "/blogImage/05-english-taught-programs-in-china.jpg",
     excerpt: "Verify teaching language, entry rules, curriculum and the international catalogue before choosing an English-taught degree in China.",
     leadParagraph: "Start with the international major catalogue. An English university website does not mean every program is taught in English. Look for an international admissions catalogue that identifies the exact degree, teaching medium, campus, duration and intake. Some catalogues combine English, Chinese and mixed-language routes in the same table.",
     sections: [
@@ -668,7 +668,7 @@ export const studentGuides: StudentGuide[] = [
     badge: "Student Journal / Language",
     readTime: "2 min read",
     reviewedDate: "12 October 2026",
-    image: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    image: "/blogImage/07-study-in-china-without-ielts.jpg",
     excerpt: "Understand English proficiency evidence, medium-of-instruction certificates, entrance assessments, and waivers for study in China.",
     leadParagraph: "Ask what the university accepts. 'Without IELTS' is not a complete admission rule. A university may accept another test, previous English-medium study, an interview or an internal assessment. Another may require a specific certificate. The answer depends on the program, degree level, intake and funding route.",
     sections: [
@@ -738,7 +738,7 @@ export const studentGuides: StudentGuide[] = [
     badge: "Student Journal / Foundation",
     readTime: "2 min read",
     reviewedDate: "12 October 2026",
-    image: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    image: "/blogImage/06-chinese-language-course-or-foundation.jpg",
     excerpt: "Compare the learning goals, curriculum, time commitment and progression conditions of Chinese language courses vs academic foundation programs.",
     leadParagraph: "Begin with the gap you need to close. A preparation course should solve a specific problem. You may need stronger Chinese for a Chinese-taught degree, academic preparation for engineering, or a qualification route the university recognises. Name that need before deciding between language and foundation study.",
     sections: [
@@ -808,7 +808,7 @@ export const studentGuides: StudentGuide[] = [
     badge: "Student Journal / Intakes",
     readTime: "2 min read",
     reviewedDate: "12 October 2026",
-    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    image: "/blogImage/03-march-or-september-intake-in-china.jpg",
     excerpt: "Understand course options, preparation timing and degree deadlines before deciding between March and September intakes in China.",
     leadParagraph: "Choose the course before the month. March and September are useful planning labels, but they are not universal admission offers. A university may open a spring language course while offering a degree only in autumn. Another may accept different programs at different times. Start with the exact course notice and its teaching dates.",
     sections: [
@@ -878,7 +878,7 @@ export const studentGuides: StudentGuide[] = [
     badge: "Student Journal / Postgraduate",
     readTime: "2 min read",
     reviewedDate: "12 October 2026",
-    image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    image: "/blogImage/09-masters-in-china-from-bangladesh.jpg",
     excerpt: "Match your bachelor background, study plan, language evidence and funding route to a suitable master's program in China.",
     leadParagraph: "Choose the program by academic fit. A master's shortlist should begin with your bachelor degree and the direction you want to develop. If you are changing fields, check the prerequisite knowledge and whether the program accepts that transition. A course with an attractive scholarship is not automatically a suitable academic match.",
     sections: [
@@ -948,7 +948,7 @@ export const studentGuides: StudentGuide[] = [
     badge: "Student Journal / Medicine",
     readTime: "2 min read",
     reviewedDate: "12 October 2026",
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    image: "/blogImage/08-mbbs-in-china-for-bangladesh-students.jpg",
     excerpt: "Separate university admission, clinical training, BMDC requirements and professional licensing before applying for MBBS in China.",
     leadParagraph: "Begin with the profession you intend to enter. For MBBS, university admission is only one part of the decision. A Bangladeshi applicant should investigate the current Bangladesh Medical and Dental Council (BMDC) requirements relevant to overseas medical study and later registration. If you intend to practise elsewhere, investigate that country's regulator too.",
     sections: [
@@ -1018,7 +1018,7 @@ export const studentGuides: StudentGuide[] = [
     badge: "Student Journal / Eligibility",
     readTime: "2 min read",
     reviewedDate: "12 October 2026",
-    image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    image: "/blogImage/02-study-in-china-after-hsc.jpg",
     excerpt: "Understand how HSC results, subject prerequisites, language proof, and CSCA test scores determine bachelor admission eligibility in China.",
     leadParagraph: "HSC completion is a starting point. If you have completed HSC in Bangladesh, the next question is whether your qualification and subjects meet the chosen university's international bachelor requirements. There is no useful single GPA threshold for every degree in China. Universities can set different academic, age and language conditions, and some programs require particular school subjects.",
     sections: [
@@ -1087,7 +1087,7 @@ export const studentGuides: StudentGuide[] = [
     badge: "Student Journal / Costs",
     readTime: "2 min read",
     reviewedDate: "12 October 2026",
-    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    image: "/blogImage/12-study-in-china-cost-from-bangladesh.jpg",
     excerpt: "A practical budget method covering university bills, accommodation, monthly living costs and one-time travel expenses for Bangladeshi families.",
     leadParagraph: "Begin with the fee period. When comparing study costs in China, check whether a price is per semester, per academic year, per month or for the complete course. RMB and CNY refer to China's currency. Keep your working budget in that currency first, then calculate what your family will need in Bangladeshi taka using the actual payment-date exchange rate and bank charges.",
     sections: [
@@ -1156,7 +1156,7 @@ export const studentGuides: StudentGuide[] = [
     badge: "Student Journal / Getting Started",
     readTime: "2 min read",
     reviewedDate: "12 October 2026",
-    image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    image: "/blogImage/01-study-in-china-from-bangladesh-roadmap.jpg",
     excerpt: "A practical step-by-step roadmap for Bangladeshi students: choosing a course, checking entry rules, and submitting a winning university application.",
     leadParagraph: "Begin with a decision, not a university name. Studying in China from Bangladesh starts with choosing what you want your qualification to achieve. An HSC graduate exploring computer science has different questions from a business graduate applying for a research master's. Write down your intended degree, subject, teaching language and target intake before collecting brochures.",
     sections: [
@@ -1225,7 +1225,7 @@ export const studentGuides: StudentGuide[] = [
     badge: "Student Journal / University Choice",
     readTime: "2 min read",
     reviewedDate: "12 October 2026",
-    image: "https://images.unsplash.com/photo-1508804185872-d7badad00f7d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    image: "/blogImage/11-universities-in-guangzhou.jpg",
     excerpt: "Explore official international admission references, campuses and living considerations in Guangzhou for Bangladeshi students.",
     leadParagraph: "Start with the kind of study you need. The directory includes Guangzhou institutions alongside other cities in China. The useful distinction is between degree study, Chinese language study and academic preparation. Choose your goal before collecting university names.",
     sections: [

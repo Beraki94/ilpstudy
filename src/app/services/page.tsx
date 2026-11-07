@@ -164,7 +164,7 @@ export default function ServicesPage() {
                   </span>
                 </h2>
                 <p className="text-base sm:text-lg text-slate-300 font-normal leading-relaxed mb-8">
-                  Operating since 2025 with over 50 students placed in Chinese universities for the September 2026 intake, ILP Study manages every phase of the international application process with rigorous quality checks and direct university communication.
+                  With dedicated student placements in top Chinese universities, ILP Study manages every phase of the international application process with rigorous quality checks and direct university communication.
                 </p>
                 <div className="flex flex-wrap gap-4">
                   <a

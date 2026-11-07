@@ -55,9 +55,9 @@ export default function UniversitiesPage() {
         </section>
 
         {/* Section 2: Annual Tuition Fees */}
-        <section id="tuition" className="py-16 bg-white border-t border-slate-200/80 scroll-mt-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-            <div>
+        <section id="tuition" className="py-12 sm:py-16 bg-white border-t border-slate-200/80 scroll-mt-20">
+          <div className="max-w-7xl mx-auto px-0 sm:px-6 lg:px-8 space-y-8">
+            <div className="px-4 sm:px-0">
               <span className="text-xs font-bold uppercase tracking-wider text-brand-pink block mb-1">
                 TUITION PLANNING
               </span>
