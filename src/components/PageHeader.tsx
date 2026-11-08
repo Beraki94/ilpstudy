@@ -9,7 +9,7 @@ interface PageHeaderProps {
 
 export default function PageHeader({ title, description }: PageHeaderProps) {
   return (
-    <div className="relative bg-[#0f172a] pt-32 pb-20 sm:pt-36 sm:pb-28 overflow-hidden mt-[64px] sm:mt-[70px] max-w-full">
+    <div className="relative bg-[#0f172a] pt-32 pb-20 sm:pt-36 sm:pb-28 overflow-hidden mt-[68px] sm:mt-[74px] max-w-full">
       {/* Decorative Brand Rings matching Hero */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div 

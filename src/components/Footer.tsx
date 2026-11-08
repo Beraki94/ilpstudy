@@ -13,6 +13,7 @@ import {
   ArrowUpRight,
   ShieldCheck
 } from 'lucide-react';
+import { FacebookIcon, InstagramIcon } from './SocialLinks';
 
 export default function Footer() {
   // Mobile accordion state (null means all collapsed, or string id for active section)
@@ -56,13 +57,18 @@ export default function Footer() {
           
           {/* Column 1: Authoritative Brand & Credentials */}
           <div className="w-full lg:w-[280px] xl:w-[320px] lg:flex-shrink-0 space-y-6">
-            <Link href="/" className="inline-flex items-center group" aria-label="ILP Study Home">
+            <Link 
+              href="/" 
+              className="inline-flex items-center bg-white px-4 py-2.5 sm:px-5 sm:py-3 rounded-2xl sm:rounded-3xl shadow-sm group transition-transform hover:scale-105" 
+              aria-label="ILP Study Home"
+            >
               <Image
-                src="/images/ilp-logo-white.png"
+                src="/images/ilp-logo.png?v=20261108"
                 alt="ILP Study"
                 width={238}
                 height={100}
-                className="h-10 sm:h-11 lg:h-12 w-auto object-contain opacity-95 group-hover:opacity-100 transition-all duration-300"
+                unoptimized={true}
+                className="h-10 sm:h-11 md:h-12 lg:h-[50px] w-auto object-contain"
               />
             </Link>
             
@@ -84,14 +90,45 @@ export default function Footer() {
             </div>
 
             {/* Primary Action Button */}
-            <div className="pt-1">
-              <Link 
-                href="/contact" 
-                className="px-5 py-2.5 rounded-full bg-brand-pink hover:bg-[#d10079] text-white font-bold text-xs sm:text-sm shadow-soft transition-all inline-flex items-center gap-2 group"
-              >
-                <span>Book Free Consultation</span>
-                <ArrowUpRight size={15} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-              </Link>
+            <div className="pt-1 flex flex-col gap-3">
+              <div>
+                <Link 
+                  href="/contact" 
+                  className="px-5 py-2.5 rounded-full bg-brand-pink hover:bg-[#d10079] text-white font-bold text-xs sm:text-sm shadow-soft transition-all inline-flex items-center gap-2 group"
+                >
+                  <span>Book Free Consultation</span>
+                  <ArrowUpRight size={15} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                </Link>
+              </div>
+
+              {/* Social Media Links */}
+              <div className="pt-2">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 block mb-2">
+                  Follow Us Online
+                </span>
+                <div className="flex items-center gap-2">
+                  <a
+                    href="https://www.facebook.com/ilpstudy/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="ILP Study on Facebook"
+                    className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/5 hover:bg-[#1877F2] text-slate-300 hover:text-white border border-white/10 hover:border-[#1877F2] text-xs font-semibold transition-all group"
+                  >
+                    <FacebookIcon className="w-4 h-4 text-[#1877F2] group-hover:text-white transition-colors" />
+                    <span>Facebook</span>
+                  </a>
+                  <a
+                    href="https://www.instagram.com/ilpstudy/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="ILP Study on Instagram"
+                    className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/5 hover:bg-[#E4405F] text-slate-300 hover:text-white border border-white/10 hover:border-[#E4405F] text-xs font-semibold transition-all group"
+                  >
+                    <InstagramIcon className="w-4 h-4 text-[#E4405F] group-hover:text-white transition-colors" />
+                    <span>Instagram</span>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
           

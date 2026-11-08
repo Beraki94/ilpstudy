@@ -177,7 +177,8 @@ export default function StudentLifePage() {
             subtitle="Campus libraries, modern international student dormitories, halal dining facilities, and athletic grounds"
             badge="Campus Life in China"
             aspectRatio="aspect-[16/10] sm:aspect-[21/9]"
-            fallbackSrc="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+            fallbackSrc="/studentpageImage/ilp-student-life-banner.jpg?v=20261108"
+            objectPosition="center 50%"
             className="shadow-xl rounded-3xl sm:rounded-[40px]"
           />
         </section>

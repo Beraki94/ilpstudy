@@ -4,6 +4,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import PageHeader from '@/components/PageHeader';
 import PhotoSpace from '@/components/PhotoSpace';
+import { FacebookIcon, InstagramIcon } from '@/components/SocialLinks';
 import {
   GraduationCap,
   Award,
@@ -122,28 +123,16 @@ export default function AboutPage() {
 
               </div>
 
-              {/* Photo Space: Owner-Supplied Office Photos (Meeting Room & Seating Area) */}
+              {/* Photo Space: Office Suite */}
               <div className="lg:col-span-5 flex flex-col gap-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {/* Photo 1: Meeting Room */}
-                  <PhotoSpace
-                    title="ILP Study office meeting room"
-                    subtitle="Photo 1: Meeting room"
-                    badge="Office Photo 1"
-                    aspectRatio="aspect-[3/4]"
-                    fallbackSrc="/images/office/Weixin Image_20260904125917_73_1.jpg"
-                    className="shadow-md"
-                  />
-                  {/* Photo 2: Seating & Bookshelf Area */}
-                  <PhotoSpace
-                    title="ILP Study office seating area"
-                    subtitle="Photo 2: Seating and bookshelf area"
-                    badge="Office Photo 2"
-                    aspectRatio="aspect-[3/4]"
-                    fallbackSrc="/images/office/Weixin Image_20260904125917_74_1.jpg"
-                    className="shadow-md"
-                  />
-                </div>
+                <PhotoSpace
+                  title="ILP Study Consultation Suite in Dhaka"
+                  subtitle="East Shewrapara, Mirpur, Dhaka — Personalized university shortlisting and document guidance"
+                  badge="Dhaka Headquarters"
+                  aspectRatio="aspect-[16/10]"
+                  fallbackSrc="/aboutImage/ilp-office-room-1.jpg?v=20261108"
+                  className="shadow-lg rounded-3xl"
+                />
 
                 <div className="p-6 rounded-3xl bg-brand-dark text-white shadow-card-dark border border-slate-800">
                   <div className="flex items-center justify-between mb-2">
@@ -306,8 +295,9 @@ export default function AboutPage() {
             title="Student Pre-Departure Briefing & Campus Arrival in China"
             subtitle="Guidance through university admission, Chinese embassy visa preparation in Dhaka, dorm check-in, and campus registration"
             badge="Campus Arrival Support"
-            aspectRatio="aspect-[21/9]"
-            fallbackSrc="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+            aspectRatio="aspect-[16/10] sm:aspect-[21/9]"
+            fallbackSrc="/aboutImage/abbout-ilp-banner.jpg?v=20261108"
+            objectPosition="center 50%"
             className="shadow-xl rounded-[40px]"
           />
         </section>
@@ -400,6 +390,31 @@ export default function AboutPage() {
                   >
                     <MessageSquare size={18} />
                     <span>Chat on WhatsApp</span>
+                  </a>
+                </div>
+
+                {/* Social Channels */}
+                <div className="pt-3 flex flex-wrap items-center justify-center gap-3">
+                  <span className="text-xs text-slate-400 font-medium">Follow ILP Study:</span>
+                  <a
+                    href="https://www.facebook.com/ilpstudy/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Follow ILP Study on Facebook"
+                    className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/10 hover:bg-[#1877F2] text-xs font-semibold text-slate-200 hover:text-white transition-all border border-white/10 hover:border-[#1877F2]"
+                  >
+                    <FacebookIcon className="w-3.5 h-3.5 text-[#1877F2] group-hover:text-white" />
+                    <span>Facebook</span>
+                  </a>
+                  <a
+                    href="https://www.instagram.com/ilpstudy/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Follow ILP Study on Instagram"
+                    className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/10 hover:bg-[#E4405F] text-xs font-semibold text-slate-200 hover:text-white transition-all border border-white/10 hover:border-[#E4405F]"
+                  >
+                    <InstagramIcon className="w-3.5 h-3.5 text-[#E4405F] group-hover:text-white" />
+                    <span>Instagram</span>
                   </a>
                 </div>
 

@@ -19,6 +19,7 @@ import {
   Calendar,
   Calculator
 } from 'lucide-react';
+import { FacebookIcon, InstagramIcon } from './SocialLinks';
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -112,22 +113,23 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 w-full z-50 transition-all duration-200 bg-white/95 backdrop-blur-xl border-b border-slate-100 py-2.5 sm:py-3 ${
+      className={`fixed top-0 w-full z-50 transition-all duration-200 bg-white/95 backdrop-blur-xl border-b border-slate-100/90 py-3.5 sm:py-4 lg:py-4 shadow-xs ${
         scrolled ? 'shadow-sm' : ''
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center min-h-[44px]">
           
           {/* Logo */}
           <Link href="/" className="flex items-center group relative z-50" aria-label="ILP Study Home">
             <Image
-              src="/images/ilp-logo.png"
+              src="/images/ilp-logo.png?v=20261108"
               alt="ILP Study"
               width={238}
               height={100}
               priority
-              className="h-9 sm:h-10 lg:h-11 w-auto object-contain transition-transform group-hover:scale-105 duration-300"
+              unoptimized={true}
+              className="h-10 sm:h-11 md:h-12 lg:h-[50px] w-auto object-contain transition-transform group-hover:scale-105 duration-300"
             />
           </Link>
           
@@ -264,17 +266,17 @@ export default function Header() {
           <div className="hidden lg:block">
             <Link 
               href="/contact" 
-              className="px-6 py-2.5 rounded-full bg-brand-pink text-white font-bold shadow-glow-pink hover:bg-[#d10079] hover:shadow-lg transition-all duration-300 flex items-center gap-2 text-sm group"
+              className="px-7 py-3 xl:px-8 xl:py-3.5 rounded-full bg-brand-pink text-white font-extrabold text-sm sm:text-[15px] shadow-glow-pink hover:bg-[#d10079] hover:shadow-lg transition-all duration-300 flex items-center gap-2.5 group tracking-wide"
             >
               <span>Free Consultation</span>
-              <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              <ArrowUpRight size={17} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </Link>
           </div>
 
           {/* Mobile Hamburger Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2.5 rounded-2xl bg-white/80 border border-slate-200 text-brand-dark hover:text-brand-pink hover:bg-slate-50 transition-colors relative z-50"
+            className="lg:hidden w-11 h-11 rounded-2xl bg-slate-100/90 hover:bg-slate-200/80 border border-slate-200 text-brand-dark hover:text-brand-pink transition-colors flex items-center justify-center relative z-50 shadow-xs"
             aria-label="Toggle Navigation Menu"
             aria-expanded={mobileMenuOpen}
           >
@@ -378,6 +380,33 @@ export default function Header() {
                     <Mail size={15} className="text-brand-pink flex-shrink-0" />
                     <span>Email: info@ilpstudy.com</span>
                   </a>
+                </div>
+
+                {/* Mobile Social Media Links */}
+                <div className="pt-2 border-t border-slate-100 flex items-center justify-between px-1">
+                  <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Follow Us:</span>
+                  <div className="flex items-center gap-2">
+                    <a
+                      href="https://www.facebook.com/ilpstudy/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="ILP Study Facebook"
+                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 hover:text-white hover:bg-[#1877F2] transition-colors text-xs font-bold"
+                    >
+                      <FacebookIcon className="w-3.5 h-3.5 text-[#1877F2]" />
+                      <span>Facebook</span>
+                    </a>
+                    <a
+                      href="https://www.instagram.com/ilpstudy/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="ILP Study Instagram"
+                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 hover:text-white hover:bg-[#E4405F] transition-colors text-xs font-bold"
+                    >
+                      <InstagramIcon className="w-3.5 h-3.5 text-[#E4405F]" />
+                      <span>Instagram</span>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>

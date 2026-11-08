@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import {
@@ -8,6 +8,7 @@ import {
   MapPin,
   ArrowRight
 } from 'lucide-react';
+import Pagination from '@/components/Pagination';
 
 interface UniversityItem {
   name: string;
@@ -223,8 +224,46 @@ export default function UniversityDirectory() {
     });
   }, [searchTerm, selectedProvince]);
 
+  // Responsive Pagination State: 10 on mobile, 18 on desktop/tablet (divisible by 2 & 3)
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+  const directoryTopRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  const itemsPerPage = isMobile ? 10 : 18;
+
+  // Reset to first page when search query, province filter, or device mode changes
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchTerm, selectedProvince, isMobile]);
+
+  const totalPages = Math.ceil(filteredUniversities.length / itemsPerPage) || 1;
+
+  // Paginated slice for the current view
+  const paginatedUniversities = useMemo(() => {
+    const start = (currentPage - 1) * itemsPerPage;
+    return filteredUniversities.slice(start, start + itemsPerPage);
+  }, [filteredUniversities, currentPage, itemsPerPage]);
+
+  const handlePageChange = (newPage: number) => {
+    setCurrentPage(newPage);
+    if (directoryTopRef.current) {
+      directoryTopRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 relative">
+      <div ref={directoryTopRef} className="absolute -top-28 left-0 pointer-events-none" />
+
       {/* Search and Province Filters */}
       <div className="bg-white rounded-3xl p-6 border border-slate-200/80 shadow-soft space-y-4">
         <div className="flex flex-col md:flex-row gap-4 justify-between items-center">
@@ -240,7 +279,13 @@ export default function UniversityDirectory() {
           </div>
 
           <span className="text-xs font-bold text-slate-500">
-            Showing <strong className="text-brand-dark">{filteredUniversities.length}</strong> institutions
+            {filteredUniversities.length > 0 ? (
+              <>
+                Showing <strong className="text-brand-dark">{(currentPage - 1) * itemsPerPage + 1}–{Math.min(currentPage * itemsPerPage, filteredUniversities.length)}</strong> of <strong className="text-brand-dark">{filteredUniversities.length}</strong> institutions
+              </>
+            ) : (
+              <>Showing <strong className="text-brand-dark">0</strong> institutions</>
+            )}
           </span>
         </div>
 
@@ -264,28 +309,28 @@ export default function UniversityDirectory() {
       </div>
 
       {/* Grid of Universities */}
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {filteredUniversities.map((uni, idx) => (
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+        {paginatedUniversities.map((uni, idx) => (
           <div
             key={idx}
-            className="p-5 rounded-2xl bg-white border border-slate-200/90 shadow-card hover:shadow-card-hover hover:-translate-y-1 hover:border-brand-pink/50 transition-all duration-300 flex flex-col justify-between group"
+            className="p-5 sm:p-6 rounded-2xl bg-white border border-slate-200/90 shadow-card hover:shadow-card-hover hover:-translate-y-1 hover:border-brand-pink/50 transition-all duration-300 flex flex-col justify-between group"
           >
             <div>
-              <div className="flex items-start gap-3.5 mb-2">
+              <div className="flex items-start gap-4 mb-2.5">
                 {/* University Logo Crest */}
-                <div className="w-14 h-14 rounded-2xl bg-slate-50 border border-slate-200/80 p-1.5 flex items-center justify-center flex-shrink-0 group-hover:scale-105 group-hover:border-brand-pink/40 group-hover:bg-white transition-all shadow-xs overflow-hidden">
+                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-slate-50 border border-slate-200/80 p-1.5 flex items-center justify-center flex-shrink-0 group-hover:scale-105 group-hover:border-brand-pink/40 group-hover:bg-white transition-all shadow-xs overflow-hidden">
                   <Image
                     src={uni.logo}
                     alt={`${uni.name} crest`}
-                    width={56}
-                    height={56}
+                    width={64}
+                    height={64}
                     className="w-full h-full object-contain"
                   />
                 </div>
 
                 {/* Badges & Name */}
                 <div className="flex-1 min-w-0">
-                  <div className="flex items-center justify-between gap-1 mb-1">
+                  <div className="flex items-center justify-between gap-1 mb-1.5">
                     <span className="text-[10px] font-bold uppercase tracking-wider text-brand-green bg-brand-green/10 px-2 py-0.5 rounded-full truncate">
                       {uni.province}
                     </span>
@@ -295,25 +340,35 @@ export default function UniversityDirectory() {
                     </span>
                   </div>
 
-                  <h4 className="font-extrabold text-sm sm:text-base text-brand-dark group-hover:text-brand-pink transition-colors line-clamp-2 leading-snug">
+                  <h4 className="font-extrabold text-base sm:text-[17px] text-brand-dark group-hover:text-brand-pink transition-colors line-clamp-2 leading-snug">
                     {uni.name}
                   </h4>
                 </div>
               </div>
             </div>
 
-            <div className="mt-3 pt-3 border-t border-slate-100 flex items-center justify-between">
+            <div className="mt-3.5 pt-3.5 border-t border-slate-100 flex items-center justify-between">
               <Link
                 href={`/contact?university=${encodeURIComponent(uni.name)}`}
-                className="text-xs font-bold text-brand-pink hover:text-[#d10079] inline-flex items-center gap-1 transition-colors group-hover:translate-x-0.5 group-hover:transition-transform"
+                className="text-xs sm:text-sm font-bold text-brand-pink hover:text-[#d10079] inline-flex items-center gap-1 transition-colors group-hover:translate-x-0.5 group-hover:transition-transform"
               >
                 <span>Discuss Admission</span>
-                <ArrowRight size={13} />
+                <ArrowRight size={14} />
               </Link>
             </div>
           </div>
         ))}
       </div>
+
+      {/* Pagination Controls */}
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={handlePageChange}
+        totalItems={filteredUniversities.length}
+        itemsPerPage={itemsPerPage}
+        itemName="institutions"
+      />
 
       {filteredUniversities.length === 0 && (
         <div className="p-12 text-center bg-white rounded-3xl border border-slate-200/80">

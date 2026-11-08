@@ -198,11 +198,12 @@ export default function AdmissionWorkflow() {
         {/* Photo Space: Visa Preparation & Campus Registration (Placed before closing CTA) */}
         <div className="mb-14 sm:mb-20">
           <PhotoSpace
-            title="Pre-Departure Visa Briefing & Chinese University Campus Arrival"
+            title="International Students Campus Life & Orientation in China"
             subtitle="Guidance through JW202 generation, Chinese embassy X-visa clearance, dorm accommodation, and campus registration"
             badge="Pre-Departure & Arrival"
             aspectRatio="aspect-[16/10] sm:aspect-[21/9]"
-            fallbackSrc="https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&w=1200&q=80"
+            fallbackSrc="/homeImage/ilp-home-banner.jpg?v=20261108"
+            objectPosition="center 55%"
             className="shadow-xl"
           />
         </div>

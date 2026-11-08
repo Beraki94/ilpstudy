@@ -13,6 +13,8 @@ interface PhotoSpaceProps {
   priority?: boolean;
   captionClassName?: string;
   hideTopBadge?: boolean;
+  objectPosition?: string;
+  unoptimized?: boolean;
 }
 
 export default function PhotoSpace({
@@ -21,20 +23,24 @@ export default function PhotoSpace({
   fallbackSrc,
   className = "",
   priority = false,
+  objectPosition,
+  unoptimized = true,
 }: PhotoSpaceProps) {
   const [hasError, setHasError] = useState(false);
 
   return (
     <div
-      className={`group relative overflow-hidden rounded-[32px] border border-slate-200/80 bg-slate-100 shadow-card transition-all duration-500 hover:shadow-card-hover ${aspectRatio} ${className}`}
+      className={`group relative w-full overflow-hidden rounded-[24px] sm:rounded-[32px] border border-slate-200/80 bg-slate-100 shadow-card transition-all duration-500 hover:shadow-card-hover ${aspectRatio} ${className}`}
     >
       {fallbackSrc && !hasError ? (
         <Image
           src={fallbackSrc}
           alt={title}
           fill
+          unoptimized={unoptimized}
           priority={priority}
           sizes="(max-width: 768px) 100vw, 1200px"
+          style={objectPosition ? { objectPosition } : undefined}
           className="object-cover transition-transform duration-700 ease-out group-hover:scale-105 select-none"
           onError={() => setHasError(true)}
         />

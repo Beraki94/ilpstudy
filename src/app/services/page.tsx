@@ -301,7 +301,7 @@ export default function ServicesPage() {
               title="Student Pre-Departure Briefing & Campus Arrival in China"
               subtitle="Students accompanied through JW202, Chinese embassy visa clearance, dorm check-in, and campus registration"
               badge="Campus Arrival Support"
-              aspectRatio="aspect-[21/9]"
+              aspectRatio="aspect-[16/10] sm:aspect-[21/9]"
               fallbackSrc="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
               className="shadow-xl"
             />

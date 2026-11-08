@@ -4,6 +4,7 @@ import Footer from '@/components/Footer';
 import PageHeader from '@/components/PageHeader';
 import ConsultationForm from '@/components/ConsultationForm';
 import PhotoSpace from '@/components/PhotoSpace';
+import { FacebookIcon, InstagramIcon } from '@/components/SocialLinks';
 import {
   Phone,
   Mail,
@@ -157,7 +158,7 @@ export default function ContactPage() {
                   subtitle="East Shewrapara, Mirpur, Dhaka — In-person appointment sessions"
                   badge="Dhaka Office"
                   aspectRatio="aspect-[16/9]"
-                  fallbackSrc="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                  fallbackSrc="/contactImage/ilp-office-meeting-room.jpg?v=20261108"
                   className="shadow-sm rounded-2xl sm:rounded-[32px]"
                 />
               </div>
@@ -191,6 +192,43 @@ export default function ContactPage() {
                   >
                     <MessageSquare size={20} />
                   </a>
+                </div>
+              </div>
+
+              {/* Official Social Media Channels */}
+              <div className="bg-white p-4 sm:p-0 border-b sm:border-0 border-slate-100">
+                <div className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-slate-900 to-slate-950 text-white shadow-card-dark border border-slate-800">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-brand-pink">
+                      Official Social Media
+                    </span>
+                    <span className="text-[11px] font-semibold text-slate-400">
+                      @ilpstudy
+                    </span>
+                  </div>
+                  <p className="text-xs text-slate-300 mb-4 leading-relaxed">
+                    Follow us for real student campus moments, scholarship notifications, and live admission updates.
+                  </p>
+                  <div className="grid grid-cols-2 gap-2.5">
+                    <a
+                      href="https://www.facebook.com/ilpstudy/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-white/10 hover:bg-[#1877F2] text-white text-xs font-bold border border-white/10 hover:border-[#1877F2] transition-all group shadow-xs"
+                    >
+                      <FacebookIcon className="w-4 h-4 text-[#1877F2] group-hover:text-white transition-colors" />
+                      <span>Facebook</span>
+                    </a>
+                    <a
+                      href="https://www.instagram.com/ilpstudy/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-white/10 hover:bg-[#E4405F] text-white text-xs font-bold border border-white/10 hover:border-[#E4405F] transition-all group shadow-xs"
+                    >
+                      <InstagramIcon className="w-4 h-4 text-[#E4405F] group-hover:text-white transition-colors" />
+                      <span>Instagram</span>
+                    </a>
+                  </div>
                 </div>
               </div>
 

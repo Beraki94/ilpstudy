@@ -1,11 +1,12 @@
 "use client";
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import PageHeader from '@/components/PageHeader';
+import Pagination from '@/components/Pagination';
 import { motion } from 'framer-motion';
 import {
   ArrowRight,
@@ -99,6 +100,26 @@ const STEP_SECTIONS: StepSection[] = [
 export default function BlogsPage() {
   const [selectedFilter, setSelectedFilter] = useState<string>('All');
   const [searchQuery, setSearchQuery] = useState<string>('');
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+  const articlesTopRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // For rich blog cards: 6 per page on mobile, 9 per page on desktop/tablet (3 rows of 3)
+  const itemsPerPage = isMobile ? 6 : 9;
+
+  // Reset to page 1 on filter, search or screen size change
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [selectedFilter, searchQuery, isMobile]);
 
   const filterTabs = [
     'All',
@@ -116,38 +137,63 @@ export default function BlogsPage() {
     return map;
   }, []);
 
-  // Filtered sections based on search and category filter
-  const visibleSections = useMemo(() => {
-    return STEP_SECTIONS.map((sec) => {
-      // Check if section matches filter
-      if (selectedFilter !== 'All' && sec.category !== selectedFilter) {
-        return null;
+  // Ordered list of guides respecting pedagogical stage sequence
+  const allOrderedGuides = useMemo(() => {
+    const list: StudentGuide[] = [];
+    const seen = new Set<string>();
+    STEP_SECTIONS.forEach((sec) => {
+      sec.guideIds.forEach((id) => {
+        const g = guidesById.get(id);
+        if (g && !seen.has(g.id)) {
+          seen.add(g.id);
+          list.push(g);
+        }
+      });
+    });
+    return list;
+  }, [guidesById]);
+
+  // Filtered guides based on search and category filter
+  const filteredGuides = useMemo(() => {
+    return allOrderedGuides.filter((g) => {
+      if (selectedFilter !== 'All') {
+        const sec = STEP_SECTIONS.find((s) => s.category === selectedFilter);
+        if (sec && !sec.guideIds.includes(g.id)) {
+          return false;
+        }
       }
 
-      // Filter section guides by search
-      const matchingGuides = sec.guideIds
-        .map((id) => guidesById.get(id))
-        .filter((g): g is StudentGuide => {
-          if (!g) return false;
-          if (!searchQuery.trim()) return true;
-          const q = searchQuery.toLowerCase();
-          return (
-            g.title.toLowerCase().includes(q) ||
-            g.excerpt.toLowerCase().includes(q) ||
-            g.searchDescription.toLowerCase().includes(q)
-          );
-        });
+      if (searchQuery.trim()) {
+        const q = searchQuery.toLowerCase();
+        return (
+          g.title.toLowerCase().includes(q) ||
+          g.excerpt.toLowerCase().includes(q) ||
+          g.searchDescription.toLowerCase().includes(q) ||
+          g.category.toLowerCase().includes(q)
+        );
+      }
+      return true;
+    });
+  }, [allOrderedGuides, selectedFilter, searchQuery]);
 
-      if (matchingGuides.length === 0) return null;
+  const totalPages = Math.ceil(filteredGuides.length / itemsPerPage) || 1;
 
-      return {
-        ...sec,
-        guides: matchingGuides,
-      };
-    }).filter(Boolean) as (StepSection & { guides: StudentGuide[] })[];
-  }, [selectedFilter, searchQuery, guidesById]);
+  const paginatedGuides = useMemo(() => {
+    const start = (currentPage - 1) * itemsPerPage;
+    return filteredGuides.slice(start, start + itemsPerPage);
+  }, [filteredGuides, currentPage, itemsPerPage]);
 
-  const totalMatchingGuides = visibleSections.reduce((acc, s) => acc + s.guides.length, 0);
+  const handlePageChange = (newPage: number) => {
+    setCurrentPage(newPage);
+    if (articlesTopRef.current) {
+      articlesTopRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  const activeSectionInfo = useMemo(() => {
+    if (selectedFilter === 'All') return null;
+    return STEP_SECTIONS.find((sec) => sec.category === selectedFilter) || null;
+  }, [selectedFilter]);
 
   return (
     <>
@@ -224,14 +270,22 @@ export default function BlogsPage() {
             </div>
 
             <div className="text-center text-xs font-semibold text-slate-500 pt-1">
-              Showing <strong>{totalMatchingGuides}</strong> articles &amp; guides &middot; Regularly updated knowledge base
+              {filteredGuides.length > 0 ? (
+                <>
+                  Showing <strong>{(currentPage - 1) * itemsPerPage + 1}–{Math.min(currentPage * itemsPerPage, filteredGuides.length)}</strong> of <strong>{filteredGuides.length}</strong> articles &amp; guides &middot; Regularly updated knowledge base
+                </>
+              ) : (
+                <>Showing <strong>0</strong> articles &amp; guides</>
+              )}
             </div>
           </div>
         </section>
 
-        {/* Guides Organized by "YOUR NEXT STEP" Stages */}
-        <section className="pt-2 pb-20 sm:pb-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 sm:space-y-16">
-          {visibleSections.length === 0 ? (
+        {/* Guides Organized with Responsive Pagination */}
+        <section className="pt-2 pb-20 sm:pb-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 relative">
+          <div ref={articlesTopRef} className="absolute -top-28 left-0 pointer-events-none" />
+
+          {filteredGuides.length === 0 ? (
             <div className="bg-white rounded-3xl p-12 text-center border border-slate-200 max-w-lg mx-auto space-y-3">
               <BookOpen size={32} className="text-slate-300 mx-auto" />
               <p className="text-base font-bold text-brand-dark">No articles found matching &quot;{searchQuery}&quot;</p>
@@ -244,102 +298,132 @@ export default function BlogsPage() {
               </button>
             </div>
           ) : (
-            visibleSections.map((section, sIdx) => {
-              const Icon = section.icon;
-              return (
-                <div key={sIdx} className="space-y-6">
-                  {/* Stage Section Header */}
-                  <div className="flex items-start sm:items-center justify-between gap-4 border-b border-slate-200/80 pb-4">
-                    <div className="space-y-1">
-                      <div className="inline-flex items-center gap-2">
-                        <span className="text-[11px] font-extrabold uppercase tracking-wider text-brand-pink">
-                          YOUR NEXT STEP
-                        </span>
-                        <span className="text-slate-300">·</span>
-                        <span className="text-xs font-bold text-slate-500">
-                          {section.guides.length} {section.guides.length === 1 ? 'Guide' : 'Guides'}
-                        </span>
-                      </div>
-                      <h3 className="text-xl sm:text-2xl font-black text-brand-dark flex items-center gap-2.5">
-                        <span className={`w-8 h-8 rounded-xl ${section.color} inline-flex items-center justify-center flex-shrink-0 text-sm`}>
-                          <Icon size={16} />
-                        </span>
-                        <span>{section.stepTitle}</span>
-                      </h3>
-                      <p className="text-xs sm:text-sm text-slate-500 font-medium max-w-2xl">
-                        {section.description}
-                      </p>
+            <div className="space-y-8">
+              {/* Stage / Section Header */}
+              {activeSectionInfo ? (
+                <div className="flex items-start sm:items-center justify-between gap-4 border-b border-slate-200/80 pb-4">
+                  <div className="space-y-1">
+                    <div className="inline-flex items-center gap-2">
+                      <span className="text-[11px] font-extrabold uppercase tracking-wider text-brand-pink">
+                        YOUR NEXT STEP
+                      </span>
+                      <span className="text-slate-300">·</span>
+                      <span className="text-xs font-bold text-slate-500">
+                        {filteredGuides.length} {filteredGuides.length === 1 ? 'Guide' : 'Guides'}
+                      </span>
                     </div>
-                  </div>
-
-                  {/* Cards Grid */}
-                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-                    {section.guides.map((guide, idx) => (
-                      <motion.article 
-                        key={guide.id}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.4, delay: idx * 0.06 }}
-                        className="bg-white rounded-3xl sm:rounded-[36px] overflow-hidden shadow-card hover:shadow-card-hover hover:-translate-y-1.5 hover:border-brand-pink/50 transition-all duration-300 group flex flex-col border border-slate-200/90 justify-between"
-                      >
-                        {/* Image Thumbnail */}
-                        <div className="relative h-44 sm:h-48 overflow-hidden bg-slate-100 flex-shrink-0">
-                          <Image 
-                            src={guide.image} 
-                            alt={guide.title}
-                            fill
-                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                            className="object-cover group-hover:scale-105 transition-transform duration-700"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent"></div>
-                          
-                          <div className="absolute top-3 left-3 sm:top-4 sm:left-4">
-                            <span className="text-[10px] sm:text-xs font-bold bg-white/95 backdrop-blur-md px-3 py-1 rounded-full text-brand-dark shadow-sm">
-                              {guide.category}
-                            </span>
-                          </div>
-
-                          <div className="absolute bottom-3 left-3 right-3 text-white text-xs font-semibold flex items-center justify-between drop-shadow-sm">
-                            <span className="text-[11px] opacity-90">{guide.readTime}</span>
-                            <span className="text-[10px] opacity-80">{guide.reviewedDate}</span>
-                          </div>
-                        </div>
-
-                        {/* Content Body */}
-                        <div className="p-5 sm:p-7 flex flex-col justify-between flex-1">
-                          <div className="space-y-2">
-                            <h4 className="font-extrabold text-base sm:text-lg text-brand-dark group-hover:text-brand-pink transition-colors line-clamp-2 leading-snug">
-                              <Link href={`/blogs/${guide.id}`}>
-                                {guide.title}
-                              </Link>
-                            </h4>
-                            <p className="text-xs sm:text-sm text-slate-600 line-clamp-3 leading-relaxed font-normal">
-                              {guide.searchDescription || guide.excerpt}
-                            </p>
-                          </div>
-
-                          {/* Footer Action */}
-                          <div className="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs">
-                            <Link 
-                              href={`/blogs/${guide.id}`}
-                              className="font-bold text-brand-pink group-hover:text-brand-dark transition-colors inline-flex items-center gap-1.5"
-                            >
-                              <span>Read guide</span>
-                              <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-                            </Link>
-
-                            <span className="text-[10px] text-slate-400 font-medium">
-                              Bangladeshi Students
-                            </span>
-                          </div>
-                        </div>
-                      </motion.article>
-                    ))}
+                    <h3 className="text-xl sm:text-2xl font-black text-brand-dark flex items-center gap-2.5">
+                      <span className={`w-8 h-8 rounded-xl ${activeSectionInfo.color} inline-flex items-center justify-center flex-shrink-0 text-sm`}>
+                        <activeSectionInfo.icon size={16} />
+                      </span>
+                      <span>{activeSectionInfo.stepTitle}</span>
+                    </h3>
+                    <p className="text-xs sm:text-sm text-slate-500 font-medium max-w-2xl">
+                      {activeSectionInfo.description}
+                    </p>
                   </div>
                 </div>
-              );
-            })
+              ) : (
+                <div className="flex items-start sm:items-center justify-between gap-4 border-b border-slate-200/80 pb-4">
+                  <div className="space-y-1">
+                    <div className="inline-flex items-center gap-2">
+                      <span className="text-[11px] font-extrabold uppercase tracking-wider text-brand-pink">
+                        {searchQuery ? 'SEARCH RESULTS' : 'ALL STUDENT GUIDES'}
+                      </span>
+                      <span className="text-slate-300">·</span>
+                      <span className="text-xs font-bold text-slate-500">
+                        {filteredGuides.length} Guides Available
+                      </span>
+                    </div>
+                    <h3 className="text-xl sm:text-2xl font-black text-brand-dark flex items-center gap-2.5">
+                      <span className="w-8 h-8 rounded-xl text-brand-pink bg-brand-pink/10 inline-flex items-center justify-center flex-shrink-0 text-sm">
+                        <BookOpen size={16} />
+                      </span>
+                      <span>{searchQuery ? `Articles matching "${searchQuery}"` : 'Step-by-Step Study in China Guides'}</span>
+                    </h3>
+                    <p className="text-xs sm:text-sm text-slate-500 font-medium max-w-2xl">
+                      Practical roadmaps for Bangladeshi students covering university admissions, CSC scholarships, CSCA benchmarks, and visa travel.
+                    </p>
+                  </div>
+                </div>
+              )}
+
+              {/* Cards Grid */}
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                {paginatedGuides.map((guide, idx) => (
+                  <motion.article 
+                    key={guide.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: idx * 0.05 }}
+                    className="bg-white rounded-3xl sm:rounded-[36px] overflow-hidden shadow-card hover:shadow-card-hover hover:-translate-y-1.5 hover:border-brand-pink/50 transition-all duration-300 group flex flex-col border border-slate-200/90 justify-between"
+                  >
+                    {/* Image Thumbnail */}
+                    <div className="relative h-48 sm:h-52 md:h-56 overflow-hidden bg-slate-100 flex-shrink-0">
+                      <Image 
+                        src={guide.image} 
+                        alt={guide.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="object-cover group-hover:scale-105 transition-transform duration-700"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent"></div>
+                      
+                      <div className="absolute top-3 left-3 sm:top-4 sm:left-4">
+                        <span className="text-[10px] sm:text-xs font-bold bg-white/95 backdrop-blur-md px-3.5 py-1 rounded-full text-brand-dark shadow-sm">
+                          {guide.category}
+                        </span>
+                      </div>
+
+                      <div className="absolute bottom-3 left-3 right-3 text-white text-xs font-semibold flex items-center justify-between drop-shadow-sm">
+                        <span className="text-[11px] opacity-90">{guide.readTime}</span>
+                        <span className="text-[10px] opacity-80">{guide.reviewedDate}</span>
+                      </div>
+                    </div>
+
+                    {/* Content Body */}
+                    <div className="p-6 sm:p-7 flex flex-col justify-between flex-1">
+                      <div className="space-y-2.5">
+                        <h4 className="font-extrabold text-lg sm:text-xl text-brand-dark group-hover:text-brand-pink transition-colors line-clamp-2 leading-snug">
+                          <Link href={`/blogs/${guide.id}`}>
+                            {guide.title}
+                          </Link>
+                        </h4>
+                        <p className="text-xs sm:text-sm text-slate-600 line-clamp-3 leading-relaxed font-normal">
+                          {guide.searchDescription || guide.excerpt}
+                        </p>
+                      </div>
+
+                      {/* Footer Action */}
+                      <div className="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs sm:text-sm">
+                        <Link 
+                          href={`/blogs/${guide.id}`}
+                          className="font-bold text-brand-pink group-hover:text-brand-dark transition-colors inline-flex items-center gap-1.5"
+                        >
+                          <span>Read guide</span>
+                          <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
+                        </Link>
+
+                        <span className="text-[11px] text-slate-400 font-medium">
+                          Bangladeshi Students
+                        </span>
+                      </div>
+                    </div>
+                  </motion.article>
+                ))}
+              </div>
+
+              {/* Pagination Controls */}
+              <Pagination
+                currentPage={currentPage}
+                totalPages={totalPages}
+                onPageChange={handlePageChange}
+                totalItems={filteredGuides.length}
+                itemsPerPage={itemsPerPage}
+                itemName="articles"
+              />
+            </div>
           )}
         </section>
 
