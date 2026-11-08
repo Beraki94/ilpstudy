@@ -8,10 +8,43 @@ import TuitionPlanningTables from '@/components/TuitionPlanningTables';
 import { DollarSign, ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Choosing a University in China & Tuition Fees | ILP Study',
-  description: 'Browse institutions in China by province and city, and explore approximate annual tuition fees for bachelor’s, master’s and MBBS study.',
+  title: 'Top Chinese Universities for Bangladeshi Students & Tuition Fees (2026-2027) | ILP Study',
+  description:
+    'Browse 130+ accredited Chinese universities across Beijing, Shanghai, Nanjing, Harbin, and Guangzhou. View annual tuition fees in RMB and BDT, English-taught Bachelor’s, Master’s, MBBS programs, and scholarship availability.',
+  keywords: [
+    'Chinese universities for Bangladeshi students',
+    'China university tuition fees 2026',
+    'top universities in China English medium',
+    'study in Beijing Shanghai Nanjing Harbin',
+    'MBBS universities in China BMDC recognized',
+    'China university list for Bangladesh',
+  ],
   alternates: {
     canonical: '/universities',
+  },
+  openGraph: {
+    title: 'Top Chinese Universities for Bangladeshi Students & Tuition Fees | ILP Study',
+    description:
+      'Compare 130+ leading Chinese universities, tuition fees in RMB & BDT, campus locations, and scholarship programs.',
+    url: 'https://ilpstudy.com/universities',
+    siteName: 'ILP Study',
+    images: [
+      {
+        url: '/homeImage/01-Beihang-University-Campus.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Chinese University Campuses — ILP Study Directory',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Top Chinese Universities & Tuition Fees | ILP Study',
+    description:
+      'Browse universities in China by province and city with annual tuition costs in BDT & RMB.',
+    images: ['/homeImage/01-Beihang-University-Campus.jpg'],
   },
 };
 

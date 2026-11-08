@@ -13,10 +13,41 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Study in China Student Resources | ILP Study Bangladesh',
-  description: 'Find China study resources for Bangladeshi students: application steps, tuition planning, CSCA information, scholarship guidance and a document checklist.',
+  title: 'Study in China Student Resources & Application Tools | ILP Study',
+  description:
+    'Comprehensive study in China toolkits for Bangladeshi students: interactive RMB budget calculator, application document checklist, CSCA syllabus guidelines, and official university portal links.',
+  keywords: [
+    'study in China student resources',
+    'China admission tools Bangladesh',
+    'China university application guide',
+    'study in China checklist download',
+  ],
   alternates: {
     canonical: '/resources',
+  },
+  openGraph: {
+    title: 'Study in China Student Resources & Application Tools | ILP Study',
+    description:
+      'Access essential calculators, checklists, exam prep guides, and official China admissions links.',
+    url: 'https://ilpstudy.com/resources',
+    siteName: 'ILP Study',
+    images: [
+      {
+        url: '/homeImage/ilp-home-banner.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'ILP Study Student Resources and Toolkits',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Study in China Resources | ILP Study',
+    description:
+      'Download checklists, calculators, and guidelines for Bangladeshi students studying in China.',
+    images: ['/homeImage/ilp-home-banner.jpg'],
   },
 };
 

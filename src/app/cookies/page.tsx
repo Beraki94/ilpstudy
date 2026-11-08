@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import PageHeader from '@/components/PageHeader';
+import CookiePreferencesButton from '@/components/CookiePreferencesButton';
 import {
   Cookie,
   ShieldCheck,
@@ -176,6 +177,9 @@ export default function CookiePolicyPage() {
                 <p className="text-sm text-slate-600 leading-relaxed">
                   Because our website does not depend on tracking cookies, disabling cookies will never restrict your ability to browse universities, fee tables, scholarship requirements, or student guides.
                 </p>
+                <div className="pt-3">
+                  <CookiePreferencesButton />
+                </div>
               </div>
             </div>
 

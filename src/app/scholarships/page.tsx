@@ -6,10 +6,44 @@ import PageHeader from '@/components/PageHeader';
 import { ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Scholarships to Study in China from Bangladesh | ILP Study',
-  description: 'Understand Chinese Government Scholarship, university and regional funding routes, coverage and preparation for study in China.',
+  title: 'China Scholarships for Bangladeshi Students 2026-2027 (CSC Type A & B) | ILP Study',
+  description:
+    'Complete guide to China scholarships for Bangladeshi students: Chinese Government Scholarship (CSC Type A & Type B), provincial awards, and 100% university tuition fee waivers. Check eligibility criteria, required documents, and application deadlines.',
+  keywords: [
+    'China scholarship for Bangladeshi students',
+    'CSC scholarship 2026 Bangladesh',
+    'CSC Type A Type B scholarship China',
+    'full free scholarship in China from Bangladesh',
+    'China provincial government scholarship',
+    'tuition fee waiver Chinese universities',
+    'how to get scholarship in China from Bangladesh',
+  ],
   alternates: {
     canonical: '/scholarships',
+  },
+  openGraph: {
+    title: 'China Scholarships for Bangladeshi Students 2026-2027 | ILP Study',
+    description:
+      'Explore Chinese Government Scholarships (CSC), provincial funding, and 100% tuition waivers for Bachelor’s, Master’s, and PhD students.',
+    url: 'https://ilpstudy.com/scholarships',
+    siteName: 'ILP Study',
+    images: [
+      {
+        url: '/blogImage/13-csc-scholarship-for-bangladesh-students.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'China Scholarships for Bangladeshi Students — ILP Study Guide',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'China Scholarships for Bangladeshi Students | ILP Study',
+    description:
+      'Learn how to apply for CSC Type A & B scholarships and tuition waivers to study in China.',
+    images: ['/blogImage/13-csc-scholarship-for-bangladesh-students.jpg'],
   },
 };
 

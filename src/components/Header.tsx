@@ -124,7 +124,7 @@ export default function Header() {
           <Link href="/" className="flex items-center group relative z-50" aria-label="ILP Study Home">
             <Image
               src="/images/ilp-logo.png?v=20261108"
-              alt="ILP Study"
+              alt="ILP Study — Study in China Education Consultancy in Bangladesh"
               width={238}
               height={100}
               priority

@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import JsonLd from '@/components/JsonLd';
 import {
   Calendar,
   Clock,
@@ -62,8 +63,36 @@ export default async function BlogDetailPage({ params }: PageProps) {
     notFound();
   }
 
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: guide.title,
+    description: guide.searchDescription,
+    image: `https://ilpstudy.com${guide.image}`,
+    datePublished: '2026-10-01T08:00:00Z',
+    dateModified: '2026-11-08T12:00:00Z',
+    author: {
+      '@type': 'Organization',
+      name: 'ILP Study Admissions Advisory Board',
+      url: 'https://ilpstudy.com',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'ILP Study',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://ilpstudy.com/images/ilp-logo.png',
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `https://ilpstudy.com/blogs/${guide.id}`,
+    },
+  };
+
   return (
     <>
+      <JsonLd data={articleSchema} />
       <Header />
       <main className="min-h-screen bg-[#f8fafc]">
         

@@ -6,10 +6,42 @@ import PageHeader from '@/components/PageHeader';
 import InteractiveChecklist from '@/components/InteractiveChecklist';
 
 export const metadata: Metadata = {
-  title: 'China University Application Document Checklist | ILP Study',
-  description: 'Download ILP Study’s student document checklist for passports, education records, financial and language evidence, and postgraduate application documents.',
+  title: 'China University Application Document Checklist | ILP Study Bangladesh',
+  description:
+    'Complete document checklist for Bangladeshi students applying to Chinese universities: passport validity, notarized academic certificates & transcripts, study plan / SOP, letters of recommendation, physical exam, and police clearance.',
+  keywords: [
+    'China university application documents checklist',
+    'documents required for study in China from Bangladesh',
+    'notarized certificate for Chinese university',
+    'foreign physical examination form China',
+    'police clearance certificate China visa Bangladesh',
+  ],
   alternates: {
     canonical: '/checklist',
+  },
+  openGraph: {
+    title: 'China University Application Document Checklist | ILP Study',
+    description:
+      'Prepare every required document for Chinese university admissions and CSC scholarships without delays.',
+    url: 'https://ilpstudy.com/checklist',
+    siteName: 'ILP Study',
+    images: [
+      {
+        url: '/blogImage/17-china-university-application-documents.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'China University Application Document Checklist',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Document Checklist for Chinese Universities | ILP Study',
+    description:
+      'Download and check all required documents for study in China from Bangladesh.',
+    images: ['/blogImage/17-china-university-application-documents.jpg'],
   },
 };
 

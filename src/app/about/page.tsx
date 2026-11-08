@@ -4,6 +4,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import PageHeader from '@/components/PageHeader';
 import PhotoSpace from '@/components/PhotoSpace';
+import StudentTestimonials from '@/components/StudentTestimonials';
 import { FacebookIcon, InstagramIcon } from '@/components/SocialLinks';
 import {
   GraduationCap,
@@ -18,10 +19,43 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'About ILP Study | China Education Consultancy in Bangladesh',
-  description: 'Meet ILP Study, a Bangladesh-based education consultancy supporting university selection, scholarship planning, documents and study applications in China.',
+  title: 'About ILP Study | Top China Education Consultancy in Bangladesh',
+  description:
+    'Learn about ILP Study (International Learning Pathways), Bangladesh’s trusted study in China education consultancy headquartered in Mirpur, Dhaka. Dedicated counselors for university admissions, CSC scholarships, CSCA prep, and JW202 visa guidance.',
+  keywords: [
+    'about ILP Study',
+    'China education consultancy Bangladesh',
+    'study in China agency Dhaka',
+    'Mirpur education consultancy for China',
+    'China scholarship consultants Bangladesh',
+    'International Learning Pathways Dhaka',
+  ],
   alternates: {
     canonical: '/about',
+  },
+  openGraph: {
+    title: 'About ILP Study | China Education Consultancy in Bangladesh',
+    description:
+      'Learn about ILP Study: Bangladesh’s dedicated education consultancy for 60+ Chinese universities, CSC scholarships, and student visas.',
+    url: 'https://ilpstudy.com/about',
+    siteName: 'ILP Study',
+    images: [
+      {
+        url: '/aboutImage/abbout-ilp-banner.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'About ILP Study — China Education Consultancy Dhaka',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'About ILP Study | China Education Consultancy',
+    description:
+      'Meet ILP Study: professional university matching and scholarship guidance for Bangladeshi students studying in China.',
+    images: ['/aboutImage/abbout-ilp-banner.jpg'],
   },
 };
 
@@ -290,7 +324,7 @@ export default function AboutPage() {
         </section>
 
         {/* PHOTO SPACE: China Campus Arrival */}
-        <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-12 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <PhotoSpace
             title="Student Pre-Departure Briefing & Campus Arrival in China"
             subtitle="Guidance through university admission, Chinese embassy visa preparation in Dhaka, dorm check-in, and campus registration"
@@ -301,6 +335,9 @@ export default function AboutPage() {
             className="shadow-xl rounded-[40px]"
           />
         </section>
+
+        {/* STUDENT EXPERIENCES & VOICES */}
+        <StudentTestimonials />
 
         {/* CONTACT US: Speak with ILP Study */}
         <section className="py-16 sm:py-24 bg-[#f8fafc] border-t border-slate-200">

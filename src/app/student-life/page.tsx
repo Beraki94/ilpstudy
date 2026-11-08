@@ -16,10 +16,42 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Student Life in China | Preparation for Bangladeshi Students | ILP Study',
-  description: 'Prepare for everyday student life in China: accommodation, food, language, transport and university support.',
+  title: 'Student Life in China for Bangladeshi Students | Campus, Food & Culture | ILP Study',
+  description:
+    'Discover what student life in China is really like for Bangladeshi students: on-campus international dorms, halal food availability, metro and high-speed rail travel, mobile payments (WeChat/Alipay), and student community networks.',
+  keywords: [
+    'student life in China for Bangladeshi students',
+    'halal food in Chinese universities',
+    'international student dorms China',
+    'WeChat Alipay for international students in China',
+    'living in China as a Bangladeshi student',
+  ],
   alternates: {
     canonical: '/student-life',
+  },
+  openGraph: {
+    title: 'Student Life in China for Bangladeshi Students | ILP Study',
+    description:
+      'Guide to everyday student life in China: campus dorms, halal food, safety, mobile payments, and medical insurance.',
+    url: 'https://ilpstudy.com/student-life',
+    siteName: 'ILP Study',
+    images: [
+      {
+        url: '/studentpageImage/ilp-student-life-banner.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Student Life in China for Bangladeshi Students',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Student Life in China | ILP Study',
+    description:
+      'Campus life, food, accommodation, and safety advice for Bangladeshi students in China.',
+    images: ['/studentpageImage/ilp-student-life-banner.jpg'],
   },
 };
 

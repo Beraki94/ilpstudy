@@ -9,10 +9,43 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'China Student Visa Guidance for Bangladesh | ILP Study',
-  description: 'Understand X1 and X2 study visa categories and organise your documents using the Chinese Embassy in Bangladesh’s current instructions.',
+  title: 'China Student Visa (X1 & X2) Guide for Bangladeshi Students | ILP Study',
+  description:
+    'Complete step-by-step China student visa guide for Bangladeshi citizens. Understand X1 (long-term) vs X2 (short-term) visa requirements, JW202 / JW201 forms, physical examination, police clearance, and Chinese Embassy Dhaka application protocols.',
+  keywords: [
+    'China student visa Bangladesh',
+    'China X1 visa requirements Dhaka',
+    'JW202 form China visa',
+    'JW201 visa application China',
+    'Chinese Embassy in Dhaka student visa',
+    'China study visa documents checklist',
+  ],
   alternates: {
     canonical: '/visa',
+  },
+  openGraph: {
+    title: 'China Student Visa (X1 & X2) Guide for Bangladeshi Students | ILP Study',
+    description:
+      'Organize your Chinese Embassy Dhaka study visa application: X1 and X2 categories, JW202 form processing, and document attestation.',
+    url: 'https://ilpstudy.com/visa',
+    siteName: 'ILP Study',
+    images: [
+      {
+        url: '/blogImage/18-china-student-visa-from-bangladesh.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'China Student Visa from Bangladesh Guide',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'China Student Visa Guide | ILP Study Bangladesh',
+    description:
+      'Instructions for X1 and X2 China student visas, JW202 forms, and embassy appointments in Dhaka.',
+    images: ['/blogImage/18-china-student-visa-from-bangladesh.jpg'],
   },
 };
 

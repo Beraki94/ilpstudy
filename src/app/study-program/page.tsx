@@ -16,10 +16,45 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Study Programmes in China for Bangladesh Students | ILP Study',
-  description: 'Explore bachelor’s, master’s, PhD, foundation and Chinese language routes. Compare subject areas and plan your university application with ILP Study.',
+  title: 'Degree & Study Programs in China for Bangladeshi Students (2026-2027) | ILP Study',
+  description:
+    'Explore English-taught Bachelor’s, Master’s, PhD, MBBS, Pre-University Foundation, and Chinese Language (HSK) programs in China. Compare engineering, computer science, business, and medical routes with scholarship options.',
+  keywords: [
+    'study programs in China for Bangladeshi students',
+    'bachelor degree in China English medium',
+    'masters in China scholarship',
+    'MBBS in China English taught',
+    'Chinese language course HSK',
+    'Harbin pathway language program',
+    'computer science engineering in China',
+    'study in China after HSC',
+  ],
   alternates: {
     canonical: '/study-program',
+  },
+  openGraph: {
+    title: 'Degree & Study Programs in China for Bangladeshi Students | ILP Study',
+    description:
+      'Compare English-taught Bachelor, Master, PhD, MBBS, and Chinese language routes at top Chinese institutions.',
+    url: 'https://ilpstudy.com/study-program',
+    siteName: 'ILP Study',
+    images: [
+      {
+        url: '/homeImage/ilp-home-banner.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Study Programs in China for Bangladeshi Students',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Study Programs in China | ILP Study',
+    description:
+      'Explore Bachelor’s, Master’s, MBBS, and Language courses in China for Bangladeshi students.',
+    images: ['/homeImage/ilp-home-banner.jpg'],
   },
 };
 

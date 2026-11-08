@@ -1,6 +1,40 @@
+import type { Metadata } from 'next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import PhotoSpace from '@/components/PhotoSpace';
+
+export const metadata: Metadata = {
+  title: 'University & Institutional Partnerships | ILP Study',
+  description:
+    'ILP Study collaborates with accredited Chinese universities, pathway centers, and educational bodies to build transparent student recruitment channels and scholarship pathways.',
+  keywords: [
+    'Chinese university partnerships',
+    'China student recruitment agent Bangladesh',
+    'university international relations China',
+    'ILP Study institutional collaboration',
+    'China higher education recruitment',
+  ],
+  alternates: {
+    canonical: '/partnerships',
+  },
+  openGraph: {
+    title: 'University & Institutional Partnerships | ILP Study',
+    description:
+      'Collaborate with ILP Study for ethical, transparent international student admissions and university pathway representation in South Asia.',
+    url: 'https://ilpstudy.com/partnerships',
+    siteName: 'ILP Study',
+    images: [
+      {
+        url: '/homeImage/ilp-home-banner.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'ILP Study University Partnerships',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+};
 import {
   Building2,
   Globe2,

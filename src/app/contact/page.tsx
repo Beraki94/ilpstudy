@@ -14,10 +14,42 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Free Study in China Consultation | ILP Study Bangladesh',
-  description: 'Request a free ILP Study consultation about studying in China, university selection, scholarships and CSCA preparation.',
+  title: 'Free Study in China Consultation | Dhaka Office & WhatsApp | ILP Study',
+  description:
+    'Book a free study in China consultation with ILP Study counselors in Mirpur, Dhaka. Direct counseling via hotline (+880 1602 566398) and WhatsApp (+880 1895 626831) for Chinese university admissions, CSC scholarships, CSCA prep, and visas.',
+  keywords: [
+    'study in China consultation Dhaka',
+    'China education consultancy contact number',
+    'ILP Study Mirpur office address',
+    'free China student visa counseling',
+    'China scholarship consultation Bangladesh',
+  ],
   alternates: {
     canonical: '/contact',
+  },
+  openGraph: {
+    title: 'Free Study in China Consultation | Dhaka Office & WhatsApp | ILP Study',
+    description:
+      'Book a 1-on-1 session with ILP Study counselors in Mirpur, Dhaka or chat on WhatsApp for university admissions and scholarships in China.',
+    url: 'https://ilpstudy.com/contact',
+    siteName: 'ILP Study',
+    images: [
+      {
+        url: '/contactImage/ilp-office-meeting-room.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'ILP Study Dhaka Consultation Office',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Contact ILP Study — Free China Admissions Counseling',
+    description:
+      'Reach our Mirpur, Dhaka counselors directly by phone, WhatsApp, or email for university admissions in China.',
+    images: ['/contactImage/ilp-office-meeting-room.jpg'],
   },
 };
 

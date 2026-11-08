@@ -7,10 +7,42 @@ import BudgetPlanner from '@/components/BudgetPlanner';
 import { ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Cost of Studying in China | Student Budget Planner | ILP Study',
-  description: 'Plan tuition, accommodation, and initial one-time costs for studying in China with an interactive RMB budget planner.',
+  title: 'Cost of Studying in China from Bangladesh (RMB & BDT) | ILP Study',
+  description:
+    'Calculate the true cost of studying in China for Bangladeshi students. Interactive budget planner covering annual tuition, campus accommodation, meals, medical insurance, residence permits, and RMB to BDT currency conversion.',
+  keywords: [
+    'cost of studying in China from Bangladesh',
+    'China student living expenses RMB BDT',
+    'China university tuition fees',
+    'hostel fee Chinese universities',
+    'monthly expenses for students in China',
+  ],
   alternates: {
     canonical: '/budget',
+  },
+  openGraph: {
+    title: 'Cost of Studying in China from Bangladesh (RMB & BDT) | ILP Study',
+    description:
+      'Plan your tuition, campus housing, meals, and flight expenses with ILP Study’s interactive China student budget planner.',
+    url: 'https://ilpstudy.com/budget',
+    siteName: 'ILP Study',
+    images: [
+      {
+        url: '/blogImage/12-study-in-china-cost-from-bangladesh.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Cost of Studying in China from Bangladesh',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Cost of Studying in China Calculator | ILP Study',
+    description:
+      'Calculate tuition, accommodation, and living costs in China for Bangladeshi students.',
+    images: ['/blogImage/12-study-in-china-cost-from-bangladesh.jpg'],
   },
 };
 

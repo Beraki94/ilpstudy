@@ -16,11 +16,16 @@ import {
 import { FacebookIcon, InstagramIcon } from './SocialLinks';
 
 export default function Footer() {
-  // Mobile accordion state (null means all collapsed, or string id for active section)
+  // Mobile accordion state for links; Contact/Offices section stays OPEN by default on mobile
   const [openSection, setOpenSection] = useState<string | null>(null);
+  const [isContactOpen, setIsContactOpen] = useState(true);
 
   const toggleSection = (id: string) => {
-    setOpenSection((prev) => (prev === id ? null : id));
+    if (id === 'contact') {
+      setIsContactOpen((prev) => !prev);
+    } else {
+      setOpenSection((prev) => (prev === id ? null : id));
+    }
   };
 
   const studyRoutes = [
@@ -64,7 +69,7 @@ export default function Footer() {
             >
               <Image
                 src="/images/ilp-logo.png?v=20261108"
-                alt="ILP Study"
+                alt="ILP Study — Study in China Education Consultancy in Bangladesh"
                 width={238}
                 height={100}
                 unoptimized={true}
@@ -279,7 +284,7 @@ export default function Footer() {
               type="button"
               onClick={() => toggleSection('contact')}
               className="lg:hidden w-full py-3 flex items-center justify-between text-left text-white font-bold text-base"
-              aria-expanded={openSection === 'contact'}
+              aria-expanded={isContactOpen}
             >
               <span className="flex items-center gap-2.5">
                 <span className="w-2 h-2 rounded-full bg-brand-purple"></span>
@@ -288,7 +293,7 @@ export default function Footer() {
               <ChevronDown 
                 size={18} 
                 className={`text-slate-400 transition-transform duration-200 ${
-                  openSection === 'contact' ? 'rotate-180 text-brand-purple' : ''
+                  isContactOpen ? 'rotate-180 text-brand-purple' : ''
                 }`}
               />
             </button>
@@ -366,9 +371,9 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* Mobile Collapsible Content */}
-            <AnimatePresence>
-              {openSection === 'contact' && (
+            {/* Mobile Collapsible Content (Stays OPEN by Default) */}
+            <AnimatePresence initial={false}>
+              {isContactOpen && (
                 <motion.div
                   initial={{ height: 0, opacity: 0 }}
                   animate={{ height: 'auto', opacity: 1 }}
@@ -428,6 +433,17 @@ export default function Footer() {
             <Link href="/cookies" className="hover:text-brand-purple transition-colors">
               Cookie Policy
             </Link>
+            <button
+              type="button"
+              onClick={() => {
+                if (typeof window !== 'undefined') {
+                  window.dispatchEvent(new CustomEvent('open_cookie_preferences'));
+                }
+              }}
+              className="hover:text-white transition-colors cursor-pointer"
+            >
+              Cookie Settings
+            </button>
           </div>
         </div>
 

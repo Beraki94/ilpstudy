@@ -12,10 +12,43 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'CSCA Exam Dates, Subjects & Format | ILP Study Bangladesh',
-  description: 'Understand CSCA, upcoming published exam dates, subject durations and test methods. Check the latest official arrangements before registering.',
+  title: 'CSCA Exam Dates, Syllabus, Format & Preparation (2026) | ILP Study',
+  description:
+    'Comprehensive CSCA (China Scholastic Competency Assessment) exam guide for Bangladeshi students. Upcoming test dates, subjects (Mathematics, Physics, Chemistry), online test format, registration windows, and prep materials.',
+  keywords: [
+    'CSCA exam Bangladesh',
+    'CSCA exam dates 2026',
+    'CSCA syllabus and format',
+    'China Scholastic Competency Assessment prep',
+    'CSCA test center online Bangladesh',
+    'CSCA mathematics physics chemistry',
+  ],
   alternates: {
     canonical: '/csca',
+  },
+  openGraph: {
+    title: 'CSCA Exam Dates, Syllabus & Format | ILP Study Bangladesh',
+    description:
+      'Official test sessions, subject guidelines, and prep advisory for the China Scholastic Competency Assessment (CSCA).',
+    url: 'https://ilpstudy.com/csca',
+    siteName: 'ILP Study',
+    images: [
+      {
+        url: '/blogImage/15-csca-for-bangladeshi-students.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'CSCA Exam Guide for Bangladeshi Students',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'CSCA Exam Guide & Dates | ILP Study',
+    description:
+      'Master the CSCA exam for admission into top Chinese universities. Exam dates and syllabus overview.',
+    images: ['/blogImage/15-csca-for-bangladeshi-students.jpg'],
   },
 };
 
