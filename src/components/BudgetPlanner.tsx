@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import {
   ArrowRight,
   RotateCcw
@@ -27,7 +28,13 @@ export default function BudgetPlanner() {
   return (
     <div className="space-y-4 sm:space-y-10">
       {/* Interactive Calculator Card - Seamless on mobile, rounded card on desktop */}
-      <div className="bg-white rounded-none sm:rounded-[40px] px-5 py-8 sm:p-10 md:p-12 border-y sm:border border-slate-100 sm:border-slate-200/90 shadow-none sm:shadow-card">
+      <motion.div 
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{ duration: 0.5, ease: [0.21, 0.47, 0.32, 0.98] }}
+        className="bg-white rounded-none sm:rounded-[40px] px-5 py-8 sm:p-10 md:p-12 border-y sm:border border-slate-100 sm:border-slate-200/90 shadow-none sm:shadow-card"
+      >
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-6 mb-8">
           <div>
             <span className="text-xs font-bold uppercase tracking-wider text-brand-pink block">
@@ -181,10 +188,16 @@ export default function BudgetPlanner() {
 
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Avoid Surprises Table - Seamless on mobile, rounded card on desktop */}
-      <div className="bg-white rounded-none sm:rounded-[36px] px-5 py-8 sm:p-10 border-y sm:border border-slate-100 sm:border-slate-200/90 shadow-none sm:shadow-card space-y-4">
+      <motion.div 
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{ duration: 0.5, delay: 0.1, ease: [0.21, 0.47, 0.32, 0.98] }}
+        className="bg-white rounded-none sm:rounded-[36px] px-5 py-8 sm:p-10 border-y sm:border border-slate-100 sm:border-slate-200/90 shadow-none sm:shadow-card space-y-4"
+      >
         <div>
           <span className="text-xs font-bold uppercase tracking-wider text-brand-green block mb-1">
             AVOID SURPRISES
@@ -237,7 +250,7 @@ export default function BudgetPlanner() {
         <div className="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-slate-50/70 border border-slate-200/70 text-xs text-slate-600 font-medium mt-4">
           Fees and living costs vary by university, city, room type and lifestyle. Confirm current amounts with ILP Study before finalising your budget.
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }

@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from 'framer-motion';
 import { Building2, ShieldCheck, FileCheck2, Compass } from 'lucide-react';
 import PhotoSpace from '@/components/PhotoSpace';
 
@@ -11,8 +12,8 @@ export default function GlobalNetwork() {
       icon: <Building2 size={24} className="text-brand-pink" />,
     },
     {
-      title: "Direct Portal Submissions",
-      desc: "Applications are filed directly through official Chinese university international portals and CSC systems.",
+      title: "Official University Submissions",
+      desc: "Applications are submitted directly to official Chinese university international admissions systems with zero sub-agents.",
       icon: <ShieldCheck size={24} className="text-brand-green" />,
     },
     {
@@ -34,7 +35,13 @@ export default function GlobalNetwork() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 items-center mb-10 sm:mb-16">
-          <div className="lg:col-span-7">
+          <motion.div 
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] }}
+            className="lg:col-span-7"
+          >
             <div className="inline-flex items-center gap-2 mb-3 px-3.5 py-1.5 rounded-full bg-brand-pink/10 text-brand-pink text-xs font-bold uppercase tracking-wider">
               <ShieldCheck size={14} />
               <span>China Higher Education Guidance</span>
@@ -55,10 +62,16 @@ export default function GlobalNetwork() {
               <span className="text-brand-green font-bold block mb-1">Our Counseling Approach:</span>
               Our guidance starts with your academic background, preferred subject, budget, and target intake. We help students explore realistic university matches, understand scholarship requirements, and navigate application procedures.
             </div>
-          </div>
+          </motion.div>
 
           {/* Photo Space: Dhaka Counseling Suite */}
-          <div className="lg:col-span-5">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.96 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.6, delay: 0.15, ease: [0.21, 0.47, 0.32, 0.98] }}
+            className="lg:col-span-5"
+          >
             <PhotoSpace
               title="ILP Study Consultation Suite in Dhaka"
               subtitle="East Shewrapara, Mirpur, Dhaka — Personalized university shortlisting and document guidance"
@@ -67,15 +80,20 @@ export default function GlobalNetwork() {
               fallbackSrc="/homeImage/ilp-office-room.jpg?v=20261108"
               className="shadow-xl"
             />
-          </div>
+          </motion.div>
         </div>
 
         {/* 4 Credibility Blocks */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {credentials.map((cred, idx) => (
-            <div 
+            <motion.div 
               key={idx}
-              className="p-6 rounded-3xl bg-white border border-slate-200/90 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 hover:border-brand-pink/50 transition-all duration-300 flex flex-col justify-between group"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.5, delay: idx * 0.08, ease: [0.21, 0.47, 0.32, 0.98] }}
+              whileHover={{ y: -6 }}
+              className="p-6 rounded-3xl bg-white border border-slate-200/90 shadow-card hover:shadow-card-hover hover:border-brand-pink/50 transition-all duration-300 flex flex-col justify-between group"
             >
               <div>
                 <div className="w-12 h-12 rounded-2xl bg-slate-50 border border-slate-200/70 flex items-center justify-center mb-4 shadow-xs group-hover:scale-105 transition-transform">
@@ -88,7 +106,7 @@ export default function GlobalNetwork() {
                   {cred.desc}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 

@@ -2,6 +2,7 @@
 
 import React, { useRef, useState } from 'react';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 import { 
   Star, 
   ChevronLeft, 
@@ -178,7 +179,7 @@ export default function StudentTestimonials() {
       program: "Master in Mechanical Engineering",
       university: "Dongguan University of Technology",
       city: "Dongguan, Guangdong",
-      quote: "Securing a Master's place with scholarship support in Dongguan was made easy by ILP Study's direct portal filing and quick responses.",
+      quote: "Securing a Master's place with scholarship support in Dongguan was made easy by ILP Study's direct university filing and quick responses.",
       year: "Enrolled Student"
     },
   ];
@@ -206,7 +207,13 @@ export default function StudentTestimonials() {
       <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-15 mix-blend-overlay pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 sm:mb-14 relative z-10">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <motion.div 
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] }}
+          className="flex flex-col md:flex-row md:items-end justify-between gap-6"
+        >
           <div className="max-w-2xl">
             <span className="text-xs font-bold uppercase tracking-wider text-brand-pink block mb-2">
               STUDENT EXPERIENCES
@@ -239,7 +246,7 @@ export default function StudentTestimonials() {
               <ChevronRight size={20} />
             </button>
           </div>
-        </div>
+        </motion.div>
       </div>
 
       {/* Infinite Scroll Marquee Container */}

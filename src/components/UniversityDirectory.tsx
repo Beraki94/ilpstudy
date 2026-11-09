@@ -3,6 +3,7 @@
 import React, { useState, useMemo, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 import {
   Search,
   MapPin,
@@ -311,9 +312,13 @@ export default function UniversityDirectory() {
       {/* Grid of Universities */}
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
         {paginatedUniversities.map((uni, idx) => (
-          <div
-            key={idx}
-            className="p-5 sm:p-6 rounded-2xl bg-white border border-slate-200/90 shadow-card hover:shadow-card-hover hover:-translate-y-1 hover:border-brand-pink/50 transition-all duration-300 flex flex-col justify-between group"
+          <motion.div
+            key={`${uni.name}-${idx}`}
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3, delay: Math.min(idx * 0.02, 0.3) }}
+            whileHover={{ y: -4 }}
+            className="p-5 sm:p-6 rounded-2xl bg-white border border-slate-200/90 shadow-card hover:shadow-card-hover hover:border-brand-pink/50 transition-all duration-300 flex flex-col justify-between group"
           >
             <div>
               <div className="flex items-start gap-4 mb-2.5">
@@ -356,7 +361,7 @@ export default function UniversityDirectory() {
                 <ArrowRight size={14} />
               </Link>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
 

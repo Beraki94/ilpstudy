@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import {
   Send,
   CheckCircle2,
@@ -257,7 +258,12 @@ export default function ConsultationForm() {
   // Success view
   if (submitted) {
     return (
-      <div className="bg-white rounded-none sm:rounded-[36px] p-6 sm:p-12 border-b sm:border border-slate-100 sm:border-slate-200/90 shadow-card text-center space-y-6 animate-in fade-in duration-300">
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.4 }}
+        className="bg-white rounded-none sm:rounded-[36px] p-6 sm:p-12 border-b sm:border border-slate-100 sm:border-slate-200/90 shadow-card text-center space-y-6"
+      >
         
         {/* Success badge */}
         <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-emerald-500/10 text-emerald-600 flex items-center justify-center mx-auto border-2 border-emerald-500/30">
@@ -361,13 +367,18 @@ export default function ConsultationForm() {
             <span>Submit another consultation request</span>
           </button>
         </div>
-      </div>
+      </motion.div>
     );
   }
 
   // Active form view
   return (
-    <div className="bg-white rounded-none sm:rounded-[36px] p-5 sm:p-10 md:p-12 border-b sm:border border-slate-100 sm:border-slate-200/90 shadow-card">
+    <motion.div 
+      initial={{ opacity: 0, y: 24 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: [0.21, 0.47, 0.32, 0.98] }}
+      className="bg-white rounded-none sm:rounded-[36px] p-5 sm:p-10 md:p-12 border-b sm:border border-slate-100 sm:border-slate-200/90 shadow-card"
+    >
       <div className="mb-6 sm:mb-8">
         <span className="text-xs font-bold uppercase tracking-wider text-brand-pink block mb-1">
           Online Appointment Request
@@ -733,6 +744,6 @@ export default function ConsultationForm() {
         </div>
 
       </form>
-    </div>
+    </motion.div>
   );
 }

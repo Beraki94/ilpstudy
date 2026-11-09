@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
   AlertCircle,
   ArrowRight,
@@ -117,38 +118,47 @@ export default function TuitionPlanningTables() {
       </div>
 
       {/* Responsive Table - Full width on mobile */}
-      <div className="bg-white rounded-none sm:rounded-3xl border-y sm:border border-slate-200/90 shadow-none sm:shadow-card overflow-hidden">
-        <div className="overflow-x-auto">
-          <table className="w-full text-left text-xs sm:text-sm">
-            <thead className="bg-slate-50 border-b border-slate-200/80 text-slate-500 font-bold uppercase tracking-wider text-[11px]">
-              <tr>
-                <th className="py-3.5 px-4 sm:py-4 sm:px-6">Subject to Research</th>
-                <th className="py-3.5 px-4 sm:py-4 sm:px-6">Institution</th>
-                <th className="py-3.5 px-4 sm:py-4 sm:px-6">City</th>
-                <th className="py-3.5 px-4 sm:py-4 sm:px-6 text-right whitespace-nowrap">Approximate Annual Tuition</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-slate-100">
-              {rows.map((row, idx) => (
-                <tr key={idx} className="hover:bg-slate-50/80 transition-colors">
-                  <td className="py-3.5 px-4 sm:py-4 sm:px-6 font-bold text-brand-dark">
-                    {row.subject}
-                  </td>
-                  <td className="py-3.5 px-4 sm:py-4 sm:px-6 text-slate-700 font-medium">
-                    {row.institution}
-                  </td>
-                  <td className="py-3.5 px-4 sm:py-4 sm:px-6 text-slate-500 font-medium whitespace-nowrap">
-                    {row.city}
-                  </td>
-                  <td className="py-3.5 px-4 sm:py-4 sm:px-6 text-right font-extrabold text-brand-pink whitespace-nowrap">
-                    {row.tuition}
-                  </td>
+      <AnimatePresence mode="wait">
+        <motion.div 
+          key={activeTab}
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -12 }}
+          transition={{ duration: 0.25, ease: 'easeOut' }}
+          className="bg-white rounded-none sm:rounded-3xl border-y sm:border border-slate-200/90 shadow-none sm:shadow-card overflow-hidden"
+        >
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-xs sm:text-sm">
+              <thead className="bg-slate-50 border-b border-slate-200/80 text-slate-500 font-bold uppercase tracking-wider text-[11px]">
+                <tr>
+                  <th className="py-3.5 px-4 sm:py-4 sm:px-6">Subject to Research</th>
+                  <th className="py-3.5 px-4 sm:py-4 sm:px-6">Institution</th>
+                  <th className="py-3.5 px-4 sm:py-4 sm:px-6">City</th>
+                  <th className="py-3.5 px-4 sm:py-4 sm:px-6 text-right whitespace-nowrap">Approximate Annual Tuition</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
+              </thead>
+              <tbody className="divide-y divide-slate-100">
+                {rows.map((row, idx) => (
+                  <tr key={idx} className="hover:bg-slate-50/80 transition-colors">
+                    <td className="py-3.5 px-4 sm:py-4 sm:px-6 font-bold text-brand-dark">
+                      {row.subject}
+                    </td>
+                    <td className="py-3.5 px-4 sm:py-4 sm:px-6 text-slate-700 font-medium">
+                      {row.institution}
+                    </td>
+                    <td className="py-3.5 px-4 sm:py-4 sm:px-6 text-slate-500 font-medium whitespace-nowrap">
+                      {row.city}
+                    </td>
+                    <td className="py-3.5 px-4 sm:py-4 sm:px-6 text-right font-extrabold text-brand-pink whitespace-nowrap">
+                      {row.tuition}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </motion.div>
+      </AnimatePresence>
 
       {/* Disclaimers & Advice Box */}
       <div className="px-4 sm:px-0">

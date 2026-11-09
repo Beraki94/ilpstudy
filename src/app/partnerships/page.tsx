@@ -203,7 +203,7 @@ export default function PartnershipsPage() {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-[#f8fafc] pt-28">
+      <main className="min-h-screen bg-[#f8fafc] pt-36 sm:pt-40">
         
         {/* HERO SECTION */}
         <section className="relative overflow-hidden bg-brand-dark text-white py-12 sm:py-20 lg:py-28">

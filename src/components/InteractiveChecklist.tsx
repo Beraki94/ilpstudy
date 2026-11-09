@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import {
   CheckSquare,
   Square,
@@ -233,8 +234,12 @@ export default function InteractiveChecklist() {
       {/* Checklist Sections - Full width seamless on mobile, rounded card on desktop */}
       <div className="-mx-4 sm:mx-0 space-y-6 sm:space-y-8">
         {CHECKLIST_SECTIONS.map((section, sIdx) => (
-          <div 
+          <motion.div 
             key={sIdx}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.5, delay: sIdx * 0.08, ease: [0.21, 0.47, 0.32, 0.98] }}
             className="bg-white rounded-none sm:rounded-[32px] px-5 py-7 sm:p-8 border-y sm:border border-slate-200/90 shadow-none sm:shadow-card space-y-4"
           >
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-4">
@@ -287,7 +292,7 @@ export default function InteractiveChecklist() {
                 );
               })}
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
 

@@ -166,37 +166,52 @@ export default function AdmissionWorkflow() {
             {studentResources.map((res, idx) => {
               const Icon = res.icon;
               return (
-                <Link
+                <motion.div
                   key={idx}
-                  href={res.link}
-                  className="p-6 sm:p-7 rounded-3xl bg-white border border-slate-200/90 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 hover:border-brand-pink/50 transition-all duration-300 flex flex-col justify-between group"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-40px" }}
+                  transition={{ delay: idx * 0.1, duration: 0.5, ease: [0.21, 0.47, 0.32, 0.98] }}
+                  whileHover={{ y: -6 }}
+                  className="h-full"
                 >
-                  <div className="space-y-3">
-                    <div className={`w-12 h-12 rounded-2xl ${res.bgColor} ${res.color} flex items-center justify-center font-bold`}>
-                      <Icon size={22} />
+                  <Link
+                    href={res.link}
+                    className="p-6 sm:p-7 rounded-3xl bg-white border border-slate-200/90 shadow-card hover:shadow-card-hover hover:border-brand-pink/50 transition-all duration-300 flex flex-col justify-between group h-full"
+                  >
+                    <div className="space-y-3">
+                      <div className={`w-12 h-12 rounded-2xl ${res.bgColor} ${res.color} flex items-center justify-center font-bold`}>
+                        <Icon size={22} />
+                      </div>
+
+                      <h4 className="font-extrabold text-lg sm:text-xl text-brand-dark group-hover:text-brand-pink transition-colors">
+                        {res.title}
+                      </h4>
+
+                      <p className="text-sm text-slate-600 font-normal leading-relaxed">
+                        {res.desc}
+                      </p>
                     </div>
 
-                    <h4 className="font-extrabold text-lg sm:text-xl text-brand-dark group-hover:text-brand-pink transition-colors">
-                      {res.title}
-                    </h4>
-
-                    <p className="text-sm text-slate-600 font-normal leading-relaxed">
-                      {res.desc}
-                    </p>
-                  </div>
-
-                  <div className="mt-6 pt-4 border-t border-slate-100 flex items-center gap-1.5 text-xs sm:text-sm font-bold text-brand-pink">
-                    <span>{res.actionText}</span>
-                    <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </Link>
+                    <div className="mt-6 pt-4 border-t border-slate-100 flex items-center gap-1.5 text-xs sm:text-sm font-bold text-brand-pink">
+                      <span>{res.actionText}</span>
+                      <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </Link>
+                </motion.div>
               );
             })}
           </div>
         </div>
 
         {/* Photo Space: Visa Preparation & Campus Registration (Placed before closing CTA) */}
-        <div className="mb-14 sm:mb-20">
+        <motion.div 
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.6 }}
+          className="mb-14 sm:mb-20"
+        >
           <PhotoSpace
             title="International Students Campus Life & Orientation in China"
             subtitle="Guidance through JW202 generation, Chinese embassy X-visa clearance, dorm accommodation, and campus registration"
@@ -206,10 +221,16 @@ export default function AdmissionWorkflow() {
             objectPosition="center 55%"
             className="shadow-xl"
           />
-        </div>
+        </motion.div>
 
         {/* HIGH-CONTRAST CONVERSION CALLOUT: ANCHORS THE PAGE BEFORE FOOTER */}
-        <div className="rounded-3xl sm:rounded-[36px] bg-gradient-to-br from-slate-900 via-brand-dark to-slate-900 p-8 sm:p-12 text-white relative overflow-hidden shadow-2xl border border-slate-800">
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.98, y: 24 }}
+          whileInView={{ opacity: 1, scale: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] }}
+          className="rounded-3xl sm:rounded-[36px] bg-gradient-to-br from-slate-900 via-brand-dark to-slate-900 p-8 sm:p-12 text-white relative overflow-hidden shadow-2xl border border-slate-800"
+        >
           <div className="absolute top-0 right-0 w-80 h-80 bg-brand-pink/15 rounded-full blur-[90px] pointer-events-none" />
           <div className="absolute bottom-0 left-0 w-80 h-80 bg-brand-green/15 rounded-full blur-[90px] pointer-events-none" />
           
@@ -243,7 +264,7 @@ export default function AdmissionWorkflow() {
               </a>
             </div>
           </div>
-        </div>
+        </motion.div>
 
       </div>
     </section>

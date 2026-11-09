@@ -323,6 +323,9 @@ export default function AboutPage() {
           </div>
         </section>
 
+        {/* STUDENT EXPERIENCES & VOICES */}
+        <StudentTestimonials />
+
         {/* PHOTO SPACE: China Campus Arrival */}
         <section className="py-12 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <PhotoSpace
@@ -335,9 +338,6 @@ export default function AboutPage() {
             className="shadow-xl rounded-[40px]"
           />
         </section>
-
-        {/* STUDENT EXPERIENCES & VOICES */}
-        <StudentTestimonials />
 
         {/* CONTACT US: Speak with ILP Study */}
         <section className="py-16 sm:py-24 bg-[#f8fafc] border-t border-slate-200">
