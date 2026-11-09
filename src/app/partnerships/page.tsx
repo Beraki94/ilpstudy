@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     siteName: 'ILP Study',
     images: [
       {
-        url: '/homeImage/ilp-home-banner.jpg',
+        url: '/partnershipImage/ilp-partnership-1.jpg',
         width: 1200,
         height: 630,
         alt: 'ILP Study University Partnerships',
@@ -258,7 +258,7 @@ export default function PartnershipsPage() {
                   subtitle="Primary destination for ILP Study scholars with 50+ students placed for September 2026 intake"
                   badge="Featured University Network"
                   aspectRatio="aspect-[4/3]"
-                  fallbackSrc="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                  fallbackSrc="/partnershipImage/ilp-partnership-1.jpg"
                   className="shadow-2xl border-2 border-white/20"
                 />
               </div>
@@ -335,7 +335,7 @@ export default function PartnershipsPage() {
                   subtitle="Kader’s Complex, Lift No. 9, East Shewrapara, Dhaka-1216"
                   badge="Dhaka Headquarters"
                   aspectRatio="aspect-[4/3]"
-                  fallbackSrc="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                  fallbackSrc="/partnershipImage/ilp-partnership-2.jpg"
                   className="shadow-xl"
                 />
               </div>
@@ -423,7 +423,7 @@ export default function PartnershipsPage() {
                 subtitle="Scholars recruited from South Asia, Central Asia, the Americas, and Africa"
                 badge="Student Diversity Pool"
                 aspectRatio="aspect-[4/3]"
-                fallbackSrc="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                fallbackSrc="/partnershipImage/ilp-partnership-3.jpg"
                 className="shadow-xl"
               />
             </div>
@@ -539,7 +539,7 @@ export default function PartnershipsPage() {
                 subtitle="Students accompanied through JW202, Chinese embassy visa clearance, dorm check-in, and campus registration"
                 badge="Campus Arrival Support"
                 aspectRatio="aspect-[16/10] sm:aspect-[21/9]"
-                fallbackSrc="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                fallbackSrc="/partnershipImage/ilp-partnership-4.jpg"
                 className="shadow-xl"
               />
             </div>

@@ -326,23 +326,23 @@ export default function AboutPage() {
         {/* STUDENT EXPERIENCES & VOICES */}
         <StudentTestimonials />
 
-        {/* PHOTO SPACE: China Campus Arrival */}
-        <section className="py-12 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <PhotoSpace
-            title="Student Pre-Departure Briefing & Campus Arrival in China"
-            subtitle="Guidance through university admission, Chinese embassy visa preparation in Dhaka, dorm check-in, and campus registration"
-            badge="Campus Arrival Support"
-            aspectRatio="aspect-[16/10] sm:aspect-[21/9]"
-            fallbackSrc="/aboutImage/abbout-ilp-banner.jpg?v=20261108"
-            objectPosition="center 50%"
-            className="shadow-xl rounded-[40px]"
-          />
-        </section>
+        {/* PRE-DEPARTURE PHOTO BANNER & CLOSING CONTACT */}
+        <section className="py-14 sm:py-24 bg-[#f8fafc] border-t border-slate-200">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 sm:space-y-16">
+            
+            {/* Campus Arrival Banner - Consistent with Home & Partnerships page banners */}
+            <PhotoSpace
+              title="Student Pre-Departure Briefing & Campus Arrival in China"
+              subtitle="Guidance through university admission, Chinese embassy visa preparation in Dhaka, dorm check-in, and campus registration"
+              badge="Campus Arrival Support"
+              aspectRatio="aspect-[16/10] sm:aspect-[21/9]"
+              fallbackSrc="/aboutImage/abbout-ilp-banner.jpg?v=20261108"
+              objectPosition="center 50%"
+              className="shadow-xl"
+            />
 
-        {/* CONTACT US: Speak with ILP Study */}
-        <section className="py-16 sm:py-24 bg-[#f8fafc] border-t border-slate-200">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="bg-brand-dark text-white rounded-[40px] p-8 sm:p-14 lg:p-16 relative overflow-hidden shadow-2xl">
+            {/* CONTACT US: Speak with ILP Study */}
+            <div className="bg-brand-dark text-white rounded-3xl sm:rounded-[36px] p-8 sm:p-14 lg:p-16 relative overflow-hidden shadow-2xl border border-slate-800">
               <div className="absolute top-0 right-0 w-80 h-80 bg-brand-pink/20 rounded-full blur-[100px]" />
               <div className="absolute bottom-0 left-0 w-80 h-80 bg-brand-green/20 rounded-full blur-[100px]" />
               

@@ -18,8 +18,16 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://ilpstudy.com"),
   icons: {
-    icon: "/images/ilp-logo.png",
-    apple: "/images/ilp-logo.png",
+    icon: [
+      { url: "/images/ilp-study-icon.svg", type: "image/svg+xml" },
+      { url: "/images/ilp-study-icon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/images/ilp-study-icon-192x192.png", sizes: "192x192", type: "image/png" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    shortcut: "/images/ilp-study-icon.svg",
+    apple: [
+      { url: "/images/ilp-study-icon-180x180.png", sizes: "180x180", type: "image/png" },
+    ],
   },
   title: {
     default: "Study in China from Bangladesh 2026-2027 | ILP Study",

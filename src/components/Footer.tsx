@@ -415,9 +415,18 @@ export default function Footer() {
         
         {/* Bottom Legal / Editorial Policy Bar (Each Link Unique) */}
         <div className="pt-8 border-t border-slate-800/90 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p suppressHydrationWarning className="text-xs text-slate-400 font-medium text-center md:text-left">
-            &copy; {new Date().getFullYear()} International Learning Pathways (trading as ILP Study). All rights reserved.
-          </p>
+          <div className="flex items-center gap-2.5 justify-center md:justify-start">
+            <Image
+              src="/images/ilp-study-icon.svg"
+              alt="ILP Study"
+              width={18}
+              height={18}
+              className="w-4 h-4 rounded-xs shrink-0 opacity-80"
+            />
+            <p suppressHydrationWarning className="text-xs text-slate-400 font-medium text-center md:text-left">
+              &copy; {new Date().getFullYear()} International Learning Pathways (trading as ILP Study). All rights reserved.
+            </p>
+          </div>
 
           <div className="flex flex-wrap justify-center gap-6 text-xs text-slate-400 font-medium">
             <Link href="/how-we-check" className="hover:text-white transition-colors flex items-center gap-1.5 text-slate-300 font-semibold">

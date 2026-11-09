@@ -2,9 +2,9 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  Cookie,
   X,
   Check,
   ShieldCheck,
@@ -237,8 +237,14 @@ export default function CookieConsent() {
             {/* Top Bar / Header */}
             <div className="flex items-start justify-between gap-3 mb-3.5 relative z-10">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-brand-pink/20 to-brand-purple/20 border border-white/15 flex items-center justify-center text-brand-pink flex-shrink-0 shadow-inner">
-                  <Cookie size={20} />
+                <div className="w-10 h-10 rounded-2xl bg-white/10 border border-white/15 p-1.5 flex items-center justify-center flex-shrink-0 shadow-inner">
+                  <Image
+                    src="/images/ilp-study-icon.svg"
+                    alt="ILP Study"
+                    width={28}
+                    height={28}
+                    className="w-full h-full object-contain"
+                  />
                 </div>
                 <div>
                   <h3 className="font-extrabold text-sm sm:text-base tracking-tight text-white flex items-center gap-2">

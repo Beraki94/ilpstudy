@@ -113,15 +113,15 @@ export default function Header() {
                         pathname.startsWith('/tuition');
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50">
+    <header className={`fixed top-0 left-0 w-full transition-all duration-200 ${mobileMenuOpen ? 'z-[100]' : 'z-50'}`}>
       {/* Continuous Infinity Marquee Top Announcement Bar */}
       <TopAnnouncementBar />
 
       {/* Main Navigation Bar */}
       <div
-        className={`w-full transition-all duration-200 bg-white/95 backdrop-blur-xl border-b border-slate-100/90 py-2.5 sm:py-3 lg:py-3.5 shadow-xs ${
-          scrolled ? 'shadow-sm' : ''
-        }`}
+        className={`w-full transition-all duration-200 border-b border-slate-100/90 py-2.5 sm:py-3 lg:py-3.5 shadow-xs ${
+          mobileMenuOpen ? 'bg-white' : 'bg-white/95 backdrop-blur-xl'
+        } ${scrolled ? 'shadow-sm' : ''}`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center min-h-[44px]">
@@ -301,9 +301,31 @@ export default function Header() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25, ease: 'easeInOut' }}
-            className="lg:hidden bg-white/98 backdrop-blur-2xl border-b border-slate-200 overflow-hidden shadow-xl"
+            className="lg:hidden bg-white border-b border-slate-200 overflow-hidden shadow-2xl"
           >
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 space-y-5 max-h-[calc(100dvh-110px)] overflow-y-auto overscroll-contain">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 space-y-5 max-h-[calc(100dvh-100px)] overflow-y-auto overscroll-contain bg-white">
+              {/* Mobile Drawer Brand Badge */}
+              <div className="flex items-center justify-between px-3.5 py-2.5 rounded-2xl bg-slate-50 border border-slate-100">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-xl bg-white border border-slate-200/80 p-1 flex items-center justify-center shadow-xs shrink-0">
+                    <Image
+                      src="/images/ilp-study-icon.svg"
+                      alt="ILP Study"
+                      width={24}
+                      height={24}
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  <div>
+                    <span className="text-xs font-black text-brand-dark tracking-tight block">ILP Study</span>
+                    <span className="text-[10px] text-slate-500 font-medium block">Admissions &amp; Scholarships</span>
+                  </div>
+                </div>
+                <span className="text-[10px] font-bold text-brand-pink bg-brand-pink/10 px-2.5 py-1 rounded-full border border-brand-pink/20">
+                  2026–2027
+                </span>
+              </div>
+
               <nav className="flex flex-col space-y-1.5">
                 <Link
                   href="/"

@@ -21,12 +21,14 @@ const EVENT_CONFIG = {
   ctaUrl: `https://wa.me/8801895626831?text=${encodeURIComponent(
     "Hello ILP Study! I saw the Harbin Pathway Program banner on your website (March Language Program & September Degree Scholarship). I would like to check my eligibility and scholarship opportunities."
   )}`,
-  // Unique session storage prefix to avoid conflicts with future campaigns
+  // Unique storage prefix to avoid conflicts with future campaigns
   storagePrefix: 'ilp_harbin_pathway_2026_2027',
   // Delay before showing the full modal on page load (in milliseconds)
-  initialDelayMs: 1500,
-  // When set to false, allows the modal to appear on reloads / new visits
-  showOncePerSessionOnly: false,
+  initialDelayMs: 2000,
+  // Maximum lifetime impressions for the full automatic popup (per user/browser)
+  maxLifetimeImpressions: 4,
+  // Minimum time user must have left before the popup can show again (10 minutes in ms)
+  returnCooldownMs: 10 * 60 * 1000,
 };
 
 export default function EventPromotionModal() {
@@ -34,12 +36,15 @@ export default function EventPromotionModal() {
   const [isOpen, setIsOpen] = useState(false);
   const [showBadge, setShowBadge] = useState(false);
 
-  const modalSeenKey = `${EVENT_CONFIG.storagePrefix}_modal_seen`;
+  // Storage keys
+  const sessionSeenKey = `${EVENT_CONFIG.storagePrefix}_session_seen`;
   const badgeDismissedKey = `${EVENT_CONFIG.storagePrefix}_badge_dismissed`;
+  const impressionCountKey = `${EVENT_CONFIG.storagePrefix}_impression_count`;
+  const lastShownTimeKey = `${EVENT_CONFIG.storagePrefix}_last_shown_time`;
 
-  // 1. Initial Mount & Trigger Logic
+  // 1. Initial Mount & Professional Frequency Cap Logic
   useEffect(() => {
-    // Check if campaign has expired
+    // 1. Check if campaign has expired
     if (Date.now() > EVENT_CONFIG.expiryTimestamp) {
       return;
     }
@@ -47,34 +52,65 @@ export default function EventPromotionModal() {
     setMounted(true);
 
     try {
-      // Clear previous locks so the modal displays reliably on reload
-      if (!EVENT_CONFIG.showOncePerSessionOnly) {
-        sessionStorage.removeItem(modalSeenKey);
-      }
-
-      // Check if user already dismissed teaser badge
+      // 2. Check if user already dismissed teaser badge in this session
       const badgeDismissed = sessionStorage.getItem(badgeDismissedKey);
       if (!badgeDismissed) {
         setShowBadge(true);
       }
 
-      // Check if user has already seen full popup in this session
-      const hasSeenThisSession = sessionStorage.getItem(modalSeenKey);
-      if (!hasSeenThisSession) {
-        const timer = setTimeout(() => {
-          setIsOpen(true);
-          if (EVENT_CONFIG.showOncePerSessionOnly) {
-            sessionStorage.setItem(modalSeenKey, 'true');
-          }
-        }, EVENT_CONFIG.initialDelayMs);
-        return () => clearTimeout(timer);
+      // 3. Check lifetime impression count (Maximum 4 times per visitor)
+      const rawCount = localStorage.getItem(impressionCountKey);
+      const impressionCount = rawCount ? parseInt(rawCount, 10) : 0;
+      if (impressionCount >= EVENT_CONFIG.maxLifetimeImpressions) {
+        // Capped at 4 times: Do NOT show full modal automatically ever again.
+        // The side teaser badge remains active so the user can still open it manually.
+        return;
       }
+
+      // 4. Check if already shown in this active browser session (prevents showing during page navigation)
+      const hasSeenThisSession = sessionStorage.getItem(sessionSeenKey);
+      if (hasSeenThisSession) {
+        // User already saw it during this visit or is navigating between pages
+        return;
+      }
+
+      // 5. Check returning visitor cooldown (must have left for at least 10 minutes)
+      const rawLastShown = localStorage.getItem(lastShownTimeKey);
+      if (rawLastShown) {
+        const lastShownTime = parseInt(rawLastShown, 10);
+        const timeSinceLast = Date.now() - lastShownTime;
+        if (timeSinceLast < EVENT_CONFIG.returnCooldownMs) {
+          // Returning visitor has been away less than 10 minutes: suppress popup
+          return;
+        }
+      }
+
+      // 6. User qualifies! (First-time visitor OR returning visitor after 10+ minutes, under 4 impressions)
+      const timer = setTimeout(() => {
+        setIsOpen(true);
+
+        try {
+          // Mark as seen for this active session (prevents showing while navigating other pages)
+          sessionStorage.setItem(sessionSeenKey, 'true');
+
+          // Increment lifetime impression count in localStorage
+          const newCount = impressionCount + 1;
+          localStorage.setItem(impressionCountKey, newCount.toString());
+
+          // Record last shown timestamp in localStorage
+          localStorage.setItem(lastShownTimeKey, Date.now().toString());
+        } catch {
+          // Fallback if storage access is restricted
+        }
+      }, EVENT_CONFIG.initialDelayMs);
+
+      return () => clearTimeout(timer);
     } catch {
-      // Fallback if sessionStorage is restricted (e.g. strict incognito)
+      // Fallback if storage is blocked (e.g. strict incognito mode)
       const timer = setTimeout(() => setIsOpen(true), EVENT_CONFIG.initialDelayMs);
       return () => clearTimeout(timer);
     }
-  }, [badgeDismissedKey, modalSeenKey]);
+  }, [badgeDismissedKey, sessionSeenKey, impressionCountKey, lastShownTimeKey]);
 
   // 2. Lock background page scroll when modal is open
   useEffect(() => {
@@ -109,11 +145,9 @@ export default function EventPromotionModal() {
     // Ensure the floating badge remains visible so users can re-open it anytime
     setShowBadge(true);
     try {
-      if (EVENT_CONFIG.showOncePerSessionOnly) {
-        sessionStorage.setItem(modalSeenKey, 'true');
-      }
+      sessionStorage.setItem(sessionSeenKey, 'true');
     } catch {}
-  }, [modalSeenKey]);
+  }, [sessionSeenKey]);
 
   const dismissBadge = useCallback((e: React.MouseEvent) => {
     e.stopPropagation();
@@ -219,16 +253,23 @@ export default function EventPromotionModal() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-            className="fixed bottom-3 left-3 sm:bottom-5 sm:left-5 z-[90] w-[184px] sm:w-[220px] select-none"
+            className="fixed bottom-3 left-3 sm:bottom-5 sm:left-5 z-40 w-[184px] sm:w-[220px] select-none"
           >
             <div className="relative bg-slate-900 rounded-xl sm:rounded-2xl border border-brand-pink/50 shadow-2xl overflow-hidden group transition-all duration-300 hover:border-brand-pink hover:shadow-glow-pink">
               
               {/* Header Bar with Live Pulsing Dot */}
               <div className="flex items-center justify-between px-2.5 py-1.5 bg-slate-950 border-b border-slate-800 text-[11px] sm:text-xs">
                 <div className="flex items-center gap-1.5 font-bold text-slate-100 truncate">
-                  <span className="relative flex h-2 w-2 shrink-0">
+                  <Image
+                    src="/images/ilp-study-icon.svg"
+                    alt="ILP"
+                    width={14}
+                    height={14}
+                    className="w-3.5 h-3.5 rounded-xs shrink-0"
+                  />
+                  <span className="relative flex h-1.5 w-1.5 shrink-0">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-green opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-green"></span>
+                    <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-brand-green"></span>
                   </span>
                   <span className="tracking-wide text-[10px] sm:text-[11px] font-extrabold truncate">
                     {EVENT_CONFIG.title}
