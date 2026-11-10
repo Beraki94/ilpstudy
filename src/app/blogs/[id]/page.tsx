@@ -94,7 +94,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
     <>
       <JsonLd data={articleSchema} />
       <Header />
-      <main className="min-h-screen bg-[#f8fafc] pt-[92px] sm:pt-[100px]">
+      <main className="min-h-screen bg-[#f8fafc] pt-[68px] sm:pt-[76px]">
         
         {/* Breadcrumb Navigation */}
         <div className="bg-white border-b border-slate-200/80">

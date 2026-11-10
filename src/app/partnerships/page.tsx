@@ -59,10 +59,10 @@ import {
 export default function PartnershipsPage() {
 
   const stats = [
-    { label: "Admissions Focus", value: "China", desc: "Undergraduate & Postgraduate" },
-    { label: "Target Intakes", value: "March & Sept", desc: "Undergraduate & Postgraduate" },
-    { label: "Recruitment Markets", value: "6", desc: "South Asia, Central Asia, Americas, Africa" },
-    { label: "Direct Submissions", value: "100%", desc: "Direct portal filings, no sub-agents" },
+    { label: "Study Destination", value: "China", desc: "Degree, language and foundation programmes" },
+    { label: "Target Intakes", value: "March & September", desc: "Programme availability varies by university" },
+    { label: "Primary Student Market", value: "Bangladesh", desc: "Supporting Bangladeshi students planning to study in China" },
+    { label: "University Coordination", value: "Application Support", desc: "Programme matching, document preparation and application follow-up" },
   ];
 
   const recruitmentMarkets = [
@@ -148,7 +148,7 @@ export default function PartnershipsPage() {
     },
     {
       step: "06",
-      title: "Visa & Arrival",
+      title: "Visa & Arrival Assistance",
       desc: "Students are prepared for the visa application, briefed on arrival procedures and accommodation, and supported through campus registration.",
       icon: <ShieldCheck size={26} className="text-white" />,
       color: "bg-brand-green",
@@ -185,8 +185,8 @@ export default function PartnershipsPage() {
       color: "bg-brand-dark",
     },
     {
-      title: "Visa & JW202 Preparation",
-      desc: "We prepare students for the JW202 and X-visa process, brief them on arrival guidelines, dorm accommodation, and escort them through on-campus registration.",
+      title: "Visa & Arrival Assistance",
+      desc: "We coordinate with universities throughout the admission and JW202 application process, guide students through their X1 visa applications, provide pre-departure guidance, assist with dormitory arrangements, and support on-campus registration after arrival in China",
       icon: <ShieldCheck size={26} className="text-white" />,
       badge: "End-to-End Care",
       color: "bg-brand-pink",
@@ -203,7 +203,7 @@ export default function PartnershipsPage() {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-[#f8fafc] pt-36 sm:pt-40">
+      <main className="min-h-screen bg-[#f8fafc] pt-[68px] sm:pt-[76px]">
         
         {/* HERO SECTION */}
         <section className="relative overflow-hidden bg-brand-dark text-white py-12 sm:py-20 lg:py-28">
@@ -268,14 +268,16 @@ export default function PartnershipsPage() {
             {/* Quick Metrics Ribbon */}
             <div className="mt-12 sm:mt-16 pt-8 sm:pt-12 border-t border-white/10 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
               {stats.map((st, i) => (
-                <div key={i} className="bg-white/5 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-white/10">
-                  <div className="text-2xl sm:text-4xl font-black text-white mb-1">
-                    {st.value}
+                <div key={i} className="bg-white/5 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-white/10 flex flex-col justify-between">
+                  <div>
+                    <div className="text-xl sm:text-2xl lg:text-3xl font-black text-white mb-1.5 leading-tight tracking-tight">
+                      {st.value}
+                    </div>
+                    <div className="text-xs sm:text-sm font-bold text-brand-pink uppercase tracking-wide">
+                      {st.label}
+                    </div>
                   </div>
-                  <div className="text-xs sm:text-sm font-bold text-brand-pink uppercase tracking-wide">
-                    {st.label}
-                  </div>
-                  <div className="text-xs text-slate-400 mt-1 font-medium">
+                  <div className="text-xs text-slate-300/80 mt-2 font-medium leading-relaxed">
                     {st.desc}
                   </div>
                 </div>

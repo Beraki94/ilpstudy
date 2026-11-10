@@ -53,24 +53,42 @@ export const metadata: Metadata = {
 };
 
 export default function CSCAPage() {
-  const upcomingSessions = [
+  const examSessions = [
     {
-      examDates: "14–15 November 2026",
-      regWindow: "15–21 October 2026 · Beijing time (UTC+8)",
-      status: "Upcoming Session",
-      badgeColor: "bg-brand-pink text-white"
+      session: "Nov 2026",
+      mathematics: "14 Nov, 3–4 PM",
+      physics: "15 Nov, 12–1 PM",
+      chemistry: "15 Nov, 2:30–3:30 PM",
     },
     {
-      examDates: "19–20 December 2026",
-      regWindow: "Check official session notice for registration window.",
-      status: "Scheduled",
-      badgeColor: "bg-brand-green text-white"
+      session: "Dec 2026",
+      mathematics: "19 Dec, 9–10 AM",
+      physics: "20 Dec, 6–7 AM",
+      chemistry: "20 Dec, 8:30–9:30 AM",
     },
     {
-      examDates: "23–24 January 2027",
-      regWindow: "Check official session notice for registration window.",
-      status: "Scheduled",
-      badgeColor: "bg-brand-purple text-white"
+      session: "Jan 2027",
+      mathematics: "23 Jan, 3–4 PM",
+      physics: "24 Jan, 12–1 PM",
+      chemistry: "24 Jan, 2:30–3:30 PM",
+    },
+    {
+      session: "Mar 2027",
+      mathematics: "13 Mar, 3–4 PM",
+      physics: "14 Mar, 12–1 PM",
+      chemistry: "14 Mar, 2:30–3:30 PM",
+    },
+    {
+      session: "Apr 2027",
+      mathematics: "24 Apr, 3–4 PM",
+      physics: "25 Apr, 12–1 PM",
+      chemistry: "25 Apr, 2:30–3:30 PM",
+    },
+    {
+      session: "Jun 2027",
+      mathematics: "26 Jun, 9–10 AM",
+      physics: "27 Jun, 6–7 AM",
+      chemistry: "27 Jun, 8:30–9:30 AM",
     },
   ];
 
@@ -214,24 +232,26 @@ export default function CSCAPage() {
               <table className="w-full text-left text-xs sm:text-sm">
                 <thead className="bg-slate-50 border-b border-slate-200 text-slate-500 font-bold uppercase tracking-wider text-[11px]">
                   <tr>
-                    <th className="py-3 px-4 sm:px-6">Examination Dates</th>
-                    <th className="py-3 px-4 sm:px-6">Registration Information</th>
-                    <th className="py-3 px-4 sm:px-6 text-right">Status</th>
+                    <th className="py-3.5 px-4 sm:px-6 whitespace-nowrap">Session</th>
+                    <th className="py-3.5 px-4 sm:px-6 whitespace-nowrap">Mathematics</th>
+                    <th className="py-3.5 px-4 sm:px-6 whitespace-nowrap">Physics</th>
+                    <th className="py-3.5 px-4 sm:px-6 whitespace-nowrap">Chemistry</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-100 font-medium">
-                  {upcomingSessions.map((s, idx) => (
+                  {examSessions.map((s, idx) => (
                     <tr key={idx} className="hover:bg-slate-50/80 transition-colors">
                       <td className="py-3.5 px-4 sm:px-6 font-extrabold text-brand-dark whitespace-nowrap">
-                        {s.examDates}
+                        {s.session}
                       </td>
-                      <td className="py-3.5 px-4 sm:px-6 text-slate-700">
-                        {s.regWindow}
+                      <td className="py-3.5 px-4 sm:px-6 text-slate-700 whitespace-nowrap">
+                        {s.mathematics}
                       </td>
-                      <td className="py-3.5 px-4 sm:px-6 text-right whitespace-nowrap">
-                        <span className={`px-3 py-1 rounded-full text-[10px] font-bold ${s.badgeColor}`}>
-                          {s.status}
-                        </span>
+                      <td className="py-3.5 px-4 sm:px-6 text-slate-700 whitespace-nowrap">
+                        {s.physics}
+                      </td>
+                      <td className="py-3.5 px-4 sm:px-6 text-slate-700 whitespace-nowrap">
+                        {s.chemistry}
                       </td>
                     </tr>
                   ))}

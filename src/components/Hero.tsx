@@ -7,7 +7,7 @@ import PhotoSpace from '@/components/PhotoSpace';
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[92vh] flex items-center pt-32 sm:pt-36 lg:pt-40 pb-16 overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-50/60">
+    <section className="relative min-h-[92vh] flex items-center pt-28 pb-16 overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-50/60">
       {/* Decorative Brand Shapes Background - Distinctive Sweeping Hero Rings */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Top-Right Rotating Brand Pink Ring - Clockwise */}

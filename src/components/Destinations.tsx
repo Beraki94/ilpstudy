@@ -95,7 +95,7 @@ export default function Destinations() {
     },
     {
       id: "nuaa-02",
-      name: "Nanjing Univ of Aeronautics & Astronautics",
+      name: "Nanjing University of Aeronautics & Astronautics",
       city: "Nanjing",
       province: "East China",
       subtitle: "Nanjing, Jiangsu · Double First-Class Key",
@@ -265,7 +265,7 @@ export default function Destinations() {
     },
     {
       id: "swufe-12",
-      name: "Southwestern Univ of Finance & Economics",
+      name: "Southwestern University of Finance & Economics",
       city: "Chengdu",
       province: "Southwest China",
       subtitle: "Chengdu, Sichuan · National 211 Economics Key",
@@ -282,7 +282,7 @@ export default function Destinations() {
     },
     {
       id: "tufe-13",
-      name: "Tianjin Univ of Finance & Economics",
+      name: "Tianjin University of Finance & Economics",
       city: "Tianjin",
       province: "Northern Hub",
       subtitle: "Tianjin · Major Commercial & Trade Academy",
