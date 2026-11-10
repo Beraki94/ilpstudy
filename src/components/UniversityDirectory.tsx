@@ -323,15 +323,7 @@ export default function UniversityDirectory() {
             <div>
               <div className="flex items-start gap-4 mb-2.5">
                 {/* University Logo Crest */}
-                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-slate-50 border border-slate-200/80 p-1.5 flex items-center justify-center flex-shrink-0 group-hover:scale-105 group-hover:border-brand-pink/40 group-hover:bg-white transition-all shadow-xs overflow-hidden">
-                  <Image
-                    src={uni.logo}
-                    alt={`${uni.name} crest`}
-                    width={64}
-                    height={64}
-                    className="w-full h-full object-contain"
-                  />
-                </div>
+                <UniversityCrest src={uni.logo} name={uni.name} />
 
                 {/* Badges & Name */}
                 <div className="flex-1 min-w-0">
@@ -385,6 +377,36 @@ export default function UniversityDirectory() {
             Reset search filters
           </button>
         </div>
+      )}
+    </div>
+  );
+}
+
+function UniversityCrest({ src, name }: { src: string; name: string }) {
+  const [hasError, setHasError] = useState(false);
+
+  const initials = name
+    .split(/\s+/)
+    .filter((w) => w.length > 2 && !['and', 'the', 'for'].includes(w.toLowerCase()))
+    .slice(0, 2)
+    .map((w) => w[0]?.toUpperCase() || '')
+    .join('') || name.slice(0, 2).toUpperCase();
+
+  return (
+    <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-slate-50 border border-slate-200/80 p-1.5 flex items-center justify-center flex-shrink-0 group-hover:scale-105 group-hover:border-brand-pink/40 group-hover:bg-white transition-all shadow-xs overflow-hidden">
+      {!hasError ? (
+        <Image
+          src={src}
+          alt={`${name} crest`}
+          width={64}
+          height={64}
+          className="w-full h-full object-contain"
+          onError={() => setHasError(true)}
+        />
+      ) : (
+        <span className="text-xs sm:text-sm font-black text-brand-dark tracking-tight">
+          {initials}
+        </span>
       )}
     </div>
   );

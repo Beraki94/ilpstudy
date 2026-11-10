@@ -127,7 +127,7 @@ export default function ProgramNavPills() {
       setActiveId(id);
       const target = document.getElementById(id);
       if (target) {
-        const headerOffset = 90;
+        const headerOffset = 108;
         const elementPosition = target.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 

@@ -190,9 +190,9 @@ export default function InteractiveChecklist() {
   return (
     <div className="space-y-8">
       {/* Interactive Progress Bar & Action Toolbar */}
-      <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-card flex flex-col md:flex-row items-start md:items-center justify-between gap-6 print:hidden">
+      <div className="bg-white rounded-3xl p-5 sm:p-8 border border-slate-200/90 shadow-card flex flex-col md:flex-row items-start md:items-center justify-between gap-5 sm:gap-6 print:hidden">
         <div className="space-y-2 w-full md:w-auto">
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center gap-2 sm:gap-3">
             <span className="text-xs font-bold uppercase tracking-wider text-brand-pink">
               Your Preparation Progress
             </span>
@@ -210,11 +210,11 @@ export default function InteractiveChecklist() {
           </div>
         </div>
 
-        <div className="flex items-center gap-3 w-full sm:w-auto justify-end">
+        <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 w-full sm:w-auto justify-end">
           <button
             type="button"
             onClick={resetAll}
-            className="px-4 py-2.5 rounded-xl border border-slate-200 text-slate-600 hover:text-brand-pink text-xs font-bold transition-colors inline-flex items-center gap-1.5"
+            className="px-4 py-2.5 rounded-xl border border-slate-200 text-slate-600 hover:text-brand-pink text-xs font-bold transition-colors inline-flex items-center justify-center gap-1.5"
           >
             <RotateCcw size={14} />
             <span>Reset</span>
@@ -223,7 +223,7 @@ export default function InteractiveChecklist() {
           <button
             type="button"
             onClick={handlePrint}
-            className="px-5 py-2.5 rounded-xl bg-brand-dark text-white hover:bg-brand-pink text-xs font-bold transition-colors inline-flex items-center gap-1.5 shadow-sm"
+            className="flex-1 sm:flex-initial px-4 sm:px-5 py-2.5 rounded-xl bg-brand-dark text-white hover:bg-brand-pink text-xs font-bold transition-colors inline-flex items-center justify-center gap-1.5 shadow-sm"
           >
             <Printer size={14} />
             <span>Print / Save Checklist</span>
@@ -232,7 +232,7 @@ export default function InteractiveChecklist() {
       </div>
 
       {/* Checklist Sections - Full width seamless on mobile, rounded card on desktop */}
-      <div className="-mx-4 sm:mx-0 space-y-6 sm:space-y-8">
+      <div className="-mx-4 sm:mx-0 overflow-hidden sm:overflow-visible space-y-6 sm:space-y-8">
         {CHECKLIST_SECTIONS.map((section, sIdx) => (
           <motion.div 
             key={sIdx}

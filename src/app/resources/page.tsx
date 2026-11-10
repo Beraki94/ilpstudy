@@ -188,16 +188,16 @@ export default function ResourcesPage() {
 
         {/* Information Verification Box */}
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-4">
-          <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200/90 shadow-card flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-2xl bg-brand-green/10 text-brand-green flex items-center justify-center font-bold flex-shrink-0 mt-1">
-                <ShieldCheck size={24} />
+          <div className="p-5 sm:p-8 rounded-3xl bg-white border border-slate-200/90 shadow-card flex flex-col md:flex-row items-start md:items-center justify-between gap-5 sm:gap-6">
+            <div className="flex items-start gap-3.5 sm:gap-4 min-w-0">
+              <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-brand-green/10 text-brand-green flex items-center justify-center font-bold flex-shrink-0 mt-1">
+                <ShieldCheck size={22} />
               </div>
-              <div className="space-y-1">
+              <div className="space-y-1 min-w-0">
                 <span className="text-[10px] font-extrabold uppercase tracking-wider text-brand-green block">
                   EDITORIAL &amp; DATA POLICY
                 </span>
-                <h3 className="text-lg font-bold text-brand-dark">
+                <h3 className="text-base sm:text-lg font-bold text-brand-dark">
                   How We Check University Information
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-600 font-medium max-w-3xl leading-relaxed">
@@ -207,7 +207,7 @@ export default function ResourcesPage() {
             </div>
             <Link
               href="/how-we-check"
-              className="px-6 py-2.5 rounded-full bg-brand-dark hover:bg-brand-pink text-white text-xs font-bold transition-all flex items-center gap-1.5 flex-shrink-0 shadow-sm"
+              className="w-full md:w-auto justify-center px-6 py-2.5 rounded-full bg-brand-dark hover:bg-brand-pink text-white text-xs font-bold transition-all flex items-center gap-1.5 flex-shrink-0 shadow-sm"
             >
               <span>Read Our Review Policy</span>
               <ArrowRight size={14} />
@@ -226,17 +226,17 @@ export default function ResourcesPage() {
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-5 sm:gap-6">
             {planCategories.map((cat, idx) => (
               <div
                 key={idx}
-                className="p-8 rounded-[32px] bg-white border border-slate-200/90 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 hover:border-brand-pink/50 transition-all duration-300 flex flex-col justify-between group"
+                className="p-5 sm:p-8 rounded-3xl sm:rounded-[32px] bg-white border border-slate-200/90 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 hover:border-brand-pink/50 transition-all duration-300 flex flex-col justify-between group"
               >
                 <div className="space-y-2.5">
                   <span className="text-[11px] font-extrabold uppercase tracking-wider text-slate-400 block">
                     {cat.category}
                   </span>
-                  <h3 className="text-xl font-black text-brand-dark">
+                  <h3 className="text-lg sm:text-xl font-black text-brand-dark">
                     {cat.title}
                   </h3>
                   <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
@@ -259,22 +259,22 @@ export default function ResourcesPage() {
         </section>
 
         {/* Free Consultation Callout */}
-        <section className="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-brand-dark text-white rounded-[40px] p-8 sm:p-12 text-center relative overflow-hidden shadow-xl">
+        <section className="py-10 sm:py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-brand-dark text-white rounded-3xl sm:rounded-[40px] p-5 sm:p-12 text-center relative overflow-hidden shadow-xl">
             <div className="max-w-2xl mx-auto space-y-4 relative z-10">
               <span className="text-xs font-bold uppercase tracking-wider text-brand-green block">
                 PERSONALIZED ADMISSION REVIEW
               </span>
-              <h3 className="text-3xl sm:text-4xl font-black">
+              <h3 className="text-2xl sm:text-4xl font-black">
                 Ready to Review Your Study Plans?
               </h3>
               <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
                 Connect with an ILP Study counselor in Dhaka or on WhatsApp. We provide honest eligibility evaluations, university shortlisting, and source document checklists.
               </p>
-              <div className="pt-4 flex flex-wrap justify-center gap-4">
+              <div className="pt-4 flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4">
                 <Link
                   href="/contact"
-                  className="px-8 py-3.5 rounded-full bg-brand-pink text-white font-bold text-sm shadow-glow-pink hover:bg-[#d10079] transition-all inline-flex items-center gap-2"
+                  className="w-full sm:w-auto px-6 sm:px-8 py-3.5 rounded-full bg-brand-pink text-white font-bold text-sm shadow-glow-pink hover:bg-[#d10079] transition-all inline-flex items-center justify-center gap-2"
                 >
                   <span>Book Free Consultation</span>
                   <ArrowRight size={16} />

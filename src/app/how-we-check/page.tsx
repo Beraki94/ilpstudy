@@ -46,7 +46,7 @@ export default function HowWeCheckPage() {
                 Independent Education Guidance Standards
               </h2>
               <p className="text-sm text-slate-500 font-medium mt-1">
-                Website content reviewed and published on <strong>12 October 2026</strong>.
+                Independent university data verification standards and student advisory scope.
               </p>
             </div>
 
@@ -170,12 +170,6 @@ export default function HowWeCheckPage() {
                     View Indicative Tuition Planning Ranges
                   </Link>
                 </div>
-              </div>
-
-              <div className="pt-4 text-center">
-                <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
-                  Website content | 12 October 2026
-                </span>
               </div>
             </div>
 

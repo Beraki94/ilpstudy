@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import PhotoSpace from '@/components/PhotoSpace';
@@ -203,7 +204,7 @@ export default function PartnershipsPage() {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-[#f8fafc] pt-[68px] sm:pt-[76px]">
+      <main className="min-h-screen bg-[#f8fafc] pt-36 sm:pt-40">
         
         {/* HERO SECTION */}
         <section className="relative overflow-hidden bg-brand-dark text-white py-12 sm:py-20 lg:py-28">
@@ -224,27 +225,27 @@ export default function PartnershipsPage() {
                   <span>Prepared for University International Offices · 2026 / 2027</span>
                 </div>
 
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.1] mb-6">
+                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.12] mb-5 sm:mb-6">
                   International Student Recruitment for{' '}
                   <span className="text-transparent bg-clip-text bg-gradient-brand">
                     Chinese Universities
                   </span>
                 </h1>
 
-                <p className="text-lg sm:text-xl text-slate-300 mb-8 leading-relaxed font-normal max-w-2xl">
+                <p className="text-base sm:text-xl text-slate-300 mb-6 sm:mb-8 leading-relaxed font-normal max-w-2xl">
                   <strong>International Learning Pathways</strong> (trading as <strong>ILP Study</strong>) connects top-tier Chinese universities with pre-screened, authentic applicants across six international markets. We handle end-to-end recruitment with direct portal filings and WeChat-speed communication.
                 </p>
 
-                <div className="flex flex-wrap gap-4 items-center">
+                <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 items-stretch sm:items-center">
                   <a
                     href="#proposal"
-                    className="px-8 py-4 rounded-full bg-brand-green text-white font-bold hover:bg-[#00a85d] shadow-glow-green transition-all flex items-center gap-2"
+                    className="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-brand-green text-white font-bold hover:bg-[#00a85d] shadow-glow-green transition-all flex items-center justify-center gap-2 text-sm sm:text-base"
                   >
                     View Cooperation Terms <ArrowRight size={18} />
                   </a>
                   <a
                     href="#contact"
-                    className="px-8 py-4 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold border border-white/20 transition-all flex items-center gap-2"
+                    className="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold border border-white/20 transition-all flex items-center justify-center gap-2 text-sm sm:text-base"
                   >
                     Connect on WeChat <MessageSquare size={18} className="text-brand-green" />
                   </a>
@@ -258,7 +259,7 @@ export default function PartnershipsPage() {
                   subtitle="Primary destination for ILP Study scholars with 50+ students placed for September 2026 intake"
                   badge="Featured University Network"
                   aspectRatio="aspect-[4/3]"
-                  fallbackSrc="/partnershipImage/ilp-partnership-1.jpg"
+                  fallbackSrc="/partnershipImage/ilp-partnership-1.jpg?v=20261110"
                   className="shadow-2xl border-2 border-white/20"
                 />
               </div>
@@ -266,7 +267,7 @@ export default function PartnershipsPage() {
             </div>
 
             {/* Quick Metrics Ribbon */}
-            <div className="mt-12 sm:mt-16 pt-8 sm:pt-12 border-t border-white/10 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+            <div className="mt-10 sm:mt-16 pt-8 sm:pt-12 border-t border-white/10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3.5 sm:gap-6">
               {stats.map((st, i) => (
                 <div key={i} className="bg-white/5 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-white/10 flex flex-col justify-between">
                   <div>
@@ -337,7 +338,7 @@ export default function PartnershipsPage() {
                   subtitle="Kader’s Complex, Lift No. 9, East Shewrapara, Dhaka-1216"
                   badge="Dhaka Headquarters"
                   aspectRatio="aspect-[4/3]"
-                  fallbackSrc="/partnershipImage/ilp-partnership-2.jpg"
+                  fallbackSrc="/partnershipImage/ilp-partnership-2.jpg?v=20261110"
                   className="shadow-xl"
                 />
               </div>
@@ -354,23 +355,23 @@ export default function PartnershipsPage() {
                 <ShieldCheck size={14} />
                 <span>Trusted Liaison for Admissions Offices</span>
               </div>
-              <h2 className="text-3xl sm:text-5xl font-black text-brand-dark tracking-tight mb-4 sm:mb-6">
+              <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-brand-dark tracking-tight mb-4 sm:mb-6">
                 Why Universities Work With Us
               </h2>
-              <p className="text-base sm:text-lg text-slate-600 font-medium">
+              <p className="text-sm sm:text-lg text-slate-600 font-medium">
                 We remove administrative friction, eliminate unqualified files, and provide same-day communication via the channels your international admissions officers use daily.
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
               {whyWorkWithUs.map((pillar, idx) => (
                 <div
                   key={idx}
-                  className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group"
+                  className="bg-white rounded-3xl p-5 sm:p-8 border border-slate-200/90 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group"
                 >
                   <div>
-                    <div className="flex items-center justify-between mb-6">
-                      <div className={`w-14 h-14 rounded-2xl flex items-center justify-center ${pillar.color} shadow-sm group-hover:scale-110 transition-transform`}>
+                    <div className="flex flex-wrap items-center justify-between gap-2.5 mb-5 sm:mb-6">
+                      <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center ${pillar.color} shadow-sm group-hover:scale-110 transition-transform flex-shrink-0`}>
                         {pillar.icon}
                       </div>
                       <span className="text-xs font-bold px-3 py-1 rounded-full bg-slate-100 text-slate-600 border border-slate-200">
@@ -406,13 +407,13 @@ export default function PartnershipsPage() {
                 <Globe2 size={14} />
                 <span>Mitigating Concentration Risk</span>
               </div>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-brand-dark tracking-tight mb-4 sm:mb-6">
+              <h2 className="text-2xl sm:text-4xl font-extrabold text-brand-dark tracking-tight mb-4 sm:mb-6">
                 A Diverse Global Student Pool
               </h2>
-              <p className="text-slate-600 text-base sm:text-lg leading-relaxed mb-6">
+              <p className="text-slate-600 text-sm sm:text-lg leading-relaxed mb-6">
                 Our applicant network extends well beyond Bangladesh. We recruit from <strong>Tajikistan, Azerbaijan, Brazil, the United States, and several African countries</strong>, expanding these strategic channels every intake.
               </p>
-              <div className="p-5 sm:p-6 rounded-2xl bg-white border border-slate-200 shadow-sm text-slate-700 leading-relaxed font-medium text-sm sm:text-base">
+              <div className="p-4 sm:p-6 rounded-2xl bg-white border border-slate-200 shadow-sm text-slate-700 leading-relaxed font-medium text-sm sm:text-base">
                 <span className="text-brand-pink font-bold block mb-1">Why Campus Diversity Matters:</span>
                 For a university managing its international mix, recruitment source diversity is critical. An organization drawing on six markets across South Asia, Central Asia, the Americas, and Africa supports campus diversity in a way a single-country agent cannot, while reducing the concentration risk that comes with relying on a single geographic source for enrolment.
               </div>
@@ -425,7 +426,7 @@ export default function PartnershipsPage() {
                 subtitle="Scholars recruited from South Asia, Central Asia, the Americas, and Africa"
                 badge="Student Diversity Pool"
                 aspectRatio="aspect-[4/3]"
-                fallbackSrc="/partnershipImage/ilp-partnership-3.jpg"
+                fallbackSrc="/partnershipImage/ilp-partnership-3.jpg?v=20261110"
                 className="shadow-xl"
               />
             </div>
@@ -433,13 +434,13 @@ export default function PartnershipsPage() {
           </div>
 
           {/* 6 Recruitment Markets Grid */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {recruitmentMarkets.map((market, idx) => (
               <div
                 key={idx}
-                className="p-6 rounded-3xl bg-white border border-slate-200/90 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 transition-all"
+                className="p-5 sm:p-6 rounded-3xl bg-white border border-slate-200/90 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 transition-all"
               >
-                <div className="flex items-center justify-between mb-3">
+                <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
                   <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
                     {market.region}
                   </span>
@@ -447,14 +448,14 @@ export default function PartnershipsPage() {
                     {market.tag}
                   </span>
                 </div>
-                <h3 className="text-2xl font-bold text-brand-dark mb-2">{market.country}</h3>
+                <h3 className="text-xl sm:text-2xl font-bold text-brand-dark mb-2">{market.country}</h3>
                 <p className="text-slate-600 text-sm leading-relaxed">{market.desc}</p>
               </div>
             ))}
           </div>
 
           {/* WHO OUR STUDENTS ARE */}
-          <div className="mt-12 sm:mt-16 bg-brand-dark text-white rounded-3xl sm:rounded-[36px] p-6 sm:p-12 lg:p-14 relative overflow-hidden shadow-2xl">
+          <div className="mt-10 sm:mt-16 bg-brand-dark text-white rounded-3xl sm:rounded-[36px] p-5 sm:p-12 lg:p-14 relative overflow-hidden shadow-2xl">
             <div className="absolute top-0 right-0 w-80 h-80 bg-brand-purple/20 rounded-full blur-[100px]" />
             <div className="relative z-10 grid lg:grid-cols-12 gap-8 items-center">
               <div className="lg:col-span-8">
@@ -494,26 +495,26 @@ export default function PartnershipsPage() {
                 <FileCheck size={14} />
                 <span>Standardized Quality Process</span>
               </div>
-              <h2 className="text-3xl sm:text-5xl font-black text-brand-dark tracking-tight mb-4 sm:mb-6">
+              <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-brand-dark tracking-tight mb-4 sm:mb-6">
                 How We Work: The 6 Stages
               </h2>
-              <p className="text-base sm:text-lg text-slate-600 font-medium">
+              <p className="text-sm sm:text-lg text-slate-600 font-medium">
                 Every applicant we send has been through the same six stages, so the files your international office receives are complete, consistent, and correctly documented.
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
               {workflowStages.map((stage, idx) => (
                 <div
                   key={idx}
-                  className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 transition-all duration-300 relative group flex flex-col justify-between"
+                  className="bg-white rounded-3xl p-5 sm:p-8 border border-slate-200/90 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 transition-all duration-300 relative group flex flex-col justify-between"
                 >
                   <div>
-                    <div className="flex items-center justify-between mb-6">
-                      <div className={`w-14 h-14 rounded-2xl flex items-center justify-center ${stage.color} shadow-sm text-white font-bold`}>
+                    <div className="flex items-center justify-between mb-5 sm:mb-6">
+                      <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center ${stage.color} shadow-sm text-white font-bold flex-shrink-0`}>
                         {stage.icon}
                       </div>
-                      <span className="text-3xl font-black text-slate-300 group-hover:text-brand-pink transition-colors">
+                      <span className="text-2xl sm:text-3xl font-black text-slate-300 group-hover:text-brand-pink transition-colors">
                         {stage.step}
                       </span>
                     </div>
@@ -541,7 +542,7 @@ export default function PartnershipsPage() {
                 subtitle="Students accompanied through JW202, Chinese embassy visa clearance, dorm check-in, and campus registration"
                 badge="Campus Arrival Support"
                 aspectRatio="aspect-[16/10] sm:aspect-[21/9]"
-                fallbackSrc="/partnershipImage/ilp-partnership-4.jpg"
+                fallbackSrc="/partnershipImage/ilp-partnership-4.jpg?v=20261110"
                 className="shadow-xl"
               />
             </div>
@@ -557,26 +558,26 @@ export default function PartnershipsPage() {
                 <Handshake size={14} />
                 <span>September 2027 Intake &amp; Beyond</span>
               </div>
-              <h2 className="text-3xl sm:text-5xl font-black text-brand-dark tracking-tight mb-4 sm:mb-6">
+              <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-brand-dark tracking-tight mb-4 sm:mb-6">
                 Institutional Cooperation Proposal
               </h2>
-              <p className="text-base sm:text-lg text-slate-600 font-medium">
+              <p className="text-sm sm:text-lg text-slate-600 font-medium">
                 We are actively seeking recruitment cooperation agreements with Chinese universities for the September 2027 intake and beyond. We build deep, long-term institutional ties rather than a long list of nominal agreements.
               </p>
             </div>
 
-            <div className="grid lg:grid-cols-2 gap-8 sm:gap-10">
+            <div className="grid lg:grid-cols-2 gap-6 sm:gap-10">
               
               {/* What We Ask */}
-              <div className="bg-white rounded-3xl sm:rounded-[36px] p-6 sm:p-10 lg:p-12 border border-slate-200/90 shadow-card flex flex-col justify-between">
+              <div className="bg-white rounded-3xl sm:rounded-[36px] p-5 sm:p-10 lg:p-12 border border-slate-200/90 shadow-card flex flex-col justify-between">
                 <div>
                   <div className="flex items-center gap-3 mb-6">
-                    <div className="w-12 h-12 rounded-2xl bg-brand-pink/10 text-brand-pink flex items-center justify-center font-bold">
+                    <div className="w-12 h-12 rounded-2xl bg-brand-pink/10 text-brand-pink flex items-center justify-center font-bold flex-shrink-0">
                       <FileText size={24} />
                     </div>
-                    <div>
-                      <span className="text-xs font-bold uppercase text-brand-pink tracking-wider">Institutional Requirements</span>
-                      <h3 className="text-2xl font-extrabold text-brand-dark">What We Ask From The University</h3>
+                    <div className="min-w-0">
+                      <span className="text-xs font-bold uppercase text-brand-pink tracking-wider block">Institutional Requirements</span>
+                      <h3 className="text-xl sm:text-2xl font-extrabold text-brand-dark leading-tight">What We Ask From The University</h3>
                     </div>
                   </div>
 
@@ -629,16 +630,16 @@ export default function PartnershipsPage() {
               </div>
 
               {/* What We Commit To */}
-              <div className="bg-brand-dark text-white rounded-3xl sm:rounded-[36px] p-6 sm:p-10 lg:p-12 shadow-2xl relative overflow-hidden flex flex-col justify-between">
+              <div className="bg-brand-dark text-white rounded-3xl sm:rounded-[36px] p-5 sm:p-10 lg:p-12 shadow-2xl relative overflow-hidden flex flex-col justify-between">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-brand-green/15 rounded-full blur-[80px] pointer-events-none" />
                 <div className="relative z-10">
                   <div className="flex items-center gap-3 mb-6">
-                    <div className="w-12 h-12 rounded-2xl bg-brand-green/20 text-brand-green flex items-center justify-center font-bold">
+                    <div className="w-12 h-12 rounded-2xl bg-brand-green/20 text-brand-green flex items-center justify-center font-bold flex-shrink-0">
                       <ShieldCheck size={24} />
                     </div>
-                    <div>
-                      <span className="text-xs font-bold uppercase text-brand-green tracking-wider">Our Pledge to You</span>
-                      <h3 className="text-2xl font-extrabold text-white">What We Commit To</h3>
+                    <div className="min-w-0">
+                      <span className="text-xs font-bold uppercase text-brand-green tracking-wider block">Our Pledge to You</span>
+                      <h3 className="text-xl sm:text-2xl font-extrabold text-white leading-tight">What We Commit To</h3>
                     </div>
                   </div>
 
@@ -712,88 +713,90 @@ export default function PartnershipsPage() {
                 <MessageSquare size={14} />
                 <span>Direct Dialogue</span>
               </div>
-              <h2 className="text-3xl sm:text-5xl font-black text-brand-dark tracking-tight mb-4 sm:mb-6">
+              <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-brand-dark tracking-tight mb-4 sm:mb-6">
                 Start a Conversation
               </h2>
-              <p className="text-base sm:text-lg text-slate-600 font-medium">
+              <p className="text-sm sm:text-lg text-slate-600 font-medium">
                 We would welcome the opportunity to discuss cooperation with your international office — by WeChat, video conference, or in person on campus.
               </p>
             </div>
 
-            <div className="grid lg:grid-cols-12 gap-8 sm:gap-10 items-stretch">
+            <div className="grid lg:grid-cols-12 gap-6 sm:gap-10 items-stretch">
               
               {/* Liaison Card */}
-              <div className="lg:col-span-7 bg-white rounded-3xl sm:rounded-[36px] p-6 sm:p-10 lg:p-12 border border-slate-200/90 shadow-card flex flex-col justify-between">
+              <div className="lg:col-span-7 bg-white rounded-3xl sm:rounded-[36px] p-5 sm:p-10 lg:p-12 border border-slate-200/90 shadow-card flex flex-col justify-between">
                 <div>
-                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8 pb-6 border-b border-slate-200">
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6 sm:mb-8 pb-6 border-b border-slate-200">
                     <div>
                       <span className="text-xs font-bold uppercase text-brand-green tracking-wider block mb-1">
                         Institutional Relations &amp; Collaborations
                       </span>
-                      <h3 className="text-2xl sm:text-3xl font-black text-brand-dark">
+                      <h3 className="text-xl sm:text-3xl font-black text-brand-dark">
                         Tanjid Chowdhury
                       </h3>
                       <p className="text-slate-600 font-semibold text-sm">
                         Business Development &amp; Collaborations
                       </p>
                     </div>
-                    <div className="px-4 py-2 rounded-full bg-brand-green/10 text-brand-green text-xs font-bold flex items-center gap-1.5">
+                    <div className="px-3.5 py-2 rounded-full bg-brand-green/10 text-brand-green text-xs font-bold flex items-center gap-1.5 flex-shrink-0">
                       <CheckCircle2 size={14} /> Verified Liaison Representative
                     </div>
                   </div>
 
-                  <div className="space-y-6">
-                    <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-2xl bg-slate-50 border border-slate-200/70 shadow-xs flex items-center justify-center text-brand-pink flex-shrink-0">
-                        <Mail size={22} />
+                  <div className="space-y-5 sm:space-y-6">
+                    <div className="flex items-start gap-3.5 sm:gap-4">
+                      <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-slate-50 border border-slate-200/70 shadow-xs flex items-center justify-center text-brand-pink flex-shrink-0">
+                        <Mail size={20} className="sm:w-[22px] sm:h-[22px]" />
                       </div>
-                      <div>
+                      <div className="min-w-0 flex-1">
                         <span className="text-xs font-bold uppercase text-slate-400 block">Direct Institutional Email</span>
                         <a
                           href="mailto:international@ilpstudy.com"
-                          className="text-lg font-bold text-brand-dark hover:text-brand-pink transition-colors"
+                          className="text-sm sm:text-lg font-bold text-brand-dark hover:text-brand-pink transition-colors break-all sm:break-normal"
                         >
                           international@ilpstudy.com
                         </a>
                       </div>
                     </div>
 
-                    <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-2xl bg-slate-50 border border-slate-200/70 shadow-xs flex items-center justify-center text-brand-green flex-shrink-0">
-                        <Phone size={22} />
+                    <div className="flex items-start gap-3.5 sm:gap-4">
+                      <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-slate-50 border border-slate-200/70 shadow-xs flex items-center justify-center text-brand-green flex-shrink-0">
+                        <Phone size={20} className="sm:w-[22px] sm:h-[22px]" />
                       </div>
-                      <div>
+                      <div className="min-w-0 flex-1">
                         <span className="text-xs font-bold uppercase text-slate-400 block">Bangladesh Phone &amp; WhatsApp</span>
-                        <p className="text-base font-bold text-brand-dark">
-                          +880 1602 566398 &nbsp;|&nbsp; +880 1895 626831
+                        <p className="text-sm sm:text-base font-bold text-brand-dark flex flex-wrap items-center gap-x-2 gap-y-0.5">
+                          <a href="tel:+8801602566398" className="hover:text-brand-pink transition-colors">+880 1602 566398</a>
+                          <span className="text-slate-300 hidden sm:inline">|</span>
+                          <a href="https://wa.me/8801895626831" target="_blank" rel="noopener noreferrer" className="hover:text-brand-green transition-colors">+880 1895 626831</a>
                         </p>
                       </div>
                     </div>
 
-                    <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-2xl bg-slate-50 border border-slate-200/70 shadow-xs flex items-center justify-center text-brand-purple flex-shrink-0">
-                        <MessageSquare size={22} />
+                    <div className="flex items-start gap-3.5 sm:gap-4">
+                      <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-slate-50 border border-slate-200/70 shadow-xs flex items-center justify-center text-brand-purple flex-shrink-0">
+                        <MessageSquare size={20} className="sm:w-[22px] sm:h-[22px]" />
                       </div>
-                      <div>
+                      <div className="min-w-0 flex-1">
                         <span className="text-xs font-bold uppercase text-slate-400 block">WhatsApp &amp; WeChat</span>
                         <a 
                           href="https://wa.me/8615685689193"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-base font-bold text-brand-dark hover:text-brand-green transition-colors"
+                          className="text-sm sm:text-base font-bold text-brand-dark hover:text-brand-green transition-colors"
                         >
                           +86 156 8568 9193
                         </a>
                       </div>
                     </div>
 
-                    <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-2xl bg-slate-50 border border-slate-200/70 shadow-xs flex items-center justify-center text-slate-700 flex-shrink-0">
-                        <MapPin size={22} />
+                    <div className="flex items-start gap-3.5 sm:gap-4">
+                      <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-slate-50 border border-slate-200/70 shadow-xs flex items-center justify-center text-slate-700 flex-shrink-0">
+                        <MapPin size={20} className="sm:w-[22px] sm:h-[22px]" />
                       </div>
-                      <div>
+                      <div className="min-w-0 flex-1">
                         <span className="text-xs font-bold uppercase text-slate-400 block">Head Office Address</span>
-                        <p className="text-sm font-semibold text-slate-700 leading-relaxed">
+                        <p className="text-xs sm:text-sm font-semibold text-slate-700 leading-relaxed">
                           Kader’s Complex, Lift No. 9, H-888/C, East Shewrapara, Dhaka-1216, Bangladesh
                         </p>
                       </div>
@@ -801,16 +804,16 @@ export default function PartnershipsPage() {
                   </div>
                 </div>
 
-                <div className="mt-8 pt-6 border-t border-slate-200 flex flex-wrap gap-4 items-center">
+                <div className="mt-8 pt-6 border-t border-slate-200 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 items-stretch sm:items-center">
                   <a
                     href="mailto:international@ilpstudy.com?subject=Cooperation%20Agreement%20Inquiry%20-%20ILP%20Study"
-                    className="px-6 py-3.5 rounded-full bg-brand-dark text-white font-bold text-sm hover:bg-brand-pink transition-all flex items-center gap-2"
+                    className="w-full sm:w-auto px-6 py-3.5 rounded-full bg-brand-dark text-white font-bold text-sm hover:bg-brand-pink transition-all flex items-center justify-center gap-2"
                   >
                     Send Email Proposal <ArrowUpRight size={16} />
                   </a>
                   <a
                     href="/contact"
-                    className="px-6 py-3.5 rounded-full bg-white text-brand-dark font-bold text-sm border border-slate-300 hover:border-brand-green transition-all"
+                    className="w-full sm:w-auto px-6 py-3.5 rounded-full bg-white text-brand-dark font-bold text-sm border border-slate-300 hover:border-brand-green transition-all text-center"
                   >
                     Online Inquiry Form
                   </a>
@@ -818,7 +821,7 @@ export default function PartnershipsPage() {
               </div>
 
               {/* WeChat QR Code Scan Container */}
-              <div className="lg:col-span-5 bg-gradient-to-br from-brand-dark via-slate-900 to-brand-dark text-white rounded-3xl sm:rounded-[36px] p-6 sm:p-10 shadow-2xl flex flex-col items-center justify-center text-center relative overflow-hidden">
+              <div className="lg:col-span-5 bg-gradient-to-br from-brand-dark via-slate-900 to-brand-dark text-white rounded-3xl sm:rounded-[36px] p-5 sm:p-10 shadow-2xl flex flex-col items-center justify-center text-center relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-48 h-48 bg-brand-green/20 rounded-full blur-[70px]" />
                 
                 <div className="relative z-10 flex flex-col items-center w-full">
@@ -826,27 +829,28 @@ export default function PartnershipsPage() {
                     <QrCode size={26} />
                   </div>
 
-                  <h4 className="text-2xl font-black mb-2">Scan to Add on WeChat</h4>
+                  <h4 className="text-xl sm:text-2xl font-black mb-2">Scan to Add on WeChat</h4>
                   <p className="text-xs text-slate-300 max-w-xs mb-6">
                     Connect directly with Tanjid Chowdhury for fast response on applicant files and bilateral agreements.
                   </p>
 
-                  {/* Designated WeChat QR Code Slot / PhotoSpace */}
-                  <div className="w-64 h-64 bg-white rounded-3xl p-4 shadow-2xl border-4 border-brand-green/30 relative flex flex-col items-center justify-center group">
-                    <div className="relative w-full h-full flex flex-col items-center justify-center border-2 border-dashed border-slate-300 rounded-2xl p-4 bg-slate-50">
-                      <QrCode size={110} className="text-slate-800 transition-transform group-hover:scale-105" />
-                      <div className="mt-3 px-3 py-1 rounded-full bg-brand-green text-white text-[11px] font-bold">
-                        WeChat: +86 156 8568 9193
-                      </div>
-                      <span className="text-[10px] text-slate-400 mt-1 font-semibold">
-                        Official WeChat Liaison QR
-                      </span>
+                  {/* Actual WeChat QR Code Image */}
+                  <div className="w-56 h-56 sm:w-64 sm:h-64 max-w-full bg-white rounded-3xl p-3 sm:p-4 shadow-2xl border-4 border-brand-green/30 relative flex flex-col items-center justify-center group overflow-hidden">
+                    <div className="relative w-full h-full rounded-2xl overflow-hidden bg-white flex items-center justify-center">
+                      <Image
+                        src="/partnershipImage/patnership-wechat-contact.jpg?v=20261110"
+                        alt="ILP Study WeChat QR Code (+86 156 8568 9193)"
+                        width={400}
+                        height={400}
+                        unoptimized={true}
+                        className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
+                      />
                     </div>
                   </div>
 
                   <div className="mt-6 text-xs text-slate-300 font-medium">
                     China / WeChat Contact:&nbsp;
-                    <span className="text-brand-green font-bold text-sm">+86 156 8568 9193</span>
+                    <span className="text-brand-green font-bold text-sm block sm:inline mt-0.5 sm:mt-0">+86 156 8568 9193</span>
                   </div>
                 </div>
               </div>

@@ -224,12 +224,6 @@ export default function CookiePolicyPage() {
                   </Link>
                 </div>
               </div>
-
-              <div className="pt-4 text-center">
-                <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
-                  Website content | October 2026
-                </span>
-              </div>
             </div>
 
           </div>

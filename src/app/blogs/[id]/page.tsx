@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import { notFound } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import JsonLd from '@/components/JsonLd';
@@ -19,6 +19,12 @@ interface PageProps {
   params: Promise<{ id: string }>;
 }
 
+const LEGACY_BLOG_REDIRECTS: Record<string, string> = {
+  'csca-exam-preparation-and-syllabus-in-china': 'csca-for-bangladeshi-students',
+  'student-visa-china-from-bangladesh-x1-x2': 'china-student-visa-from-bangladesh',
+  'after-admission-to-visa-in-china-timeline': 'china-student-visa-from-bangladesh',
+};
+
 export async function generateStaticParams() {
   const params: { id: string }[] = [];
   studentGuides.forEach((guide) => {
@@ -32,7 +38,8 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { id } = await params;
-  const guide = studentGuides.find((g) => g.id === id || g.numericId === id);
+  const resolvedId = LEGACY_BLOG_REDIRECTS[id] || id;
+  const guide = studentGuides.find((g) => g.id === resolvedId || g.numericId === resolvedId);
 
   if (!guide) {
     return {
@@ -57,6 +64,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function BlogDetailPage({ params }: PageProps) {
   const { id } = await params;
+  const canonicalLegacy = LEGACY_BLOG_REDIRECTS[id];
+  if (canonicalLegacy) {
+    redirect(`/blogs/${canonicalLegacy}`);
+  }
+
   const guide = studentGuides.find((g) => g.id === id || g.numericId === id);
 
   if (!guide) {
@@ -94,7 +106,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
     <>
       <JsonLd data={articleSchema} />
       <Header />
-      <main className="min-h-screen bg-[#f8fafc] pt-[68px] sm:pt-[76px]">
+      <main className="min-h-screen bg-[#f8fafc] pt-[92px] sm:pt-[100px]">
         
         {/* Breadcrumb Navigation */}
         <div className="bg-white border-b border-slate-200/80">
@@ -207,10 +219,10 @@ export default async function BlogDetailPage({ params }: PageProps) {
                 <p className="text-xs sm:text-sm text-slate-300 font-medium leading-relaxed max-w-xl">
                   Discuss your completed qualifications (SSC/HSC/Degree), preferred subjects, and budget with ILP Study counselors in Mirpur, Dhaka.
                 </p>
-                <div className="pt-2 flex flex-wrap gap-3">
+                <div className="pt-2 flex flex-col sm:flex-row flex-wrap gap-3">
                   <Link
                     href="/contact"
-                    className="px-6 py-3 rounded-full bg-brand-pink hover:bg-[#d10079] text-white font-bold text-xs uppercase tracking-wider shadow-glow-pink transition-all inline-flex items-center gap-2"
+                    className="w-full sm:w-auto px-6 py-3 rounded-full bg-brand-pink hover:bg-[#d10079] text-white font-bold text-xs uppercase tracking-wider shadow-glow-pink transition-all inline-flex items-center justify-center gap-2"
                   >
                     Book a Free Consultation <ArrowRight size={14} />
                   </Link>
@@ -218,7 +230,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
                     href="https://wa.me/8801895626831"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-6 py-3 rounded-full bg-slate-800 hover:bg-slate-700 text-brand-green font-bold text-xs uppercase tracking-wider border border-slate-700 transition-all inline-flex items-center gap-2"
+                    className="w-full sm:w-auto px-6 py-3 rounded-full bg-slate-800 hover:bg-slate-700 text-brand-green font-bold text-xs uppercase tracking-wider border border-slate-700 transition-all inline-flex items-center justify-center gap-2"
                   >
                     Chat on WhatsApp
                   </a>
@@ -231,7 +243,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
           {/* Related Guides */}
           {guide.relatedGuides && guide.relatedGuides.length > 0 && (
             <div className="px-4 sm:px-0 space-y-4">
-              <div className="flex items-center justify-between">
+              <div className="flex flex-wrap items-center justify-between gap-2">
                 <h3 className="text-xl font-bold text-brand-dark">Continue Your Research</h3>
                 <Link href="/blogs" className="text-xs font-bold text-brand-pink hover:underline">
                   View All Blog Articles &rarr;

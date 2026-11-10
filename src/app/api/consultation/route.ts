@@ -40,7 +40,14 @@ export async function POST(request: Request) {
   try {
     let body: ConsultationPayload;
     try {
-      body = await request.json();
+      const parsed = await request.json();
+      if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) {
+        return NextResponse.json(
+          { success: false, error: 'Invalid request payload format.' },
+          { status: 400 }
+        );
+      }
+      body = parsed as ConsultationPayload;
     } catch {
       return NextResponse.json(
         { success: false, error: 'Invalid JSON request format.' },
@@ -49,7 +56,7 @@ export async function POST(request: Request) {
     }
 
     // 1. Spambot Honeypot Detection
-    if (body.botTrap && body.botTrap.trim() !== '') {
+    if (typeof body.botTrap === 'string' && body.botTrap.trim() !== '') {
       // Silently accept without sending to avoid educating spam bots
       return NextResponse.json({
         success: true,
@@ -60,7 +67,9 @@ export async function POST(request: Request) {
 
     // 2. Comprehensive Input Sanitization & Server-side Validation
     const fullName = sanitizeInput(body.fullName);
-    const ageRaw = sanitizeInput(body.age);
+    const ageRaw = typeof body.age === 'number' && !Number.isNaN(body.age)
+      ? String(body.age)
+      : sanitizeInput(body.age);
     const email = sanitizeInput(body.email).toLowerCase();
     const phone = sanitizeInput(body.phone);
     const programme = sanitizeInput(body.programme);
@@ -295,7 +304,7 @@ Dhaka Office: Kader’s Complex, Lift No. 9, East Shewrapara, Mirpur, Dhaka-1216
     // 5. Check Resend Configuration & Dispatch
     const apiKey = process.env.RESEND_API_KEY;
     const toEmail = process.env.RESEND_TO_EMAIL || 'info@ilpstudy.com';
-    const fromEmail = process.env.RESEND_FROM_EMAIL || 'ILP Study Portal <onboarding@resend.dev>';
+    const fromEmail = process.env.RESEND_FROM_EMAIL || 'ILP Study Portal <info@ilpstudy.com>';
 
     if (!apiKey) {
       console.warn(
@@ -319,7 +328,7 @@ Dhaka Office: Kader’s Complex, Lift No. 9, East Shewrapara, Mirpur, Dhaka-1216
 
     const resend = new Resend(apiKey);
 
-    let sendResult = await resend.emails.send({
+    const sendResult = await resend.emails.send({
       from: fromEmail,
       to: [toEmail],
       replyTo: email,
@@ -331,31 +340,12 @@ Dhaka Office: Kader’s Complex, Lift No. 9, East Shewrapara, Mirpur, Dhaka-1216
       },
     });
 
-    // If unverified test domain restricts recipient, automatically fallback to the registered Resend account email
-    if (sendResult.error && sendResult.error.message?.includes('You can only send testing emails to your own email address')) {
-      const match = sendResult.error.message.match(/\(([^)]+)\)/);
-      const registeredEmail = match ? match[1] : 'ilpstudy39@gmail.com';
-      console.warn(`[ILP Study] Target ${toEmail} requires domain verification. Delivering to account email (${registeredEmail}) as fallback.`);
-      
-      sendResult = await resend.emails.send({
-        from: fromEmail,
-        to: [registeredEmail],
-        replyTo: email,
-        subject: `[New Lead] Consultation Request: ${fullName} - ${programme} (${targetIntake})`,
-        html: emailHtml,
-        text: emailText,
-        headers: {
-          'X-Entity-Ref-ID': referenceId,
-        },
-      });
-    }
-
     if (sendResult.error) {
       console.error('[ILP Study] Resend API Error:', sendResult.error);
       return NextResponse.json(
         {
           success: false,
-          error: sendResult.error.message || 'Resend was unable to deliver the email.',
+          error: 'Unable to deliver your consultation request by email right now. Please try again shortly or reach us directly on WhatsApp.',
           code: sendResult.error.name,
         },
         { status: 502 }
@@ -376,11 +366,10 @@ Dhaka Office: Kader’s Complex, Lift No. 9, East Shewrapara, Mirpur, Dhaka-1216
 
   } catch (error) {
     console.error('[ILP Study] Unexpected API error:', error);
-    const errorMessage = error instanceof Error ? error.message : 'An unexpected server error occurred.';
     return NextResponse.json(
       {
         success: false,
-        error: errorMessage,
+        error: 'Unable to submit your request right now. Please try again or contact us on WhatsApp.',
       },
       { status: 500 }
     );

@@ -214,6 +214,9 @@ export default function ConsultationForm() {
 
     setIsSubmitting(true);
 
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 15000);
+
     try {
       const response = await fetch('/api/consultation', {
         method: 'POST',
@@ -221,15 +224,29 @@ export default function ConsultationForm() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData),
+        signal: controller.signal,
       });
 
-      const data = await response.json();
+      let data: {
+        success?: boolean;
+        error?: string;
+        referenceId?: string;
+        fields?: Record<string, string>;
+      } | null = null;
 
-      if (!response.ok || !data.success) {
-        if (data.fields && typeof data.fields === 'object') {
+      try {
+        data = await response.json();
+      } catch {
+        data = null;
+      }
+
+      if (!response.ok || !data?.success) {
+        if (data?.fields && typeof data.fields === 'object') {
           setFieldErrors(data.fields);
         }
-        throw new Error(data.error || 'Failed to submit your consultation request. Please check your details.');
+        throw new Error(
+          data?.error || 'Unable to process your request right now. Please try again or reach us via WhatsApp.'
+        );
       }
 
       setReferenceId(data.referenceId || `ILP-${Date.now().toString(36).toUpperCase()}`);
@@ -237,9 +254,14 @@ export default function ConsultationForm() {
       setSubmitError(null);
     } catch (err: unknown) {
       console.error('Submission error:', err);
-      const msg = err instanceof Error ? err.message : 'A network error occurred. Please try again.';
-      setSubmitError(msg);
+      if (err instanceof DOMException && err.name === 'AbortError') {
+        setSubmitError('Request timed out. Please check your internet connection or contact us directly on WhatsApp.');
+      } else {
+        const msg = err instanceof Error ? err.message : 'A network error occurred. Please try again or use WhatsApp.';
+        setSubmitError(msg);
+      }
     } finally {
+      clearTimeout(timeoutId);
       setIsSubmitting(false);
     }
   };
@@ -398,9 +420,22 @@ export default function ConsultationForm() {
           className="mb-6 p-4 rounded-2xl bg-rose-50 border border-rose-200 text-xs sm:text-sm text-rose-800 font-medium flex items-start gap-3 shadow-xs animate-in fade-in"
         >
           <AlertCircle size={18} className="text-rose-600 flex-shrink-0 mt-0.5" />
-          <div className="flex-1">
-            <strong className="block font-bold mb-0.5">Unable to Submit Request</strong>
-            <span>{submitError}</span>
+          <div className="flex-1 min-w-0 space-y-2">
+            <div>
+              <strong className="block font-bold mb-0.5">Unable to Submit Request</strong>
+              <span>{submitError}</span>
+            </div>
+            <div>
+              <a
+                href={`https://wa.me/8801895626831?text=${whatsappMessage}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-brand-green text-white font-bold text-xs hover:bg-[#00a85d] transition-colors shadow-xs"
+              >
+                <MessageSquare size={13} />
+                <span>Send Details on WhatsApp Instead</span>
+              </a>
+            </div>
           </div>
         </div>
       )}

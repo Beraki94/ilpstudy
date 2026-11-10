@@ -297,28 +297,28 @@ export default function CookieConsent() {
                 </p>
 
                 {/* Primary Action Buttons */}
-                <div className="grid grid-cols-2 gap-2.5 mb-3">
+                <div className="grid grid-cols-2 gap-2 sm:gap-2.5 mb-3">
                   <button
                     type="button"
                     onClick={handleAcceptAll}
-                    className="py-2.5 px-4 rounded-xl bg-brand-green hover:bg-[#00a85d] text-white font-bold text-xs sm:text-sm shadow-glow-green hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-1.5 cursor-pointer focus:outline-none focus:ring-2 focus:ring-brand-green/50"
+                    className="py-2.5 px-2.5 sm:px-4 rounded-xl bg-brand-green hover:bg-[#00a85d] text-white font-bold text-[11px] sm:text-sm shadow-glow-green hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-1 sm:gap-1.5 cursor-pointer focus:outline-none focus:ring-2 focus:ring-brand-green/50"
                   >
-                    <Check size={16} strokeWidth={2.5} />
+                    <Check size={15} strokeWidth={2.5} className="flex-shrink-0" />
                     <span>Accept All</span>
                   </button>
 
                   <button
                     type="button"
                     onClick={handleEssentialOnly}
-                    className="py-2.5 px-4 rounded-xl bg-white/10 hover:bg-white/15 text-slate-200 font-semibold text-xs sm:text-sm border border-white/15 transition-all text-center flex items-center justify-center gap-1.5 cursor-pointer focus:outline-none focus:ring-2 focus:ring-white/20"
+                    className="py-2.5 px-2.5 sm:px-4 rounded-xl bg-white/10 hover:bg-white/15 text-slate-200 font-semibold text-[11px] sm:text-sm border border-white/15 transition-all text-center flex items-center justify-center gap-1 sm:gap-1.5 cursor-pointer focus:outline-none focus:ring-2 focus:ring-white/20"
                   >
-                    <ShieldCheck size={15} className="text-slate-300" />
+                    <ShieldCheck size={14} className="text-slate-300 flex-shrink-0" />
                     <span>Essential Only</span>
                   </button>
                 </div>
 
                 {/* Customize / Preferences Link */}
-                <div className="flex items-center justify-between pt-2 border-t border-white/10 text-[11px] text-slate-400">
+                <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-white/10 text-[11px] text-slate-400">
                   <button
                     type="button"
                     onClick={() => setViewMode('customize')}

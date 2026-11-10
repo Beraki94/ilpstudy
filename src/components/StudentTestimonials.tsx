@@ -258,7 +258,7 @@ export default function StudentTestimonials() {
           {duplicatedList.map((item, idx) => (
             <div
               key={`${item.id}-${idx}`}
-              className="w-[320px] sm:w-[380px] bg-white rounded-3xl p-6 sm:p-7 border border-slate-100 shadow-card-dark hover:shadow-card-dark-hover hover:-translate-y-2 hover:border-brand-pink/50 transition-all duration-300 flex-shrink-0 flex flex-col justify-between group"
+              className="w-[280px] sm:w-[360px] md:w-[380px] bg-white rounded-3xl p-5 sm:p-7 border border-slate-100 shadow-card-dark hover:shadow-card-dark-hover hover:-translate-y-2 hover:border-brand-pink/50 transition-all duration-300 flex-shrink-0 flex flex-col justify-between group"
             >
               <div>
                 {/* Header: Passport Photo Slot + Student Info */}

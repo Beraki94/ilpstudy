@@ -111,7 +111,7 @@ export default function Footer() {
                 <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 block mb-2">
                   Follow Us Online
                 </span>
-                <div className="flex items-center gap-2">
+                <div className="flex flex-wrap items-center gap-2">
                   <a
                     href="https://www.facebook.com/ilpstudy/"
                     target="_blank"
@@ -389,20 +389,20 @@ export default function Footer() {
                   </div>
 
                   <div className="space-y-2.5 pt-1">
-                    <a href="tel:+8801602566398" className="flex items-center gap-2.5 text-slate-200 hover:text-brand-pink font-semibold">
-                      <Phone size={16} className="text-brand-pink" />
+                    <a href="tel:+8801602566398" className="flex items-center gap-2.5 text-slate-200 hover:text-brand-pink font-semibold text-xs sm:text-sm">
+                      <Phone size={15} className="text-brand-pink flex-shrink-0" />
                       <span>Hotline: +880 1602 566398</span>
                     </a>
-                    <a href="https://wa.me/8801895626831" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2.5 text-slate-200 hover:text-brand-green font-semibold">
-                      <MessageSquare size={16} className="text-brand-green" />
+                    <a href="https://wa.me/8801895626831" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2.5 text-slate-200 hover:text-brand-green font-semibold text-xs sm:text-sm">
+                      <MessageSquare size={15} className="text-brand-green flex-shrink-0" />
                       <span>WhatsApp: +880 1895 626831</span>
                     </a>
-                    <a href="mailto:info@ilpstudy.com" className="flex items-center gap-2.5 text-slate-200 hover:text-brand-purple font-medium">
-                      <Mail size={16} className="text-brand-purple" />
-                      <span>Email: info@ilpstudy.com</span>
+                    <a href="mailto:info@ilpstudy.com" className="flex items-center gap-2.5 text-slate-200 hover:text-brand-purple font-medium text-xs sm:text-sm min-w-0">
+                      <Mail size={15} className="text-brand-purple flex-shrink-0" />
+                      <span className="break-all sm:break-normal">Email: info@ilpstudy.com</span>
                     </a>
-                    <a href="https://wa.me/8615685689193" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2.5 text-slate-200 hover:text-brand-green font-semibold">
-                      <MessageSquare size={16} className="text-brand-green" />
+                    <a href="https://wa.me/8615685689193" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2.5 text-slate-200 hover:text-brand-green font-semibold text-xs sm:text-sm">
+                      <MessageSquare size={15} className="text-brand-green flex-shrink-0" />
                       <span>WhatsApp &amp; WeChat: +86 156 8568 9193</span>
                     </a>
                   </div>
@@ -414,12 +414,12 @@ export default function Footer() {
         </div>
         
         {/* Bottom Legal / Editorial Policy Bar (Each Link Unique) */}
-        <div className="pt-8 border-t border-slate-800/90 flex flex-col md:flex-row justify-between items-center gap-6">
+        <div className="pt-8 border-t border-slate-800/90 flex flex-col md:flex-row justify-between items-center gap-5 sm:gap-6">
           <p suppressHydrationWarning className="text-xs text-slate-400 font-medium text-center md:text-left">
             &copy; {new Date().getFullYear()} International Learning Pathways (trading as ILP Study). All rights reserved.
           </p>
 
-          <div className="flex flex-wrap justify-center gap-6 text-xs text-slate-400 font-medium">
+          <div className="flex flex-wrap justify-center gap-x-4 gap-y-2.5 sm:gap-6 text-xs text-slate-400 font-medium">
             <Link href="/how-we-check" className="hover:text-white transition-colors flex items-center gap-1.5 text-slate-300 font-semibold">
               <ShieldCheck size={14} className="text-brand-green" />
               <span>How We Check Information</span>

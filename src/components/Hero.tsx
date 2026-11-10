@@ -7,7 +7,7 @@ import PhotoSpace from '@/components/PhotoSpace';
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[92vh] flex items-center pt-28 pb-16 overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-50/60">
+    <section className="relative min-h-[92vh] flex items-center pt-32 sm:pt-36 lg:pt-40 pb-16 overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-50/60">
       {/* Decorative Brand Shapes Background - Distinctive Sweeping Hero Rings */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Top-Right Rotating Brand Pink Ring - Clockwise */}
@@ -118,7 +118,7 @@ export default function Hero() {
               <motion.div 
                 animate={{ y: [0, -22, 0] }}
                 transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-8 -left-2 sm:top-14 sm:-left-5 bg-brand-pink text-white rounded-xl sm:rounded-2xl p-2.5 sm:p-4 shadow-glow-pink z-30 flex items-center gap-2 sm:gap-3"
+                className="absolute top-6 left-2 sm:top-14 sm:-left-5 bg-brand-pink text-white rounded-xl sm:rounded-2xl p-2.5 sm:p-4 shadow-glow-pink z-30 flex items-center gap-2 sm:gap-3"
               >
                 <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-white/20 flex items-center justify-center font-bold flex-shrink-0">
                   <GraduationCap size={18} className="sm:w-[22px] sm:h-[22px]" />

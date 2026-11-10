@@ -229,7 +229,7 @@ export default function AdmissionWorkflow() {
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
           viewport={{ once: true, margin: "-40px" }}
           transition={{ duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] }}
-          className="rounded-3xl sm:rounded-[36px] bg-gradient-to-br from-slate-900 via-brand-dark to-slate-900 p-8 sm:p-12 text-white relative overflow-hidden shadow-2xl border border-slate-800"
+          className="rounded-3xl sm:rounded-[36px] bg-gradient-to-br from-slate-900 via-brand-dark to-slate-900 p-5 sm:p-12 text-white relative overflow-hidden shadow-2xl border border-slate-800"
         >
           <div className="absolute top-0 right-0 w-80 h-80 bg-brand-pink/15 rounded-full blur-[90px] pointer-events-none" />
           <div className="absolute bottom-0 left-0 w-80 h-80 bg-brand-green/15 rounded-full blur-[90px] pointer-events-none" />

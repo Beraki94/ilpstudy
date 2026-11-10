@@ -239,7 +239,7 @@ export default function ScholarshipsPage() {
               <span className="text-xs font-bold uppercase tracking-wider text-brand-green block mb-1">
                 ADMISSIONS PROCESS
               </span>
-              <h2 className="text-3xl font-black text-brand-dark tracking-tight">
+              <h2 className="text-2xl sm:text-3xl font-black text-brand-dark tracking-tight">
                 Prepare Your University Application
               </h2>
               <p className="text-slate-600 text-sm sm:text-base font-medium mt-2">
@@ -247,13 +247,13 @@ export default function ScholarshipsPage() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-3 gap-6 sm:gap-8">
               {steps.map((st) => (
-                <div key={st.num} className="p-8 rounded-3xl bg-white border border-slate-200/90 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 transition-all duration-300 relative space-y-3">
+                <div key={st.num} className="p-5 sm:p-8 rounded-3xl bg-white border border-slate-200/90 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 transition-all duration-300 relative space-y-3">
                   <div className="w-10 h-10 rounded-2xl bg-brand-pink text-white font-black flex items-center justify-center text-sm shadow-sm">
                     {st.num}
                   </div>
-                  <h3 className="text-xl font-black text-brand-dark">{st.title}</h3>
+                  <h3 className="text-lg sm:text-xl font-black text-brand-dark">{st.title}</h3>
                   <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed">
                     {st.desc}
                   </p>
@@ -262,19 +262,19 @@ export default function ScholarshipsPage() {
             </div>
 
             {/* Checklist CTA Banner */}
-            <div className="mt-12 p-8 rounded-3xl bg-white border border-slate-200/90 shadow-card flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div className="mt-10 sm:mt-12 p-5 sm:p-8 rounded-3xl bg-white border border-slate-200/90 shadow-card flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 sm:gap-6">
               <div>
-                <h4 className="text-xl font-black text-brand-dark">Need the Full Application Document Checklist?</h4>
+                <h4 className="text-lg sm:text-xl font-black text-brand-dark">Need the Full Application Document Checklist?</h4>
                 <p className="text-xs sm:text-sm text-slate-600 font-medium mt-1">
                   Download or complete the interactive checklist for passports, transcripts, and medical forms.
                 </p>
               </div>
               <Link
                 href="/checklist"
-                className="px-6 py-3 rounded-full bg-brand-dark text-white font-bold text-xs sm:text-sm hover:bg-brand-pink transition-colors whitespace-nowrap inline-flex items-center gap-2"
+                className="w-full sm:w-auto px-5 sm:px-6 py-3 rounded-full bg-brand-dark text-white font-bold text-xs sm:text-sm hover:bg-brand-pink transition-colors inline-flex items-center justify-center gap-2 text-center flex-shrink-0"
               >
                 <span>View Full Document Checklist</span>
-                <ArrowRight size={14} />
+                <ArrowRight size={14} className="flex-shrink-0" />
               </Link>
             </div>
           </div>

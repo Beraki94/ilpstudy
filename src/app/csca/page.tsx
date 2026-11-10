@@ -8,7 +8,12 @@ import {
   Laptop,
   Building2,
   FileText,
-  ArrowRight
+  ArrowRight,
+  Calendar,
+  Clock,
+  Calculator,
+  Atom,
+  FlaskConical
 } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -89,6 +94,36 @@ export default function CSCAPage() {
       mathematics: "26 Jun, 9–10 AM",
       physics: "27 Jun, 6–7 AM",
       chemistry: "27 Jun, 8:30–9:30 AM",
+    },
+  ];
+
+  const subjectColumns = [
+    {
+      key: 'mathematics' as const,
+      label: 'Mathematics',
+      icon: Calculator,
+      dotColor: 'bg-brand-pink',
+      headerIconWrap: 'bg-brand-pink/20 text-brand-pink',
+      mobileIconWrap: 'bg-brand-pink/10 text-brand-pink',
+      timeBadge: 'bg-brand-pink/10 text-brand-pink border-brand-pink/20',
+    },
+    {
+      key: 'physics' as const,
+      label: 'Physics',
+      icon: Atom,
+      dotColor: 'bg-brand-green',
+      headerIconWrap: 'bg-brand-green/20 text-brand-green',
+      mobileIconWrap: 'bg-brand-green/10 text-brand-green',
+      timeBadge: 'bg-brand-green/10 text-brand-green border-brand-green/20',
+    },
+    {
+      key: 'chemistry' as const,
+      label: 'Chemistry',
+      icon: FlaskConical,
+      dotColor: 'bg-brand-purple',
+      headerIconWrap: 'bg-brand-purple/25 text-purple-300',
+      mobileIconWrap: 'bg-brand-purple/15 text-purple-700',
+      timeBadge: 'bg-brand-purple/15 text-purple-700 border-brand-purple/30',
     },
   ];
 
@@ -207,7 +242,7 @@ export default function CSCAPage() {
                 Understand the exam format
               </a>
               <Link
-                href="/blogs/csca-exam-preparation-and-syllabus-in-china"
+                href="/blogs/csca-for-bangladeshi-students"
                 className="w-full sm:w-auto px-6 py-3 rounded-full bg-slate-50 text-brand-dark text-xs sm:text-sm font-bold border border-slate-200 hover:border-brand-green transition-all text-center"
               >
                 Read In-Depth CSCA Guide
@@ -216,53 +251,177 @@ export default function CSCAPage() {
           </div>
         </section>
 
-        {/* Section 2: Published Upcoming Sessions - Seamless on mobile */}
-        <section id="dates" className="py-2.5 sm:py-6 max-w-7xl mx-auto px-0 sm:px-6 lg:px-8 scroll-mt-20">
-          <div className="bg-white rounded-none sm:rounded-[36px] px-5 py-8 sm:p-10 border-y sm:border border-slate-100 sm:border-slate-200/90 shadow-none sm:shadow-card space-y-5 sm:space-y-6">
-            <div>
-              <span className="text-xs font-bold uppercase tracking-wider text-brand-green block mb-1">
-                PUBLISHED UPCOMING SESSIONS
-              </span>
-              <h3 className="text-xl sm:text-2xl font-black text-brand-dark">
-                CSCA Exam Dates
-              </h3>
+        {/* Section 2: Published Upcoming Sessions - High-contrast visual schedule */}
+        <section id="dates" className="py-2.5 sm:py-6 max-w-7xl mx-auto px-0 sm:px-6 lg:px-8 scroll-mt-28">
+          <div className="bg-white rounded-none sm:rounded-[36px] px-5 py-8 sm:p-10 border-y sm:border border-slate-100 sm:border-slate-200/90 shadow-none sm:shadow-card space-y-6">
+            
+            {/* Section Header Row */}
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+              <div>
+                <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-brand-green mb-1.5">
+                  <Calendar size={14} className="flex-shrink-0" />
+                  <span>Published Upcoming Sessions</span>
+                </span>
+                <h3 className="text-2xl sm:text-3xl font-black text-brand-dark tracking-tight">
+                  CSCA Exam Dates
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-500 font-medium mt-1">
+                  Published STEM subject schedule across all six upcoming test windows (2026–2027).
+                </p>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-2">
+                {subjectColumns.map((col) => (
+                  <span
+                    key={col.key}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 border border-slate-200/80 text-[11px] font-bold text-slate-700"
+                  >
+                    <span className={`w-2 h-2 rounded-full ${col.dotColor}`}></span>
+                    <span>{col.label}</span>
+                  </span>
+                ))}
+              </div>
             </div>
 
-            <div className="overflow-x-auto rounded-xl border border-slate-200/80">
-              <table className="w-full text-left text-xs sm:text-sm">
-                <thead className="bg-slate-50 border-b border-slate-200 text-slate-500 font-bold uppercase tracking-wider text-[11px]">
+            {/* Desktop Schedule Table */}
+            <div className="hidden md:block overflow-hidden rounded-2xl border border-slate-200/90 shadow-sm">
+              <table className="w-full text-left text-sm">
+                <thead className="bg-brand-dark text-white font-bold uppercase tracking-wider text-[11px]">
                   <tr>
-                    <th className="py-3.5 px-4 sm:px-6 whitespace-nowrap">Session</th>
-                    <th className="py-3.5 px-4 sm:px-6 whitespace-nowrap">Mathematics</th>
-                    <th className="py-3.5 px-4 sm:px-6 whitespace-nowrap">Physics</th>
-                    <th className="py-3.5 px-4 sm:px-6 whitespace-nowrap">Chemistry</th>
+                    <th className="py-4 px-6 whitespace-nowrap">
+                      <span className="inline-flex items-center gap-2">
+                        <Calendar size={14} className="text-slate-300" />
+                        <span>Session</span>
+                      </span>
+                    </th>
+                    {subjectColumns.map((col) => {
+                      const SubjectIcon = col.icon;
+                      return (
+                        <th key={col.key} className="py-4 px-6 whitespace-nowrap">
+                          <span className="inline-flex items-center gap-2">
+                            <span className={`w-6 h-6 rounded-lg flex items-center justify-center ${col.headerIconWrap}`}>
+                              <SubjectIcon size={13} />
+                            </span>
+                            <span>{col.label}</span>
+                          </span>
+                        </th>
+                      );
+                    })}
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-100 font-medium">
-                  {examSessions.map((s, idx) => (
-                    <tr key={idx} className="hover:bg-slate-50/80 transition-colors">
-                      <td className="py-3.5 px-4 sm:px-6 font-extrabold text-brand-dark whitespace-nowrap">
-                        {s.session}
-                      </td>
-                      <td className="py-3.5 px-4 sm:px-6 text-slate-700 whitespace-nowrap">
-                        {s.mathematics}
-                      </td>
-                      <td className="py-3.5 px-4 sm:px-6 text-slate-700 whitespace-nowrap">
-                        {s.physics}
-                      </td>
-                      <td className="py-3.5 px-4 sm:px-6 text-slate-700 whitespace-nowrap">
-                        {s.chemistry}
-                      </td>
-                    </tr>
-                  ))}
+                <tbody className="divide-y divide-slate-100 bg-white">
+                  {examSessions.map((s, idx) => {
+                    const isNext = idx === 0;
+
+                    return (
+                      <tr
+                        key={s.session}
+                        className={`transition-colors hover:bg-slate-50/90 ${
+                          isNext ? 'bg-brand-pink/[0.025]' : ''
+                        }`}
+                      >
+                        <td className="py-4 px-6 whitespace-nowrap">
+                          <div className="flex items-center gap-2.5">
+                            <span
+                              className={`px-3.5 py-1.5 rounded-xl font-black text-xs tracking-wide shadow-2xs ${
+                                isNext
+                                  ? 'bg-brand-dark text-white'
+                                  : 'bg-slate-100 text-brand-dark'
+                              }`}
+                            >
+                              {s.session}
+                            </span>
+                            {isNext && (
+                              <span className="px-2 py-0.5 rounded-full bg-brand-green/15 text-brand-green border border-brand-green/30 text-[10px] font-extrabold uppercase tracking-wider">
+                                Next
+                              </span>
+                            )}
+                          </div>
+                        </td>
+                        {subjectColumns.map((col) => {
+                          const [date, time] = s[col.key].split(', ');
+                          return (
+                            <td key={col.key} className="py-4 px-6 whitespace-nowrap">
+                              <div className="flex flex-col items-start gap-1">
+                                <span className="font-extrabold text-brand-dark text-sm">{date}</span>
+                                <span
+                                  className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full border text-[11px] font-bold ${col.timeBadge}`}
+                                >
+                                  <Clock size={11} className="flex-shrink-0" />
+                                  <span>{time}</span>
+                                </span>
+                              </div>
+                            </td>
+                          );
+                        })}
+                      </tr>
+                    );
+                  })}
                 </tbody>
               </table>
             </div>
 
-            <div className="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-slate-50/70 border border-slate-200/70 text-xs text-slate-600 font-medium flex items-start gap-2.5">
+            {/* Mobile Card Schedule View */}
+            <div className="md:hidden space-y-3.5">
+              {examSessions.map((s, idx) => {
+                const isNext = idx === 0;
+
+                return (
+                  <div
+                    key={s.session}
+                    className="rounded-2xl border border-slate-200/90 bg-white overflow-hidden shadow-xs"
+                  >
+                    <div className="bg-brand-dark text-white px-4 py-2.5 flex items-center justify-between">
+                      <span className="inline-flex items-center gap-2 font-black text-sm">
+                        <Calendar size={14} className="text-brand-green flex-shrink-0" />
+                        <span>{s.session}</span>
+                      </span>
+                      <span
+                        className={`px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider ${
+                          isNext
+                            ? 'bg-brand-green text-white'
+                            : 'bg-white/10 text-slate-300'
+                        }`}
+                      >
+                        {isNext ? 'Upcoming' : 'Scheduled'}
+                      </span>
+                    </div>
+
+                    <div className="divide-y divide-slate-100 px-4">
+                      {subjectColumns.map((col) => {
+                        const SubjectIcon = col.icon;
+                        const [date, time] = s[col.key].split(', ');
+                        return (
+                          <div key={col.key} className="py-3 flex items-center justify-between gap-2">
+                            <span className="inline-flex items-center gap-2 text-xs font-bold text-slate-700">
+                              <span
+                                className={`w-6 h-6 rounded-lg flex items-center justify-center flex-shrink-0 ${col.mobileIconWrap}`}
+                              >
+                                <SubjectIcon size={13} />
+                              </span>
+                              <span>{col.label}</span>
+                            </span>
+                            <div className="flex items-center gap-2 flex-shrink-0">
+                              <span className="text-xs font-extrabold text-brand-dark">{date}</span>
+                              <span
+                                className={`px-2 py-0.5 rounded-full border text-[10px] font-bold ${col.timeBadge}`}
+                              >
+                                {time}
+                              </span>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            <div className="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-slate-50/80 border border-slate-200/70 text-xs text-slate-600 font-medium flex items-start gap-2.5">
               <AlertCircle size={16} className="text-brand-pink flex-shrink-0 mt-0.5" />
               <span>
-                Dates checked against the official CSCA website on <strong>12 October 2026</strong>. Visit the official website independently to confirm changes, later sessions and exact examination times. <strong>Bangladesh time is two hours behind Beijing time (UTC+6 vs UTC+8).</strong>
+                Visit the official CSCA website independently to confirm registration windows, any schedule updates, and exact examination times. <strong>Bangladesh time is two hours behind Beijing time (UTC+6 vs UTC+8).</strong>
               </span>
             </div>
           </div>

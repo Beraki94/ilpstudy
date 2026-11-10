@@ -66,7 +66,7 @@ export default function BudgetPage() {
             </div>
             <Link
               href="/universities#tuition"
-              className="w-full sm:w-auto px-5 py-2.5 rounded-full bg-brand-dark text-white text-xs font-bold hover:bg-brand-pink transition-colors whitespace-nowrap inline-flex items-center justify-center gap-1.5"
+              className="w-full sm:w-auto px-4 sm:px-5 py-2.5 rounded-full bg-brand-dark text-white text-xs font-bold hover:bg-brand-pink transition-colors whitespace-normal sm:whitespace-nowrap text-center inline-flex items-center justify-center gap-1.5 flex-shrink-0"
             >
               <span>View Tuition by University</span>
               <ArrowRight size={12} />

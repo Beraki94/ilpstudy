@@ -452,9 +452,6 @@ export default function BlogsPage() {
                 <ArrowRight size={13} />
               </Link>
             </div>
-            <div className="text-[11px] text-slate-400 font-semibold pt-2">
-              Website content | 12 October 2026
-            </div>
           </div>
         </section>
 

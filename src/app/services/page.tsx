@@ -147,35 +147,35 @@ export default function ServicesPage() {
         />
 
         {/* HERO FEATURE BLOCK */}
-        <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-brand-dark rounded-[40px] rounded-br-[120px] p-8 sm:p-14 lg:p-20 relative overflow-hidden shadow-2xl text-white">
+        <section className="py-10 sm:py-16 lg:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-brand-dark rounded-3xl sm:rounded-[40px] sm:rounded-br-[120px] p-5 sm:p-14 lg:p-20 relative overflow-hidden shadow-2xl text-white">
             <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-brand-green/20 rounded-full blur-[120px] pointer-events-none"></div>
             <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-brand-pink/20 rounded-full blur-[100px] pointer-events-none"></div>
 
-            <div className="grid lg:grid-cols-12 gap-12 items-center relative z-10">
+            <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
               <div className="lg:col-span-6">
                 <span className="text-xs font-bold uppercase tracking-wider text-brand-green block mb-3">
                   Comprehensive Student &amp; Institutional Support
                 </span>
-                <h2 className="text-3xl sm:text-5xl font-black mb-6 leading-tight">
+                <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black mb-5 sm:mb-6 leading-tight">
                   Structured Guidance for <br />
                   <span className="text-transparent bg-clip-text bg-gradient-brand">
                     Higher Education Abroad
                   </span>
                 </h2>
-                <p className="text-base sm:text-lg text-slate-300 font-normal leading-relaxed mb-8">
+                <p className="text-sm sm:text-lg text-slate-300 font-normal leading-relaxed mb-6 sm:mb-8">
                   With dedicated student placements in top Chinese universities, ILP Study manages every phase of the international application process with rigorous quality checks and direct university communication.
                 </p>
-                <div className="flex flex-wrap gap-4">
+                <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
                   <a
                     href="/contact"
-                    className="px-8 py-4 rounded-xl rounded-tr-3xl bg-brand-green text-white font-bold text-base shadow-glow-green hover:bg-[#00a85d] transition-all flex items-center gap-2"
+                    className="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl rounded-tr-3xl bg-brand-green text-white font-bold text-sm sm:text-base shadow-glow-green hover:bg-[#00a85d] transition-all flex items-center justify-center gap-2"
                   >
                     Book A Free Consultation <ArrowRight size={18} />
                   </a>
                   <a
                     href="/partnerships"
-                    className="px-8 py-4 rounded-xl rounded-tl-3xl bg-white/10 text-white font-bold text-base hover:bg-white/20 transition-all border border-white/20"
+                    className="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl rounded-tl-3xl bg-white/10 text-white font-bold text-sm sm:text-base hover:bg-white/20 transition-all border border-white/20 text-center"
                   >
                     University Partnerships
                   </a>
@@ -198,31 +198,31 @@ export default function ServicesPage() {
         </section>
 
         {/* 4 CORE SERVICE TILES */}
-        <section className="py-24 bg-brand-light relative">
+        <section className="py-12 sm:py-20 lg:py-24 bg-brand-light relative">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16 max-w-3xl mx-auto">
+            <div className="text-center mb-10 sm:mb-16 max-w-3xl mx-auto">
               <span className="text-xs font-bold uppercase tracking-wider text-brand-pink block mb-2">
                 What We Offer
               </span>
-              <h2 className="text-3xl sm:text-4xl font-black text-brand-dark tracking-tight mb-4">
+              <h2 className="text-2xl sm:text-4xl font-black text-brand-dark tracking-tight mb-4">
                 Full-Lifecycle Admissions Support
               </h2>
-              <p className="text-slate-600 text-lg">
+              <p className="text-slate-600 text-sm sm:text-lg">
                 We eliminate guesswork, verify credentials, and guarantee that every application submitted meets the highest institutional standard.
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
               {studentServices.map((service, idx) => (
                 <div
                   key={idx}
-                  className="bg-white rounded-3xl p-8 border border-slate-200/90 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 hover:border-brand-pink/50 transition-all duration-300 flex flex-col justify-between group"
+                  className="bg-white rounded-3xl p-5 sm:p-8 border border-slate-200/90 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 hover:border-brand-pink/50 transition-all duration-300 flex flex-col justify-between group"
                 >
                   <div>
-                    <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 ${service.color} shadow-sm group-hover:scale-110 transition-transform`}>
+                    <div className={`w-14 h-14 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center mb-5 sm:mb-6 ${service.color} shadow-sm group-hover:scale-110 transition-transform`}>
                       {service.icon}
                     </div>
-                    <h3 className="text-xl font-bold text-brand-dark mb-3 group-hover:text-brand-pink transition-colors">
+                    <h3 className="text-lg sm:text-xl font-bold text-brand-dark mb-3 group-hover:text-brand-pink transition-colors">
                       {service.title}
                     </h3>
                     <p className="text-slate-600 text-sm leading-relaxed">
@@ -239,25 +239,25 @@ export default function ServicesPage() {
         </section>
 
         {/* THE 6-STAGE WORKFLOW (DETAILED) */}
-        <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16 max-w-3xl mx-auto">
+        <section className="py-12 sm:py-20 lg:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10 sm:mb-16 max-w-3xl mx-auto">
             <div className="inline-flex items-center gap-2 mb-3 px-4 py-1.5 rounded-full bg-brand-green/10 text-brand-green text-xs font-bold uppercase tracking-wider">
               <ShieldCheck size={14} />
               <span>Standard Operating Procedure</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-black text-brand-dark tracking-tight mb-6">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-brand-dark tracking-tight mb-4 sm:mb-6">
               How We Work: The 6 Stages
             </h2>
-            <p className="text-lg text-slate-600 font-medium">
+            <p className="text-sm sm:text-lg text-slate-600 font-medium">
               Every applicant we send has been through the exact same six stages, ensuring files received by partner universities are complete, consistent, and correctly documented.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {workflowStages.map((stage, idx) => (
               <div
                 key={idx}
-                className="bg-white rounded-[32px] rounded-tl-[70px] p-8 border border-slate-200/90 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 hover:border-brand-pink/50 transition-all duration-300 flex flex-col justify-between group"
+                className="bg-white rounded-3xl sm:rounded-[32px] sm:rounded-tl-[70px] p-5 sm:p-8 border border-slate-200/90 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 hover:border-brand-pink/50 transition-all duration-300 flex flex-col justify-between group"
               >
                 <div>
                   <div className="flex items-center justify-between mb-6">
@@ -310,21 +310,21 @@ export default function ServicesPage() {
         </section>
 
         {/* ACCORDION FAQ SECTION */}
-        <section className="py-24 bg-brand-light relative">
+        <section className="py-12 sm:py-20 lg:py-24 bg-brand-light relative">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-12 gap-16 items-center">
+            <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 items-center">
               
               <div className="lg:col-span-5">
                 <span className="text-xs font-bold uppercase tracking-wider text-brand-purple block mb-3">
                   Key Inquiries
                 </span>
-                <h2 className="text-3xl sm:text-4xl font-black text-brand-dark tracking-tight mb-6">
+                <h2 className="text-2xl sm:text-4xl font-black text-brand-dark tracking-tight mb-4 sm:mb-6">
                   Clear Answers to Critical Admissions Questions
                 </h2>
-                <p className="text-slate-600 text-base leading-relaxed mb-8">
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-6 sm:mb-8">
                   Whether understanding JW202 processing, embassy visa requirements, or scholarship criteria, our counsellors give you direct, honest answers before you commit.
                 </p>
-                <div className="p-6 rounded-3xl bg-white border border-slate-200/90 shadow-card">
+                <div className="p-5 sm:p-6 rounded-3xl bg-white border border-slate-200/90 shadow-card">
                   <h4 className="font-bold text-brand-dark text-base mb-1">Need One-on-One Counsel?</h4>
                   <p className="text-xs text-slate-500 mb-4">Visit our Dhaka office or connect with us directly on WeChat.</p>
                   <a
@@ -344,14 +344,14 @@ export default function ServicesPage() {
                   >
                     <button 
                       onClick={() => setActiveAccordion(activeAccordion === idx ? -1 : idx)}
-                      className="w-full px-6 py-5 flex items-center justify-between text-left"
+                      className="w-full px-4 sm:px-6 py-4 sm:py-5 flex items-center justify-between text-left gap-3"
                     >
-                      <span className={`text-base font-bold transition-colors ${activeAccordion === idx ? 'text-brand-green' : 'text-brand-dark'}`}>
+                      <span className={`text-sm sm:text-base font-bold transition-colors ${activeAccordion === idx ? 'text-brand-green' : 'text-brand-dark'}`}>
                         {acc.title}
                       </span>
                       <ChevronDown 
                         size={20} 
-                        className={`transition-transform duration-300 ${activeAccordion === idx ? 'text-brand-green rotate-180' : 'text-slate-400'}`} 
+                        className={`flex-shrink-0 transition-transform duration-300 ${activeAccordion === idx ? 'text-brand-green rotate-180' : 'text-slate-400'}`} 
                       />
                     </button>
                     <AnimatePresence>
@@ -362,7 +362,7 @@ export default function ServicesPage() {
                           exit={{ height: 0, opacity: 0 }}
                           className="overflow-hidden"
                         >
-                          <div className="px-6 pb-6 pt-2 border-t border-slate-100">
+                          <div className="px-4 sm:px-6 pb-5 sm:pb-6 pt-2 border-t border-slate-100">
                             {acc.content}
                           </div>
                         </motion.div>

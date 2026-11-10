@@ -88,7 +88,7 @@ export default function UniversitiesPage() {
         </section>
 
         {/* Section 2: Annual Tuition Fees */}
-        <section id="tuition" className="py-12 sm:py-16 bg-white border-t border-slate-200/80 scroll-mt-20">
+        <section id="tuition" className="py-12 sm:py-16 bg-white border-t border-slate-200/80 scroll-mt-28">
           <div className="max-w-7xl mx-auto px-0 sm:px-6 lg:px-8 space-y-8">
             <div className="px-4 sm:px-0">
               <span className="text-xs font-bold uppercase tracking-wider text-brand-pink block mb-1">
@@ -110,22 +110,22 @@ export default function UniversitiesPage() {
         </section>
 
         {/* Consultation Call to Action */}
-        <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-brand-dark text-white rounded-[40px] p-8 sm:p-12 text-center relative overflow-hidden shadow-xl">
+        <section className="py-10 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-brand-dark text-white rounded-3xl sm:rounded-[40px] p-5 sm:p-12 text-center relative overflow-hidden shadow-xl">
             <div className="max-w-2xl mx-auto space-y-4 relative z-10">
               <span className="text-xs font-bold uppercase tracking-wider text-brand-green block">
                 FREE ADMISSIONS ASSESSMENT
               </span>
-              <h3 className="text-3xl sm:text-4xl font-black">
+              <h3 className="text-2xl sm:text-4xl font-black">
                 Need Help Shortlisting Universities?
               </h3>
               <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
                 Our counselors will evaluate your HSC/Bachelor’s results, preferred discipline, and target intake (March or September) to provide a tailored shortlist of 3-5 universities.
               </p>
-              <div className="pt-4 flex flex-wrap justify-center gap-4">
+              <div className="pt-4 flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4">
                 <Link
                   href="/contact"
-                  className="px-8 py-3.5 rounded-full bg-brand-pink text-white font-bold text-sm shadow-glow-pink hover:bg-[#d10079] transition-all inline-flex items-center gap-2"
+                  className="w-full sm:w-auto px-6 sm:px-8 py-3.5 rounded-full bg-brand-pink text-white font-bold text-sm shadow-glow-pink hover:bg-[#d10079] transition-all inline-flex items-center justify-center gap-2"
                 >
                   <span>Request Free University Shortlist</span>
                   <ArrowRight size={16} />
@@ -134,7 +134,7 @@ export default function UniversitiesPage() {
                   href="https://wa.me/8801895626831"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-8 py-3.5 rounded-full bg-brand-green text-white font-bold text-sm hover:bg-[#00a85d] transition-all inline-flex items-center gap-2 shadow-glow-green"
+                  className="w-full sm:w-auto px-6 sm:px-8 py-3.5 rounded-full bg-brand-green text-white font-bold text-sm hover:bg-[#00a85d] transition-all inline-flex items-center justify-center gap-2 shadow-glow-green"
                 >
                   <span>WhatsApp (+880 1895 626831)</span>
                 </a>

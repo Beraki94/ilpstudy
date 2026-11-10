@@ -83,7 +83,7 @@ export default function AboutPage() {
       num: "03",
       title: "Document preparation and application support",
       desc: "Comprehensive review of source documents: academic transcripts, notarized certificates, Foreigner Physical Examination forms, police clearance records, and study proposals.",
-      link: "/blogs/student-visa-china-from-bangladesh-x1-x2",
+      link: "/blogs/china-university-application-documents",
       linkText: "View Document Checklist",
       icon: FileCheck2,
       color: "bg-brand-purple",
@@ -92,7 +92,7 @@ export default function AboutPage() {
       num: "04",
       title: "CSCA information and preparation guidance",
       desc: "Independent student guidance on the China Standardized Competence Assessment (CSCA), syllabus components, eligibility criteria, and preparation sequence for undergraduate routes.",
-      link: "/blogs/csca-exam-preparation-and-syllabus-in-china",
+      link: "/blogs/csca-for-bangladeshi-students",
       linkText: "Read CSCA Guide",
       icon: BookOpenCheck,
       color: "bg-brand-dark",
@@ -101,7 +101,7 @@ export default function AboutPage() {
       num: "05",
       title: "Visa document and arrival guidance",
       desc: "End-to-end guidance from university admission notice and JW202/DQ verification to Dhaka embassy visa (X1/X2) appointment, pre-departure orientation, and campus registration.",
-      link: "/blogs/after-admission-to-visa-in-china-timeline",
+      link: "/blogs/china-student-visa-from-bangladesh",
       linkText: "Read Visa Timeline",
       icon: PlaneTakeoff,
       color: "bg-brand-pink",
@@ -212,7 +212,7 @@ export default function AboutPage() {
                 return (
                   <div 
                     key={idx}
-                    className="p-8 rounded-3xl bg-white border border-slate-200/90 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 hover:border-brand-pink/50 transition-all duration-300 flex flex-col justify-between group"
+                    className="p-5 sm:p-8 rounded-3xl bg-white border border-slate-200/90 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 hover:border-brand-pink/50 transition-all duration-300 flex flex-col justify-between group"
                   >
                     <div>
                       <div className="flex items-center justify-between mb-6">
@@ -247,7 +247,7 @@ export default function AboutPage() {
               })}
 
               {/* Bonus 6th Card: Authentic Knowledge Base */}
-              <div className="p-8 rounded-3xl bg-gradient-to-br from-brand-dark via-slate-900 to-brand-dark text-white shadow-card-dark hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between">
+              <div className="p-5 sm:p-8 rounded-3xl bg-gradient-to-br from-brand-dark via-slate-900 to-brand-dark text-white shadow-card-dark hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between">
                 <div>
                   <div className="flex items-center justify-between mb-6">
                     <div className="w-12 h-12 rounded-2xl flex items-center justify-center bg-brand-green/20 text-brand-green">
@@ -342,7 +342,7 @@ export default function AboutPage() {
             />
 
             {/* CONTACT US: Speak with ILP Study */}
-            <div className="bg-brand-dark text-white rounded-3xl sm:rounded-[36px] p-8 sm:p-14 lg:p-16 relative overflow-hidden shadow-2xl border border-slate-800">
+            <div className="bg-brand-dark text-white rounded-3xl sm:rounded-[36px] p-5 sm:p-12 lg:p-16 relative overflow-hidden shadow-2xl border border-slate-800">
               <div className="absolute top-0 right-0 w-80 h-80 bg-brand-pink/20 rounded-full blur-[100px]" />
               <div className="absolute bottom-0 left-0 w-80 h-80 bg-brand-green/20 rounded-full blur-[100px]" />
               
@@ -351,7 +351,7 @@ export default function AboutPage() {
                   <span className="text-brand-green text-xs font-bold uppercase tracking-wider block mb-2">
                     CONTACT US
                   </span>
-                  <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-white">
+                  <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white">
                     Speak with ILP Study
                   </h2>
                   <p className="text-slate-300 text-sm sm:text-base mt-2">
@@ -360,7 +360,7 @@ export default function AboutPage() {
                 </div>
 
                 {/* Contact items grid */}
-                <div className="grid sm:grid-cols-3 gap-4 pt-4 text-left">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 sm:gap-4 pt-4 text-left">
                   
                   {/* Hotline */}
                   <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
@@ -410,10 +410,10 @@ export default function AboutPage() {
                 </p>
 
                 {/* Action button */}
-                <div className="pt-4 flex flex-wrap justify-center gap-4">
+                <div className="pt-4 flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4">
                   <Link
                     href="/contact"
-                    className="px-8 py-4 rounded-full bg-brand-pink text-white font-bold hover:bg-[#d10079] shadow-glow-pink transition-all flex items-center gap-2 text-sm sm:text-base"
+                    className="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-brand-pink text-white font-bold hover:bg-[#d10079] shadow-glow-pink transition-all flex items-center justify-center gap-2 text-sm sm:text-base"
                   >
                     <span>Book a free consultation</span>
                     <ArrowRight size={18} />
@@ -423,7 +423,7 @@ export default function AboutPage() {
                     href="https://wa.me/8801895626831"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-8 py-4 rounded-full bg-brand-green text-white font-bold hover:bg-[#00a85d] shadow-glow-green transition-all flex items-center gap-2 text-sm sm:text-base"
+                    className="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-brand-green text-white font-bold hover:bg-[#00a85d] shadow-glow-green transition-all flex items-center justify-center gap-2 text-sm sm:text-base"
                   >
                     <MessageSquare size={18} />
                     <span>Chat on WhatsApp</span>

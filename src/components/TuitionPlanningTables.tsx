@@ -70,43 +70,43 @@ export default function TuitionPlanningTables() {
       {/* Tab Switchers */}
       <div className="px-4 sm:px-0">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white rounded-2xl sm:rounded-3xl p-3.5 sm:p-5 border border-slate-200/80 shadow-soft">
-          <div className="grid grid-cols-3 sm:flex rounded-xl sm:rounded-full bg-slate-100 p-1 border border-slate-200 text-xs sm:text-sm font-bold w-full sm:w-auto">
+          <div className="grid grid-cols-3 sm:flex rounded-xl sm:rounded-full bg-slate-100 p-1 border border-slate-200 text-[11px] sm:text-sm font-bold w-full sm:w-auto">
             <button
               type="button"
               onClick={() => setActiveTab('bachelor')}
-              className={`px-2 sm:px-6 py-2 rounded-lg sm:rounded-full transition-all flex items-center justify-center gap-1.5 sm:gap-2 text-xs sm:text-sm ${
+              className={`px-1.5 sm:px-6 py-2 rounded-lg sm:rounded-full transition-all flex items-center justify-center gap-1 sm:gap-2 text-[11px] sm:text-sm ${
                 activeTab === 'bachelor'
                   ? 'bg-brand-pink text-white shadow-sm'
                   : 'text-slate-600 hover:text-brand-dark'
               }`}
             >
-              <GraduationCap size={15} className="flex-shrink-0" />
+              <GraduationCap size={15} className="hidden sm:inline-block flex-shrink-0" />
               <span>Bachelor’s <span className="hidden sm:inline">({BACHELOR_TUITION.length})</span></span>
             </button>
 
             <button
               type="button"
               onClick={() => setActiveTab('master')}
-              className={`px-2 sm:px-6 py-2 rounded-lg sm:rounded-full transition-all flex items-center justify-center gap-1.5 sm:gap-2 text-xs sm:text-sm ${
+              className={`px-1.5 sm:px-6 py-2 rounded-lg sm:rounded-full transition-all flex items-center justify-center gap-1 sm:gap-2 text-[11px] sm:text-sm ${
                 activeTab === 'master'
                   ? 'bg-brand-green text-white shadow-sm'
                   : 'text-slate-600 hover:text-brand-dark'
               }`}
             >
-              <Sparkles size={15} className="flex-shrink-0" />
+              <Sparkles size={15} className="hidden sm:inline-block flex-shrink-0" />
               <span>Master’s <span className="hidden sm:inline">({MASTER_TUITION.length})</span></span>
             </button>
 
             <button
               type="button"
               onClick={() => setActiveTab('mbbs')}
-              className={`px-2 sm:px-6 py-2 rounded-lg sm:rounded-full transition-all flex items-center justify-center gap-1.5 sm:gap-2 text-xs sm:text-sm ${
+              className={`px-1.5 sm:px-6 py-2 rounded-lg sm:rounded-full transition-all flex items-center justify-center gap-1 sm:gap-2 text-[11px] sm:text-sm ${
                 activeTab === 'mbbs'
                   ? 'bg-brand-purple text-white shadow-sm'
                   : 'text-slate-600 hover:text-brand-dark'
               }`}
             >
-              <Stethoscope size={15} className="flex-shrink-0" />
+              <Stethoscope size={15} className="hidden sm:inline-block flex-shrink-0" />
               <span>MBBS <span className="hidden sm:inline">({MBBS_TUITION.length})</span></span>
             </button>
           </div>

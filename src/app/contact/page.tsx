@@ -86,35 +86,35 @@ export default function ContactPage() {
                 </div>
 
                 {/* Hotline */}
-                <div className="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-slate-50/80 border border-slate-200/70 flex items-center justify-between gap-3 sm:gap-4">
-                  <div className="flex items-center gap-3">
+                <div className="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-slate-50/80 border border-slate-200/70 flex items-center justify-between gap-2.5 sm:gap-4">
+                  <div className="flex items-center gap-3 min-w-0 flex-1">
                     <div className="w-10 h-10 rounded-xl bg-brand-pink/10 text-brand-pink flex items-center justify-center flex-shrink-0">
                       <Phone size={18} />
                     </div>
-                    <div>
+                    <div className="min-w-0 flex-1">
                       <span className="text-[11px] font-bold uppercase text-slate-400 block">
                         ILP Study hotline
                       </span>
-                      <a href="tel:+8801602566398" className="text-base sm:text-lg font-black text-brand-dark hover:text-brand-pink transition-colors">
+                      <a href="tel:+8801602566398" className="text-sm sm:text-lg font-black text-brand-dark hover:text-brand-pink transition-colors block truncate">
                         +880 1602 566398
                       </a>
                     </div>
                   </div>
                   <a
                     href="tel:+8801602566398"
-                    className="px-3.5 py-1.5 rounded-full bg-brand-dark text-white text-xs font-bold hover:bg-brand-pink transition-colors"
+                    className="px-3.5 py-1.5 rounded-full bg-brand-dark text-white text-xs font-bold hover:bg-brand-pink transition-colors flex-shrink-0"
                   >
                     Call
                   </a>
                 </div>
 
                 {/* WhatsApp */}
-                <div className="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-brand-green/5 border border-brand-green/20 flex items-center justify-between gap-3 sm:gap-4">
-                  <div className="flex items-center gap-3">
+                <div className="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-brand-green/5 border border-brand-green/20 flex items-center justify-between gap-2.5 sm:gap-4">
+                  <div className="flex items-center gap-3 min-w-0 flex-1">
                     <div className="w-10 h-10 rounded-xl bg-brand-green/15 text-brand-green flex items-center justify-center flex-shrink-0">
                       <MessageSquare size={18} />
                     </div>
-                    <div>
+                    <div className="min-w-0 flex-1">
                       <span className="text-[11px] font-bold uppercase text-brand-green block">
                         Chat on WhatsApp
                       </span>
@@ -122,7 +122,7 @@ export default function ContactPage() {
                         href="https://wa.me/8801895626831" 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="text-base sm:text-lg font-black text-brand-dark hover:text-brand-green transition-colors"
+                        className="text-sm sm:text-lg font-black text-brand-dark hover:text-brand-green transition-colors block truncate"
                       >
                         +880 1895 626831
                       </a>
@@ -132,30 +132,30 @@ export default function ContactPage() {
                     href="https://wa.me/8801895626831"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-3.5 py-1.5 rounded-full bg-brand-green text-white text-xs font-bold hover:bg-[#00a85d] transition-colors shadow-glow-green"
+                    className="px-3.5 py-1.5 rounded-full bg-brand-green text-white text-xs font-bold hover:bg-[#00a85d] transition-colors shadow-glow-green flex-shrink-0"
                   >
                     Chat
                   </a>
                 </div>
 
                 {/* Email */}
-                <div className="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-slate-50/80 border border-slate-200/70 flex items-center justify-between gap-3 sm:gap-4">
-                  <div className="flex items-center gap-3">
+                <div className="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-slate-50/80 border border-slate-200/70 flex items-center justify-between gap-2.5 sm:gap-4">
+                  <div className="flex items-center gap-3 min-w-0 flex-1">
                     <div className="w-10 h-10 rounded-xl bg-brand-purple/10 text-brand-purple flex items-center justify-center flex-shrink-0">
                       <Mail size={18} />
                     </div>
-                    <div>
+                    <div className="min-w-0 flex-1">
                       <span className="text-[11px] font-bold uppercase text-slate-400 block">
                         Official Inquiry Email
                       </span>
-                      <a href="mailto:info@ilpstudy.com" className="text-sm sm:text-base font-bold text-brand-dark hover:text-brand-pink transition-colors">
+                      <a href="mailto:info@ilpstudy.com" className="text-xs sm:text-base font-bold text-brand-dark hover:text-brand-pink transition-colors break-all sm:break-normal block">
                         info@ilpstudy.com
                       </a>
                     </div>
                   </div>
                   <a
                     href="mailto:info@ilpstudy.com"
-                    className="px-3.5 py-1.5 rounded-full bg-slate-200 text-slate-700 text-xs font-bold hover:bg-slate-300 transition-colors"
+                    className="px-3.5 py-1.5 rounded-full bg-slate-200 text-slate-700 text-xs font-bold hover:bg-slate-300 transition-colors flex-shrink-0"
                   >
                     Email
                   </a>
@@ -197,8 +197,8 @@ export default function ContactPage() {
 
               {/* WhatsApp & WeChat Box */}
               <div className="bg-white p-4 sm:p-0 border-b sm:border-0 border-slate-100">
-                <div className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-brand-dark text-white shadow-card-dark border border-slate-800 flex items-center justify-between gap-4">
-                  <div>
+                <div className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-brand-dark text-white shadow-card-dark border border-slate-800 flex items-center justify-between gap-3 sm:gap-4">
+                  <div className="min-w-0 flex-1">
                     <span className="text-[10px] font-bold uppercase tracking-wider text-brand-green block">
                       WhatsApp &amp; WeChat
                     </span>
