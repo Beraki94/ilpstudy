@@ -204,7 +204,7 @@ export default function StudentTestimonials() {
       {/* Decorative Ambient Glows matching PageHeader */}
       <div className="absolute top-1/4 -left-20 w-[350px] sm:w-[600px] h-[350px] sm:h-[600px] bg-brand-purple/20 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 -right-20 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-brand-green/15 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-15 mix-blend-overlay pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(#ffffff16_1px,transparent_1px)] [background-size:20px_20px] opacity-20 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 sm:mb-14 relative z-10">
         <motion.div 

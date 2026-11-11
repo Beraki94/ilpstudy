@@ -164,7 +164,9 @@ export default function AboutPage() {
                   subtitle="East Shewrapara, Mirpur, Dhaka — Personalized university shortlisting and document guidance"
                   badge="Dhaka Headquarters"
                   aspectRatio="aspect-[16/10]"
-                  fallbackSrc="/aboutImage/ilp-office-room-1.jpg?v=20261108"
+                  fallbackSrc="/aboutImage/ilp-office-room-1.jpg?v=8fe1a8b3"
+                  sizes="(max-width: 1024px) 100vw, 520px"
+                  priority={true}
                   className="shadow-lg rounded-3xl"
                 />
 
@@ -336,7 +338,8 @@ export default function AboutPage() {
               subtitle="Guidance through university admission, Chinese embassy visa preparation in Dhaka, dorm check-in, and campus registration"
               badge="Campus Arrival Support"
               aspectRatio="aspect-[16/10] sm:aspect-[21/9]"
-              fallbackSrc="/aboutImage/abbout-ilp-banner.jpg?v=20261108"
+              fallbackSrc="/aboutImage/abbout-ilp-banner.jpg?v=ca2c5fa4"
+              sizes="(max-width: 768px) 100vw, 1280px"
               objectPosition="center 50%"
               className="shadow-xl"
             />

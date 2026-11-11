@@ -18,8 +18,36 @@ import {
 export const metadata: Metadata = {
   title: 'How We Check University Information | ILP Study',
   description: 'Our approach to university sources, programme information, intake dates, corrections and independent education guidance.',
+  keywords: [
+    'ILP Study university verification',
+    'Chinese university information Bangladesh',
+    'verified China admissions consultancy Dhaka',
+  ],
   alternates: {
     canonical: '/how-we-check',
+  },
+  openGraph: {
+    title: 'How We Check University Information | ILP Study',
+    description: 'Our approach to verifying Chinese university sources, programme information, and intake dates for Bangladeshi students.',
+    url: 'https://ilpstudy.com/how-we-check',
+    siteName: 'ILP Study',
+    locale: 'en_US',
+    alternateLocale: ['en_BD'],
+    type: 'website',
+    images: [
+      {
+        url: '/homeImage/ilp-home-banner.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'ILP Study — How We Check University Information',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'How We Check University Information | ILP Study',
+    description: 'Verification standards for Chinese university admissions and scholarship data.',
+    images: ['/homeImage/ilp-home-banner.jpg'],
   },
 };
 

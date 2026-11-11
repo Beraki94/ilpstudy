@@ -400,6 +400,7 @@ function UniversityCrest({ src, name }: { src: string; name: string }) {
           alt={`${name} crest`}
           width={64}
           height={64}
+          sizes="64px"
           className="w-full h-full object-contain"
           onError={() => setHasError(true)}
         />

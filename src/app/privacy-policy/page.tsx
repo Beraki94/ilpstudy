@@ -20,8 +20,36 @@ import {
 export const metadata: Metadata = {
   title: 'Privacy Information | ILP Study',
   description: 'How this ILP Study website handles consultation drafts, learning tools, direct email, and WhatsApp communications with zero tracking.',
+  keywords: [
+    'ILP Study privacy policy',
+    'Bangladesh study in China consultancy privacy',
+    'student data protection Dhaka',
+  ],
   alternates: {
     canonical: '/privacy-policy',
+  },
+  openGraph: {
+    title: 'Privacy Information | ILP Study',
+    description: 'How ILP Study protects student privacy and handles consultation inquiries and admissions documents.',
+    url: 'https://ilpstudy.com/privacy-policy',
+    siteName: 'ILP Study',
+    locale: 'en_US',
+    alternateLocale: ['en_BD'],
+    type: 'website',
+    images: [
+      {
+        url: '/homeImage/ilp-home-banner.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'ILP Study — Privacy Information',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Privacy Information | ILP Study',
+    description: 'How ILP Study protects student privacy and consultation requests.',
+    images: ['/homeImage/ilp-home-banner.jpg'],
   },
 };
 

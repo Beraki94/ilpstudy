@@ -129,12 +129,12 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center group relative z-50" aria-label="ILP Study Home">
             <Image
-              src="/images/ilp-logo.png?v=20261108"
+              src="/images/ilp-logo.png?v=ce1a0f56"
               alt="ILP Study — Study in China Education Consultancy in Bangladesh"
               width={238}
               height={100}
+              sizes="(max-width: 640px) 120px, 160px"
               priority
-              unoptimized={true}
               className="h-10 sm:h-11 md:h-12 lg:h-[50px] w-auto object-contain transition-transform group-hover:scale-105 duration-300"
             />
           </Link>

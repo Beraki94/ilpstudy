@@ -217,7 +217,8 @@ export default function AdmissionWorkflow() {
             subtitle="Guidance through JW202 generation, Chinese embassy X-visa clearance, dorm accommodation, and campus registration"
             badge="Pre-Departure & Arrival"
             aspectRatio="aspect-[16/10] sm:aspect-[21/9]"
-            fallbackSrc="/homeImage/ilp-home-banner.jpg?v=20261108"
+            fallbackSrc="/homeImage/ilp-home-banner.jpg?v=ca7d605a"
+            sizes="(max-width: 768px) 100vw, 1280px"
             objectPosition="center 55%"
             className="shadow-xl"
           />

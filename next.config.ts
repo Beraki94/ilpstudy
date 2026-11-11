@@ -9,15 +9,19 @@ const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
     minimumCacheTTL: 2678400, // 31 days
+    localPatterns: [
+      { pathname: "/aboutImage/**" },
+      { pathname: "/blogImage/**" },
+      { pathname: "/contactImage/**" },
+      { pathname: "/homeImage/**" },
+      { pathname: "/images/**" },
+      { pathname: "/partnershipImage/**" },
+      { pathname: "/studentpageImage/**" },
+    ],
     remotePatterns: [
       {
         protocol: "https",
         hostname: "images.unsplash.com",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "grainy-gradients.vercel.app",
         pathname: "/**",
       },
     ],

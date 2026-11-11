@@ -22,8 +22,36 @@ import {
 export const metadata: Metadata = {
   title: 'Cookie Policy | ILP Study',
   description: 'Understand how ILP Study operates with zero advertising or analytics tracking cookies on our study in China advisory website.',
+  keywords: [
+    'ILP Study cookie policy',
+    'China education consultancy Bangladesh privacy',
+    'zero tracking student advisory website',
+  ],
   alternates: {
     canonical: '/cookies',
+  },
+  openGraph: {
+    title: 'Cookie Policy | ILP Study',
+    description: 'Understand how ILP Study operates with zero advertising or analytics tracking cookies on our study in China advisory website.',
+    url: 'https://ilpstudy.com/cookies',
+    siteName: 'ILP Study',
+    locale: 'en_US',
+    alternateLocale: ['en_BD'],
+    type: 'website',
+    images: [
+      {
+        url: '/homeImage/ilp-home-banner.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'ILP Study — Cookie Policy',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Cookie Policy | ILP Study',
+    description: 'Zero advertising or analytics tracking cookies on the ILP Study website.',
+    images: ['/homeImage/ilp-home-banner.jpg'],
   },
 };
 

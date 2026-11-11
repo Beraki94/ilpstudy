@@ -44,20 +44,44 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!guide) {
     return {
       title: 'Guide Not Found | ILP Study',
+      description: 'The requested study in China guide could not be found on ILP Study.',
+      robots: {
+        index: false,
+        follow: false,
+      },
     };
   }
 
   return {
     title: guide.pageTitle,
     description: guide.searchDescription,
+    keywords: [
+      guide.title,
+      guide.category,
+      'study in China from Bangladesh',
+      'ILP Study Dhaka',
+      'China university admission Bangladesh',
+      'CSC scholarship Bangladesh',
+    ],
     alternates: {
       canonical: `/blogs/${guide.id}`,
     },
     openGraph: {
       title: guide.pageTitle,
       description: guide.searchDescription,
+      url: `https://ilpstudy.com/blogs/${guide.id}`,
+      siteName: 'ILP Study',
+      locale: 'en_US',
+      alternateLocale: ['en_BD'],
       type: 'article',
+      publishedTime: '2026-10-01T08:00:00Z',
       images: [{ url: guide.image, width: 1200, height: 630, alt: guide.title }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: guide.pageTitle,
+      description: guide.searchDescription,
+      images: [guide.image],
     },
   };
 }

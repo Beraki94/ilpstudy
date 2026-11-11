@@ -190,6 +190,8 @@ export default function ServicesPage() {
                   badge="Admissions Counseling"
                   aspectRatio="aspect-[4/3]"
                   fallbackSrc="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                  sizes="(max-width: 1024px) 100vw, 600px"
+                  priority={true}
                   className="shadow-2xl border-2 border-white/20"
                 />
               </div>
@@ -303,6 +305,7 @@ export default function ServicesPage() {
               badge="Campus Arrival Support"
               aspectRatio="aspect-[16/10] sm:aspect-[21/9]"
               fallbackSrc="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+              sizes="(max-width: 768px) 100vw, 1280px"
               className="shadow-xl"
             />
           </div>

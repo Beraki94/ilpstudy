@@ -14,6 +14,7 @@ interface PhotoSpaceProps {
   captionClassName?: string;
   hideTopBadge?: boolean;
   objectPosition?: string;
+  sizes?: string;
   unoptimized?: boolean;
 }
 
@@ -24,7 +25,8 @@ export default function PhotoSpace({
   className = "",
   priority = false,
   objectPosition,
-  unoptimized = true,
+  sizes = "(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 800px",
+  unoptimized = false,
 }: PhotoSpaceProps) {
   const [hasError, setHasError] = useState(false);
 
@@ -39,7 +41,7 @@ export default function PhotoSpace({
           fill
           unoptimized={unoptimized}
           priority={priority}
-          sizes="(max-width: 768px) 100vw, 1200px"
+          sizes={sizes}
           style={objectPosition ? { objectPosition } : undefined}
           className="object-cover transition-transform duration-700 ease-out group-hover:scale-105 select-none"
           onError={() => setHasError(true)}

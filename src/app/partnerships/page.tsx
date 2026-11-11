@@ -35,6 +35,13 @@ export const metadata: Metadata = {
     locale: 'en_US',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'University & Institutional Partnerships | ILP Study',
+    description:
+      'Partner with ILP Study in Bangladesh for transparent student recruitment and university admissions to China.',
+    images: ['/partnershipImage/ilp-partnership-1.jpg'],
+  },
 };
 import {
   Building2,
@@ -259,7 +266,9 @@ export default function PartnershipsPage() {
                   subtitle="Primary destination for ILP Study scholars with 50+ students placed for September 2026 intake"
                   badge="Featured University Network"
                   aspectRatio="aspect-[4/3]"
-                  fallbackSrc="/partnershipImage/ilp-partnership-1.jpg?v=20261110"
+                  fallbackSrc="/partnershipImage/ilp-partnership-1.jpg?v=ea080515"
+                  sizes="(max-width: 1024px) 100vw, 520px"
+                  priority={true}
                   className="shadow-2xl border-2 border-white/20"
                 />
               </div>
@@ -338,7 +347,8 @@ export default function PartnershipsPage() {
                   subtitle="Kader’s Complex, Lift No. 9, East Shewrapara, Dhaka-1216"
                   badge="Dhaka Headquarters"
                   aspectRatio="aspect-[4/3]"
-                  fallbackSrc="/partnershipImage/ilp-partnership-2.jpg?v=20261110"
+                  fallbackSrc="/partnershipImage/ilp-partnership-2.jpg?v=270e890b"
+                  sizes="(max-width: 1024px) 100vw, 520px"
                   className="shadow-xl"
                 />
               </div>
@@ -426,7 +436,8 @@ export default function PartnershipsPage() {
                 subtitle="Scholars recruited from South Asia, Central Asia, the Americas, and Africa"
                 badge="Student Diversity Pool"
                 aspectRatio="aspect-[4/3]"
-                fallbackSrc="/partnershipImage/ilp-partnership-3.jpg?v=20261110"
+                fallbackSrc="/partnershipImage/ilp-partnership-3.jpg?v=c5cb7022"
+                sizes="(max-width: 1024px) 100vw, 520px"
                 className="shadow-xl"
               />
             </div>
@@ -542,7 +553,8 @@ export default function PartnershipsPage() {
                 subtitle="Students accompanied through JW202, Chinese embassy visa clearance, dorm check-in, and campus registration"
                 badge="Campus Arrival Support"
                 aspectRatio="aspect-[16/10] sm:aspect-[21/9]"
-                fallbackSrc="/partnershipImage/ilp-partnership-4.jpg?v=20261110"
+                fallbackSrc="/partnershipImage/ilp-partnership-4.jpg?v=ca2c5fa4"
+                sizes="(max-width: 768px) 100vw, 1280px"
                 className="shadow-xl"
               />
             </div>
@@ -838,11 +850,11 @@ export default function PartnershipsPage() {
                   <div className="w-56 h-56 sm:w-64 sm:h-64 max-w-full bg-white rounded-3xl p-3 sm:p-4 shadow-2xl border-4 border-brand-green/30 relative flex flex-col items-center justify-center group overflow-hidden">
                     <div className="relative w-full h-full rounded-2xl overflow-hidden bg-white flex items-center justify-center">
                       <Image
-                        src="/partnershipImage/patnership-wechat-contact.jpg?v=20261110"
+                        src="/partnershipImage/patnership-wechat-contact.jpg?v=486da3ce"
                         alt="ILP Study WeChat QR Code (+86 156 8568 9193)"
                         width={400}
                         height={400}
-                        unoptimized={true}
+                        sizes="(max-width: 640px) 224px, 256px"
                         className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
                       />
                     </div>

@@ -15,7 +15,7 @@ const EVENT_CONFIG = {
   // Campaign end date: Component turns off automatically after this time (UTC)
   expiryTimestamp: new Date('2027-10-31T23:59:59Z').getTime(),
   // Static image path in public folder
-  imageSrc: '/images/advert-image/ilp-20262027-admission.jpg',
+  imageSrc: '/images/advert-image/ilp-20262027-admission.jpg?v=c0ce8bfa',
   imageAlt: 'Harbin Pathway Program — Study in China Up to 100% Scholarship — ILP Study',
   // Action URL when clicking the banner (Prefilled WhatsApp inquiry for counselors)
   ctaUrl: `https://wa.me/8801895626831?text=${encodeURIComponent(
@@ -232,7 +232,6 @@ export default function EventPromotionModal() {
                     width={1000}
                     height={1000}
                     priority
-                    unoptimized={true}
                     sizes="(max-width: 640px) 90vw, 420px"
                     className="w-full max-h-[82vh] h-auto object-contain block select-none transition-transform duration-300 group-hover:scale-[1.01]"
                   />
@@ -310,7 +309,6 @@ export default function EventPromotionModal() {
                     alt={EVENT_CONFIG.imageAlt}
                     width={480}
                     height={480}
-                    unoptimized={true}
                     sizes="220px"
                     className="w-full h-auto object-cover object-top transition-transform duration-300 group-hover:scale-105"
                   />

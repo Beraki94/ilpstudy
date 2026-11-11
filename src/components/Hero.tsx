@@ -34,12 +34,7 @@ export default function Hero() {
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
           {/* Left Column - Text */}
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
-            className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left"
-          >
+          <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left">
             {/* Pill badge */}
             <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full bg-white shadow-soft border border-brand-purple/20">
               <Sparkles size={15} className="text-brand-pink" />
@@ -91,15 +86,10 @@ export default function Hero() {
                 <div className="text-xs sm:text-sm font-semibold text-slate-600 leading-tight">Application Advisory</div>
               </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* Right Column - Visuals & Photo Space */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="lg:col-span-5 relative w-full mt-6 lg:mt-0"
-          >
+          <div className="lg:col-span-5 relative w-full mt-6 lg:mt-0">
             <div className="relative">
               {/* Photo Space: Students on Campus - Distinctive Asymmetric Cutout Container */}
               <PhotoSpace
@@ -109,7 +99,8 @@ export default function Hero() {
                 hideTopBadge={true}
                 captionClassName="max-w-[55%] sm:max-w-[50%] pr-2"
                 aspectRatio="aspect-[4/5]"
-                fallbackSrc="/homeImage/irp-hero-image.jpg"
+                fallbackSrc="/homeImage/irp-hero-image.jpg?v=fb67bbcc"
+                sizes="(max-width: 1024px) 100vw, 480px"
                 priority={true}
                 className="shadow-2xl border-2 sm:border-4 border-white rounded-3xl sm:rounded-[40px] sm:rounded-tl-[120px] sm:rounded-br-[120px]"
               />
@@ -144,7 +135,7 @@ export default function Hero() {
                 </div>
               </motion.div>
             </div>
-          </motion.div>
+          </div>
 
         </div>
       </div>

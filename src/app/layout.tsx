@@ -79,6 +79,7 @@ export const metadata: Metadata = {
     url: "https://ilpstudy.com",
     siteName: "ILP Study",
     locale: "en_US",
+    alternateLocale: ["en_BD"],
     type: "website",
     images: [
       {
@@ -95,6 +96,12 @@ export const metadata: Metadata = {
     description:
       "Expert guidance for Bangladeshi students studying in China. Admissions, CSC scholarships, CSCA prep, and visa support.",
     images: ["/homeImage/ilp-home-banner.jpg"],
+  },
+  other: {
+    "geo.region": "BD-13",
+    "geo.placename": "Dhaka, Bangladesh",
+    "geo.position": "23.8071;90.3686",
+    ICBM: "23.8071, 90.3686",
   },
 };
 
@@ -118,10 +125,16 @@ const organizationSchema = {
         "Leading China education consultancy in Bangladesh providing university admissions, CSC scholarship guidance, English-taught degree enrollment, CSCA prep, and JW202 visa processing.",
       "telephone": "+8801602566398",
       "email": "info@ilpstudy.com",
+      "areaServed": {
+        "@type": "Country",
+        "name": "Bangladesh"
+      },
+      "knowsLanguage": ["English", "Bengali"],
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Kader's Complex, Lift No. 9, H-888/C",
         "addressLocality": "Mirpur-10, Dhaka",
+        "addressRegion": "Dhaka",
         "postalCode": "1216",
         "addressCountry": "BD"
       },

@@ -77,7 +77,8 @@ export default function GlobalNetwork() {
               subtitle="East Shewrapara, Mirpur, Dhaka — Personalized university shortlisting and document guidance"
               badge="Dhaka Headquarters"
               aspectRatio="aspect-[4/3]"
-              fallbackSrc="/homeImage/ilp-office-room.jpg?v=20261108"
+              fallbackSrc="/homeImage/ilp-office-room.jpg?v=fe730ce1"
+              sizes="(max-width: 1024px) 100vw, 520px"
               className="shadow-xl"
             />
           </motion.div>

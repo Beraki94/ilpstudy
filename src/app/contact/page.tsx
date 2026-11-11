@@ -190,7 +190,9 @@ export default function ContactPage() {
                   subtitle="East Shewrapara, Mirpur, Dhaka — In-person appointment sessions"
                   badge="Dhaka Office"
                   aspectRatio="aspect-[16/9]"
-                  fallbackSrc="/contactImage/ilp-office-meeting-room.jpg?v=20261108"
+                  fallbackSrc="/contactImage/ilp-office-meeting-room.jpg?v=bb822982"
+                  sizes="(max-width: 1024px) 100vw, 520px"
+                  priority={true}
                   className="shadow-sm rounded-2xl sm:rounded-[32px]"
                 />
               </div>
